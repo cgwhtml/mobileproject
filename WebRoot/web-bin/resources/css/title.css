@@ -1,0 +1,48 @@
+.wrapper{
+	min-height: 100%;
+}
+.mainContent{
+	position: relative;
+	width:100%;
+	margin-top:6px;
+}
+/*中间模块样式*/
+.middleColumn{
+	width:100%;
+	position:absolute;
+}
+.type_title{
+	height:24px;
+	border:1px solid #DDDDDD;
+	background:#FFFFFF;
+	margin-bottom:6px;
+}
+.title_nav li{
+	float:left;
+	width:114px;
+	height:18px;
+	border-right:1px solid #DDDDDD;
+	margin-top:2px;
+	line-height:18px;
+	text-align:center;
+	cursor:pointer;
+}
+.current{
+	border-bottom:4px solid #56CB87;
+    padding-bottom: 2px;
+    padding-left:5px;
+    padding-right:5px;
+}
+.select_qt{
+	height:38px;
+	width:961px;
+	border:1px solid #CDD7E0;
+	background:#E4EBF1;
+	margin-bottom:10px;
+	position:relative;
+}
+.select_qt p{
+	position: absolute;
+    top: 11px;
+    left: 10px;
+}

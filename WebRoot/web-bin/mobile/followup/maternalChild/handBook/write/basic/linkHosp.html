@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>关联医院</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+    <link rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic/css/linkHosp.css">
+</head>
+<body>
+    <div class="main">
+        <div class="item">
+            <div class="item_content">
+                <p class="p_indent">您可以对医院进行关联，将自动从关联的医院获取您的相关数据，免去手动填写过程。所有信息仅用于个人的母子健康手册填写，不会用于其他用途，敬请放心！</p>
+                <p>请选择本次怀孕建档医院。</p>
+            </div>
+            <div class="item_content_bottom buildFilesHos">
+                <span>建档医院</span>
+                <div class="pink_arrow_right"></div>
+                <span class="item_click buildFilesHospText">未关联</span>
+                <input type="hidden" id="buildFilesHospCode">
+            </div>
+        </div>
+        <div class="item">
+            <div class="item_content">
+                <p class="p_indent">请选择您本次怀孕期间进行产前检查的医院（除建档医院外）进行关联，怀孕期间可能会在医院或社区健康服务中心进行产前检查。</p>
+            </div>
+            <div class="item_content_bottom antenatalHosp">
+                <span>产检医院</span>
+                <div class="pink_arrow_right"></div>
+                <span class="item_click antenatalHospText">未关联</span>
+                <input type="hidden" class="antenatalHospCode">
+            </div>
+            <div class="add_his">
+                <div class="pink_add_circle"></div>
+                <span>添加产检医院</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item_content">
+                <p class="p_indent">请选择您本次怀孕期间进行产后检查的医院或社区健康服务中心进行关联。</p>
+                <p>请选择本次怀孕建档医院。</p>
+            </div>
+            <div class="item_content_bottom afterMaterHosp">
+                <span>产后42天检查医院</span>
+                <div class="pink_arrow_right"></div>
+                <span class="item_click afterMaterHospText">未关联</span>
+                <input type="hidden" id="afterMaterHospCode">
+            </div>
+        </div>
+        <div class="page_btns">
+            <div class="pink_btn save">保存</div>
+        </div>
+    </div>
+    <input type="hidden" id="code">
+    <div id="iframe" style="display:none">
+        <iframe id="mainFrame" class="main_load"  width="100%" height="100%" frameborder="0" marginwidth="0" marginheight="0" src=""></iframe>
+    </div>
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/js/dialogData.js"></script>
+    <script>
+        $(function(){
+            var localhostUrl=window.location.origin;
+            var query=getRequest(true);
+            var queryStr=window.location.search;
+            var healthBookId=$.trim(query.healthBookId);
+            var mode=query.mode;
+            var hospJsonStr=query.hospJsonStr;
+            var queryJson=getRequest();
+            if(mode!=''&&typeof(mode)!="undefined"){
+                $(".item:gt("+parseInt(mode-1)+")").hide();
+                $(".item:lt("+parseInt(mode-1)+")").hide();
+            }
+            if(hospJsonStr!=''&&typeof(hospJsonStr)!="undefined"&&hospJsonStr!="undefined"){
+                hospJsonStr=JSON.parse(hospJsonStr);
+                $(".buildFilesHospText").text(hospJsonStr.hospArche);
+                $("#buildFilesHospCode").val(hospJsonStr.hospCodeArche);
+            }
+            if(healthBookId!=''&&typeof(healthBookId)!="undefined"){
+                $.ajax({
+                    type:"post",
+                    url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_hospConfig_data?healthBookId='+healthBookId+"&mode="+mode,
+                    dataType:'json',
+                    contentType:'application/json;charset=UTF-8',
+                    success:function(data){console.log(data);
+                        if(data.res==0){
+                            var msg=data.data;
+                            if(msg!=null&&msg.length>0){
+                                if(mode==1) {
+                                    $(".buildFilesHospText").text(msg[0].hospName);
+                                    $("#buildFilesHospCode").val(msg[0].hospCode);
+                                }else if(mode==2){
+                                    $(".antenatalHospText").text(msg[0].hospName);
+                                    $(".antenatalHospCode").val(msg[0].hospCode);
+                                    for(var i=1;i<msg.length;i++){
+                                        var $html='<div class="item_content_bottom antenatalHosp">'+
+                                            '<span>产检医院</span>'+
+                                            '<div class="pink_arrow_right"></div>'+
+                                            '<span class="item_click antenatalHospText">'+msg[i].hospName+'</span>'+
+                                            '<input type="hidden" class="antenatalHospCode" value="'+msg[i].hospCode+'">'+
+                                            ' </div>';
+                                        $('.antenatalHosp:last').after($html);
+                                    }
+                                }else if(mode==3){
+                                    $(".afterMaterHospText").text(msg[0].hospName);
+                                    $("#afterMaterHospCode").val(msg[0].hospCode);
+                                }
+                            }
+                        }
+                    },
+                    error:function () {
+                        return;
+                    }
+                });
+            }
+            //点击选择建档医院
+            $('.buildFilesHos').click(function(){
+                $('#mainFrame').attr('src',localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_chooseHos_page"+"?isApp="+queryJson.isApp);
+                $('.main').hide();
+                $('#iframe').show();
+                $('#code').val(100);
+            })
+            //点击选择产检医院
+            $('.main').on('click','.antenatalHosp',function(){
+                $('#mainFrame').attr('src',localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_chooseHos_page"+"?isApp="+queryJson.isApp);
+                $('.main').hide();
+                $('#iframe').show();
+                $('#code').val($(this).index());
+            })
+            //点击选择产后医院
+            $('.afterMaterHosp').click(function(){
+                $('#mainFrame').attr('src',localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_chooseHos_page"+"?isApp="+queryJson.isApp);
+                $('.main').hide();
+                $('#iframe').show();
+                $('#code').val(300);
+            })
+            //添加产检医院
+            $('.add_his').click(function(){
+                var $html='<div class="item_content_bottom antenatalHosp">'+
+                    '<span>产检医院</span>'+
+                    '<div class="pink_arrow_right"></div>'+
+                    '<span class="item_click antenatalHospText">未关联</span>'+
+                    '  <input type="hidden" class="antenatalHospCode">'+
+                    ' </div>';
+                $('.antenatalHosp:last').after($html);
+            })
+            //保存
+            $('.save').click(function(){
+                var hospObj={
+                    "sourse":0
+                };
+                var parentStr="";
+                //建档医院
+                var hospCodeArche=$.trim($("#buildFilesHospCode").val());
+                if(hospCodeArche!=""){
+                    hospObj.hospCodeArche=hospCodeArche;
+                    hospObj.hospArche=$(".buildFilesHospText").text();
+                }
+                //产检医院
+                var antenatalHosp=[];
+                $(".antenatalHosp").each(function(b){
+                    var antenatalHospCode=$.trim($(this).find(".antenatalHospCode").val());
+                    var antenatalHospText=$.trim($(this).find(".antenatalHospText").text());
+                    if(antenatalHospCode !=""){
+                        b={
+                            "hospCode":antenatalHospCode,
+                            "hospName":antenatalHospText
+                        };
+                        console.log(b);
+                        antenatalHosp.push(b);
+                    }
+                });
+                hospObj.hospInfoList=JSON.stringify(antenatalHosp);
+                //产后42天医院
+                var afterMaterHospCode=$.trim($("#afterMaterHospCode").val());
+                if(afterMaterHospCode!=""){
+                    hospObj.hospCodePost=afterMaterHospCode;
+                    hospObj.hospPost=$(".afterMaterHospText").text();
+                }
+                if(healthBookId!=''&&typeof(healthBookId)!="undefined"){
+                    hospObj.healthBookId=healthBookId;
+                }
+                console.log(hospObj);
+                $.ajax({
+                    type:"post",
+                    url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/submit_hospInfo_data',
+                    data:hospObj,
+                    async:false,
+                    dataType:'json',
+                    contentType:'application/json;charset=UTF-8',
+                    success:function(data){console.log(data);
+                        if(data.res==0&&data.data){
+                            if(data.data.motherNation){
+                                data.data.motherNationCode=$(nationData+":contains("+data.data.motherNation+")").find("input").val();
+                            }
+                            if(data.data.fatherNation){
+                                data.data.fatherNationCode=$(nationData+":contains("+data.data.fatherNation+")").find("input").val();
+                            }
+                            parentStr=JSON.stringify(data.data);
+                        }
+                    }
+                });
+                var hospJsonStr=JSON.stringify(hospObj);
+                if(mode==1) {//跳转到备孕爸妈基本信息
+                    window.location = localhostUrl + "/web-bin/m/nosen/followup/maternalChild/handBook/to_pBasicInfo_page?healthBookId=" + healthBookId + "&hospJsonStr=" + hospJsonStr + "&parentStr=" + parentStr;
+                }else if(mode==2){//孕4-10月健康检查记录
+                    window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_fourTenHealthRecord_page?healthBookId="+healthBookId;
+                }else if(mode==3){//跳转到产后42天医生检查表
+                    window.location = localhostUrl + "/web-bin/m/nosen/followup/maternalChild/handBook/to_afterMaterFortyTwoDoctorTest_page?healthBookId=" + healthBookId;
+                }else{
+                    window.location = localhostUrl + "/web-bin/m/nosen/followup/maternalChild/handBook/to_pBasicInfo_page?hospJsonStr=" + hospJsonStr + "&parentStr=" + parentStr;
+                }
+            });
+            $('iframe').height($(window).height());
+            $('iframe').width($(window).width());
+        })
+    </script>
+</body>
+</html>

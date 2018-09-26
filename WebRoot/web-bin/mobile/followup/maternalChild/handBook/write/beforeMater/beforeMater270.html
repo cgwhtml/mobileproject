@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>孕1~3月健康检查</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_002.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_003.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/icheck/skins/all.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+    <style>
+        .icheckbox_square-blue, .iradio_square-blue{
+            background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/pink@2x.png);
+            -webkit-background-size: 240px 24px;
+            background-size: 240px 24px;
+        }
+    </style>
+</head>
+<body>
+    <form action="" id="myForm" name="myForm">
+        <div class="parent_msg">
+            <div class="main_option">
+                <span>检查日期</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="checkTime" name="checkTime">
+            </div>
+            <div class="main_option">
+                <span>身高（cm）</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="height" name="height">
+            </div>
+            <div class="main_option">
+                <span>体重（kg）</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="weight" name="weight">
+            </div>
+            <div class="main_option">
+                <span>收缩压（mmhg）</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="systolicPressure" name="systolicPressure">
+            </div>
+            <div class="main_option">
+                <span>舒张压（mmhg）</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="diastolicPressure" name="diastolicPressure">
+            </div>
+            <div class="main_option">
+                <span>血红蛋白（g/l）</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="hemoglobin" name="hemoglobin">
+            </div>
+            <div class="main_option">
+                <span>血小板计数（10^9/L）</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="plateletCount" name="plateletCount">
+            </div>
+            <div class="main_option">
+                <span>其他</span>
+                <textarea class="textarea_msg" id="bloodRoutineOther" name="bloodRoutineOther"></textarea>
+            </div>
+        </div>
+        <div class="parent_msg">
+            <div class="main_option">
+                <span>尿蛋白</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <span class="main_option_status" id="albuminuriaText">请选择</span>
+                <input type="hidden" name="albuminuria" id="albuminuria">
+            </div>
+            <div class="main_option">
+                <span>尿糖</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <span class="main_option_status" id="urineSugarText">请选择</span>
+                <input type="hidden" name="urineSugar" id="urineSugar">
+            </div>
+            <div class="main_option">
+                <span>尿酮体</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <span class="main_option_status" id="ketoneText">请选择</span>
+                <input type="hidden" name="ketone" id="ketone">
+            </div>
+            <div class="main_option">
+                <span>其他</span>
+                <textarea class="textarea_msg" id="urineRoutineOther" name="urineRoutineOther"></textarea>
+            </div>
+        </div>
+        <div class="parent_msg">
+            <div class="main_option">
+                <span>ABO血型</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <span class="main_option_status" id="aboBloodTypeText">请选择</span>
+                <input type="hidden" name="aboBloodType" id="aboBloodType">
+            </div>
+            <div class="main_option">
+                <span>RH血型</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <span class="main_option_status" id="rhBloodTypeText">请选择</span>
+                <input type="hidden" name="rhBloodType" id="rhBloodType">
+            </div>
+            <div class="main_option hbsagFlag">
+                <span>乙肝表面抗原</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="hbsagFlag" value="0"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>阴性</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="hbsagFlag" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>阳性</span>
+                    </label>
+                </div>
+            </div>
+            <div class="main_option liverFunctionFlag">
+                <span>肝功能</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="liverFunctionFlag" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>正常</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="liverFunctionFlag" value="0"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>异常</span>
+                    </label>
+                </div>
+            </div>
+            <div class="main_option syphilisSerumTestFlag">
+                <span>梅毒血清学实验</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="syphilisSerumTestFlag" value="0"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>阴性</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="syphilisSerumTestFlag" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>阳性</span>
+                    </label>
+                </div>
+            </div>
+            <div class="main_option renalFunctionFlag">
+                <span>肾功能</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="renalFunctionFlag" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>正常</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="renalFunctionFlag" value="0"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>异常</span>
+                    </label>
+                </div>
+            </div>
+            <div class="main_option hivAntibodyTestFlag">
+                <span>HIV抗体监测</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="hivAntibodyTestFlag" value="0"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>阴性</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="hivAntibodyTestFlag" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>阳性</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="parent_msg">
+            <div class="main_option">
+                <span>处理及建议</span>
+                <textarea class="textarea_msg" id="processAdvice" name="processAdvice"></textarea>
+            </div>
+            <div class="main_option">
+                <span>指导事项</span>
+                <textarea class="textarea_msg" id="guidance" name="guidance"></textarea>
+            </div>
+        </div>
+        <div class="parent_msg">
+            <div class="main_option">
+                <span>检查单位</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="checkUnit" name="checkUnit">
+            </div>
+            <div class="main_option">
+                <span>检查者</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="checker" name="checker">
+            </div>
+        </div>
+    </form>
+    <div class="page_btns">
+        <div class="pink_btn save">保存</div>
+    </div>
+
+    <div id="window"  style="display:none" class="window">
+        <div>
+            <div id="window_in" class="window_in"></div>
+            <div id="check" class="check">确定</div>
+        </div>
+    </div>
+    <div id="background" style="display: none"></div>
+    <div id="fake_alert"  style="display:none">
+        <div id="fake_alert_in">
+            <div id="msg"></div>
+            <div id="sure">确定</div>
+        </div>
+    </div>
+    <input type="hidden" id="data_id">
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_002.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_004.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_003.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_005.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/js/dialogData.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/icheck/icheck.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+    <script>
+        $(function(){
+            var localhostUrl=window.location.origin;
+            var query=getRequest();
+            var healthBookId=query.healthBookId;
+            var regu = "^[0-9]+\.?[0-9]*$";//验证数字和小数
+            var re = new RegExp(regu);
+            var currYear = (new Date()).getFullYear();
+            var opt={};
+            var cansubmit=true;
+            opt.date = {preset : 'date'};
+            opt.datetime = {preset : 'datetime'};
+            opt.time = {preset : 'time'};
+            opt.default2 = {
+                theme: 'android-ics light', //皮肤样式
+                display: 'modal', //显示方式
+                mode: 'scroller', //日期选择模式
+                dateFormat: 'yy-mm-dd',
+                lang: 'zh',
+                showNow: true,
+                nowText: "今天",
+                startYear: currYear - 2, //开始年份
+                endYear: currYear + 10 //结束年份
+            };
+            $(document).on("change","input[type='radio']",function(){
+                $("input[type='radio']").each(function() {
+                    $(this).is(":checked")?$(this).next().removeClass('pink_r_uncheck').addClass('pink_r_check'):$(this).next().removeClass('pink_r_check').addClass('pink_r_uncheck');
+                });
+            });
+            $(".window_in").niceScroll({
+                railpadding: { top:0, right: 0, left: 0, bottom:0 },
+                cursorborder:"",
+                cursoropacitymin: 0.3,
+                cursoropacitymax: 0.3,
+                cursorcolor:"#000000",
+                zindex: "99",
+                cursorwidth: "3px",
+                touchbehavior:true
+            });
+            $("#checkTime").mobiscroll($.extend(opt['date'], opt['default2']));
+            //选择尿蛋白
+            $("#albuminuriaText").click(function(){
+                $("#window_in").html(ureterData);
+                initChecked($(this));
+            });
+            //尿糖
+            $("#urineSugarText").click(function(){
+                $("#window_in").html(ureterData);
+                initChecked($(this));
+            });
+            //尿酮体
+            $("#ketoneText").click(function(){
+                $("#window_in").html(ureterData);
+                initChecked($(this));
+            });
+            //ABO血型
+            $("#aboBloodTypeText").click(function(){
+                $("#window_in").html(aboBloodTypeDate);
+                initChecked($(this));
+            });
+            //RH血型
+            $("#rhBloodTypeText").click(function(){
+                $("#window_in").html(rhBloodTypeDate);
+                initChecked($(this));
+            });
+            //弹框选择
+            $("#check").click(function(){
+                var obj=$("#check").data("checkObj");
+                var val="",
+                    text="";
+                if($('input:radio').length>0){
+                    val=$('input:radio[name="radio"]:checked').val();
+                    text=$('input:radio[name="radio"]:checked').parent().next().text();
+                }else{
+                    $('input:checkbox[name="checkbox"]:checked').each(function(){
+                        val+=","+$(this).val();
+                        text+=","+$(this).parent().next().text();
+                    });
+                    val=val.substr(1);
+                    text=text.substr(1);
+                }
+                if(text==""){
+                    text=$("#check").data("checkText");
+                }
+                obj.text(text).css('color','#333');
+                obj.next().val(val);
+                $("#background").hide();
+                $("#window").hide();
+            });
+            if(data_id!=''&& data_id!=null){
+                $.ajax({
+                    type:"post",
+                    url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_oneThreePregnantHealthRecord_data?healthBookId='+healthBookId,
+                    dataType:'json',
+                    async:false,
+                    contentType:'application/json;charset=UTF-8',
+                    success:function(data){
+                        console.log(data);
+                        if(data.res==0){
+                            var msg=data.data;
+                            msg&&$('#data_id').val(msg.id);
+                            if(msg!=null){
+                                for(o in msg){
+                                    $("#"+o).val(msg[o]);
+                                }
+                                msg.albuminuria&&$('#albuminuriaText').text(msg.albuminuria).css('color','#333');
+                                msg.urineSugar&&$('#urineSugarText').text(msg.urineSugar).css('color','#333');
+                                msg.ketone&&$('#ketoneText').text(msg.ketone).css('color','#333');
+                                msg.aboBloodType&&$('#aboBloodTypeText').text(msg.aboBloodType).css('color','#333');
+                                msg.rhBloodType&&$('#rhBloodTypeText').text(msg.rhBloodType).css('color','#333');
+                                msg.hbsagFlag!=null&&$(".hbsagFlag input[value="+ boolToNumber(msg.hbsagFlag) +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                                msg.liverFunctionFlag!=null&&$(".liverFunctionFlag input[value="+ boolToNumber(msg.liverFunctionFlag) +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                                msg.syphilisSerumTestFlag!=null&&$(".syphilisSerumTestFlag input[value="+ boolToNumber(msg.syphilisSerumTestFlag) +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                                msg.hivAntibodyTestFlag!=null&&$(".hivAntibodyTestFlag input[value="+ boolToNumber(msg.hivAntibodyTestFlag) +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                                msg.renalFunctionFlag!=null&&$(".renalFunctionFlag input[value="+ boolToNumber(msg.renalFunctionFlag) +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                            }
+                        }else{
+                            fake_alert("请求失败！请检查网络是否正常。");
+                        }
+                    },
+                    error:function () {
+                        fake_alert("请求失败！请检查网络是否正常。");
+                        return;
+                    }
+                });
+            }
+            $('.save').click(function(){
+                var height = $("#height").val();
+                if(height!=''&& !re.test(height)){
+                    fake_alert("身高必须是数字","#height");
+                    return false;
+                }
+                var weight = $("#weight").val();
+                if(weight!=''&& !re.test(weight)){
+                    fake_alert("体重必须是数字","#weight");
+                    return false;
+                }
+                var systolicPressure=$('#systolicPressure').val();
+                if(!IsNumberValidateFun(systolicPressure)){
+                    fake_alert("收缩压必须是整数","#systolicPressure");
+                    return false;
+                }
+                var diastolicPressure=$('#diastolicPressure').val();
+                if(!IsNumberValidateFun(diastolicPressure)){
+                    fake_alert("舒张压必须是整数","#diastolicPressure");
+                    return false;
+                }
+                var hemoglobin = $("#hemoglobin").val();
+                if(hemoglobin!=''&& !re.test(hemoglobin)){
+                    fake_alert("血红蛋白必须是数字","#hemoglobin");
+                    return false;
+                }
+                var plateletCount = $("#plateletCount").val();
+                if(plateletCount!=''&& !re.test(plateletCount)){
+                    fake_alert("血小板计数必须是数字","#plateletCount");
+                    return false;
+                }
+                var JsonObj=$("#myForm").serializeObject();
+                console.log(JsonObj);
+                JsonObj.healthBookId=healthBookId;
+                console.log(JsonObj);
+                var data_id=$("#data_id").val();
+                if(cansubmit){
+                    cansubmit=false;
+                    if(data_id!=null&&data_id!=''){
+                        $.ajax({
+                            type:"post",
+                            url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/update_oneThreePregnantHealthRecord_data',
+                            data:JsonObj,
+                            contentType:'application/json;charset=UTF-8',
+                            success:function(data){
+                                console.log(data);
+                                if(data.res==0){
+                                    fake_alert("保存成功");
+                                    setTimeout(function(){
+                                        window.history.go(-1);
+//                                    window.location=localhostUrl+":"+port+"/web-bin/m/nosen/followup/maternalChild/handBook/to_beforeMater_page?healthBookId="+healthBookId;
+                                    },500)
+                                }else{
+                                    fake_alert("保存失败！请检查网络是否正常。");
+                                    cansubmit=true;
+                                }
+                            },
+                            error:function () {
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                cansubmit=true;
+                                return;
+                            }
+                        });
+                    }else{
+                        $.ajax({
+                            type:"post",
+                            url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/submit_oneThreePregnantHealthRecord_data',
+                            data:JsonObj,
+                            dataType:'json',
+                            contentType:'application/json;charset=UTF-8',
+                            success:function(data){
+                                console.log(data);
+                                if(data.res==0){
+                                    fake_alert("保存成功");
+                                    setTimeout(function(){
+                                        window.history.go(-1);
+//                                    window.location=localhostUrl+":"+port+"/web-bin/m/nosen/followup/maternalChild/handBook/to_beforeMater_page?healthBookId="+healthBookId;
+                                    },500)
+                                }else{
+                                    fake_alert("保存失败！请检查网络是否正常。");
+                                    cansubmit=true;
+                                }
+                            },
+                            error:function () {
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                cansubmit=true;
+                                return;
+                            }
+                        });
+                    }
+                }
+            })
+            //打开弹框初始化选择
+            function initChecked(a){
+                $("#check").data("checkObj",a);
+                $("#check").data("checkText",a.text());
+                if($('input:radio').length>0){
+                    $("#window_in").find("input[name='radio'][value='" + a.next().val() + "']").attr("checked",true);
+                }else{
+                    var str=a.next().val().split(",");
+                    for(var i=0;i<str.length;i++){
+                        $('#window_in input:checkbox[name="checkbox"][value='+str[i]+']').attr("checked",true);
+                    }
+                }
+                $(".window input").iCheck({
+                    checkboxClass: 'icheckbox_square-blue',
+                    radioClass: 'iradio_square-blue',
+                    increaseArea: '20%'
+                });
+                $("#background").show();
+                $("#window").show();
+            }
+            function fake_alert(text,element){
+                $("#background").show();
+                $("#fake_alert").show();
+                $("#msg").html(text);
+                $("#sure").click(function(){
+                    $("#background").hide();
+                    $("#fake_alert").hide();
+                });
+                element&&$("html,body").animate({scrollTop:$(element).offset().top-75},500);
+            }
+        })
+    </script>
+</body>
+</html>

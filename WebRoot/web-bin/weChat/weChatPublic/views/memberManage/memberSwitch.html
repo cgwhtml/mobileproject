@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>成员选择</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/basic.css">
+    <link rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/memberManage/memberSwitch.css">
+</head>
+<body>
+    <div class="main" style="overflow:auto">
+        <div class="member_box">
+            <div class="member_list"></div>
+            <textarea id="member_temp" style="display: none;">
+                <ul>
+                    {#foreach $T as Row}
+                    <li>
+                        <input type="hidden" value="{$T.Row.id}" class="id">
+                        <input type="hidden" value="{$T.Row.sex}" class="sex">
+                        <input type="hidden" value="{$T.Row.phone}" class="phone">
+                        <div class="list_span_left"></div>
+                        <div class="list_span_right">
+                            <h2><label class="relation">{$T.Row.relation}</label>: <span class="name">{$T.Row.name}</span></h2>
+                            <label>身份证号</label>： <span class="card">{$T.Row.card}</span>
+                        </div>
+                        <i class="icon arrow"></i>
+                    </li>
+                    {#/for}
+                </ul>
+            </textarea>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/zepto/zepto.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script src="/web-bin/resources/rem/rem2.js"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/artDialog.source.js?skin=white"></script>
+<script type="text/javascript" src="/web-bin/weChat/weChatPublic/js/memberManage/memberSwitch.js"></script>
+</html>

@@ -1,0 +1,33 @@
+*{-webkit-tap-highlight-color: transparent;}
+.main,html,body{background-color: #fff;position: relative;overflow: hidden}
+header{width:100%;position:fixed;background-color: #fff;top:0;padding:0.1rem 0.15rem;overflow: hidden;z-index:100;box-sizing: border-box;}
+header .search_box{height:0.64rem;border-radius:0.08rem;border:none;background-color: #e1eaed;position: relative;}
+header .search_box input{border:none;background:none;width:78%; padding:0.12rem 0;position: absolute;left:50%;margin-left:-43%;font-size:14px;}
+header .search_box .icon_slide{width:1rem;height:0.64rem;display: inline-block;position: absolute;top:0;left:50%;margin-left:-0.5rem;z-index: 99;font-size:14px;}
+header .search_box .icon_slide span{margin-top:0.12rem;display: inline-block;float:left;}
+header .search_box .icon_slide .icon_search{float:left;width:0.3rem;height:0.3rem;display:inline-block;background: url(/web-bin/mobile/repository/drug/images/search.png) no-repeat;background-size: 100% 100%;margin:0.15rem 0.1rem 0 0;}
+header .search_box .search_cancel{width:1rem;height:0.5rem;border-radius:0.04rem;background-color: #3c9efa;text-align: center;line-height: 0.5rem;color:#fff;float:right;margin-right:0.1rem;margin-top:0.07rem;display: none;}
+header .search_slideDown{width:100%;height:0.7rem;line-height:0.7rem;border-bottom:1px solid #3c9efa;text-align: center;color:#3c9efa;display: none;}
+section{overflow: hidden;}
+section .patient_area{width:100%;height:0.5rem;background-color: #f7f7f7;border:1px solid #dadada;border-right:none;border-left:none;padding-left:0.3rem;line-height:0.5rem;}
+section .patient_list{overflow: hidden;}
+section .patient_list ul{}
+section .patient_list ul li{height:1.2rem;display: block;border-bottom:1px solid #dadada;padding:0 0.3rem;}
+section .patient_list ul li .icon_bed{width:0.64rem;height:0.8rem;display: block;background: url(../img/question.png) no-repeat;background-size: 100% 100%;float:left;margin:0.2rem 0.4rem 0 0;}
+section .patient_list ul li .list_content{width:56%;float:left;max-width: 58%;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+section .patient_list ul li .list_content .list_content_up{font-size:0.26rem;font-weight: bold;line-height:2;margin-top:0.2rem;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp:1;overflow: hidden;}
+section .patient_list ul li .list_content .list_content_down{font-size:0.22rem;line-height:2;}
+section .patient_list ul li .status_box{width:20%;float:right;height:100%;}
+section .patient_list ul li .status_box .status_inner{width:1rem;height:0.5rem;border-radius:0.04rem;background-color: #25caac;text-align: center;line-height: 0.5rem;color:#fff;display:none;margin:0.35rem 0 0 0;float:right;}
+section .patient_list ul li .status_box.active .status_inner{display: block;}
+section .patient_list ul li .list_content .ques_title{line-height:1.2rem;font-size:0.3rem;}
+section .search_result{width:100%;height:100%;position: absolute;top:0;left:0;z-index: 99;background-color:#fff;display:none}
+#end p,#search_end p{
+    font-size: 0.3rem;
+    text-align: center;
+}
+.icon_slide span{color:#a5a5a5;}
+.load_followup{width:30px;height:30px;display: block;position:fixed;top:50%;left:50%;margin-left:-15px;margin-top:-20px;}
+.load_followup img{width:100%;height:100%;display: block;}
+.wait_followup{position: relative;display: block;}
+.ques_box{display: block;}

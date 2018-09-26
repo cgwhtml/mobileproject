@@ -1,0 +1,56 @@
+.wrapper{
+    height:100%;
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+.select_person{
+    height:68px;
+    background-color: #ffffff;
+    padding:10px 15px 10px 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    display: -webkit-flex; /* Safari */
+    justify-content: space-around;
+    align-items: center;
+}
+.basicMsg_box{
+    width:60%;
+    height:100%;
+}
+.basicMsg_box li{
+    height:50%;
+    line-height: 30px;
+}
+.basicMsg_box li:nth-child(2){
+    color:#999999;
+    font-size: 14px;
+}
+.select{
+    height:100%;
+    color:#999999;
+    font-size: 17px;
+    line-height: 48px;
+}
+.query_box{
+    width:90%;
+    height:47px;
+    background-color: #3C9EFA;
+    border-radius: 5px;
+    margin:50px auto 20px;
+    color:#ffffff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 47px;
+}
+.warm_prompt{
+    padding:0 20px 0 20px;
+    box-sizing: border-box;
+}
+.warm_prompt span{
+    font-size: 18px;
+    color: #333333;
+}
+.warm_prompt div{
+    color:#9B9B9B;
+}

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>选择城市</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+    <style>
+        body{
+            padding-top: 0rem !important;
+        }
+        .allMap{
+            width: 100%;
+        }
+        .allMap:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .allProvince,
+        .allCity{
+            float: left;
+            /*overflow: scroll;*/
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        .allProvince{
+            width: 30%;
+        }
+        .allCity{
+            width: 70%;
+            background-color: #fff;
+        }
+        .common_item{
+            text-align: center;
+            font-size: 0.4rem;
+            border-bottom: 1px solid #E7E7E7;
+            border-right: 1px solid #E7E7E7;
+            line-height: 1.46rem;
+        }
+        .allCity .common_item{
+            margin-left: 0.2rem;
+        }
+        .common_item .province_name{
+            line-height: 1.46rem;
+        }
+        .common_item_long{
+            height: 1.46rem;
+            padding-top: 0.2rem;
+            box-sizing: border-box;
+        }
+        .chosen_city{
+            background-color: #00A1D9;
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="allMap">
+        <div class="allProvince">
+            <div class="common_item whole_nation">
+                <p class="province_name chosen_city" regicode="100000">全国</p>
+            </div>
+        </div>
+        <div class="allCity">
+            <div class="common_item whole_nation">
+                <p class="province_name" regicode="">所有市</p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/area/LAreaData2.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+    <script>
+        $(function(){
+            var localhostUrl=window.location.origin;
+            var allProvince=provs_data;
+            var allCity=citys_data;
+            var allList;
+            change();//计算滚动条
+            // 高度宽度再计算
+            $(window).resize(function(){
+                change();
+            });
+//            // 滚动条
+//            $(".allProvince").niceScroll({
+//                railpadding: { top:0, right: 0, left: 0, bottom:0 },
+//                cursorwidth:0
+//            });
+//            $(".allCity").niceScroll({
+//                railpadding: { top:0, right: 0, left: 0, bottom:0 },
+//                cursorwidth:0
+//            });
+            $.ajax({
+                type:"post",
+                url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_chooseHos_data?{}',
+                dataType:'json',
+                async:false,
+                contentType:'application/json;charset=UTF-8',
+                success:function(data){
+                    if(data.res==0){
+                        var msg=data.data;
+                        allList=msg;
+                        var p_list=['全国'];//医院所属省的列表
+                        var v_list=[];
+                        for(var i=0;i<msg.length;i++){
+                            var regionCode=msg[i].regionCode;
+                            regionCode=regionCode.substr(0,2)+"0000";
+                            for(var j=0;j<allProvince.length;j++){
+                                if(regionCode==allProvince[j].value){
+                                    if(!(p_list.toString().indexOf(allProvince[j].text)>0)){
+                                        p_list.push(allProvince[j].text);
+                                        v_list.push(allProvince[j]);
+                                    }
+                                    break;
+                                }
+                            }
+                        }
+                        v_list.sort(function(a,b){
+                            return b.value-a.value
+                        });
+                        for(var j=0;j<v_list.length;j++){
+                            var $html='<div class="common_item">'+
+                                '<p class="province_name" regicode="'+v_list[j].value+'">'+v_list[j].text+'</p>'+
+                                '</div>';
+                            $('.allProvince .whole_nation').after($html);
+                        }
+                        addCity(allList);
+                    }else{
+                        fake_alert("请求失败！请检查网络是否正常。");
+                    }
+                },
+                error:function () {
+                    fake_alert("请求失败！请检查网络是否正常。");
+                    return;
+                }
+            });
+            //省份名字过长的话改变行高
+            $('.allMap .common_item').each(function(){
+                $(this).find('p').text().length>6&&$(this).addClass('common_item_long')&&$(this).find('p').css('line-height','0.48rem');
+            })
+            $('.allProvince .common_item').click(function(){
+                $(this).find('p').addClass('chosen_city');
+                $(this).siblings().find('p').removeClass('chosen_city');
+                $('.allCity .whole_nation').siblings().remove();
+                var thisProvinceCode=$(this).find('.province_name').attr('regicode');
+                if(thisProvinceCode==100000){
+                    addCity(allList);
+                }else{
+                    var c_list=['所有市'];//医院所属省的列表
+                    var s_list=[];
+                    var allCity=citys_data[thisProvinceCode];
+                    if(allCity!=null){
+                        var allCity=citys_data[thisProvinceCode].reverse();
+                        for(var i=0;i<allCity.length;i++){
+                            var allCountry=dists_data[allCity[i].value];
+                            for(var j=0;j<allCountry.length;j++){
+                                for(var o=0;o<allList.length;o++){
+                                    if(allList[o].regionCode==allCountry[j].value){
+                                        if(!(c_list.toString().indexOf(allCity[i].text)>0)){
+                                            c_list.push(allCity[i].text);
+                                            s_list.push(allCity[i]);
+                                        }
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        for(var j=0;j<s_list.length;j++){
+                            var $html='<div class="common_item">'+
+                                '<p class="province_name" regicode="'+s_list[j].value+'">'+s_list[j].text+'</p>'+
+                                '</div>';
+                            $('.allCity .whole_nation').after($html);
+                            $('.allCity .whole_nation').hide();
+                        }
+                    }
+                }
+            })
+            //从市跳转到医院
+            $('.allCity').on('click','.common_item',function(){
+                var regicode=$(this).find('.province_name').attr('regicode');
+                var thisCity=$(this).find('.province_name').text();
+                thisCity=encodeURI(thisCity);
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_chooseHos_page?regicode="+regicode+"&thisCity="+thisCity;
+            })
+        })
+        function addCity(allList) {
+            var p_list=['所有市'];//医院所属省的列表
+            var v_list=[];
+            for(var i=0;i<allList.length;i++){
+                var regionCode=allList[i].regionCode;
+                regionCode=regionCode.substr(0,2)+"0000";
+                var  regionCityCode=allList[i].regionCode.substr(0,4)+"00";
+                if(!isNaN(parseFloat(regionCode))){
+                    if(citys_data[regionCode]!=undefined){
+                        for(var j=0;j<citys_data[regionCode].length;j++){
+                            if(regionCityCode==citys_data[regionCode][j].value){
+                                if(!(p_list.toString().indexOf(citys_data[regionCode][j].text)>0)){
+                                    p_list.push(citys_data[regionCode][j].text);
+                                    v_list.push(citys_data[regionCode][j]);
+                                }
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            v_list.sort(function(a,b){
+                return b.value-a.value
+            });
+            for(var j=0;j<v_list.length;j++){
+                var $html='<div class="common_item">'+
+                    '<p class="province_name" regicode="'+v_list[j].value+'">'+v_list[j].text+'</p>'+
+                    '</div>';
+                $('.allCity .whole_nation').after($html);
+                $('.allCity .whole_nation').show();
+            }
+        }
+        function fake_alert(element){
+            element&&$("html,body").animate({scrollTop:$(element).offset().top},500);
+        }
+        function change(){
+            $('.allProvince').height($(window).height());
+            $('.allCity').height($(window).height());
+        }
+    </script>
+</body>
+</html>

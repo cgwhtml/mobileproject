@@ -1,0 +1,22 @@
+/**
+ * Created by Jialiang Fei
+ * Created time 2018/3/16 11:03
+ * Description  
+ */
+.title-text {
+    height: 44px;
+    line-height: 44px;
+    padding-left: 16px;
+    font-size: 13px;
+    color: #777;
+}
+.list-content > div > span {
+    display: inline-block;
+    width: 70%;
+}
+.list-content > div > div {
+    float: right;
+}
+.right-icon {
+    margin: 6px 0 0 8px;
+}

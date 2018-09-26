@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>宝宝印记</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+    <style>
+        .baby_foot,
+        .baby_hand{
+            width: 2.13rem;
+            height: 2.13rem;
+            position: relative;
+        }
+        .main_option:last-child{
+            padding-bottom: 0.4rem;
+        }
+        .baby_hand{
+            position: relative;
+        }
+       .main_option img{
+            position: absolute;
+            width: 2.13rem;
+            height: 2.13rem;
+            top:0;
+            left: 0;
+            display: none;
+        }
+       input[type='file']{
+           opacity: 0;
+           position: absolute;
+           top: 0;
+           left:0;
+           width: 100%;
+           height: 100%;
+           border: 1px solid transparent;
+           z-index: 2;
+       }
+        .add_img{
+            z-index: 1;
+        }
+        .delete_img{
+            z-index: 3;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!--表单提交-->
+    <form action="" method="post" enctype="multipart/form-data" id="myForm" name="myForm">
+        <div class="parent_msg">
+            <div class="main_option">
+                <span>宝宝姓名来历</span>
+                <textarea class="textarea_msg" id="babyNameOrigin" name="babyNameOrigin"></textarea>
+            </div>
+            <div class="main_option">
+                <span>爸爸、妈妈寄语</span>
+                <textarea class="textarea_msg" id="parentsMessage" name="parentsMessage"></textarea>
+            </div>
+            <div class="main_option">
+                <span>宝宝手印</span>
+                <div class="baby_hand baby_img">
+                    <div class="delete_img"></div>
+                    <div class="add_img"></div>
+                    <input type="file" name="babyHandprintPictureUrl" accept="image/*" onchange="showPreview(this)">
+                    <img id="babyHandprintPicture" src="" alt="">
+                </div>
+                <span>宝宝足迹</span>
+                <div class="baby_foot baby_img">
+                    <div class="delete_img"></div>
+                    <div class="add_img"></div>
+                    <input type="file" name="babyFootprintPictureUrl" accept="image/*" onchange="showPreview(this)">
+                    <img id="babyFootprintPictureUrl" src="" alt="">
+                </div>
+            </div>
+        </div>
+    </form>
+    <div id="window"  style="display:none" class="window">
+        <div>
+            <div id="window_in" class="window_in"></div>
+            <div id="check" class="check">确定</div>
+        </div>
+    </div>
+    <div id="background" style="display: none"></div>
+    <div id="fake_alert"  style="display:none">
+        <div id="fake_alert_in">
+            <div id="msg"></div>
+            <div id="sure">确定</div>
+        </div>
+    </div>
+    <div class="page_btns">
+        <div class="pink_btn save">保存</div>
+    </div>
+    <input type="hidden" id="data_id">
+    <input type="hidden" id="img_status">
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript">
+        var _file=Array(2);
+        function showPreview(source) {
+            var file = source.files[0];
+            if(window.FileReader) {
+                var fr = new FileReader();
+                fr.onloadend = function(e) {
+                    source.src=e.target.result;
+                    source.nextSibling.nextSibling.src=e.target.result;
+                    source.nextSibling.nextSibling.style.display='block';
+                    $(source).parents('.baby_img').find('.delete_img').show();
+                    var index=$("input[type='file']").index($(source));
+                    if(typeof(file)!="undefined"){
+                        $(source).clone().replaceAll(_file[index]=source);
+                    }
+                };
+                if(typeof(file)!="undefined"){
+                    fr.readAsDataURL(file);
+                }
+            }
+        }
+        $(function() {
+            document.getElementById("fake_alert").addEventListener("touchmove", function (event) {
+                event.preventDefault();
+            }, false);
+            var localhostUrl=window.location.origin;
+            var SERVER_URL=window.HUGPAGE_CONFIG.SERVER_URL;//读取图片服务器路径
+            var FILE_URL=window.HUGPAGE_CONFIG.FILE_URL;//读取图片文件路径
+            var query = getRequest();
+            var healthBookId = query.healthBookId;
+            var babyId=query.babyId;
+            var cansubmit=true;
+            $.ajax({
+                type: "post",
+                url: localhostUrl + '/web-bin/m/nosen/followup/maternalChild/handBook/query_babyBrand_data?babyId=' + babyId,
+                async:false,
+                dataType: 'json',
+                success: function (data) {
+                    if (data.res == 0) {
+                        var msg = data.data;
+                        $('#data_id').val(msg&&msg.id);
+                        if (msg != null) {
+                            for (var o in msg) {
+                                $("#" + o).val(msg[o]);
+                                var babyFootprintPictureUrlHref=SERVER_URL+FILE_URL+msg.babyFootprintPictureUrl;
+                                msg['babyFootprintPictureUrl']!=null&&msg['babyFootprintPictureUrl']!=''&&$('#babyFootprintPictureUrl').attr('src',babyFootprintPictureUrlHref).show();
+                                msg['babyFootprintPictureUrl']!=null&&msg['babyFootprintPictureUrl']!=''&&$('#babyFootprintPictureUrl').prev().attr('imgId',msg.babyFootprintPictureUrl);
+                                msg['babyFootprintPictureUrl']!=null&&msg['babyFootprintPictureUrl']!=''&&$('#babyFootprintPictureUrl').prev().prev().prev().show();
+                                var babyHandprintPictureUrlHref=SERVER_URL+FILE_URL+msg.babyHandprintPictureUrl;
+                                msg['babyHandprintPictureUrl']!=null&&msg['babyHandprintPictureUrl']!=''&&$('#babyHandprintPicture').attr('src',babyHandprintPictureUrlHref).show();
+                                msg['babyHandprintPictureUrl']!=null&&msg['babyHandprintPictureUrl']!=''&&$('#babyHandprintPicture').prev().attr('imgId',msg.babyHandprintPictureUrl);
+                                msg['babyHandprintPictureUrl']!=null&&msg['babyHandprintPictureUrl']!=''&&$('#babyHandprintPicture').prev().prev().prev().show();
+                            }
+                        }
+                    } else {
+                        fake_alert("请求失败！请检查网络是否正常。");
+                    }
+                },
+                error: function () {
+                    fake_alert("请求失败！请检查网络是否正常。");
+                    return;
+                }
+            });
+            //删除图片
+            $('.delete_img').click(function(){
+                var index=$(".delete_img").index(this);
+                _file[index]='';
+                $(this).next().next().next().attr('src','').hide();
+                $(this).next().next().attr('src','').attr('imgId','');
+                $(this).hide();
+            })
+            //保存
+            $('.save').click(function(){
+                uploadByForm();
+                if($('#img_status').val()==2){
+                    return false;
+                }
+                var JsonObj=$("#myForm").serializeObject();
+                JsonObj.healthBookId=healthBookId;
+                JsonObj.id=$('#data_id').val();
+                JsonObj.babyId=babyId;
+                JsonObj.babyHandprintPictureUrl=$('input[name="babyHandprintPictureUrl"]').attr('imgId');
+                JsonObj.babyFootprintPictureUrl=$('input[name="babyFootprintPictureUrl"]').attr('imgId');
+                if(cansubmit){
+                    cansubmit=true;
+                    $.ajax({
+                        type:"post",
+                        url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/submit_babyBrand_data',
+                        data:JsonObj,
+                        async: false,
+                        contentType:'application/json;charset=UTF-8',
+                        success:function(data){
+                            if(data.res==0){
+                                fake_alert("保存成功");
+                                setTimeout(function(){
+                                window.history.go(-1);
+                                },500)
+                            }else{
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                cansubmit=true;
+                            }
+                        },
+                        error:function () {
+                            fake_alert("保存失败！请检查网络是否正常。");
+                            cansubmit=true;
+                            return;
+                        }
+                    });
+                }
+            })
+        })
+        function fake_alert(text,element){
+            $("#background").show();
+            $("#fake_alert").show();
+            $("#msg").html(text);
+            $("#sure").click(function(){
+                $("#background").hide();
+                $("#fake_alert").hide();
+            });
+            element&&$("html,body").animate({scrollTop:$(element).offset().top-75},500);
+        }
+        function uploadByForm() {
+            for(var i=0;i<_file.length;i++){
+                if(_file[i]!=null&&_file[i]!=""){
+                    $("input[type='file']").eq(i).replaceWith(_file[i]);
+                }else{
+                    $("input[type='file']").eq(i).val("");
+                }
+            }
+            var localhostUrl=window.location.origin;
+            var formData = new FormData($("#myForm")[0]);
+            $.ajax({
+                url: localhostUrl + '/web-bin/c/nosen/common/file/file_upload_materChild?random='+Math.random(),
+                type: 'POST',
+                data: formData,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(data){
+                    console.log(data)
+                    if(data.res==0) {
+                        fake_alert('上传成功');
+                        console.log(data.files.length);
+                        for(var i=0;i<data.files.length;i++){
+                            $('input[name="'+data.files[i].fieldname+'"]').attr('imgId',data.files[i].filename);
+                        }
+                        $('#img_status').val('1');
+                    }else if(data.msg="上传文件为空"){
+                        $('#img_status').val('1');
+                    } else {
+                        fake_alert('上传失败');
+                        $('#img_status').val('2');
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

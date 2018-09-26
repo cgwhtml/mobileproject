@@ -1,0 +1,154 @@
+.main{background-color: #fff;}
+/*搜索*/
+.search_box {
+    width:100%;
+    height:0.9rem;
+    background:#fff;
+    overflow:hidden;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:199;
+    border-bottom:1px solid #dcdcdc;
+    box-sizing: border-box;
+}
+.search {
+    width: 95%;
+    height: 0.7rem;
+    border-radius: 0.2rem;
+    margin: 0.1rem auto;
+    position: relative;
+    font-size: 16px;
+    box-sizing: border-box;
+    padding: 0.1rem 0 0.1rem 0.1rem;
+    background: #eee;
+}
+.searchInput {
+    width:100%;
+    height: 100%;
+    padding-left:0.65rem;
+    border:0;
+    outline:none;
+    font-size:16px;
+    background: #eee;
+    border-radius:0.2rem;
+}
+.input_mes {
+    width:100%;
+    height:0.9rem;
+    color:#5AC6EA;
+    text-align:center;
+    line-height:0.9rem;
+    font-size:15px;
+    background:#fff;
+    position:fixed;
+    top:1.1rem;
+    left:0;
+    z-index:200;
+    box-sizing:border-box;
+    border-bottom:1px solid #5AC6EA;
+}
+.null_mes {
+    height:0.9rem;
+    color:#157190;
+    text-align:center;
+    line-height:0.9rem;
+    font-size:15px;
+    background:#fff;
+    display:none;
+    margin-top:0.9rem
+}
+.cancle {
+    padding:0 0.2rem 0 0.2rem;
+    background:#00A2D8;
+    text-align:center;
+    line-height:0.6rem;
+    border:0;
+    outline:none;
+    border-radius:0.1rem;
+    color:#fff;
+    font-size:15px;
+    display:none;
+    position:fixed;
+    top:0.15rem;
+    right:0.1rem;
+    z-index:200;
+}
+.search_res {
+    width:100%;
+    height:100%;
+    background:#fff;
+    position:absolute;
+    top:1.1rem;
+    left:0;
+    z-index:10;
+    display:none;
+}
+.search_res {
+    height:78%;
+    padding-top:0.9rem;
+    overflow: auto;;
+}
+.search_res .list{}
+.null_mes{
+    height:0.9rem;
+    color:#157190;
+    text-align:center;
+    line-height:0.9rem;
+    font-size:15px;
+    background:#fff;
+    display:none;
+    margin-top:0.9rem
+}
+.cancle{
+    padding:0 0.2rem 0 0.2rem;
+    background:#00A2D8;
+    text-align:center;
+    line-height:0.6rem;
+    border:0;
+    outline:none;
+    border-radius:0.1rem;
+    color:#fff;
+    font-size:15px;
+    display:none;
+    position:fixed;
+    top:0.15rem;
+    right:0.1rem;
+    z-index:200;
+}
+.search_img {
+    width:0.5rem;
+    height:0.6rem;
+    position:absolute;
+    left:0.15rem;
+    top:0.15rem;
+    border-radius:0.1rem;
+    color:#fff;
+    font-size:14px;
+    line-height:0.6rem;
+}
+.search_img img {
+    width:0.4rem
+}
+.content{width:100%;background-color: #fff;margin-top:0.9rem;overflow:auto;padding:0;}
+.con_box{display: block;overflow: hidden;}
+.con_box .list{width:100%;height:1.3rem;border-bottom:1px solid #dcdcdc;overflow: hidden;box-sizing: border-box;}
+.con_box .list i.icon{width:1rem;height:1rem;display: block;background: url(../img/icon_01.png) no-repeat;margin:0.15rem 0.2rem 0.15rem 0.4rem;background-size:1rem 1rem;float:left; }
+.con_box .list span{
+    float:left;
+    line-height:55px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 80%;
+}
+.con_box .list .btn.gray{float:right;width:0.5rem;height:0.5rem;display: block;background: url(../img/icon_02.png) no-repeat;margin:0.4rem 0.4rem 0.4rem 0;background-size: 100%;}
+.con_box .list .btn.active{background: url(../img/icon_03.png) no-repeat;float:right;width:0.5rem;height:0.5rem;display: block;margin:0.4rem 0.4rem 0.4rem 0;background-size: 100%;}
+.footer{width:100%;height:1rem;display: block;position: fixed;bottom:0;left:0;line-height: 1rem;color:#fff;font-size:0.3rem;background-color: #E4E4E4;z-index: 15;}
+.footer .phone_show{float:left;max-width: 50%;text-align: center;line-height:1rem;color:#000;padding-left:0.3rem;}
+.footer .phone_show .phone_num{padding-left:10px;}
+.footer .edit_btn{width:0.5rem;height:0.55rem;background: url(../img/edit.png) no-repeat;background-size: 100%;float:right;margin:0.25rem 0.65rem 0 0;}
+.footer span.btn_send{background-color: #00a1d8;width:30%;float:right;height:1rem;line-height:1rem;text-align: center;}
+.end{text-align: center;line-height:0.5rem;font-size:0.3rem;}
+.list_inner{overflow: hidden;width: 80%;float:left;}
+.btn_box{overflow: hidden;width: 20%;float:right;}

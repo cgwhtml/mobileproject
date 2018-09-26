@@ -1,0 +1,106 @@
+/*
+ 	* Created by cgw
+ 	* Created time 2017.3.20
+	* Description  药品详情页样式
+*/
+html,body {
+	height:100%;
+	background-color:#fff;
+}
+html {
+	font-size:100px;
+}
+section {
+	background-color: #fff;
+}
+.drug_title {
+	width:94%;
+	height:1rem;
+	margin:0 auto;
+	line-height:1rem;
+	padding-left:0.2rem;
+	font-size:18px;
+	color:#000;
+}
+.sub_box {
+    height:0.8rem;
+    border-bottom:3px solid  #ccc;
+    margin:0 auto;
+    box-sizing:border-box;
+    padding-left:0.2rem;
+}
+.sub {
+    border:1px solid #E3E3E3;
+    text-align: center;
+    line-height:0.6rem;
+    font-size:15px;
+    padding:0.1rem 0.2rem 0.1rem 0.2rem;  
+}
+.title_commit {
+	min-height:0.5rem;
+    padding:0.2rem 0 0.2rem 0;
+}
+.commit_in {
+    width:93%;
+    height:100%;
+    margin:0 auto;
+    line-height:0.44rem;
+    font-size:15px;
+    background:#fff;
+}
+.drugMes_list {
+	height:auto;
+	border-top:1px solid #F3F3F3;
+	font-size:15px;
+}
+.drugMes_list li {
+	min-height:1rem;
+	line-height:1.2rem;
+	border-bottom:1px solid #E7E7E7;
+	font-size:14px;
+	box-sizing:border-box;
+	font-size:15px;
+}
+.drugItem {
+	height:1rem;
+	line-height:1rem;
+	padding-left:0.3rem;
+	padding-right:40px;
+	background-color:#F4F4F4;
+	position:relative;
+}
+.textLit {
+	width:3rem;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+}
+.arrow {
+	width:0.3rem;
+	height:0.3rem;
+	position:absolute;
+	right:0.28rem;
+	top:0.38rem;
+	background:url(../images/jian.png) no-repeat;
+	background-size:100%;
+	transform:rotate(90deg);
+}
+.activeJian {
+	background:url(../images/jian.png) no-repeat;
+	background-size:100%;
+	transform:rotate(-90deg);
+}
+/*内容*/
+.detail {
+    padding:0.2rem 0 0.2rem 0;
+}
+.hiddenDetail {
+	display:none;
+}
+.contain_in {
+	width:93%;
+    height:100%;
+    margin:0 auto;
+    line-height:0.44rem;
+    font-size:14px;
+    background:#fff;
+}

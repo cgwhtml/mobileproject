@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>费用明细</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="/web-bin/mobile/medical/patient/css/cost_detail.css">
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+	<script type="text/javascript" src="/web-bin/mobile/medical/patient/js/cost_detail.js"></script>
+  </head>
+  
+  <body>
+  	 
+  	<div id="top">
+  		<div id="top_in">
+  			<div>
+	  			<img alt="" src="/web-bin/mobile/medical/patient/images/white-left.png">
+	  			<p>费用项目</p>
+	  		</div>
+	  		<p>用药明细</p>
+  		</div>
+  	</div>
+  	
+    <div id="main_head">
+    	<p id="p0">费用明细</p>
+    </div>
+    <div id="main_body">
+    	<div class="c1" id="d1">
+    		<div>
+    			<p id="p1"></p>
+    		</div>
+    		<div>
+    			<table>
+    				<tr>
+    					<td>类</td>
+    					<td>数量</td>
+    					<td>金额(元)</td>
+    					<td>自理自费(%)</td>
+    				</tr>
+    				<tr>
+    					<td id="t1"></td>
+    					<td id="t2"></td>
+    					<td id="t3">元</td>
+    					<td id="t4">%</td>
+    				</tr>
+    			</table>
+    		</div>
+    	</div>
+    	
+    	<p style="display:none"><textarea id="Template-List1" rows="0" cols="0">
+    	{#foreach $T as Row}
+    	<div class="c1">
+    		<div>
+    			<p id="p1">{$T.Row.chargeItemName}</p>
+    		</div>
+    		<div>
+    			<table>
+    				<tr>
+    					<td>类</td>
+    					<td>数量</td>
+    					<td>金额(元)</td>
+    					<td>自理自费(%)</td>
+    				</tr>
+    				<tr>
+    					<td id="t1">{$T.Row.drugCatalogType}</td>
+    					<td id="t2">{$T.Row.drugAmount}{$T.Row.drugUnit}</td>
+    					<td id="t3">{$T.Row.totalMoney}元</td>
+    					<td id="t4">{$T.Row.selfPercent}</td>
+    				</tr>
+    			</table>
+    		</div>
+    	</div>
+    	{/for}
+	    </textarea></p>
+	    <div class="s1"></div>
+	    
+    </div>
+  </body>
+</html>

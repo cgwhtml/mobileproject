@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>新生儿早期健康检查记录</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_002.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_003.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+</head>
+<body>
+    <form action="" id="myForm" name="myForm">
+        <div class="parent_msg">
+            <div class="main_option">
+                <span>检查日期</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="recordTime" name="recordTime">
+            </div>
+            <div class="main_option">
+                <span>体重（kg）</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="weight" name="weight">
+            </div>
+            <div class="main_option">
+                <span>体温（℃）</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="bodyTemperature" name="bodyTemperature">
+            </div>
+            <div class="main_option">
+                <span>呼吸（次/分）</span>
+                <input type="tel" placeholder="请填写" class="input_msg" id="breathTime" name="breathTime">
+            </div>
+            <div class="main_option checkResultFlag">
+                <span>检查结果</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="checkResultFlag" value="0"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>未见异常</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="checkResultFlag" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>异常</span>
+                    </label>
+                </div>
+                <textarea class="textarea_msg" id="abnormalDescription" placeholder="异常描述..." name="abnormalDescription" style="display: none"></textarea>
+            </div>
+            <div class="main_option referralFlag">
+                <span>有无转诊</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="referralFlag" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>有</span>
+                    </label>
+                    <label class="add_style">
+                        <input type="radio" name="referralFlag" value="0"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>无</span>
+                    </label>
+                </div>
+            </div>
+            <div class="main_option">
+                <span>需要关注的事情</span>
+                <textarea class="textarea_msg" id="attentionThing" name="attentionThing"></textarea>
+            </div>
+            <div class="main_option">
+                <span>下次检查时间</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="nextCheckTime" name="nextCheckTime">
+            </div>
+            <div class="main_option">
+                <span>检查单位</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="checkUnit" name="checkUnit">
+            </div>
+            <div class="main_option">
+                <span>检查者</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="checker" name="checker">
+            </div>
+        </div>
+    </form>
+    <div id="background" style="display: none"></div>
+    <div id="fake_alert"  style="display:none">
+        <div id="fake_alert_in">
+            <div id="msg"></div>
+            <div id="sure">确定</div>
+        </div>
+    </div>
+    <div class="page_btns">
+        <div class="pink_btn save">保存</div>
+    </div>
+    <input type="hidden" id="data_id">
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_002.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_004.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_003.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_005.js"></script>
+    <script>
+        $(function(){
+            var localhostUrl=window.location.origin;
+            var query=getRequest();
+            var healthBookId=query.healthBookId;
+            var babyId=query.babyId;
+            var cansubmit=true;
+            var currYear = (new Date()).getFullYear();
+            var opt={};
+            opt.date = {preset : 'date'};
+            opt.datetime = {preset : 'datetime'};
+            opt.time = {preset : 'time'};
+            opt.default2 = {
+                theme: 'android-ics light', //皮肤样式
+                display: 'modal', //显示方式
+                mode: 'scroller', //日期选择模式
+                dateFormat: 'yy-mm-dd',
+                lang: 'zh',
+                showNow: true,
+                nowText: "今天",
+                startYear: currYear - 2, //开始年份
+                endYear: currYear + 3 //结束年份
+            };
+            $(document).on("change","input[type='radio']",function(){
+                $("input[type='radio']").each(function() {
+                    $(this).is(":checked")?$(this).next().removeClass('pink_r_uncheck').addClass('pink_r_check'):$(this).next().removeClass('pink_r_check').addClass('pink_r_uncheck');
+                });
+            });
+            //检查结果
+            $('input[name="checkResultFlag"]').change(function(){
+                $(this).val()==1?$('#abnormalDescription').show():$('#abnormalDescription').hide()&&$('#abnormalDescription').val('');
+            })
+            $("#recordTime,#nextCheckTime").mobiscroll($.extend(opt['date'], opt['default2']));
+            $.ajax({
+                type:"post",
+                url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_simplyNewBabyEarlyHealthRecord_data?babyId='+babyId,
+                dataType:'json',
+                async:false,
+                contentType:'application/json;charset=UTF-8',
+                success:function(data){
+                    console.log(data);
+                    if(data.res==0){
+                        var msg=data.data;
+                        if(msg!=null){
+                            $('#data_id').val(msg.id);
+                            for(var o in msg){
+                                $("#"+o).val(msg[o]);
+                                o!=null&&$("."+o+" input[value="+ boolToNumber(msg[o]) +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                            }
+                            msg.checkResultFlag!=null&&msg.checkResultFlag==true&&$('#abnormalDescription').show();
+                        }
+                    }else{
+                        fake_alert("请求失败！请检查网络是否正常。");
+                    }
+                },
+                error:function () {
+                    fake_alert("请求失败！请检查网络是否正常。");
+                    return;
+                }
+            });
+            //保存
+            $('.save').click(function () {
+                if(checkForm()==false){
+                    return false;
+                }
+                var JsonObj=$("#myForm").serializeObject();
+                JsonObj.healthBookId=healthBookId;
+                JsonObj.babyId=babyId;
+                JsonObj.id=$("#data_id").val();
+                console.log(JsonObj);
+                if(cansubmit){
+                    cansubmit=false;
+                    $.ajax({
+                        type:"post",
+                        url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/submit_simplyNewBabyEarlyHealthRecord_data',
+                        data:JsonObj,
+                        contentType:'application/json;charset=UTF-8',
+                        success:function(data){
+                            console.log(data);
+                            if(data.res==0){
+                                fake_alert("保存成功");
+                                setTimeout(function(){
+                                    window.history.go(-1);
+                                },500)
+                            }else{
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                cansubmit=true;
+                            }
+                        },
+                        error:function () {
+                            fake_alert("保存失败！请检查网络是否正常。");
+                            cansubmit=true;
+                            return;
+                        }
+                    });
+                }
+            })
+        })
+        function checkForm(){
+            var regu = "^[0-9]+\.?[0-9]*$";//验证数字和小数
+            var re = new RegExp(regu);
+            var weight = $("#weight").val();
+            if(weight!=''&&!re.test(weight)){
+                fake_alert("体重必须是数字","#weight");
+                return false;
+            }
+            if(/.*[\u4e00-\u9fa5]+.*$/.test(weight)){
+                fake_alert("体重必须是数字","#weight");
+                return false;
+            }
+            var bodyTemperature = $("#bodyTemperature").val();
+            if(bodyTemperature!=''&&!re.test(bodyTemperature)){
+                fake_alert("体温必须是数字","#bodyTemperature");
+                return false;
+            }
+            if(/.*[\u4e00-\u9fa5]+.*$/.test(bodyTemperature)){
+                fake_alert("体温必须是数字","#bodyTemperature");
+                return false;
+            }
+            var breathTime=$('#breathTime').val();
+            if(breathTime!=''&&!IsNumberValidateFun(breathTime)){
+                fake_alert("呼吸必须是整数","#breathTime");
+                return false;
+            }
+        }
+        function fake_alert(text,element){
+            $("#background").show();
+            $("#fake_alert").show();
+            $("#msg").html(text);
+            $("#sure").click(function(){
+                $("#background").hide();
+                $("#fake_alert").hide();
+            });
+            element&&$("html,body").animate({scrollTop:$(element).offset().top-75},500);
+        }
+    </script>
+</body>
+</html>

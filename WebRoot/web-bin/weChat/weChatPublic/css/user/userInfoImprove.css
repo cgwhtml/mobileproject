@@ -1,0 +1,16 @@
+.user_input{width:100%;overflow: hidden;margin-bottom:30px;}
+.user_input .name,.user_input .sex,.user_input .card{height:50px;border-bottom:1px solid #d9d9d9;line-height:50px;font-size:15px;padding:0 15px;background-color: #fff;}
+.user_input .name input,.user_input .sex input,.user_input .card input{font-size:15px;margin:0 5px 0 15px;}
+input[type="text"]{
+    width:80%;
+    height:100%;
+}
+.sex_radio{
+    margin-left: 10px;
+}
+.footer_skip{width:100%;overflow: hidden;margin-top:25px;font-size:17px;display: none;}
+.footer_skip .footer_btn{width:41%;height:39px;line-height:39px;text-align: center;color:#fff;background-color: #29B6F6;border-radius:4px;margin:0 15px;}
+.footer_skip .btn_left{float:left;}
+.footer_skip .btn_right{float:right;}
+.footer_noskip{width:92%;height:39px;display:none;background-color: #00a1d8;line-height:39px;text-align: center;font-size:17px;color:#fff;margin:0 auto;border-radius:2px;}
+.next_btn{width:92%;height:39px;display:none;background-color: #00a1d8;line-height:39px;text-align: center;font-size:0.34rem;color:#fff;margin:0 auto;border-radius:2px;}

@@ -1,0 +1,29 @@
+.csm_input_container{
+	display:inline-block;
+	position:relative;
+}
+.csm_input_container input[type="text"]{
+	padding:3px 22px 5px 5px;
+	box-sizing: border-box;
+	border-radius: 3px;
+	background-color:#F9F9F9;
+	height:24px;
+}
+.csm_input_container input[type="text"]:focus{
+	border: 1px solid #00A2F4 !important;
+}
+.csm_input_container .csm_search_btn{
+    position: absolute;
+    width: 18px;
+    height: 100%;
+    right: 4px;
+    top: 0px;
+    background: transparent url(./search.png) no-repeat scroll 3px 6px;
+    cursor: pointer;
+}
+.csm_input_container .csm_search_btn:hover{
+	background: transparent url(./search.png) no-repeat scroll 3px -20px;
+}
+.oper_box .csm_input_container{
+	float:left;
+}

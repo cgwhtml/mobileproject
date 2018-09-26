@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>产后42天医生检查</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+    <link rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <style>
+        .tip{
+            margin-bottom: 0.84rem;
+        }
+        .item_border_short{
+            height: 0.7rem;
+        }
+        .item_circle{
+            margin-top: 0.4rem;
+            margin-left: 0.4rem;
+        }
+        .item_border_long{
+            height: 3.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="total">
+        <div class="tip">
+            <p>您可以对医院进行关联，将自动从关联的医院获取您的相关数据，免去手动填写过程。所有信息仅用于个人的母子健康手册填写，不会用于其他用途，敬请放心！<span class="acolor_pink to_linkHosp_page">前往关联</span></p>
+        </div>
+        <div class="item first_item">
+            <div class="item_img"></div>
+            <div class="item_baby item_baby_position"></div>
+            <div class="item_border_short"></div>
+            <div class="add_content">新增</div>
+            <div class="item_triangle_pink item_triangle_position"></div>
+        </div>
+        <p style="display:none"><textarea id="Template-ListRows" rows="0" cols="0">
+        {#foreach $T as msg}
+        <div class="item item_middle">
+            <input type="hidden" id="item_id" value="{$T.msg.id}">
+            <div class="item_circle"></div>
+            <div class="item_border_long"></div>
+            <div class="read_content">
+                <div class="read_content_title to_edit">
+                    {$T.msg.checkTime}
+                    <div class="pink_pen edit_read_ontent"></div>
+                </div>
+                <div class="read_content_detail">
+                    <div class="read_content_detail">
+                        产后天数
+                        <div class="read_content_detail_num"> {$T.msg.postpartumDay}</div>
+                    </div>
+                </div>
+                <div class="read_content_detail">
+                    <div class="read_content_detail">
+                        数据来源
+                        <div class="read_content_detail_num dataSourceFrom">{$T.msg.dataSourceFrom}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="item_triangle_write item_triangle_position"></div>
+        </div>
+         {#/for}
+        </textarea></p>
+        <div id="data_table"></div>
+    </div>
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+    <script>
+        $(function(){
+            var localhostUrl=window.location.origin;
+            var query=getRequest();
+            var healthBookId=query.healthBookId;
+            var hugId=query.hugId;
+            var id=$('#item_id').val();
+            window.addEventListener('pageshow', function () {
+                $.ajax({
+                    type:"post",
+                    url: localhostUrl + '/web-bin/m/nosen/followup/maternalChild/handBook/query_afterMaterFortyTwoDoctorTest_data?healthBookId='+healthBookId+"&ram="+Math.random(),
+                    dataType:'json',
+                    contentType:'application/json;charset=UTF-8',
+                    success:function(data){
+                        console.log(data);
+                        if(data.res==0){
+                            var msg=data.data;
+                            if(msg.length==0){
+                                $('.first_item .item_border_short').hide();
+                            }else if(msg.length==1){
+                                $("#data_table").setTemplateElement("Template-ListRows").processTemplate(msg);
+                                $('.total').find('.item_border_long').hide();
+                            }else if(msg.length>1){
+                                $("#data_table").setTemplateElement("Template-ListRows").processTemplate(msg);
+                                $('.total').find('.item_border_long:last').hide();
+                            }
+                            $('.total .dataSourceFrom').each(function(){
+                                console.log($(this).text());
+                                $(this).text()!="手动添加"&&$(this).parents('.read_content_detail').prev().prev().find('.edit_read_ontent').removeClass('pink_pen').addClass('look_over');
+                            })
+                        }
+                    },
+                    error:function () {
+                        return;
+                    }
+                });
+            });
+            //前往关联
+            $('.to_linkHosp_page').click(function(){
+                $.ajax({
+                    type: "POST",
+                    url: localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/query_isCertify_data",
+                    success: function(data){
+                        if(data.res==0){
+                            window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_linkHosp_page?healthBookId="+healthBookId+"&mode=3&isApp="+query.isApp;
+                        }else{
+                            window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_addCertify_page?healthBookId="+healthBookId+"&mode=3&hugId="+hugId+"&isApp="+query.isApp;
+                        }
+                    },
+                    error:function(){
+                        return;
+                    }
+                });
+            })
+            $('.first_item').click(function () {
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_addAfterMaterFortyTwoDoctorTest_page?healthBookId="+healthBookId;
+            })
+            $("#data_table").on('click','.to_edit',function () {
+                var id=$(this).parents('.item_middle').find('#item_id').val();
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_addAfterMaterFortyTwoDoctorTest_page?healthBookId="+healthBookId+'&id='+id;
+            })
+        })
+    </script>
+</body>
+</html>

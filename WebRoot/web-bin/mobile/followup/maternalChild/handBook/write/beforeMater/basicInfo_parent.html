@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>基本情况</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+    <link rel="stylesheet" href="/web-bin/resources/area/LArea.css">
+    <link rel="stylesheet" href="/web-bin/resources/icheck/skins/all.css">
+    <link rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/beforeMater/css/basicInfo.css">
+    <style>
+        .prev_btn{
+            margin-bottom: 0;
+        }
+        .save_btn{
+            margin-top: 0.373rem;
+        }
+        #father_msg{
+            display: none;
+        }
+        .area_current1,
+        .area_btn{
+            color: #EC9DD6;
+        }
+        .icheckbox_square-blue, .iradio_square-blue{
+            background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/pink@2x.png);
+            -webkit-background-size: 240px 24px;
+            background-size: 240px 24px;
+        }
+        /*用户身份和发放机构需要时显示*/
+        .userStatus,.issuingInstitution{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <span class="mother">备孕妈妈 <span class="must">(必填)</span></span>
+        <span class="father">备孕爸爸<span class="must"></span></span>
+    </div>
+    <div id="mother_msg">
+        <form action="" id="mother_content" name="myForm" method="post">
+            <div class="parent_msg">
+                <div class="main_option">
+                    <span>母亲姓名</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id='motherName' name="motherName">
+                </div>
+                <div class="main_option age">
+                    <span>年龄</span>
+                    <input type="tel" placeholder="请填写" class="input_msg" id="motherAge" name="motherAge">
+                </div>
+                <div class="main_option">
+                    <span>职业</span>
+                    <div class="pink_arrow_right pink_arrow_right_position"></div>
+                    <span class="main_option_status" id="motherProfessionText">请选择</span>
+                    <input type="hidden" name="motherProfession" id="motherProfession">
+                </div>
+                <div class="main_option">
+                    <span>民族</span>
+                    <div class="pink_arrow_right pink_arrow_right_position"></div>
+                    <span class="main_option_status" id="motherNationText">请选择</span>
+                    <input type="hidden" name="motherNation" id="motherNation">
+                    <input type="hidden" name="motherNationCode" id="motherNationCode">
+                </div>
+            </div>
+            <div class="parent_msg">
+                <div class="main_option">
+                    <span>身份证号</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="motherIdCard" name="motherIdCard">
+                </div>
+                <div class="main_option">
+                    <span>户口所在地</span>
+                    <div class="pink_arrow_right pink_arrow_right_position"></div>
+                    <span class="main_option_status" id="motherResidenceText">请选择</span>
+                    <input type="hidden" id="motherResidenceProvince" name="motherResidenceProvince">
+                    <input type="hidden" id="motherResidenceCity" name="motherResidenceCity">
+                    <input type="hidden" id="motherResidenceCountry" name="motherResidenceCountry">
+                    <input type="hidden" id="motherResidenceProvinceCode" name="motherResidenceProvinceCode">
+                    <input type="hidden" id="motherResidenceCityCode" name="motherResidenceCityCode">
+                    <input type="hidden" id="motherResidenceCountryCode" name="motherResidenceCountryCode">
+                    <input type="hidden" id="motherResidenceCode" name="motherResidenceCode">
+                </div>
+                <div class="main_option">
+                    <span>工作单位</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="motherCompany" name="motherCompany">
+                </div>
+                <div class="main_option">
+                    <span>家庭地址</span>
+                    <div class="pink_arrow_right pink_arrow_right_position"></div>
+                    <span class="main_option_status" id="motherAddressText">省、市、区（县），请选择</span>
+                    <input type="hidden" id="motherAddressProvince" name="motherAddressProvince">
+                    <input type="hidden" id="motherAddressCity" name="motherAddressCity">
+                    <input type="hidden" id="motherAddressCountry" name="motherAddressCountry">
+                    <input type="hidden" id="motherAddressProvinceCode" name="motherAddressProvinceCode">
+                    <input type="hidden" id="motherAddressCityCode" name="motherAddressCityCode">
+                    <input type="hidden" id="motherAddressCountryCode" name="motherAddressCountryCode">
+                    <input type="hidden" id="motherAddressCode" name="motherAddressCode">
+                    <textarea class="textarea_msg" placeholder="具体地址" id="motherAddressDetail" name="motherAddressDetail"></textarea>
+                </div>
+                <div class="main_option">
+                    <span>联系方式</span>
+                    <input type="tel" placeholder="请填写" class="input_msg" id="motherPhone" name="motherPhone">
+                </div>
+                <div class="main_option userStatus">
+                    <span>用户身份</span>
+                    <div class="pink_arrow_right pink_arrow_right_position"></div>
+                    <span class="main_option_status" id="userStatusText">请选择</span>
+                    <input type="hidden" name="userStatusCode" id="userStatusName">
+                    <input type="hidden" name="userStatusName" id="userStatusCode">
+                </div>
+                <div class="main_option issuingInstitution">
+                    <span>发放机构</span>
+                    <div class="pink_arrow_right pink_arrow_right_position"></div>
+                    <span class="main_option_status" id="issuingInstitutionText">请选择</span>
+                    <input type="hidden" name="issuingInstitutionCode" id="issuingInstitutionName">
+                    <input type="hidden" name="issuingInstitutionName" id="issuingInstitutionCode">
+                </div>
+            </div>
+        </form>
+        <div class="remind">
+            <p>1.您填写的信息仅用于记录您的母子健康档案，不会用于其他用途，请放心填写！</p>
+            <p>
+                2.你可以对医院进行关联，将自动从关联的医院获取您的相关数据，免去手动填写过程。所有信息仅用于个人的母子健康手册填写，不会用于其他用途，敬请放心！
+                <span class="acolor_pink to_linkHosp_page">前往关联</span>
+            </p>
+        </div>
+        <div class="page_btns">
+            <div class="pink_btn next_btn" onclick="">下一步</div>
+        </div>
+    </div>
+    <div id="father_msg">
+        <form action="" id="father_content" name="myForm">
+            <div class="parent_msg">
+                <div class="main_option">
+                    <span>父亲姓名</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="fatherName" name="fatherName">
+                </div>
+                <div class="main_option">
+                    <span>年龄</span>
+                    <input type="tel" placeholder="请填写" class="input_msg" id="fatherAge" name="fatherAge">
+                </div>
+                <div class="main_option">
+                    <span>职业</span>
+                    <div class="pink_arrow_right pink_arrow_right_position"></div>
+                    <span class="main_option_status" id="fatherProfessionText" name="fatherProfessionText">请选择</span>
+                    <input type="hidden" name="fatherProfession" id="fatherProfession">
+                </div>
+                <div class="main_option">
+                    <span>民族</span>
+                    <div class="pink_arrow_right pink_arrow_right_position"></div>
+                    <span class="main_option_status" id="fatherNationText" name="fatherNationText">请选择</span>
+                    <input type="hidden" name="fatherNation" id="fatherNation">
+                    <input type="hidden" name="fatherNationCode" id="fatherNationCode">
+                </div>
+            </div>
+            <div class="parent_msg">
+                <div class="main_option">
+                    <span>身份证号</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="fatherIdCard" name="fatherIdCard">
+                </div>
+                <div class="main_option">
+                    <span>工作单位</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="fatherCompany" name="fatherCompany">
+                </div>
+                <div class="main_option">
+                    <span>联系方式</span>
+                    <input type="tel" placeholder="请填写" class="input_msg" id="fatherPhone" name="fatherPhone">
+                </div>
+            </div>
+        </form>
+        <div class="remind">
+            <p>1.您填写的信息仅用于记录您的母子健康档案，不会用于其他用途，请 放心填写！</p>
+            <p>2.你可以对医院进行关联，将自动从关联的医院获取您的相关数据，免 去手动填写过程。所有信息仅用于个人的母子健康手册填写，不会用 于其他用途，敬请放心！<span class="acolor_pink to_linkHosp_page">前往关联</span></p>
+        </div>
+        <div class="page_btns">
+            <div class="pink_btn prev_btn">上一步</div>
+            <div class="pink_btn save_btn">保存</div>
+        </div>
+    </div>
+
+    <div id="window"  style="display:none" class="window">
+        <div>
+            <div id="window_in" class="window_in"></div>
+            <div id="check" class="check">确定</div>
+        </div>
+    </div>
+    <div id="background" style="display: none"></div>
+    <div id="fake_alert"  style="display:none">
+        <div id="fake_alert_in">
+            <div id="msg"></div>
+            <div id="sure">确定</div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/area/LAreaData2.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/area/LArea.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/icheck/icheck.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/js/dialogData.js"></script>
+    <script type="text/javascript">
+        //组织机构代码
+        var hospCode=getCookie("hospCode");
+        $(function(){
+            var localhostUrl=window.location.origin;
+            var query=getRequest(true);
+            var healthBookId=$.trim(query.healthBookId);
+            var hugId=query.hugId;
+            var parentStr=query.parentStr;
+            var cansubmit=true;
+            document.getElementById("fake_alert").addEventListener("touchmove", function(event){
+                event.preventDefault();
+            }, false);
+            $(".window_in").niceScroll({
+                railpadding: { top:0, right: 0, left: 0, bottom:0 },
+                cursorborder:"",
+                cursoropacitymin: 0.3,
+                cursoropacitymax: 0.3,
+                cursorcolor:"#000000",
+                zindex: "99",
+                cursorwidth: "3px",
+                touchbehavior:true
+            });
+            if(hospCode=="450769626"){ //450769626 锦江区妇幼保健院 47174063-8 兰溪市人民医院
+                $('.userStatus,.issuingInstitution').show();
+                //获取发放机构
+                $.ajax({
+                    type:"get",
+                    url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_useOrganiztion_data?issuingInstitutionCode='+hospCode,
+                    dataType:'json',
+                    contentType:'application/json;charset=UTF-8',
+                    success:function(data){
+                        if(data.res==0){
+                            var issuingInstitutionData="";
+                            for(var i=0;i<data.data.length;i++){
+                                var simplyData= '<p><input type="radio" name="radio" value="'+data.data[i].issuingInstitutionCode+'"><span>'+data.data[i].issuingInstitutionName+'</span></p>' ;
+                                issuingInstitutionData +=simplyData;
+                            }
+                            $("#issuingInstitutionText").click(function(){
+                                $("#window_in").html(issuingInstitutionData);
+                                initChecked($(this));
+                            });
+                        }else{
+                            fake_alert("请求失败！请检查网络是否正常。");
+                        }
+                    },
+                    error:function () {
+                        fake_alert("请求失败！请检查网络是否正常。");
+                        return;
+                    }
+                });
+            }
+            if(parentStr!=""&&typeof(parentStr)!="undefined"&&parentStr!="{}"){
+                parentStr=JSON.parse(parentStr);
+                if(parentStr!=null){
+                    initContent(null,parentStr);
+                }
+            }
+            if(healthBookId!=''&&typeof(healthBookId)!="undefined"){
+                $.ajax({
+                    type:"post",
+                    url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_parentMsg_data?healthBookId='+healthBookId,
+                    dataType:'json',
+                    contentType:'application/json;charset=UTF-8',
+                    success:function(data){
+                        console.log(data);
+                        if(data.res==0){
+                            var msg=data.data;
+                            if(msg!=null){
+                                initContent(msg,parentStr);
+                            }
+                        }else{
+                            fake_alert("请求失败！请检查网络是否正常。");
+                        }
+                    },
+                    error:function () {
+                        fake_alert("请求失败！请检查网络是否正常。");
+                        return;
+                    }
+                });
+            }
+            //户口所在地
+            var area1 = new LArea();
+            area1.init({
+                'trigger': '#motherResidenceText',
+                'keys': {
+                    id: 'value',
+                    name: 'text'
+                },
+                'fontClass':"area_current1",
+                'type': 2,
+                'data': [provs_data, citys_data, dists_data],
+                'callBack':function(result){
+                    var motherResidence=result.text;
+                    var motherResidenceArr = motherResidence.split(",");
+                    var provinceCode = motherResidenceArr[0];
+                    var cityCode = motherResidenceArr[1];
+                    var countyCode = motherResidenceArr[2];
+                    $("#motherResidenceProvince").val(provinceCode);
+                    $("#motherResidenceCity").val(cityCode);
+                    $("#motherResidenceCountry").val(countyCode);
+                    $("#motherResidenceProvinceCode").val(result.provinceCode);
+                    $("#motherResidenceCityCode").val(result.cityCode);
+                    $("#motherResidenceCountryCode").val(result.countyCode);
+                    motherResidence=motherResidence.replace(/,/g," ");
+                    $("#motherResidenceText").text(motherResidence).css('color','#333');
+                    $('#motherResidenceCode').val(result.provinceCode+result.cityCode+result.countyCode);
+                }
+            });
+            //家庭地址
+            var area2 = new LArea();
+            area2.init({
+                'trigger': '#motherAddressText',
+                'keys': {
+                    id: 'value',
+                    name: 'text'
+                },
+                'fontClass':"area_current1",
+                'type': 2,
+                'data': [provs_data, citys_data, dists_data],
+                'callBack':function(result){
+                    var motherResidence=result.text;
+                    var motherResidenceArr = motherResidence.split(",");
+                    var provinceCode = motherResidenceArr[0];
+                    var cityCode = motherResidenceArr[1];
+                    var countyCode = motherResidenceArr[2];
+                    $("#motherAddressProvince").val(provinceCode);
+                    $("#motherAddressCity").val(cityCode);
+                    $("#motherAddressCountry").val(countyCode);
+                    $("#motherAddressProvinceCode").val(result.provinceCode);
+                    $("#motherAddressCityCode").val(result.cityCode);
+                    $("#motherAddressCountryCode").val(result.countyCode);
+                    motherResidence=motherResidence.replace(/,/g," ");
+                    $("#motherAddressText").text(motherResidence).css('color','#333');
+                    $('#motherAddressCode').val(result.provinceCode+result.cityCode+result.countyCode);
+                }
+            });
+            //职业
+            //选择职业
+            $("#motherProfessionText").click(function(){
+                $("#window_in").html(jobData);
+                initChecked($(this));
+            });
+            //选择民族
+            $("#motherNationText").click(function(){
+                $("#window_in").html(nationData);
+                initChecked($(this));
+            });
+            //选择用户角色
+            $("#userStatusText").click(function(){
+                $("#window_in").html(userStatusData);
+                initChecked($(this));
+            });
+            //弹框选择
+            $("#check").click(function(){
+                var obj=$("#check").data("checkObj");
+                var val="",
+                    text="";
+                if($('input:radio').length>0){
+                    val=$('input:radio[name="radio"]:checked').val();
+                    text=$('input:radio[name="radio"]:checked').parent().next().text();
+                }else{
+                    $('input:checkbox[name="checkbox"]:checked').each(function(){
+                        val+=","+$(this).val();
+                        text+=","+$(this).parent().next().text();
+                    });
+                    val=val.substr(1);
+                    text=text.substr(1);
+                }
+                if(text==""){
+                    text=$("#check").data("checkText");
+                }else{
+                    obj.text(text).css('color','#333');
+                }
+                obj.next().val(val);
+                $("#background").hide();
+                $("#window").hide();
+            });
+            //前往授权
+            $('.to_linkHosp_page').click(function(){
+                $.ajax({
+                    type: "POST",
+                    url: localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/query_isCertify_data",
+                    success: function(data){
+                        if(data.res==0){
+                            window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_linkHosp_page?healthBookId="+healthBookId+"&mode=1&hospJsonStr="+query.hospJsonStr+"&isApp="+query.isApp;
+                        }else{
+                            window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_addCertify_page?healthBookId="+healthBookId+"&mode=1&hugId="+hugId+"&isApp="+query.isApp;
+                        }
+                    },
+                    error:function(){
+                        return;
+                    }
+                });
+            })
+            //下一步
+            $('.next_btn').click(function(){
+                checkForm();
+            })
+            //选择职业
+            $("#fatherProfessionText").click(function(){
+                $("#window_in").html(jobData);
+                initChecked($(this));
+            });
+            //选择民族
+            $("#fatherNationText").click(function(){
+                $("#window_in").html(nationData);
+                initChecked($(this));
+            });
+            //上一步
+            $('.prev_btn').click(function(){
+                var fatherPhone = $("#fatherPhone").val();
+                var isMobile=/^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1})|(14[0-9]{1}))+\d{8})$/;
+                if($.trim(fatherPhone)!=''&&!isMobile.test(fatherPhone)){
+                    fake_alert("请输入正确格式的联系电话","#fatherPhone");
+                    return false;
+                }
+                var fatherIdCard = $("#fatherIdCard").val();
+                if ($.trim(fatherIdCard)!=''&&!IdCardValidate(fatherIdCard)) {
+                    fake_alert("请输入正确格式的身份证号","#fatherIdCard");
+                    return false;
+                }
+                var jsonObj=$("#father_content").serializeObject();
+                $('#fatherProfessionText').text()=='请选择'?false:jsonObj.fatherProfessionText=$('#fatherProfessionText').text();
+                $('#fatherNationText').text()=='请选择'?false:jsonObj.fatherNationText=$('#fatherNationText').text();
+                $('#mother_msg').show().next().hide();
+                $('.father').hide().prev().show();
+            })
+            //保存
+            $('.save_btn').click(function(){
+                var fatherAge = $("#fatherAge").val();
+                if(fatherAge!=''&&!IsNumberValidateFun(fatherAge)){
+                    fake_alert("年龄必须是整数","#fatherAge");
+                    return false;
+                }
+                var fatherPhone = $("#fatherPhone").val();
+                var isMobile=/^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1})|(14[0-9]{1}))+\d{8})$/;
+                if($.trim(fatherPhone)!=''&&!isMobile.test(fatherPhone)){
+                    fake_alert("请输入正确格式的联系电话","#fatherPhone");
+                    return false;
+                }
+                var fatherIdCard = $("#fatherIdCard").val();
+                if ($.trim(fatherIdCard)!=''&&!IdCardValidate(fatherIdCard)) {
+                    fake_alert("请输入正确格式的身份证号","#fatherIdCard");
+                    return false;
+                }
+                var mJsonObj=$("#mother_content").serializeObject();
+                mJsonObj.motherNationCode=$('#motherNation').val();
+                mJsonObj.motherNation=$('#motherNationText').text();
+                $('#motherNationCode').val($('#motherNationText').text());
+                $('#userStatusText').text()=="请选择"&&$('#userStatusText').text("");
+                mJsonObj.userStatusName=$('#userStatusText').text();
+                $('#issuingInstitutionText').text()=="请选择"&&$('#issuingInstitutionText').text("");
+                mJsonObj.issuingInstitutionName=$('#issuingInstitutionText').text();
+                console.log(mJsonObj);
+//                return;
+                var fJsonObj=$("#father_content").serializeObject();
+                $('#fatherNation').val()=="请选择"&&$('#fatherNation').val("");
+                $('#fatherNationText').text()=="请选择"&&$('#fatherNationText').text("");
+                fJsonObj.fatherNationCode=$('#fatherNation').val();
+                fJsonObj.fatherNation=$('#fatherNationText').text();
+                $('#fatherNationCode').val($('#fatherNationText').text());
+                mJsonObj.source=0;//1微信 0 app 暂时写死 后期用query获取
+                mJsonObj.healthBookId=healthBookId;
+                var parentJson= $.extend(true, mJsonObj, fJsonObj);
+                //保存
+                if(cansubmit){
+                    cansubmit=false;
+                    if(healthBookId!=''&&typeof(healthBookId)!="undefined"){
+                        $.ajax({
+                            type:"post",
+                            url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/update_parentMsg_data',
+                            data:parentJson,
+                            dataType:'json',
+                            contentType:'application/json;charset=UTF-8',
+                            success:function(data){
+                                if(data.res==0){
+                                    fake_alert("保存成功");
+                                    setTimeout(function(){
+                                        window.history.go(-1);
+                                        //window.location=localhostUrl+":"+port+"/web-bin/m/nosen/followup/maternalChild/handBook/to_beforeMater_page?healthBookId="+healthBookId+"&routeType="+routeType;//表示打开孕前期
+                                    },500)
+                                }else{
+                                    fake_alert("保存失败！请检查网络是否正常。");
+                                    cansubmit=true;
+                                }
+                            },
+                            error:function () {
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                cansubmit=true;
+                                return;
+                            }
+                        });
+                    }else {
+                        if(query.hospJsonStr!=""&&typeof(query.hospJsonStr)!="undefined"){
+                            var hospObj=JSON.parse(query.hospJsonStr);
+                            parentJson.hospCodeArche=hospObj.hospCodeArche;
+                            parentJson.hospArche=hospObj.hospArche;
+                            parentJson.hospCodePost=hospObj.hospCodePost;
+                            parentJson.hospPost=hospObj.hospPost;
+                            parentJson.hospInfoList=hospObj.hospInfoList;
+                        }
+                        $.ajax({
+                            type:"post",
+                            url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/submit_parentMsg_data',
+                            data:parentJson,
+                            dataType:'json',
+                            contentType:'application/json;charset=UTF-8',
+                            success:function(data){
+                                if(data.res==0){
+                                    fake_alert("保存成功");
+                                    setTimeout(function(){
+                                        //window.history.go(-1);
+                                        window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_beforeMater_page?healthBookId="+data.data;
+                                    },500)
+                                }else{
+                                    fake_alert("保存失败！请检查网络是否正常。");
+                                    cansubmit=true;
+                                }
+                            },
+                            error:function () {
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                cansubmit=true;
+                                return;
+                            }
+                        });
+                    }
+                }
+            })
+        });
+        //内容初始化
+        function initContent(msg,msg2){//参数1为ajax返回，参数2为授权连接返回
+            if(msg!=null) {
+                initContent2(msg);
+            }
+            if(msg2!=null){
+                initContent2(msg2);
+            }
+        }
+        //内容初始化2
+        function initContent2(msg){
+            for (var o in msg) {
+                $("#" + o).val(msg[o]);
+            }
+            msg.motherNationCode&&$('#motherNation').val(msg.motherNationCode);
+            msg.motherNation&&$('#motherNationText').text(msg.motherNation).css('color', '#333');
+            msg.userStatusCode&&$('#userStatusName').val(msg.userStatusCode);
+            msg.userStatusName&&$('#userStatusText').text(msg.userStatusName).css('color', '#333');
+            msg.issuingInstitutionCode&&$('#issuingInstitutionName').val(msg.issuingInstitutionCode);
+            msg.issuingInstitutionName&&$('#issuingInstitutionText').text(msg.issuingInstitutionName).css('color', '#333');
+            if(msg.fatherNation){
+                msg.fatherNation == '请选择' ? false : $('#fatherNationText').text(msg.fatherNation).css('color', '#333');
+            }else{
+                $('#fatherNationText').text(msg.fatherNation).text("请选择");
+            }
+            msg.fatherProfession == null||msg.fatherProfession == "" ? false : $('#fatherProfessionText').text(msg.fatherProfession).css('color', '#333');
+            msg.motherProfession&&$('#motherProfessionText').text(msg.motherProfession).css('color', '#333');
+            msg.motherResidenceProvince&&$('#motherResidenceText').text(msg.motherResidenceProvince + " " + msg.motherResidenceCity + " " + msg.motherResidenceCountry).css('color', '#333');
+            msg.motherAddressProvince&&$('#motherAddressText').text(msg.motherAddressProvince + " " + msg.motherAddressCity + " " + msg.motherAddressCountry).css('color', '#333');
+            msg.fatherNationCode&&$('#fatherNation').val(msg.fatherNationCode);
+        }
+        //打开弹框初始化选择
+        function initChecked(a){
+            $("#check").data("checkObj",a);
+            $("#check").data("checkText",a.text());
+            if($('input:radio').length>0){
+                $("#window_in").find("input[name='radio'][value='" + a.next().val() + "']").attr("checked",true);
+            }else{
+                var str=a.next().val().split(",");
+                for(var i=0;i<str.length;i++){
+                    $('#window_in input:checkbox[name="checkbox"][value='+str[i]+']').attr("checked",true);
+                }
+            }
+            $("input").iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%'
+            });
+            $("#background").show();
+            $("#window").show();
+        }
+        function fake_alert(text,element){
+            $("#background").show();
+            $("#fake_alert").show();
+            $("#msg").html(text);
+            $("#sure").click(function(){
+                $("#background").hide();
+                $("#fake_alert").hide();
+            });
+            element&&$("html,body").animate({scrollTop:$(element).offset().top-75},500);
+        }
+        function checkForm(){
+            var patName = $("#motherName").val();
+            if($.trim(patName)==''){
+                fake_alert("姓名必填","#motherName");
+                return false;
+            }
+            var motherAge = $("#motherAge").val();
+            if($.trim(motherAge)==''){
+                fake_alert("年龄必填","#motherAge");
+                return false;
+            }
+            if(!IsNumberValidateFun(motherAge)){
+                fake_alert("年龄必须是整数","#motherAge");
+                return false;
+            }
+            var motherProfession = $("#motherProfession").val();
+            if($.trim(motherProfession)==''){
+                fake_alert("职业必填","#motherProfession");
+                return false;
+            }
+            var motherNation = $("#motherNation").val();
+            if($.trim(motherNation)==''){
+                fake_alert("民族必填","#motherNation");
+                return false;
+            }
+            var motherIdCard = $("#motherIdCard").val();
+            if($.trim(motherIdCard)==''){
+                fake_alert("身份证号必填","#motherIdCard");
+                return false;
+            }
+            if (!IdCardValidate(motherIdCard)) {
+                fake_alert("请输入正确格式的身份证号","#motherIdCard");
+                return false;
+            }
+            var motherResidenceProvince = $("#motherResidenceProvince").val();
+            if($.trim(motherResidenceProvince)==''){
+                fake_alert("户口所在地必填","#motherResidenceProvince");
+                return false;
+            }
+            var motherCompany = $("#motherCompany").val();
+            if($.trim(motherCompany)==''){
+                fake_alert("工作单位必填","#motherCompany");
+                return false;
+            }
+            var motherAddressProvince = $("#motherAddressProvince").val();
+            if($.trim(motherAddressProvince)==''){
+                fake_alert("家庭地址必填","#motherAddressProvince");
+                return false;
+            }
+            var motherAddressDetail = $("#motherAddressDetail").val();
+            if($.trim(motherAddressDetail)==''){
+                fake_alert("具体地址必填","#motherAddressDetail");
+                return false;
+            }
+            var motherPhone = $("#motherPhone").val();
+            var isMobile=/^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1})|(14[0-9]{1}))+\d{8})$/;
+            if($.trim(motherPhone)==''){
+                fake_alert("联系电话必填","#motherPhone");
+                return false;
+            }
+            if(!isMobile.test(motherPhone)){
+                fake_alert("请输入正确格式的联系电话","#motherPhone");
+                return false;
+            }
+            if(!IsNumberValidateFun(motherPhone)){
+                fake_alert("联系电话必须是数字","#motherPhone");
+                return false;
+            }
+            //根据组织机构代码判断用户身份和发放机构是否必填
+            if(hospCode=="450769626"){
+                var userStatusName = $("#userStatusName").val();
+                if($.trim(userStatusName)==''){
+                    fake_alert("用户身份必填","#userStatusName");
+                    return false;
+                }
+                var issuingInstitutionName = $("#issuingInstitutionName").val();
+                if($.trim(issuingInstitutionName)==''){
+                    fake_alert("发放机构必填","#issuingInstitutionName");
+                    return false;
+                }
+            }
+            $('#father_msg').show().prev().hide();
+            $('.mother').hide().next().show();
+        }
+    </script>
+</body>
+</html>

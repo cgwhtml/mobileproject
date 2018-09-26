@@ -1,0 +1,37 @@
+/**
+* Created by heyating
+* Created time 2017/5/24 20:33
+* Description  
+*/
+.main{
+    padding: 0.24rem 0.4rem 0.4rem 0.4rem;
+    font-size: 0.32rem;
+}
+.item{
+    margin-bottom: 0.266rem;
+    background-color: #fff;
+}
+.item_content{
+    padding: 0 0.293rem 0.293rem;
+}
+.item_content>p{
+    padding-top: 0.36rem;
+}
+.item_content_bottom{
+    border-top: 1px solid #EFEFEF;
+    padding: 0.373rem;
+    position: relative;
+}
+.item_click{
+    color: #A1A1A1;
+    float: right;
+    margin-right: 0.346rem;
+}
+.add_his{
+    text-align: center;
+    line-height: 1.08rem;
+    border-top: 1px solid #EFEFEF;
+}
+.pink_arrow_right_position{
+    margin-top: 0.12rem;
+}

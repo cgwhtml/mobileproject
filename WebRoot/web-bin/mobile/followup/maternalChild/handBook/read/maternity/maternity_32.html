@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>阅读</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <style>
+        .r_m_maternity32 .pink_content_title:FIRST-CHILD{
+            text-align: center;
+        }
+        .r_m_maternity32 .check_time{
+            width: 4.8rem;
+            margin: 0 auto;
+        }
+        .r_m_maternity32 .pink_cut_line{
+            margin-top: 0.253rem;
+            margin-bottom: 0.373rem;
+        }
+        .r_m_maternity32 .sc_checked,
+        .r_m_maternity32 .sc_unchecked{
+            background-size: 0.28rem 0.28rem;
+            width: 0.28rem;
+            height: 0.28rem;
+        }
+        .r_m_maternity32 .unusual_detail{
+            background-color: #eee;
+            height: 0.813rem;
+        }
+        .r_m_maternity32 .unusual_detail>span{
+            font-size: 0.24rem;
+            padding-left: 0.2rem;
+        }
+        .r_m_maternity32 .unusual_detail_textarea{
+            width: 7.5rem;
+            height: 0.55rem;
+            float: right;
+            margin-right: 0.2rem;
+            margin-top: 0.08rem;
+            color: #333;
+            background-color: #eee;
+        }
+        .r_m_maternity32 .content_detail_textarea{
+            width: 6.8rem;
+            height: 2.74rem;
+            float: right;
+            color: #333;
+        }
+        .r_m_maternity32 .c_basic_info{
+            margin-top: 0.266rem;
+            margin-bottom: 0.2rem;
+        }
+        .r_m_maternity32 .content_font1:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .r_m_maternity32 #deliveryAbnormalConditionContent{
+            line-height: 0.36rem;
+        }
+        @media (min-height:501px) and (max-height:550px) and (-webkit-min-device-pixel-ratio:1){
+            .r_m_maternity32 .mc_content_main .content_font1{line-height: 0.4rem !important;}
+        }
+        @media (min-height:601px) and (max-height:650px) and (-webkit-min-device-pixel-ratio:1){
+            .r_m_maternity32 .mc_content_main .content_font1{line-height: 0.53rem !important;}
+            .r_m_maternity32 .sc_checked,
+            .r_m_maternity32 .sc_unchecked{background-size: 0.3rem 0.3rem;background-repeat: no-repeat;display:inline-block;width:0.32rem;height:0.32rem;}
+            .r_m_maternity32 .pink_content_title{
+                padding-bottom: 0 !important;
+            }
+        }
+        @media (min-height:621px) and (max-height:650px) and (-webkit-min-device-pixel-ratio:1){
+            .r_m_maternity32 .mc_content_main .add_style{margin-right: 4.3rem !important;}
+        }
+    </style>
+</head>
+<body>
+    <div class="r_m_maternity r_m_maternity32">
+        <div class="gradient_top gradient_pink_top"></div>
+        <div class="mc_content_main">
+            <p class="pink_content_title">分娩情况医生记录</p>
+            <div class="content">
+                <div class="content_font1 check_time font_size_22">
+                    <span>分娩日期：</span>
+                    <input type="text" class="border_bottom" id="deliveryTimeYear" disabled="disabled" style="width:0.89rem"/>
+                    <span>年</span>
+                    <input type="text" class="border_bottom" id="deliveryTimeMonth" disabled="disabled" style="width:0.5rem"/>
+                    <span>月</span>
+                    <input type="text" class="border_bottom" id="deliveryTimeDay" disabled="disabled" style="width:0.5rem"/>
+                    <span>日</span>
+                </div>
+            </div>
+            <div class="pink_cut_line"></div>
+            <div class="content">
+                <div class="content_font1 font_size_22">
+                    <span>分娩方式：</span>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right">胎头吸引）</span>
+                        <span class="sc_unchecked pull_right deliveryWay1" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                        <span class="pull_right" style="padding-right: 0.36rem">产钳</span>
+                        <span class="sc_unchecked pull_right deliveryWay2" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                        <span class="pull_right">阴道助产（</span>
+                    </div>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right">剖宫产</span>
+                        <span class="sc_unchecked pull_right deliveryWay3" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right">顺产</span>
+                        <span class="sc_unchecked pull_right deliveryWay4" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                </div>
+                <div class="content_font1 font_size_22">
+                    <span>分娩所用时间：</span>
+                    <input type="text" class="border_bottom" id="deliveryCostHour" disabled="disabled" style="width:0.93rem"/>
+                    <span>小时</span>
+                    <input type="text" class="border_bottom" id="deliveryCostMinute" disabled="disabled" style="width:0.93rem"/>
+                    <span>分</span>
+                </div>
+                <div class="pink_cut_line"></div>
+                <div class="content_font1 font_size_22" id="bleedingAmount">
+                    <span>出血量：</span>
+                    <div class="pull_right" style="padding: 0 0.13rem;margin-right: 1.8rem">
+                        <span class="pull_right">ml ）</span>
+                        <input type="text" class="border_bottom pull_right" id="specificBleedingAmount" disabled="disabled" style="width:1.2rem"/>
+                        <span class="pull_right">大量（</span>
+                        <span class="sc_unchecked pull_right item3" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right">中量</span>
+                        <span class="sc_unchecked pull_right item2" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right">少量</span>
+                        <span class="sc_unchecked pull_right item1" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                </div>
+                <div class="content_font1 font_size_22" id="transfuseBleedingFlag">
+                    <span>有无输血：</span>
+                    <div class="pull_right" style="padding: 0 0.13rem;margin-right: 3.6rem">
+                        <span class="pull_right">ml ）</span>
+                        <input type="text" class="border_bottom pull_right" id="specificTransfuseBleeding" disabled="disabled" style="width:1.2rem"/>
+                        <span class="pull_right">有（</span>
+                        <span class="sc_unchecked pull_right item1" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right">无</span>
+                        <span class="sc_unchecked pull_right item0" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                </div>
+                <div class="content_font1 font_size_22" id="deliveryAbnormalConditionFlag">
+                    <span>分娩中有异常情况吗？</span>
+                    <div class="pull_right add_style" style="padding: 0 0.13rem;margin-right: 4.4rem">
+                        <span class="pull_right">有</span>
+                        <span class="sc_unchecked pull_right item1" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right">无</span>
+                        <span class="sc_unchecked pull_right item0" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                </div>
+                <div class="content_font1 unusual_detail">
+                    <span>具体情况：</span>
+                    <div class="unusual_detail_textarea font_size_18"><p id="deliveryAbnormalConditionContent"></p></div>
+                </div>
+                <div class="pink_cut_line"></div>
+                <div class="content_font1 content_detail font_size_22">
+                    <span>处理及建议：</span>
+                    <div class="content_detail_textarea"><span id="processAdvice"></span></div>
+                </div>
+            </div>
+            <div class="c_basic_info">
+                <div class="c_info_title pink_bg_color2 bold">指导事项</div>
+                <div class="note_box pink_bg_color2">
+                    <div>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                    </div>
+                    <div style="position:absolute;top:0.04rem" class="font_size_22">
+                        <p class="content_font1"><span id="guidance"></span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="content_font1 check_office font_size_22">
+                    <span>分娩机构：</span>
+                    <input type="text" class="border_bottom" id="deliveryAgencies" disabled="disabled" style="width:4.52rem"/>
+                    <span>医生签名：</span>
+                    <input type="text" class="border_bottom" id="doctorSignature" disabled="disabled" style="width:1.36rem"/>
+                </div>
+            </div>
+        </div>
+        <div class="gradient_bottom gradient_pink_bottom"></div>
+        <script>
+            $(function(){
+                if(healthBookId!=''&&typeof(healthBookId)!="undefined"&&healthBookId!="undefined") {
+                    $.ajax({
+                        type: "post",
+                        url: localhostUrl + '/web-bin/m/nosen/followup/maternalChild/handBook/query_deliverDoctorRecord_data?healthBookId=' + healthBookId,
+                        dataType: 'json',
+                        success: function (data) {
+                            var msg = data.data;
+                            if (msg) {
+                                for (o in msg) {
+                                    $("#" + o).val(msg[o]);
+                                }
+                                var deliveryTime = msg.deliveryTime;
+                                if (deliveryTime != null) {
+                                    var deliveryTimeArr = deliveryTime.split('-');
+                                    $('.r_m_maternity32 #deliveryTimeYear').val(deliveryTimeArr[0]);
+                                    $('.r_m_maternity32 #deliveryTimeMonth').val(deliveryTimeArr[1]);
+                                    $('.r_m_maternity32 #deliveryTimeDay').val(deliveryTimeArr[2]);
+                                }
+                                var deliveryWay=msg.deliveryWay;
+                                if(deliveryWay=="阴道助产（胎头吸引）"){
+                                    $('.r_m_maternity32 .deliveryWay1').removeClass('sc_unchecked').addClass('sc_checked');
+                                }else if(deliveryWay=="阴道助产（产钳）"){
+                                    $('.r_m_maternity32 .deliveryWay2').removeClass('sc_unchecked').addClass('sc_checked');
+                                }else if(deliveryWay=="剖宫产"){
+                                    $('.r_m_maternity32 .deliveryWay3').removeClass('sc_unchecked').addClass('sc_checked');
+                                }else if(deliveryWay=="顺产"){
+                                    $('.r_m_maternity32 .deliveryWay4').removeClass('sc_unchecked').addClass('sc_checked');
+                                }
+                                var bleedingAmount=msg.bleedingAmount;
+                                bleedingAmount&&$('.r_m_maternity32 #bleedingAmount .item' + bleedingAmount).removeClass('sc_unchecked').addClass('sc_checked');
+                                var transfuseBleedingFlag=boolToNumber(msg.transfuseBleedingFlag);
+                                transfuseBleedingFlag!=null&&$('.r_m_maternity32 #transfuseBleedingFlag .item' + transfuseBleedingFlag).removeClass('sc_unchecked').addClass('sc_checked');
+                                var deliveryAbnormalConditionFlag=boolToNumber(msg.deliveryAbnormalConditionFlag);
+                                deliveryAbnormalConditionFlag!=null&&$('.r_m_maternity32 #deliveryAbnormalConditionFlag .item' + deliveryAbnormalConditionFlag).removeClass('sc_unchecked').addClass('sc_checked');
+                                msg.deliveryAbnormalConditionContent&&$('.r_m_maternity32 #deliveryAbnormalConditionContent').text(msg.deliveryAbnormalConditionContent);
+                                msg.processAdvice&&$('.r_m_maternity32 #processAdvice').text(msg.processAdvice);
+                                msg.guidance&&$('.r_m_maternity32 #guidance').text(msg.guidance);
+                                substrText($(".r_m_maternity32 #deliveryAbnormalConditionContent"), msg.deliveryAbnormalConditionContent, 60);
+                                substrText($(".r_m_maternity32 #processAdvice"), msg.processAdvice, 138);
+                                substrText($(".r_m_maternity32 #guidance"), msg.guidance, 174);
+                            }
+                        }
+                    });
+                }
+                //布尔类型转数字
+                function boolToNumber(a){
+                    a==true?a=1:a=0;
+                    return a;
+                }
+            })
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>电话测试</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name = "format-detection" content = "telephone=no">
+    <style>
+        .btn{font-size:30px;width:100px;height:30px;display: block;margin:40px auto;background-color: #FF0000;color:#fff;}
+    </style>
+</head>
+
+<style type="text/css">
+    .box{
+        width:300px;
+        height:200px;
+        position:relative;
+        background:red;
+        cursor:pointer;
+    }
+    .box .bmbox{
+        width:300px;
+        height:30px;
+        background:black;
+        position:absolute;
+        bottom:0px;
+        left:0px;
+        display:none;
+        font:12px/30px "宋体"; color:white;
+        text-align:center;
+    }
+    .box:hover .bmbox{
+        width:300px;
+        height:30px;
+        background:black;
+        position:absolute;
+        bottom:0px;
+        left:0px;
+        display:block;
+        font:12px/30px "宋体"; color:white;
+        text-align:center;
+    }
+</style>
+</head>
+
+<body>
+<div class="box">
+    <div class="bmbox">文字</div>
+</div>
+</body>
+
+
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="https://g.alicdn.com/dingding/open-develop/1.6.9/dingtalk.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript">
+    var LOCALHOST_URL=window.location.origin;
+    var PORT=window.HUGPAGE_CONFIG.PORT;
+    var query=getRequest();//方法在config配置文件中
+    var url=location.href;
+//    alert(JSON.stringify(query));
+//    alert("当前页面地址="+url);
+    var code;
+    var agentId=query.agentId;
+    var corpId=query.opt_corpId;
+    $(function(){
+        //打电话
+        $(".btn").click(function () {
+                    alert("请求地址="+LOCALHOST_URL+'/web-bin/m/followup/followupTask/get_ddConfig_info?corpId='+corpId+'&url='+encodeURIComponent(url));
+                    $.ajax({
+                        on: true,
+                        timeout:60000,
+                        type:"get",
+                        url:LOCALHOST_URL+'/web-bin/m/followup/followupTask/get_ddConfig_info?corpId='+corpId+'&url='+encodeURIComponent(url),
+                        dataType:"json",
+                        success: function(data){
+                            console.log(data);
+                            alert(JSON.stringify(data));
+                            if(data.data&&data.res==0){
+                                dd.config({                                                          //实现验证
+                                    agentId : agentId,
+                                    corpId : corpId,
+                                    timeStamp : data.data.timestamp,
+                                    nonceStr :data.data.noncestr,
+                                    signature : data.data.signature,
+                                    jsApiList : [
+                                        'runtime.info',
+                                        'biz.contact.choose',
+                                        'device.notification.confirm',
+                                        'device.notification.alert',
+                                        'device.notification.prompt',
+                                        'biz.ding.post',
+                                        'biz.util.openLink',
+                                        'biz.telephone.showCallMenu'
+                                    ]
+                                });
+                                dd.ready(function() {
+                                    dd.runtime.permission.requestAuthCode({
+                                        corpId :corpId,
+                                        onSuccess : function(info) {                                                   //成功获得code值,code值在info中
+                                            code=info.code;
+                                            alert('authcode: ' + info.code);
+                                            if(code&&corpId){
+                                                //打电话
+                                                dd.biz.telephone.showCallMenu({
+                                                    phoneNumber: "15700186384", // 期望拨打的电话号码
+                                                    code: '+86', // 国家代号，中国是+86
+                                                    showDingCall: false, // 是否显示钉钉电话
+                                                    onSuccess: function () {
+                                                        alert("打电话成功");
+                                                    },
+                                                    onFail: function (data) {
+                                                        alert("打电话失败"+JSON.stringify(data));
+                                                    }
+                                                });
+                                            }
+                                        },
+                                        onFail : function(err) {                                                       //获得code值失败
+                                            alert('fail: ' + JSON.stringify(err));
+                                        }
+                                    });
+                                });
+                                /*
+                                 *在dd.config函数验证没有通过下执行这个函数
+                                 */
+                                dd.error(function(err){
+                                    alert('dd error: ' + JSON.stringify(err));
+                                });
+                            }else{
+                                alert("ajax失败"+data.msg);
+                            }
+                        }
+                    });
+
+        });
+    });
+</script>
+</html>

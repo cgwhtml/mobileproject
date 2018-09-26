@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>表单</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/icheck/skins/all.css"/>
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_002.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_003.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/css/app_foot_download.css"/>
+	<link type="text/css" rel="stylesheet" href="/web-bin/resources/webuploader/webuploader.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/form/css/replyForm.css"/>
+    <style type="text/css">
+    	.form_view .counter{
+			counter-reset:subsection;
+		}
+		.form_view .field .widget_title:before{
+			counter-increment:subsection;
+			content:counter(subsection) "、";
+		}
+    </style>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/mobile/followup/form/js/libs.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/icheck/icheck.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_002.js"></script>
+  	<script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_004.js"></script>
+ 	<script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll.js"></script>
+  	<script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_003.js"></script>
+  	<script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_005.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/hospConfig/hospConfig.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/webuploader/webuploader.nolog.min.js"></script>
+</head>
+<body>
+    <div class="noFound" style="display:none">找不到表单</div>
+    <div class="wrapper" style="display:none">
+		<div class="advert_img">
+			<img src="/web-bin/resources/images/lanniu_bg.png" style="max-height:10em !important;max-width:100% !important;width:auto !important;height:auto !important">
+		</div>
+		<div class="form_view">
+            <div class="form_head">
+                <div class="hospName"></div>
+                <div class="form_head_title"></div>
+                <div class="form_head_desc"></div>
+            </div>
+            <div class="back_box" style="display:none">
+	            <div class="success_status">
+		  	  	  	<div style="position:relative;left:50%;margin-left:-95px;display: inline-block;">
+		  	  	  		<span>提交成功，谢谢您的支持！</span>
+		  	  	  		<div class="success_img"></div>
+		  	  	  	</div>
+		  	  	</div>
+			 	<div class="show_btn" id="toShowAnswer">查看答案</div>
+			    <div class="jugeSummary">
+			        <p><span class="totalScore"></span></p>
+			        <p style="padding-top:4px"><span class="jugeResult"></span></p>
+			        <p style="padding-top:4px" class="jugeExcept"></p>
+			        <p style="padding-top:4px;line-height: 20px" class="jugeDesc"></p>
+	            </div>
+				<div class="downloadTip">
+		        	<div style="color:#333;padding-top:10px">查报告、问医生、管吃药......</div>
+					<div>更多功能请下载蓝牛健康APP</div>
+				</div>
+	        </div>
+            <div class="counter"></div>
+            <div id="widget_control" class="widget_control">
+            	<!-- 
+            	<div class="field field_js">
+            		<div class="widget_title">
+            			<span class="widget_title_js">评分单选题</span>
+            			<span class="required widget_required_js">*</span>
+            		</div>
+            		<div class="widget_content">
+            			<ul class="choicelist imageslist">
+            				<li>
+            					<div class="box">
+            						<img src="./images/11.jpg" width="100%" height="100%"/>
+            						<div class="content">
+            							<input type="radio"/>
+										<div class="option_title">表单描述</div>
+            							<div class="widget_tip">提示：手机格式有误，请填写正确的手机号码</div>
+            						</div>
+            					</div>
+            				</li>
+            				<li>
+            					<div class="box">
+            						<img src="./images/11.jpg" width="100%" height="100%"/>
+            						<div class="content">
+            							<input type="radio"/>
+										<div class="option_title">表单描述</div>
+            							<div class="widget_tip">提示：手机格式有误，请填写正确的手机号码</div>
+            						</div>
+            					</div>
+            				</li>
+            				<li>
+            					<div class="box">
+            						<img src="./images/11.jpg" width="100%" height="100%"/>
+            						<div class="content">
+            							<input type="radio"/>
+										<div class="option_title">表单描述</div>
+            							<div class="widget_tip">提示：手机格式有误，请填写正确的手机号码</div>
+            						</div>
+            					</div>
+            				</li>
+            			</ul>
+            		</div>
+            	</div>
+            	<div class="field field_js">
+            		<div class="widget_title">
+            			<span class="widget_title_js">评分单选题</span>
+            			<span class="required widget_required_js">*</span>
+            		</div>
+            		<div class="widget_content">
+            			<ul class="choicelist imageslist">
+            				<li>
+            					<div class="box">
+            						<img src="./images/11.jpg" width="100%" height="100%"/>
+            						<div class="content">
+            							<input type="checkbox"/>
+										<div class="option_title">表单描述</div>
+            							<div class="widget_tip">提示：手机格式有误，请填写正确的手机号码</div>
+            						</div>
+            					</div>
+            				</li>
+            				<li>
+            					<div class="box">
+            						<img src="./images/11.jpg" width="100%" height="100%"/>
+            						<div class="content">
+            							<input type="checkbox"/>
+										<div class="option_title">表单描述</div>
+            							<div class="widget_tip">提示：手机格式有误，请填写正确的手机号码</div>
+            						</div>
+            					</div>
+            				</li>
+            				<li>
+            					<div class="box">
+            						<img src="./images/11.jpg" width="100%" height="100%"/>
+            						<div class="content">
+            							<input type="checkbox"/>
+										<div class="option_title">表单描述</div>
+            							<div class="widget_tip">提示：手机格式有误，请填写正确的手机号码</div>
+            						</div>
+            					</div>
+            				</li>
+            			</ul>
+            		</div>
+            	</div>-->
+        	</div>
+			<div class="widget_control " id="satisfaction_form" style="display: none">
+				<div class="field" >
+					<div class="widget_title"><span>姓名<span class="required">*</span></span></div>
+					<div class="widget_content">
+						<input type="text" class="text_control" id="patName">
+					</div>
+				</div>
+				<div class="field" >
+					<div class="widget_title"><span>就医预留手机号<span class="required">*</span></span></div>
+					<div class="widget_content">
+						<input type="text" class="text_control" id="phone">
+					</div>
+				</div>
+				<div class="field" id="dept_block">
+					<div class="widget_title"><span>科室</span></div>
+					<div class="widget_content">
+						<select name="" id="deptCode" class="chosen_select_deselect">
+							<option value=""></option>
+						</select>
+					</div>
+				</div>
+				<div class="field"  id="ward_block" style="display: none">
+					<div class="widget_title"><span>病区</span></div>
+					<div class="widget_content">
+						<select name="" id="wardCode" class="chosen_select_deselect">
+							<option value=""></option>
+						</select>
+					</div>
+				</div>
+
+			</div>
+        	<div class="form_foot"></div>
+        	<div class="submit" id="submitForm" style="display:none">提&nbsp;交</div>
+        	<div class="submit" id="submitFormForIOS" style="display:none"></div>
+        	<div class="submit" id="submitFormForAndroid" style="display:none"></div>
+        	<div class="blank_div" style="height:80px;width:100px"></div>
+        </div>
+        <div class="app_foot_download">
+ 	  	    <div class="bottom_back"></div>
+ 	  	    <div class="loadNav">
+ 	  	  	    <div class="logoNav">
+ 	  	  	  	    <div class="logo"></div>
+ 	  	  	  	    <div class="logo_text">
+ 	  	  	  	  	    <p style="line-height:0;margin-top:12px;color:#FFFFFF">蓝牛健康（医院官方授权）</p>
+ 	  	  	  	  	    <p style="line-height:0;margin-top:18px;color:#0597FC">找信任医生，上蓝牛健康</p>
+ 	  	  	  	    </div>
+ 	  	  	    </div>
+ 	  	  	    <div class="downLoad_btn">下载</div>
+ 	  	    </div>
+ 	    </div>
+    </div>
+    <div class="alert_box" style="display:none">
+ 	  	<div class="alert_content">您尚未答题！</div>
+ 	  	<div class="alert_footer">好</div>
+ 	</div>
+ 	<div class="confirm_box" style="display:none">
+ 	  	<div class="confirm_content">请确认是否提交？</div>
+ 	  	<div class="confirm_footer">
+ 	  	  	 <div class="cancel_btn">取消</div>
+ 	  	  	 <div class="ok_btn">好</div>
+ 	  	</div>
+ 	</div>
+ 	<div class="con_back" style="width:100%;height:100%;position:fixed;z-index:1990;top:0;left:0;overflow:hidden;background:#000000;opacity:0.5;display:none"></div>
+    <script type="text/javascript">
+    	seajs.config({base:"/web-bin/mobile/followup/form/js",preload:["replyForm.js"],charset:"utf-8",debug:!1});seajs.use("form/formlayout");
+  		function setupWebViewJavascriptBridge(callback) {
+	        if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+	        if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+	        window.WVJBCallbacks = [callback];
+	        var WVJBIframe = document.createElement('iframe');
+	        WVJBIframe.style.display = 'none';
+	        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+	        document.documentElement.appendChild(WVJBIframe);
+	        setTimeout(function() { document.documentElement.removeChild(WVJBIframe);}, 0);
+	    }
+	    setupWebViewJavascriptBridge(function(bridge) {
+		    document.getElementById('submitFormForIOS').onclick = function (e) {
+		        bridge.callHandler('answerQuestionDone', {'msg': '测试数据'}, function(response) {
+		            //$(".form_foot").text(response.msg);
+                });
+		    };
+	    });
+	    function connectWebViewJavascriptBridge(callback) {
+            if (window.WebViewJavascriptBridge) {
+                callback(WebViewJavascriptBridge);
+            } else {
+                document.addEventListener(
+                    'WebViewJavascriptBridgeReady'
+                    , function() {
+                        callback(WebViewJavascriptBridge);
+                    },
+                    false
+                );
+            }
+        }
+        if(!queryMobileTypeIsIos()) {
+            connectWebViewJavascriptBridge(function (bridge) {
+                bridge.init(function (message, responseCallback) {
+                    var data = {
+                        'Javascript Responds': '测试中文!'
+                    };
+                    responseCallback(data);
+                });
+            });
+            document.getElementById('submitFormForAndroid').onclick = function (e) {
+                window.WebViewJavascriptBridge.callHandler('answerQuestionDone', {'msg': '测试数据'}, function(response) {
+                    //$(".form_foot").text(response);
+                });
+            };
+        }
+        /* 下载app */
+        function isWeiXin(){
+    		var ua = window.navigator.userAgent.toLowerCase();
+    		if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+        		return true;
+    		}else{
+        		return false;
+    		}
+		}
+		//智能机浏览器版本信息
+        var browser = {
+            versions: function() {
+                var u = navigator.userAgent;app = navigator.appVersion;
+                return {//移动终端浏览器版本信息
+                    trident: u.indexOf('Trident') > -1, //IE内核
+                    presto: u.indexOf('Presto') > -1, //opera内核
+                    webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                    gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                    mobile: !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/AppleWebKit/), //是否为移动终端
+                    ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                    android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+                    iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者QQHD浏览器
+                    iPad: u.indexOf('iPad') > -1, //是否iPad
+                    webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+                };
+            }(),
+            language: (navigator.browserLanguage || navigator.language).toLowerCase()
+        };
+        $(function(){
+			$(".downLoad_btn").on("click",function(e){
+				//window.open("http://www.lanniuh.com/XYZ/LnJk");
+				if (browser.versions.ios || browser.versions.iPhone || browser.versions.iPad) {
+					if(!isWeiXin()){
+		               window.open("https://itunes.apple.com/cn/app/lan-niu-jian-kang/id1018648092");
+		            }else{
+		               window.open("http://www.lanniuh.com/XYZ/LnJk");
+		            }
+		        }else if (browser.versions.android) {
+		            window.open("http://zhushou.360.cn/detail/index/soft_id/3112505");
+		        }else{
+			        window.open("http://www.lanniu.com:81/download/hg_health_book.apk");
+			    }
+				e.preventDefault();
+			});
+		});
+  	</script>
+</body>
+</html>

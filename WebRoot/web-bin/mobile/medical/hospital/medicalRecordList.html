@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>医疗</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="/web-bin/mobile/medical/hospital/css/medicalRecordList.css">
+	<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/jquery/jquery.mobile-1.3.2.min.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+	<script type="text/javascript" src="/web-bin/mobile/medical/hospital/js/medicalRecordList.js"></script>
+	
+  </head>
+  
+  <body>
+
+    <div id="main_head" style="display: none;">
+    	<div id="head_in">
+    		<div id="head_left">
+    			<img alt="" src="/web-bin/resources/images/men.png" id="photo">
+    			<span id="name"></span>
+    		</div>
+
+	    	<div id="head_right">
+	    		<img alt="" src="/web-bin/mobile/medical/s/images/icon2.png">
+	    		<p>数据搜索</p>
+	    	</div>
+
+    	</div>
+    </div>
+
+     
+    <div id="main_body">
+    	
+    	<p style="display:none"><textarea id="Template-ListRows" rows="0" cols="0">
+    	{#foreach $T as Row}
+    	<div class="d1">
+    		<img alt="" src="/hug-web/r/file/download/{$T.Row.image}" class="img">
+    		
+    		{#if $T.Row.medicalType ==1}
+				<div class="visit">
+			{#else}
+				<div class="hosp">
+			{#/if}
+    			<div>
+    				<p class="p1">{$T.Row.hospName}</p>
+	    			<p class="p2">
+	    				{#if $T.Row.medicalType ==1}
+	    					<span class="s2">门诊</span>
+	    				{#else}
+	    					<span class="s1">住院</span>
+	    				{#/if}
+	    				
+	    				{$T.Row.deptName} {$T.Row.drName} {$T.Row.diagName}
+	    			</p>
+	    			{#if $T.Row.medicalType ==1}
+	    					<p class="p3">
+			    				{($T.Row.beginTime).substring(0,11)}
+			    			</p>
+	    			{#else}
+	    					<p class="p3">
+	    						{($T.Row.beginTime).substring(0,11)}
+	    						--
+	    						{($T.Row.endTime).substring(0,11)}
+	    					</p>
+	    			{#/if}
+	    			<p class="id">{$T.Row.id}</p>
+	    			<p class="hugId">{$T.Row.hugId}</p>
+    			</div>
+    		</div>
+    	</div>
+    	{/for}
+    	</textarea></p>
+    	<div class="d2"></div>
+    	
+    </div>
+    <div id="loading">
+    	<img alt="" src="/web-bin/resources/images/loading_1.gif">
+    </div>
+    
+  </body>
+</html>

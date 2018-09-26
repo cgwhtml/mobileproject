@@ -1,0 +1,172 @@
+/**
+ * Created by xyz
+ * Created time 2017/7/25 15:04
+ * Description
+ */
+var rootMenu='<div class="menu"><div class="p_counter"></div><div class="main_option" page=""><span class="r_indent"></span><div class="pink_arrow_right pink_arrow_right_position"></div></div></div>';
+var childMenu='<div class="main_option" page=""><span class="p_indent"></span></div>';
+var menuData=[
+    {
+        'title':'寄语',
+        'page':3,
+        'child':[]
+    },
+    {
+        'title':'孕前篇',
+        'page':5,
+        'child':[
+            {
+                'title':'健康教育内容',
+                'page':6
+            },
+            {
+                'title':'孕前期自我记录',
+                'page':14
+            },
+            {
+                'title':'孕前优生健康检查记录',
+                'page':16
+            }
+        ]
+    },
+    {
+        'title':'孕产期篇',
+        'page':18,
+        'child':[
+            {
+                'title':'健康教育内容',
+                'page':19
+            },
+            {
+                'title':'孕产期自我记录及医生记录',
+                'page':34
+            },
+            {
+                'title':'孕期体重自测表',
+                'page':42
+            },
+            {
+                'title':'孕期体重管理曲线图',
+                'page':43
+            },
+            {
+                'title':'胎动记录表',
+                'page':45
+            },
+            {
+                'title':'孕妇学校听课记录',
+                'page':46
+            },
+            {
+                'title':'分娩情况自我记录',
+                'page':47
+            },
+            {
+                'title':'分娩情况医生记录',
+                'page':48
+            },
+            {
+                'title':'产褥期情况自我记录',
+                'page':49
+            },
+            {
+                'title':'产褥期情况医生记录',
+                'page':51
+            }
+        ]
+    },
+    {
+        'title':'儿童篇',
+        'page':53,
+        'child':[
+            {
+                'title':'宝宝可享受的免费服务',
+                'page':54
+            },
+            {
+                'title':'健康检查服务流程',
+                'page':55
+            },
+            {
+                'title':'婴儿期健康教育内容',
+                'page':56
+            },
+            {
+                'title':'婴儿期育儿记录及健康检查记录',
+                'page':70
+            },
+            {
+                'title':'幼儿期健康教育内容',
+                'page':81
+            },
+            {
+                'title':'幼儿期育儿记录及健康检查记录',
+                'page':83
+            },
+            {
+                'title':'学龄前期健康教育内容',
+                'page':91
+            },
+            {
+                'title':'学龄前期育儿记录及健康检查记录',
+                'page':93
+            },
+            {
+                'title':'儿童身长（身高）、体重标准曲线图',
+                'page':101
+            },
+            {
+                'title':'家庭安全自评表',
+                'page':103
+            }
+        ]
+    },
+    {
+        'title':'预防接种篇',
+        'page':104,
+        'child':[
+            {
+                'title':'国家政策及须知',
+                'page':105
+            },
+            {
+                'title':'接种反应的对症处理原则',
+                'page':107
+            },
+            {
+                'title':'儿童免疫规划疫苗接种时间表',
+                'page':109
+            }
+        ]
+    }
+];
+//目录生成
+var regionCode=getCookie("regionCode");
+if(regionCode!=""&&regionCode!=null){
+    regionCode=regionCode.substring(0,2);
+    //四川
+    if(regionCode=="51"){
+        var six={'title':'母子健康手册使用六问', 'page':5, 'child':[]};
+        var plicy={'title':'四川省母子保健相关惠民政策及项目', 'page':110, 'child':[]};
+        menuData.insertItem(1,six);
+        menuData.insertItem(menuData.length,plicy);
+        for(var i=2;i<menuData.length;i++){
+            menuData[i].page=menuData[i].page+2;
+            for(var j=0;j<menuData[i].child.length;j++){
+                menuData[i].child[j].page=menuData[i].child[j].page+2;
+            }
+        }
+    }
+}
+for(var i=0;i<menuData.length;i++){
+    var rMenu=$(rootMenu);
+    rMenu.find(".main_option").attr("page",menuData[i].page);
+    rMenu.find(".r_indent").text(menuData[i].title);
+    for(var j=0;j<menuData[i].child.length;j++){
+        var cMenu=$(childMenu);
+        cMenu.attr("page",menuData[i].child[j].page);
+        cMenu.find(".p_indent").text(menuData[i].child[j].title);
+        rMenu.append(cMenu);
+    }
+    $("body").append(rMenu);
+}

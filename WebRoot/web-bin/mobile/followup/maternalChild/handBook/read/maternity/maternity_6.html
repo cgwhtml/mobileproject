@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>阅读</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <style>
+        .r_m_maternity6{
+            background-color: #FFEDFA;
+            height: 100%;
+        }
+        .r_m_maternity6 .font_yellow{
+            color: #E27A00;
+            font-size: 0.32rem;
+            text-align: center;
+            margin-bottom: 0.04rem;
+        }
+        .r_m_maternity6 .content{
+            width: 7rem;
+            margin: 0 auto;
+            transform:rotate(-7deg);
+            -ms-transform:rotate(-7deg); 	/* IE 9 */
+            -moz-transform:rotate(-7deg); 	/* Firefox */
+            -webkit-transform:rotate(-7deg); /* Safari 和 Chrome */
+            -o-transform:rotate(-7deg); 	/* Opera */
+        }
+        .r_m_maternity6 .content_time{
+            width: 5rem;
+            margin: 0 auto;
+            margin-bottom: 0.06rem;
+            text-align:center;
+        }
+        .r_m_maternity6 .content_time:after{
+            content: '';
+            clear: both;
+            display: block
+        }
+        .r_m_maternity6 .content_time>p{
+            display: inline-block;
+        }
+        .r_m_maternity6 .content1{
+            position: absolute;
+            top: 4.1rem;
+            left: 1.8rem;
+        }
+        .r_m_maternity6 .content2{
+            position: absolute;
+            top: 8.68rem;
+        }
+        .r_m_maternity6 .content3{
+            position: absolute;
+            top: 13.68rem;
+            left: 1.8rem;
+        }
+        .r_m_maternity6 .item{
+            width: 6rem;
+            padding-left: 0.5rem;
+            transform: rotate(3deg);
+            line-height: 0.62rem;
+        }
+        .r_m_maternity6 .item2{
+            width: 5.5rem;
+            padding-left: 0.64rem;
+            transform: rotate(3deg);
+            line-height: 0.62rem;
+        }
+        @media (min-height:1201px) and (max-height:1300px) and (-webkit-min-device-pixel-ratio:2){
+            .r_m_maternity6 .content1{
+                top: 3.1rem !important;
+            }
+            .r_m_maternity6 .content2{
+                top: 7.8rem !important;
+            }
+            .r_m_maternity6 .content3{
+                top: 12.8rem !important;
+            }
+        }
+        @media (min-height:1001px) and (max-height:1100px) and (-webkit-min-device-pixel-ratio:2){
+            .r_m_maternity6 .content1{
+                top: 3.1rem !important;
+            }
+            .r_m_maternity6 .content2{
+                top: 7.8rem !important;
+            }
+            .r_m_maternity6 .content3{
+                top: 12.8rem !important;
+            }
+        }
+        @media (min-height:551px) and (max-height:600px) and (-webkit-min-device-pixel-ratio:1){
+            .r_m_maternity6 .content1{
+                top: 3.1rem !important;
+            }
+            .r_m_maternity6 .content2{
+                top: 7.8rem !important;
+            }
+            .r_m_maternity6 .content3{
+                top: 12.8rem !important;
+            }
+        }
+        @media (min-height:501px) and (max-height:550px) and (-webkit-min-device-pixel-ratio:1){
+            .r_m_maternity6 .content1{
+                top: 3rem !important;
+            }
+            .r_m_maternity6 .content2{
+                top: 7rem !important;
+            }
+            .r_m_maternity6 .content3{
+                top: 11.2rem !important;
+            }
+            .r_m_maternity6 .mc_content_bg{
+                height: 11.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="r_m_maternity r_m_maternity6">
+        <div class="mc_content_main">
+            <p class="pink_content_title">那些甜蜜的时刻</p>
+            <div class="mc_content_bg"></div>
+            <div class="content content1">
+                <p class="font_yellow">第一次听到医生说“您要当妈妈”的日子</p>
+                <div class="content_time">
+                    <p id="motherTobeRecordTimeYear"></p>
+                    <p>年</p>
+                    <p id="motherTobeRecordTimeMonth">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    <p>月</p>
+                    <p id="motherTobeRecordTimeDay">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    <p>日</p>
+                </div>
+                <p class="content_font1 item item1" id="motherTobeMoodRecord"></p>
+            </div>
+            <div class="content content2">
+                <p class="font_yellow">第一次听到胎心音的日子</p>
+                <div class="content_time">
+                    <p id="fetalmovementHeartFirstTimeYear"></p>
+                    <p>年</p>
+                    <p id="fetalmovementHeartFirstTimeMonth">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    <p>月</p>
+                    <p id="fetalmovementHeartFirstTimeDay">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    <p>日</p>
+                </div>
+                <p class="content_font1 item item2" id="fetalmovementHeartFirstMoodRecord"></p>
+            </div>
+            <div class="content content3">
+                <p class="font_yellow">第一次感觉到胎动的日子</p>
+                <div class="content_time">
+                    <p id="fetalmovementFeelFirstTimeYear"></p>
+                    <p>年</p>
+                    <p id="fetalmovementFeelFirstTimeMonth">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    <p>月</p>
+                    <p id="fetalmovementFeelFirstTimeDay">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    <p>日</p>
+                </div>
+                <p class="content_font1 item item3" id="fetalmovementFeelFirstMoodRecord"></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            if(healthBookId!=''&&typeof(healthBookId)!="undefined"&&healthBookId!="undefined") {
+                $.ajax({
+                    type: "post",
+                    url: localhostUrl + '/web-bin/m/nosen/followup/maternalChild/handBook/query_sweetTime_data?healthBookId=' + healthBookId,
+                    dataType: 'json',
+                    success: function (data) {
+                        var msg = data.data;
+                        if (msg) {
+                            msg.motherTobeRecordTime && ($(".r_m_maternity6 #motherTobeRecordTimeYear").text(msg.motherTobeRecordTime.substr(0, 4)),
+                                $(".r_m_maternity6 #motherTobeRecordTimeMonth").text(msg.motherTobeRecordTime.substr(5, 2)),
+                                $(".r_m_maternity6 #motherTobeRecordTimeDay").text(msg.motherTobeRecordTime.substr(8, 2)));
+                            substrText($(".r_m_maternity6 #motherTobeMoodRecord"), msg.motherTobeMoodRecord, 33);
+                            msg.fetalmovementHeartFirstTime && ($(".r_m_maternity6 #fetalmovementHeartFirstTimeYear").text(msg.fetalmovementHeartFirstTime.substr(0, 4)),
+                                $(".r_m_maternity6 #fetalmovementHeartFirstTimeMonth").text(msg.fetalmovementHeartFirstTime.substr(5, 2)),
+                                $(".r_m_maternity6 #fetalmovementHeartFirstTimeDay").text(msg.fetalmovementHeartFirstTime.substr(8, 2)));
+                            substrText($(".r_m_maternity6 #fetalmovementHeartFirstMoodRecord"), msg.fetalmovementHeartFirstMoodRecord, 31);
+                            msg.fetalmovementFeelFirstTime && ($(".r_m_maternity6 #fetalmovementFeelFirstTimeYear").text(msg.fetalmovementFeelFirstTime.substr(0, 4)),
+                                $(".r_m_maternity6 #fetalmovementFeelFirstTimeMonth").text(msg.fetalmovementFeelFirstTime.substr(5, 2)),
+                                $(".r_m_maternity6 #fetalmovementFeelFirstTimeDay").text(msg.fetalmovementFeelFirstTime.substr(8, 2)));
+                            substrText($(".r_m_maternity6 #fetalmovementFeelFirstMoodRecord"), msg.fetalmovementFeelFirstMoodRecord, 33);
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

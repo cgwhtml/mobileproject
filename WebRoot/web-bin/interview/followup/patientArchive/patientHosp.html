@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>院内医疗</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<link type="text/css" rel="stylesheet" href="/interview/followup/patientArchive/css/pagePublic.css"/>
+	<link type="text/css" rel="stylesheet" href="/resources/mypagination/js/myPagination/page.css"/>
+	<link type="text/css" rel="stylesheet" href="/resources/chosen/chosen.css"/>
+    <link type="text/css" rel="stylesheet" href="/interview/followup/patientArchive/css/patientHosp.css"/>
+</head>
+<body>
+    <div class="document_right">
+    	<div id="scroll_nav" style="margin-top:10px">	
+			<div class="right_in">
+				<div class="document_rightbottom">
+					<p style="display:none"><textarea id="Template-ListRows1" rows="0" cols="0">
+						<div class="report_contain">
+							<div class="check_item">住院号：{$T.inhospNo}</div>
+							<div class="check_item">入院日期：{$T.admitDate.substring(0,10)}</div>
+							<div class="check_item">出院日期：{$T.disChargeDate.substring(0,10)}</div>
+							<div class="check_item">住院天数：{((new Date($T.disChargeDate.substring(0,10))) - (new Date($T.admitDate.substring(0,10)))) / (3600000 * 24) + 1}天</div>
+							<div class="check_item substr">转归情况：<span title="{$T.outcomeName}">{$T.outcomeName}</span></div>
+							<div class="check_item substr">主治医生：<span title="{$T.attendDrName}">{$T.attendDrName}</span></div>
+							<div class="check_item substr">出院科室：<span title="{$T.deptName}">{$T.deptName}</span></div>
+							<div class="check_item substr">病床号：{$T.bedNo}</div>
+						</div>
+						<div class="report_containt">
+							<div class="check_itemt">入院诊断：{$T.admitDiagName}</div>
+							<div class="check_itemt">出院诊断：{$T.disChargeDiagName}</div>
+						</div>
+					</textarea></p>
+					<p style="display:none"><textarea id="Template-ListRows2" rows="0" cols="0">
+						<div class="hos_operation">
+							<table>
+								<tr>
+									<td>手术日期</td>
+									<td>手术名称</td>
+									<td>手术医生</td>
+									<td>麻醉方式</td>
+									<td>手术级别</td>
+									<td>切口愈合等级</td>
+									<td>麻醉医生</td>
+								</tr>
+								{#foreach $T as Row}
+								<tr>
+									<td>{($T.Row.surgeryBeginDate).substring(0,10)}</td>
+									<td>
+										{#if $T.Row.surgeryOperName !== null}
+											{$T.Row.surgeryOperName}
+										{#/if}
+									</td>
+									<td>
+										{#if $T.Row.surgeryDrName !== null}
+											{$T.Row.surgeryDrName}
+										{#/if}
+									</td>
+									<td>
+										{#if $T.Row.anesMethodName !== null}
+											{$T.Row.anesMethodName}
+										{#/if}
+									</td>
+									<td>
+										{#if $T.Row.surgeryLvName !== null}
+											{$T.Row.surgeryLvName}
+										{#/if}
+									</td>
+									<td>
+										{#if $T.Row.woundHealingLevelName !== null}
+											{$T.Row.woundHealingLevelName}
+										{#/if}
+									</td>
+									<td>
+										{#if $T.Row.anesDrName !== null}
+											{$T.Row.anesDrName}
+										{#/if}
+									</td>
+								</tr>
+								{#/for}
+							</table>
+						</div>
+					</textarea></p>
+					<p style="display:none"><textarea id="Template-ListRows3" rows="0" cols="0">
+						<div class="hos_operation">
+							{#foreach $T as Row}
+								<div class="exam_result">
+									<div class="content_title">
+										<P class="bTitle_text">报告单编号：{$T.Row.requisitionNo}</P>
+										<input type="hidden" id="exam_id" value="{$T.Row.id}">
+									</div>
+									<div>
+										<div class="report_contain">
+											<div class="check_item substr">检查类别：<span title="{$T.Row.examCategName}" id="examCategName">{$.trim($T.Row.examCategName)}</span></div>
+											<div class="check_item substr">检查项目：<span title="{$T.Row.examApplyItemName}">{$.trim($T.Row.examApplyItemName)}</span></div>
+											<div class="check_item">报告时间：{$.trim($T.Row.applyDate.substring(0,10))}</div>
+											<div class="check_item substr">开单医生：<span title="{$T.Row.applyDrName}" id="applyDrName">{$.trim($T.Row.applyDrName)}</span></div>
+											<div class="check_item">开单科室：<span id="applyDeptName">{$.trim($T.Row.applyDeptName)}</span></div>
+										</div>
+										<div class="report_containt">
+											<div class="check_itemt" id="examResult">检查结果：</div>
+											<div class="check_itemt" id="examDescription">检查描述：</div>
+											<div class="check_itemt">图文报告：
+                                                <a href="{$T.Row.picture}" class="T5 click_look a_color1" id="picture" target="_blank" style="text-decoration:underline;">点击查看</a>
+                                            </div>
+										</div>
+									</div>
+								</div>
+							{#/for}
+						</div>
+					</textarea></p>
+					<p style="display:none"><textarea id="Template-ListRows4" rows="0" cols="0">
+						<div class="hos_operation">
+							{#foreach $T as Row}
+								<div class="test_result">
+									<div class="content_title">
+										<P class="bTitle_text">报告单编号：{$T.Row.requisitionNo}</P>
+										<input type="hidden" id="requisitionNo_id" value="{$T.Row.id}">
+									</div>
+									<div>
+										<div class="report_contain">
+											<div class="check_item substr">检验项目：<span title="{$.trim($T.Row.testApplyItemName)}">{$.trim($T.Row.testApplyItemName)}</span></div>
+											<div class="check_item substr">样本类型：<span title="{$.trim($T.Row.testReport.sampleTypeName)}">{$.trim($T.Row.testReport.sampleTypeName)}</span></div>
+											<div class="check_item">报告时间：{$.trim($T.Row.applyDate.substring(0,10))}</div>
+											<div class="check_item substr">开单医生：<span title="{$.trim($T.Row.testReport.applyDrName)}">{$.trim($T.Row.testReport.applyDrName)}</span></div>
+											<div class="check_item">开单科室：{$.trim($T.Row.testReport.applyDeptName)}</div>
+										</div>
+										<div class="report_containt report_containt4">
+
+										</div>
+									</div>
+								</div>
+							{#/for}
+						</div>
+					</textarea></p>
+					<p style="display:none"><textarea id="Template-ListRows5" rows="0" cols="0">
+						<div class="hos_operation">
+							<table>
+								<tr>
+									<td>药品名称</td>
+									<td>药品规格</td>
+									<td>一次剂量</td>
+									<td>使用频次</td>
+									<td>用药途径</td>
+									<td>开始日期</td>
+									<td>结束日期</td>
+									<td>开嘱医生</td>
+								</tr>
+                                {#foreach $T as Row}
+                                    <tr>
+                                      <td>{$T.Row.drugName}</td>
+                                      <td>{$T.Row.drugSpe}</td>
+                                      <td>{$T.Row.oneDosage}{$T.Row.oneDosageUnit}</td>
+                                      <td>{$T.Row.frequencyName}</td>
+                                      <td>{$T.Row.doseWayName}</td>
+                                      <td>{($T.Row.orderBeginDate).substring(0,10)}</td>
+                                      <td>{($T.Row.orderEndDate).substring(0,10)}</td>
+                                      <td><div class="substr" style="width:60px" title="{$T.Row.orderOpenDrName}">{$T.Row.orderOpenDrName}</div></td>
+                                    </tr>
+	                            {#/for}
+							</table>
+						</div>
+					</textarea></p>
+					<!-- 住院信息-->
+					<div class="right_in_block" id="hosp">
+						<div class="p_head_title2">
+							<div class="design_icon p_head_icon1"></div>
+							<div class="design_icon p_head_icon2"></div>
+							<p>住院信息</p>
+						</div>
+						<div id="hosp_info_scroll"></div>
+					</div>
+				   <!-- 住院手术 -->
+					<div class="right_in_block" id="operation">
+						<div class="p_head_title2">
+							<div class="design_icon p_head_icon1"></div>
+							<div class="design_icon p_head_icon2"></div>
+							<p>住院手术</p>
+						</div>
+						<div id="hosp_oper_scroll"></div>
+					</div>
+					<!-- 检查报告 -->
+					<div class="right_in_block" id="examination">
+						<div class="p_head_title2">
+							<div class="design_icon p_head_icon1"></div>
+							<div class="design_icon p_head_icon2"></div>
+							<p>检查报告</p>
+						</div>
+						<div id="check_info_scroll"></div>
+					</div>
+					<!-- 检验报告 -->
+					<div class="right_in_block" id="inspect">
+						<div class="p_head_title2">
+							<div class="design_icon p_head_icon1"></div>
+							<div class="design_icon p_head_icon2"></div>
+							<p>检验报告</p>
+						</div>
+						<div id="test_info_scroll"></div>
+					</div>
+					<!-- 医嘱信息 -->
+					<div class="right_in_block" id="orders">
+						<div class="p_head_title2">
+							<div class="design_icon p_head_icon1"></div>
+							<div class="design_icon p_head_icon2"></div>
+							<p>医嘱信息</p>
+						</div>
+						<div id="doctor_info_scroll"></div>
+                        <div id="page"></div>
+					</div>
+					<!-- 可拖动滑块 -->
+					 <div class="dragbox">
+						 <div class="medical border_radius3">
+							 <div class="move_area"></div>
+							 <div class="design_icon progress_white_circle_small pull_left"></div>
+							 <div class="pageMenu pageMenu_checked">
+								 <div class="progress_gray_bg">
+									 <div class="design_icon progress_gray_circle_small pull_left"></div>
+								 </div>
+								 <span class="pull_right">住院信息</span>
+							 </div>
+							 <div class="pageMenu">
+								 <div class="progress_gray_bg">
+									 <div class="design_icon progress_gray_circle_small pull_left"></div>
+								 </div>
+								 <span class="pull_right">住院手术</span>
+							 </div>
+							 <div class="pageMenu">
+								 <div class="progress_gray_bg">
+									 <div class="design_icon progress_gray_circle_small pull_left"></div>
+								 </div>
+								 <span class="pull_right">检查报告</span>
+							 </div>
+							 <div class="pageMenu">
+								 <div class="progress_gray_bg">
+									 <div class="design_icon progress_gray_circle_small pull_left"></div>
+								 </div>
+								 <span class="pull_right">检验报告</span>
+							 </div>
+							 <div class="pageMenu">
+								 <div class="progress_gray_bg">
+									 <div class="design_icon progress_gray_circle_small pull_left"></div>
+								 </div>
+								 <span class="pull_right">医嘱信息</span>
+							 </div>
+							 <div class="design_icon progress_white_circle_small progress_last"></div>
+						 </div>
+					 </div>
+				</div>
+			</div>
+        </div>
+    </div>
+	<script type="text/javascript" src="/resources/jquery/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="/resources/config/config.js"></script>
+	<script type="text/javascript" src="/resources/mypagination/js/myPagination/jquery.myPagination6.0.js"></script>
+	<script type="text/javascript" src="/resources/jTemplates/jquery-jtemplates.js"></script>
+	<script type="text/javascript" src="/resources/mypagination/js/msgbox/msgbox.js"></script>
+	<script type="text/javascript" src="/resources/js/jquery.nicescroll.min.js"></script>
+	<script type="text/javascript" src="/resources/chosen/chosen.jquery.js"></script>
+	<script type="text/javascript" src="/resources/inputer/inputer.js"></script>
+	<script type="text/javascript" src="/interview/followup/patientArchive/js/patientHosp.js"></script>
+    <script type="text/javascript">
+        window.onload=function(){
+		    change();
+		};
+        $(window).resize(function(){
+		    change();
+		});
+		function change(){
+          $("#scroll_nav").height($(window).height()-10);
+          $(".right_in").css({"min-height":$(window).height()-10});
+		}
+		$(function(){
+			change();
+			$("#scroll_nav").niceScroll({
+		        railpadding: { top:0, right:0, left: 0, bottom:0 }
+            });
+			$(".s_input").inputer({
+                css:{"width":"210px","marginLeft":"20px"},
+                callback:function(){
+                    return false;
+                }
+            });
+            $(".chosen_select_deselect").chosen({
+                disable_search_threshold:10,
+                allow_single_deselect:true,
+                search_contains:true,
+                no_results_text:"未找到此选项",
+                width:"210px"
+            });
+		});
+    </script>
+  </body>
+</html>

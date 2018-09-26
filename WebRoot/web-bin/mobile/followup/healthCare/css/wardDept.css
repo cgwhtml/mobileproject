@@ -1,0 +1,75 @@
+html,body{
+    background-color: #F6F8FC;
+}
+.search_res {
+    width:100%;
+    height:56px;
+    background:#fff;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:1000;
+    display:none;
+}
+.body_white{
+    background-color: #ffffff;
+}
+.search_body{
+    display: block;
+    overflow: auto;
+    background: #fff;
+    top:56px;
+    box-sizing: border-box !important;
+}
+.searchList_result{
+    background-color: #ffffff;
+}
+.searchList_result .item{
+    padding: 0 10px;
+}
+#none {
+    width:180px;
+    height:170px;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom: 0;
+    margin: auto;
+    text-align:center;
+}
+#none img {
+    width:100%;
+}
+#none p {
+    color:#888;
+    font-size:16px;
+}
+ #main_content{
+     margin-top: 15px;
+ }
+.ward_item{
+    height:50px;
+    font-size: 16px;
+    color: #333333;
+    background-color: #ffffff;
+    padding:0  15px;
+    line-height:50px ;
+    position: relative;
+    box-sizing: border-box;
+ }
+.border_box{
+    height: 100%;
+    border-bottom: 1px solid #D9D9D9;
+    box-sizing: border-box;
+}
+#main_content .ward_item:last-child .border_box{
+    border-bottom: 0;
+}
+ .gray_arrow{
+    position: absolute;
+    top:50%;
+    right:15px;
+    margin-top: -7px;
+ }
+

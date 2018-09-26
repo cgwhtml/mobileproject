@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>医生主页</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/basic.css">
+    <link rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/findDoctor/doctorMain.css">
+    <script src="/web-bin/resources/rem/rem2.js"></script>
+</head>
+<body>
+<div data-role="page" class="wrapper">
+    <div class="wrapper">
+        <input type="hidden" id="followId" value="">
+        <div class="top_box">
+            <div class="head_box">
+                <div class="head doc_head"></div>
+            </div>
+            <div class="msg_box">
+                <div class="msg_li substr">
+                    <span class="name substr"></span>
+                    <span class="substr"></span>
+                </div>
+                <div class="dept msg_li">
+                    <div style="max-width:30%;box-sizing: border-box;padding-right: 10px" class="deptName substr"></div>
+                    <div class="line" style="display:none">|</div>
+                    <div style="box-sizing: border-box;padding-left: 10px" class="hosp substr"></div>
+                </div>
+                <div class="fans msg_li">粉丝：<span></span></div>
+            </div>
+        </div>
+        <div class="description_box">
+            <div class="doc_description">
+                <div class="description_title">医生简介</div>
+                <span></span>
+            </div>
+        </div>
+        <ul class="service_box">
+            <li>咨询服务</li>
+            <li>
+                <div class="sm_icon chat_sm"></div>
+                <span>免费咨询</span>
+                <div class="dredge freeConsultation">暂未开通</div>
+            </li>
+            <li>
+                <div class="sm_icon img_sm"></div>
+                <span>图文咨询</span>
+                <div class="dredge graphicConsulting">暂未开通</div>
+            </li>
+            <li>
+                <div class="sm_icon fetal_sm"></div>
+                <span>胎心解读</span>
+                <div class="dredge fetalheartConsultation">暂未开通</div>
+            </li>
+            <li>
+                <div class="sm_icon tel_sm"></div>
+                <span>电话咨询</span>
+                <div class="dredge telephoneConsultation">暂未开通</div>
+            </li>
+            <li>
+                <div class="sm_icon video_sm"></div>
+                <span>视频咨询</span>
+                <div class="dredge videoConsulting">暂未开通</div>
+            </li>
+        </ul>
+        <div class="focus_box">
+            <div class="focus">关注</div>
+            <div class="isWhat">请先关注后再咨询医生</div>
+        </div>
+        <div class="no_focus_box">
+            <input type="hidden" class="hgId">
+            <div class="no_focus">取消关注</div>
+            <div class="doc_chat">立即咨询</div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/weChat/weChatPublic/js/findDoctor/doctorMain.js"></script>
+<!--去除因为加载jquery.mobile页面底部出现loading字样-->
+<script type="text/javascript">
+    $(document).bind('mobileinit',function(){
+        $.mobile.loadingMessage = false;
+    })
+</script>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery.mobile-1.3.2.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+.tip-red {
+	z-index:1000;
+	text-align:left;
+	border:1px solid #939393;
+	padding:7px;
+	min-width:50px;
+	max-width:530px;
+	color:#ea6767;
+	background-color:#fef9d9;
+	background-image:url(tip-red.png); /* bgImageFrameSize >= 10 should work fine */
+	/**
+	 * - If you set a background-image, border/padding/background-color will be ingnored.
+	 *   You can set any padding to .tip-inner instead if you need.
+	 * - If you want a tiled background-image and border/padding for the tip,
+	 *   set the background-image to .tip-inner instead.
+	 */
+}
+.tip-blue {
+	z-index:1000;
+	text-align:left;
+	border:1px solid #939393;
+	padding:7px;
+	min-width:50px;
+	max-width:530px;
+	color:#00A2F4;
+	background-color:#fef9d9;
+	background-image:url(tip-blue.png);
+}
+/*提示框固定宽度*/
+.tip-red.fixed-width,
+.tip-blue.fixed-width {
+	width: 200px !important;
+}
+.tip-red .tip-warn-image{
+	background-image:url(tip-warn.png);
+	width: 16px;
+	height:16px;
+	position: absolute;
+	top: 9px;
+	left: 8px;
+}
+.tip-red .tip-inner {
+	margin-top:-2px;
+	margin-bottom:-2px;
+	padding:0 3px 0 22px;
+	font-size:13px !important;
+}
+
+/* Configure an arrow image - the script will automatically position it on the correct side of the tip */
+.tip-red .tip-arrow-top {
+	margin-top:-9px;
+	margin-left:15px;
+	top:0;
+	left:0;
+	width:16px;
+	height:10px;
+	background:url(tip-red-arrows.png) no-repeat;
+}
+.tip-red .tip-arrow-right {
+	margin-top:-9px; /* approx. half the height to center it */
+	margin-left:-4px;
+	top:50%;
+	left:100%;
+	width:10px;
+	height:20px;
+	background:url(tip-red-arrows.png) no-repeat -16px 0;
+}
+.tip-red .tip-arrow-bottom {
+	margin-top:-5px;
+	margin-left:15px;
+	top:100%;
+	left:0;
+	width:16px;
+	height:13px;
+	background:url(tip-red-arrows.png) no-repeat -32px 0;
+}
+.tip-red .tip-arrow-left {
+	margin-top:-9px; /* approx. half the height to center it */
+	margin-left:-6px;
+	top:50%;
+	left:0;
+	width:10px;
+	height:20px;
+	background:url(tip-red-arrows.png) no-repeat -48px 0;
+}
+.tip-blue .tip-arrow-top {
+	margin-top:-9px;
+	margin-left:15px;
+	top:0;
+	left:0;
+	width:16px;
+	height:10px;
+	background:url(tip-blue-arrows.png) no-repeat;
+}
+.tip-blue .tip-arrow-right {
+	margin-top:-9px; /* approx. half the height to center it */
+	margin-left:-4px;
+	top:50%;
+	left:100%;
+	width:10px;
+	height:20px;
+	background:url(tip-blue-arrows.png) no-repeat -16px 0;
+}
+.tip-blue .tip-arrow-bottom {
+	margin-top:-5px;
+	margin-left:15px;
+	top:100%;
+	left:0;
+	width:16px;
+	height:13px;
+	background:url(tip-blue-arrows.png) no-repeat -32px 0;
+}
+.tip-blue .tip-arrow-left {
+	margin-top:-9px; /* approx. half the height to center it */
+	margin-left:-6px;
+	top:50%;
+	left:0;
+	width:10px;
+	height:20px;
+	background:url(tip-blue-arrows.png) no-repeat -48px 0;
+}

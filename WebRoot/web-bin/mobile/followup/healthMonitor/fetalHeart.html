@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>胎心</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+	<link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/healthMonitor/css/healthMonitor.css">
+</head>
+<body onselectstart="return false">
+    <div class="wrapper">
+	    <div class="mainContent T1" id="mainContent">
+		    <div class="chart_item">
+                 <div class="panel-head">
+                 	 <ul>
+                 	 	<li class="measuringTime">监测日期：--</li>
+                 	 	<li class="week" style="margin-left:-10%">孕周：--</li>
+                 	 </ul>
+                 </div>
+                 <div class="chart" id="chart"><!-- id和class不可以变 -->
+					 <div id="loading" style="position:absolute;left:45%;top:39%"></div>
+					 <input type="hidden" class="music" value=""/>
+	                 <canvas class="oyLabel"></canvas>
+	                 <div style="margin-left:40px;overflow:hidden">
+	                 	<canvas class="contentChart" id="contentChart"></canvas>
+	                 </div>
+	                 <div style="overflow-x:hidden">
+	                     <canvas class="oxLabel"></canvas>
+	                 </div>
+	                 <canvas class="uterusYLabel"></canvas>
+	                 <div style="margin-left:40px;overflow:hidden;margin-top:-10px;margin-bottom:14px">
+	                	 <canvas class="uterusChart"></canvas>
+	                 </div>
+	             </div>
+	             <div style="margin-top:10px;text-align:center;margin-bottom:10px">
+	             	 <div style="float:left;width:33%">
+	             	     <p style="margin-bottom:6px">监测时长</p>
+	             	     <span class="measuringLong" style="color:#00A1D9;font-size:22px">00:00</span>
+	             	 </div>
+	             	 <div style="float:left;width:33%">
+	             	     <p style="margin-bottom:6px">胎心率</p>
+	             	     <span class="valueNow" style="color:#00A1D9;font-size:22px">--</span><span>BPM</span>
+	             	 </div>
+	             	 <div style="float:left;width:33%">
+	             	     <p style="margin-bottom:6px">胎动数</p>
+	             	     <span class="moveNow" style="color:#00A1D9;font-size:22px">--</span><span>次</span>
+	             	 </div>
+	             	 <div style="clear:both"></div>
+	             	 <!-- <div style="float:left;width:50%;margin-left:30px;line-height:26px">
+	             	 	 <div>当前胎心率：<span class="valueNow">--</span></div>
+	             	 	 <div>平均胎心率：<span class="averageValueNow">--</span></div>
+	             	 	 <div>胎动数：<span class="moveNow">--</span></div>
+	             	 </div>
+	             	 <div style="float:right;margin-right:30px">
+	             	 	 <img value="" class="play" src="/HugPage/resources/images/3.png" title="播放">
+	             	 	 <p class="timeNow">00:00:00</p>
+	             	 </div> -->
+	             </div>
+	             <!-- <div style="text-align:center;margin-top:10px">
+	             	 <img value="" class="play" src="/HugPage/resources/images/7.png" title="播放" width="20%" height="20%">
+	             </div> -->
+	             <div class="healthData" id="healthId"><!-- class不可改变 -->
+	             	 <input type="hidden" class="data" value=""/>
+	             	 <input type="hidden" class="fetalMoveData" value="">
+             	     <input type="hidden" class="uterusData" value="">
+	             </div>
+	             <div class="progressBar">
+	             	 <div class="timeNow">00:00</div>
+	             	 <div class="progressNav">
+	             	 	<div class="progressBac"></div>
+	             	 	<div class="speed" id="speed"></div>
+				     	<div class="drag" id="drag"></div>
+	             	 </div>
+				     <div class="timeTotal">--:--</div>
+				     <div class="playBtn"><img value="" class="play" src="/web-bin/resources/images/9.png" title="播放" width="32px" height="32px"></div>
+	             </div>
+			</div>
+	    </div>
+    </div>
+</body>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/js/html2canvas.js"></script>
+<script type="text/javascript" src="/web-bin/mobile/followup/healthMonitor/js/h_chart.js"></script>
+<script type="text/javascript" src="/web-bin/mobile/followup/healthMonitor/js/h_report.js"></script>
+<script type="text/javascript" src="/web-bin/mobile/followup/healthMonitor/js/fetalHeart.js"></script>

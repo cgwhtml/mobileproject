@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>宝宝</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+    <style>
+        .parent_msg{
+            width: 4.26rem;
+            margin: 1rem auto;
+            background-color: #fff;
+        }
+        .main_option{
+            padding-left: 0;
+        }
+        .baby_name{
+            text-align: center;
+            font-size: 0.4rem;
+            color: #333;
+            margin: 0.26rem 0;
+        }
+        .pink_btn{
+            width: 2.56rem;
+            margin: 0.28rem auto;
+        }
+    </style>
+</head>
+<body>
+   <div id="baby_brand">
+       <p style="display:none"><textarea id="Template-ListRows" rows="0" cols="0">
+            {#foreach $T as msg}
+           <div class="parent_msg">
+               <input type="hidden" id="item_id" value="{$T.msg.id}">
+               <div class="main_option">
+                    {#if $T.msg.sex==1}
+                   <div class="baby_brand_boy"></div>
+                    {#elseif $T.msg.sex==2}
+                   <div class="baby_brand_girl"></div>
+                    {#/if}
+                   <p class="baby_name"> {$T.msg.name}</p>
+                   <div class="pink_btn" onclick="">选择</div>
+               </div>
+           </div>
+            {#/for}
+       </textarea></p>
+       <div id="data_table"></div>
+   </div>
+   <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+   <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+   <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+   <script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+   <script>
+        $(function(){
+            var localhostUrl=window.location.origin;
+            var query=getRequest();
+            var healthBookId=query.healthBookId;
+            var type=query.type;
+            window.addEventListener('pageshow', function () {
+                $.ajax({
+                    type:"post",
+                    url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_babyBasicMsg_data?healthBookId='+healthBookId+"&ram="+Math.random(),
+                    dataType:'json',
+                    contentType:'application/json;charset=UTF-8',
+                    success:function(data){
+                        console.log(data);
+                        if(data.res==0){
+                            var msg=data.data;
+                            $("#data_table").setTemplateElement("Template-ListRows").processTemplate(msg);
+                        }else{
+                            alert('请求失败');
+                        }
+                    },
+                    error:function () {
+                        alert('请求失败');
+                        return;
+                    }
+                });
+            });
+            $(document).on('click','.pink_btn',function(){
+                var id=$(this).parents('.parent_msg').find('#item_id').val();
+                if(type==1){//宝宝印记
+                    window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_addBabyBrand_page?healthBookId="+healthBookId+'&babyId='+id;
+                }else if(type==2){//新生儿早期育儿记录
+                    window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_newBabyRecord_page?healthBookId="+healthBookId+'&babyId='+id;
+                }else if(type==3){//一个月记录
+                    window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_oneMonthRecord_page?healthBookId="+healthBookId+'&babyId='+id;
+                }else if(type==4){//三个月记录
+                    window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_threeMonthRecord_page?healthBookId="+healthBookId+'&babyId='+id;
+                }else if(type==5){//六个月记录
+                    window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_sixMonthRecord_page?healthBookId="+healthBookId+'&babyId='+id;
+                }else if(type==6){//八个月记录
+                    window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_eightMonthRecord_page?healthBookId="+healthBookId+'&babyId='+id;
+                }else if(type==7){//一岁记录
+                    window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_oneYearRecord_page?healthBookId="+healthBookId+'&babyId='+id;
+                }else if(type==8){//一岁六个月记录
+                    window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_oneYearSixMonthRecord_page?healthBookId="+healthBookId+'&babyId='+id;
+                }else if(type==9){//两岁记录
+                    window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_twoYearRecord_page?healthBookId="+healthBookId+'&babyId='+id;
+                }else if(type==10){//两岁六个月记录
+                    window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_twoYearSixMonthRecord_page?healthBookId="+healthBookId+'&babyId='+id;
+                }else if(type==11){//三岁记录
+                    window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_threeYearRecord_page?healthBookId="+healthBookId+'&babyId='+id;
+                }else if(type==12){//四岁记录
+                    window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_fourYearRecord_page?healthBookId="+healthBookId+'&babyId='+id;
+                }else if(type==13){//五岁记录
+                    window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_fiveYearRecord_page?healthBookId="+healthBookId+'&babyId='+id;
+                }else if(type==14){//六岁记录
+                    window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_sixYearRecord_page?healthBookId="+healthBookId+'&babyId='+id;
+                }
+            })
+        })
+    </script>
+</body>
+</html>

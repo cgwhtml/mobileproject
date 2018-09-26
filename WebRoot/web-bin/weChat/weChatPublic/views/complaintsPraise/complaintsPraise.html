@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>投诉表扬处理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/weui/weui.min.css">
+    <link rel="stylesheet" href="/web-bin/resources/weui/jquery-weui.css">
+    <link rel="stylesheet" href="/web-bin/resources/css/basicMobile.css">
+    <link rel="stylesheet" href="/web-bin/resources/mobileSelect/mobileSelect.css">
+    <link rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/complaintsPraise/complaintsPraise.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="title_box">
+        <div class="title_head">
+            <div class="rectangle"></div>
+            <span class="cptype">投诉</span>内容
+        </div>
+    </div>
+    <div class="title_box">
+        <div class="title_head">
+            <div class="rectangle"></div>
+            <span>患者信息</span>
+        </div>
+    </div>
+    <div class="title_box">
+        <div class="title_head">
+            <div class="rectangle"></div>
+            <span class="cptype">投诉</span>处理
+        </div>
+        <ul class="handel_ul"></ul>
+    </div>
+    <div id="addBottom">
+        <div id="addPraise">添加</div>
+    </div>
+</div>
+<textarea id="detail_temp" style="display: none;">
+    {#foreach $T as Row}
+    <li class="handel_li">
+        <span class="handel_date">处理日期：<span class="ass_date">{$T.Row.handlingTime}</span></span>
+        <div class="gray_arrow" style="margin-top:9px"></div>
+    </li>
+    <div class="handel_detail">
+        <ul>
+            <li><span class="cptype">投诉</span>情况：
+                {#if $T.Row.cpState==0}
+                    无效处理
+                {#else}
+                    有效处理
+                {#/if}
+            </li>
+            {#if $T.Row.handleDetails}
+            <li>核实情况及解决方案：{$T.Row.handleDetails}</li>
+            {#/if}
+            <li class="cp_state">是否沟通<span class="cptype">投诉</span>人：
+                {#if $T.Row.communicateFlag==0}
+                    否
+                {#else}
+                    是
+                {#/if}
+            </li>
+            <li class="cp_state"><span class="cptype">投诉</span>人是否满意：
+                {#if $T.Row.satisfactionFlag==0}
+                    否
+                {#else}
+                    是
+                {#/if}
+            </li>
+            {#if $T.Row.communicateDesc}
+            <li>沟通结果：{$T.Row.communicateDesc}</li>
+            {#/if}
+            {#if $T.Row.handlerName}
+            <li>处理人：{$T.Row.handlerName}</li>
+            {#/if}
+            <li class="handel_status">处理状态：
+                <span></span>
+            </li>
+        </ul>
+        {#foreach $T.Row.file as Mow}
+        <div class="document_li">
+            <input type="hidden" class="file_url" value="{$T.Mow.id}">
+            <div class="file_images">
+                <img src="/web-bin/weChat/weChatPublic/img/file_photo.png" alt="">
+            </div>
+            <div class="file_message">
+                <div class="substr">{$T.Mow.realName}</div>
+                <!--<div>kb</div>-->
+            </div>
+            <div class="down_load">下载</div>
+        </div>
+        {#/for}
+    </div>
+    {#/for}
+</textarea>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/weui/jquery-weui.js"></script>
+<script type="text/javascript" src="/web-bin/resources/weui/fastclick.js"></script>
+<!--解决ios下click的300ms的延迟，需引入fastclick-->
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+<script type="text/javascript" src="/web-bin/weChat/weChatPublic/js/complaintsPraise/complaintsPraise.js"></script>
+</body>
+</html>

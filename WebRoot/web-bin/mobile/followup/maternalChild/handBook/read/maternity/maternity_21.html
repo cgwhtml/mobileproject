@@ -1,0 +1,184 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>阅读</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+		.r_m_maternity21{
+			position: relative;
+		}
+		.r_m_maternity21 .pink_content_title{
+			text-align:center;
+		}
+		.r_m_maternity21 .table_box{
+			padding-left:0.4rem;
+			padding-right:0.4rem;
+			padding-top:0.4rem;
+		}
+		.r_m_maternity21 .table_box .content_table tr{
+			height:0.67rem;
+		}
+		.r_m_maternity21 .table_box .content_table tr td{
+			border:1px solid #444;
+			text-align:center;
+			background-color: #FFF3FD;
+			box-sizing: border-box !important;
+		}
+		@media (min-height:901px) and (-webkit-min-device-pixel-ratio:2){
+			.r_m_maternity21 .table_box .content_table{
+				border: 0.5px solid #444;
+			}
+			.r_m_maternity21 .table_box .content_table tr td {
+				border: 0.5px solid #444;
+			}
+		}
+    </style>
+</head>
+<body>
+	<div class="r_m_maternity r_m_maternity21">
+		<div class="gradient_top gradient_pink_top"></div>
+		<div class="mc_content_main">
+			<p class="pink_content_title">孕4~7月健康检查记录</p>
+			<p class="content_font1 text_indent">定期产检能连续观察、了解各个阶段胎儿发育和孕妈妈身体变化的情况，它是孕妈妈和胎儿的健康保护伞。</p>
+			<div class="table_box">
+				<table cellspacing="0" cellpadding="0" border="1" style="width:100%;table-layout:fixed;box-sizing: border-box" class="content_table test">
+					<tr>
+						<td>检查日期</td>
+						<td colspan="3"></td>
+					</tr>
+					<tr>
+						<td style="width: 1.888rem;">孕周</td>
+						<td style="width: 2.213rem;"></td>
+						<td style="width: 2.213rem;">血压(mmHg)</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>体重(kg)</td>
+						<td></td>
+						<td>宫高(cm)</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>胎位</td>
+						<td></td>
+						<td>胎心音(bpm)</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>尿蛋白</td>
+						<td></td>
+						<td>血红蛋白(g/L)</td>
+						<td></td>
+					</tr>
+					<tr style="height:2.43rem">
+						<td>高危因素</td>
+						<td colspan="3"></td>
+					</tr>
+					<tr style="height:2.56rem">
+						<td>处理及建议</td>
+						<td colspan="3"></td>
+					</tr>
+					<tr>
+						<td>预约日期</td>
+						<td></td>
+						<td>检查者</td>
+						<td></td>
+					</tr>
+				</table>
+				<p style="display:none"><textarea id="Template-ListRows" rows="0" cols="0">
+					{#foreach $T as msg}
+					<table cellspacing="0" cellpadding="0" border="0" style="width:100%;margin-bottom:0.4rem;" class="content_table">
+						<tr>
+							<td>检查日期</td>
+							<td colspan="3">{$T.msg.checkTime}</td>
+						</tr>
+						<tr>
+							<td style="width: 1.86rem;">孕周</td>
+							<td style="width: 2.21rem;">{$T.msg.gestation}</td>
+							<td style="width: 2.13rem;">血压(mmHg)</td>
+							<td>{$T.msg.systolicPressure} <span>/</span>{$T.msg.diastolicPressure}</td>
+						</tr>
+						<tr>
+							<td>体重(kg)</td>
+							<td>{$T.msg.weight}</td>
+							<td>宫高(cm)</td>
+							<td>{$T.msg.fundalHeight}</td>
+						</tr>
+						{#foreach $T.fetalHeartFetusPosition as Row}
+						<tr>
+							<td>胎位</td>
+							<td>{$T.Row.fetalHeartSound}</td>
+							<td>胎心音(bpm)</td>
+							<td>{$T.Row.fetusPosition}</td>
+						</tr>
+						{#/for}
+						<tr>
+							<td>尿蛋白</td>
+							<td>{$T.msg.albuminuria}</td>
+							<td>血红蛋白(g/L)</td>
+							<td>{$T.msg.hemoglobin}</td>
+						</tr>
+						<tr style="height:2.43rem">
+							<td>高危因素</td>
+							<td colspan="3">{$T.msg.riskFactor}</td>
+						</tr>
+						<tr style="height:2.56rem">
+							<td>处理及建议</td>
+							<td colspan="3">{$T.msg.processAdvice}</td>
+						</tr>
+						<tr>
+							<td>预约日期</td>
+							<td>{$T.msg.appointmentTime}</td>
+							<td>检查者</td>
+							<td>{$T.msg.checker}</td>
+						</tr>
+					</table>
+					{#/for}
+					</textarea></p>
+				<div id="data_table"></div>
+			</div>
+		</div>
+		<div class="gradient_bottom gradient_pink_bottom"></div>
+	</div>
+	<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+	<script>
+		$(function(){
+            change();//计算滚动条
+            // 高度宽度再计算
+            $(window).resize(function(){
+                change();
+            });
+            // 滚动条
+            $(".r_m_maternity21").niceScroll({
+                railpadding: { top:0, right: 0, left: 0, bottom:0 },
+                cursorwidth:0
+            });
+			if(healthBookId!=''&&typeof(healthBookId)!="undefined"&&healthBookId!="undefined") {
+				$.ajax({
+					type:"post",
+					url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_readHealthRecord_data?healthBookId='+healthBookId+'&begin=4&end=7',
+					dataType:'json',
+					success:function(data){
+						if(data.res==0){
+							var msg=data.data;
+							if(msg.length!=0 && msg!=null){
+								$('.r_m_maternity21 .test').hide();
+								var fetalHeartFetusPosition=msg.fetalHeartFetusPosition;
+								msg.fetalHeartFetusPosition!=null&& $(".r_m_maternity21 #data_table").setTemplateElement("Template-ListRows").processTemplate(fetalHeartFetusPosition);
+								$(".r_m_maternity21 #data_table").setTemplateElement("Template-ListRows").processTemplate(msg);
+								if(msg.length>1) {
+                                    $('.r_m_maternity21 .gradient_bottom').css('position', 'relative');
+                                }
+							}
+						}
+					}
+				});
+			}
+		})
+        function change(){
+            $('.r_m_maternity21').height($(window).height());
+        }
+	</script>
+</body>
+</html>

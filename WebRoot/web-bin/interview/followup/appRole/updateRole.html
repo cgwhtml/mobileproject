@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>修改角色</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="/resources/css/basic.css"/>
+	<link rel="stylesheet" type="text/css" href="/resources/poshytip/tip-red/tip-red.css"/>
+	<link rel="stylesheet" type="text/css" href="/resources/ztree/css/zTreeStyle/zTreeStyle.css"/>
+	<link rel="stylesheet" type="text/css" href="/appRole/css/addRole.css"/>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="main">
+			<form id="myForm" name="myForm" action="updateRole.htm" method="post">
+				<input type="hidden" name="roleDTO.id" value="<s:property value="result.models.role.id"/>"/>
+				<input type="hidden" name="roleDTO.roleNameValue" value="<s:property value="result.models.role.roleName"/>"/>
+				<input type="hidden" name="roleDTO.rolePermission" value="<s:property value="result.models.role.rolePermission"/>" id="perIds"/>
+				<div class="content">
+					<div>
+						<p class="content_text">角色名称：</p>
+						<input type="text" class="content_input" value="<s:property value="result.models.role.roleName"/>" name="roleDTO.roleName" id="roleName">
+						<span class="must">*</span>
+					</div>
+					<div>
+						<p class="content_text" style="float:left">查看模块：</p>
+						<div class="catalogs" id="treeDiv">
+							<ul id="catalogTree" class="ztree"></ul>
+						</div>
+						<div style="clear: both"></div>
+					</div>
+				</div>
+			</form>
+			<div class="submit blue_highlight" onclick="checkForm()">保存</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="/hug_interview/resources/jquery/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="/hug_interview/resources/poshytip/jquery.poshytip.js"></script>
+	<script type="text/javascript" src="/hug_interview/resources/js/jquery.form.js"></script>
+	<script type="text/javascript" src="/hug_interview/resources/js/jquery.nicescroll.min.js"></script>
+	<script type="text/javascript" src="/hug_interview/resources/ztree/js/jquery.ztree.core-3.2.js"></script>
+	<script type="text/javascript" src="/hug_interview/resources/ztree/js/jquery.ztree.excheck-3.2.js"></script>
+	<script type="text/javascript" src="/hug_interview/manage/permission/role/js/updateRole.js"></script>
+	<script type="text/javascript">
+		function change(){
+			$(".content_text2").width($(window).width()*0.2-40);
+			$(".remark_textarea").width($(".content_text2").width()+367);
+		}
+		$(window).resize(function(){
+			change();
+		});
+		$(function(){
+			change();
+			$("html").niceScroll({
+				railpadding: { top:0, right: 0, left: 0, bottom:0 }
+			});
+		});
+	</script>
+</body>
+</html>

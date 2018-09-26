@@ -1,0 +1,16 @@
+body{
+    background-color:#FFFFFF;
+}
+input[type="text"]{
+    width:210px;
+}
+.mainContent table td{
+    padding-top:10px;
+}
+.mainContent table tr td:FIRST-CHILD{
+    padding-left:6px;
+}
+.mainContent .blue_highlight{
+    margin:0 auto;
+    margin-top:40px;
+}

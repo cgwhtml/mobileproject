@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>我的预约</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/basic.css">
+    <link rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/myAppointment/myAppointment.css">
+</head>
+<body>
+<div class="myAppoint">
+    <h2 class="myAppoint_header">共预约挂号<b></b>次</h2>
+    <div class="myAppoint_content"></div>
+    <textarea id="appoint_span_temp" style="display: none;">
+        {#foreach $T as Row}
+        <div class="appoint_span">
+            <input type="hidden" class="hospCode" value="{$T.Row.hospCode}">
+            <input type="hidden" class="regId" value="{$T.Row.regId}">
+            <input type="hidden" class="regStatus" value="{$T.Row.regStatus}">
+            <div class="span_header">
+                <p><span class="header_txt canceled">已取消</span><span class="header_txt visited">已就诊</span><span class="header_txt booking">距离就诊还有<i><b class="remainDays">{$T.Row.remainDays}</b>天</i></span><br/><span class="header_tips">您已超过预约取消时间，无法取消预约。</span></p>
+                <div class="cancel_appoint">取消预约</div>
+            </div>
+            <div class="span_middle">
+                <div class="span_img"></div>
+                <div class="span_content">
+                    <p>
+                    <h2><span>{$T.Row.deptName}</span><b>{$T.Row.staffName}</b></h2>
+                    <span>{$T.Row.hospName}</span><br/><span>预约序号  <b>{$T.Row.takeIndex}号</b></span><br/><span>挂号费（医院到付）  <i>￥:{$T.Row.regFee}元</i></span>
+                    </p>
+                </div>
+            </div>
+            <div class="span_footer">
+                <p><label>就诊人</label><span>{$T.Row.patName}</span></p>
+                <p><label>就诊时间</label><span>{$T.Row.schDate} <input type="hidden" class="dayType" value="{$T.Row.dayType}"><i class="dayStr"></i> {$T.Row.expectStime}</span></p>
+            </div>
+        </div>
+        {#/for}
+    </textarea>
+
+    <div class="cancel">
+        <div class="cancel_box">
+            <div class="cancel_inner">
+                <div class="cancel_tips"><span>是否取消本次预约</span></div>
+            </div>
+            <div class="cancel_content"><span>预约取消之后将无法恢复，需重新进行预约，您确定取消预约吗？</span></div>
+            <div class="cancel_close"><span class="cancel_cancel">取消</span><span class="cancel_submit">确定</span></div>
+        </div>
+    </div>
+    <div class="error">
+        <div class="error_box">
+            <div class="error_inner">
+                <div class="error_tips"><span>提示</span></div>
+            </div>
+            <div class="error_content"><i class="error_icon"></i><span></span></div>
+            <div class="error_close">确定</div>
+        </div>
+    </div>
+    <div class="cancel_success">
+        <div class="error_box">
+            <div class="error_inner">
+                <div class="error_tips"><span>提示</span></div>
+            </div>
+            <div class="error_content"><span>取消成功</span></div>
+            <div class="error_close">确定</div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/zepto/zepto.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script src="/web-bin/resources/rem/rem.js"></script>
+<script type="text/javascript" src="/web-bin/weChat/weChatPublic/js/myAppointment/myAppointment.js"></script>
+</html>

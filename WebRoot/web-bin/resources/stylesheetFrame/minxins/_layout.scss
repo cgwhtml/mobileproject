@@ -1,0 +1,56 @@
+@charset "UTF-8";
+/*列表头部函数*/
+@mixin headbar($borderColor){
+  padding: 0 $padding-base-horizontal;
+  height: $headbar-height;
+  border-bottom: $headbar-border-size solid $borderColor;
+  line-height: $headbar-height;
+}
+
+/*居中布局,行内元素也可用*/
+.center-block{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*两列布局*/
+.two-col-layout{
+  @mixin aside(){
+    width: $layout-two-aside-width;
+    display: inline-block;
+  }
+  .aside-right{
+    float: right;
+    @include aside;
+  }
+  .main-left {
+    margin-right: floor($layout-two-aside-width + $padding-block-horizontal);
+  }
+  .main-left-iframe {
+    margin-right: $layout-two-aside-width;
+  }
+  .aside-left{
+    float: left;
+    @include aside;
+  }
+  .main-right {
+    margin-left: floor($layout-two-aside-width + $padding-block-horizontal);
+  }
+  .aside-body{
+    padding: 0 $padding-block-horizontal;
+  }
+}
+
+/*头部标题*/
+.headbar-primary{
+  @include headbar($headbar-border-primary-color);
+}
+.headbar-success{
+  @include headbar($headbar-border-success-color);
+}
+
+/*列表布局*/
+.table-list-layout{
+  background-color: #fff;
+}

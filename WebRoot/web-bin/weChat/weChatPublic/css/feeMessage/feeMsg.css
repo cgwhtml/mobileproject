@@ -1,0 +1,99 @@
+.wrapper{
+    height:100%;
+}
+.fee_title{
+    height:144px;
+    padding: 10px 0 0 15px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+.fee_top{
+    height:45px;
+    border-bottom: 1px solid #D9D9D9;
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    color:#333333;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+.fee_top span{
+    margin-left: 15px;
+}
+.fee_box{
+    height: 90px;
+    padding: 10px 0 10px 0;
+    box-sizing: border-box;
+}
+.total_money_box{
+    width:40%;
+    height:100%;
+    float: left;
+    border-right: 1px solid #D9D9D9;
+}
+.total_money_box span{
+    font-size: 15px;
+}
+.total_money_box .total_money{
+    color: #3C9EFA;
+    font-size: 20px;
+}
+.total_money_box .total_money span{
+    font-size: 20px;
+}
+.fee_detail{
+    width:59%;
+    height:100%;
+    box-sizing: border-box;
+    float: left;
+    font-size: 12px;
+    line-height: 17px;
+    color:#999;
+}
+.fee_detail:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+ .fee_detail li{
+    width:40%;
+    height:50%;
+    float: left;
+    margin-left: 20px;
+}
+.fee_detail li div{
+    color: #333333;
+}
+.msg_wrapper{
+    padding:0 0 0 15px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+.msg_wrapper ul{
+    width:100%;
+    height:100%;
+}
+.msg_wrapper ul li{
+    width:100%;
+    height:45px;
+    border-bottom: 1px solid #D9D9D9;
+    color: #333333;
+    font-size: 17px;
+    line-height:45px;
+    padding-right: 15px;
+    padding-left: 5px;
+    box-sizing: border-box;
+}
+.msg_wrapper ul li:last-child{
+    border:none;
+}
+.wrapper .gray_arrow{
+    margin-top: 15px;
+    margin-left: 10px;
+}
+.money{
+    float: right;
+    color: #999999;
+}

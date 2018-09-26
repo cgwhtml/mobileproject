@@ -1,0 +1,8 @@
+.memberInfo{background-color: #fff;margin-bottom:0.7rem;}
+.memberInfo ul{}
+.memberInfo ul li{border-bottom:1px solid #d9d9d9;margin-left:0.2rem;padding-right:0.2rem;height:0.46rem;box-sizing: border-box;font-size:0.16rem;line-height:0.46rem;}
+.memberInfo ul li label{float:left;color:#3D3D3D;}
+.memberInfo ul li span{float:right;color:#9a9a9a;}
+.btn{width:90%;height:0.46rem;display: block;border-radius:0.08rem;color:#fff;line-height:0.46rem;text-align: center;margin:0.2rem auto;font-size:0.18rem;}
+.btn.addCard{background-color: #479FD4;}
+.btn.deleteMember{background-color: #EA3323;}

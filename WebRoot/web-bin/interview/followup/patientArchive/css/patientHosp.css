@@ -1,0 +1,146 @@
+.document_right{
+	width: 100%;
+	float:right;
+}
+.right_in{
+	margin: 0 10px 0 14px;
+	padding-right: 10px;
+	min-width:700px;
+}
+.report_contain{
+	padding:10px 0px 20px 10px;
+	overflow: hidden;
+}
+.check_item{
+	width: 25%;
+	float: left;
+	margin-top: 10px;
+	line-height: 20px;
+	padding-right: 6px;
+	box-sizing: border-box;
+}
+.report_containt{
+	box-sizing:border-box;
+	padding:0 0 11px 0;
+	margin-left:10px;
+	border-top:1px solid #D8D8D8;
+}
+.img_desc{
+	display: inline-block;
+	width: 80px;
+	height: 80px;
+	margin-top: 10px;
+	margin-right: .5%;
+	border: 3px solid #eee;
+	border-radius: 3px;
+}
+.img_desc img{
+	width: 100%;
+	height: 100%;
+}
+.check_itemt{
+	margin-top:9px;
+	line-height:18px;
+}
+.click_look{
+	text-decoration:underline;
+}
+.hos_operation{
+	padding:20px 0px 10px 10px;
+}
+.hos_operation>div{
+	margin-bottom:10px;
+}
+.hos_operation table {
+	width:100%;
+	border-collapse: collapse;
+}
+.hos_operation table td {
+	height:30px;
+}
+.dragbox{
+	width:90px;
+	border-radius:10px;
+	box-shadow:0 3px 5px #B1BEC7;
+	position:fixed;
+	top:40%;
+	right:48px;
+}
+.medical{
+	background: #D6EDFE;
+	width: 90px;
+	border: 1px solid #DAE0E4;
+	box-sizing: border-box;
+	padding: 10px;
+	position: relative;
+}
+.move_area {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 20px;
+	cursor: move;
+}
+.medical .progress_white_circle_small{
+	position: relative;
+	z-index: 99;
+}
+.pageMenu {
+	position: relative;
+	top: 9px;
+	cursor:pointer;
+	height: 28px;
+}
+.pageMenu .progress_gray_bg{
+	width: 3px;
+	height: 30px;
+	background: #CECFD1;
+	border-left: 1px solid #B7B8BA;
+	position: absolute;
+	left: 3px;
+}
+.pageMenu .progress_gray_circle_small{
+	position: absolute;
+	top: 9px;
+	left: -4px;
+}
+.pageMenu>span{
+	position: relative;
+	top: 6px;
+}
+.medical .progress_last{
+	margin-top: 9px;
+}
+.medical .pageMenu_checked{
+	color: #00A1F3;
+}
+.medical .pageMenu_checked .progress_gray_bg,.medical .pageMenu:hover .progress_gray_bg {
+	background: #00A2F4;
+	border-left: 1px solid #00A2F4;
+	border-radius: 2px;
+	z-index: 98;
+	top: -1px;
+}
+.medical .pageMenu_checked .progress_gray_circle_small{
+	background-position: -583px -159px;
+}
+.medical .pageMenu:hover{
+	color: #00A1F3;
+}
+.medical .pageMenu:hover .progress_gray_circle_small{
+	background-position: -583px -159px;
+}
+.rrs {
+	max-width: 280px;
+}
+.error_flag {
+	color: red;
+}
+.right_in_block{
+	margin-top: 15px;
+	background-color: #fff;
+}
+#hosp{
+	margin-top: 0;
+}

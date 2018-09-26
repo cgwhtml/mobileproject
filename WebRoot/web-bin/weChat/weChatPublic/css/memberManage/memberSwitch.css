@@ -1,0 +1,9 @@
+.member_box{display: block;}
+.member_list{display: block;overflow: hidden;background-color: #fff;}
+.member_list ul{}
+.member_list ul li{height:0.7rem;border-bottom:1px solid #d9d9d9;padding:0 0.3rem;overflow: hidden;}
+.member_list ul li .list_span_left{width:0.5rem;height:0.5rem;display: block;float:left;background-size: 100%;margin:0.1rem 0.15rem 0 0;}
+.member_list ul li .list_span_right{line-height:1.8;overflow: hidden;margin-top:0.1rem;float:left;}
+.member_list ul li .list_span_right h2{font-weight:normal;font-size:0.16rem;}
+.member_list ul li .arrow{width:0.4rem;height:0.3rem;display: block;float:right;margin:0.25rem 0 0 0;}
+.member_list ul li.active .arrow{background:url(/web-bin/resources/images/checked.png) no-repeat;background-size:100% 100%;}

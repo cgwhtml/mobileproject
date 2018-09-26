@@ -1,0 +1,114 @@
+.wrapper{
+    padding:15px 10px 10px;
+    box-sizing: border-box;
+}
+.title_box:nth-child(1){
+    margin-top: 0;
+}
+.title_box{
+    padding: 15px 10px 13px 15px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.04);
+    border-radius: 4px;
+    margin-top: 10px;
+}
+.title_head{
+    height:20px;
+    font-size: 17px;
+    color: #333333;
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+.rectangle{
+    width:6px;
+    height:100%;
+    background: url(../../img/rectangle.png);
+    float: left;
+}
+.title_head span{
+    margin-left: 10px;
+}
+.title_box ul{
+    font-size: 15px;
+    color: #666666;
+    line-height: 25px;
+    word-wrap: break-word;
+}
+.handel_detail{
+    display: none;
+}
+.handelShow{
+    display: block;
+}
+.gray_arrow_down{
+    transform:rotate(90deg);
+    -ms-transform:rotate(90deg); 	/* IE 9 */
+    -moz-transform:rotate(90deg); 	/* Firefox */
+    -webkit-transform:rotate(90deg); /* Safari 和 Chrome */
+    -o-transform:rotate(90deg);
+}
+.handel_ul li{
+    line-height: 40px;
+}
+.handel_date{
+    font-size: 16px;
+    color: #333333;
+}
+.document_li{
+    height:50px;
+    background: #F3F9FF;
+    border-radius: 1px;
+    padding:7px 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+}
+.file_images{
+    width:35px;
+    float: left;
+    margin-right: 15px;
+}
+.file_images img{
+    width:100%;
+}
+.file_message{
+    max-width: 65%;
+    float: left;
+    font-size: 14px;
+    color: #666666;
+    line-height: 20px;
+}
+.down_load{
+    width:56px;
+    height:26px;
+    background: #3C9EFA;
+    border-radius: 2px;
+    font-size: 14px;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 26px;
+    position: absolute;
+    right:10px;
+    top:50%;
+    margin-top: -13px;
+}
+#addBottom{
+    width: 100%;
+    height:105px;
+    padding: 30px 15px;
+    box-sizing: border-box;
+ /*   position: fixed;
+    bottom: 0;
+    left:0;
+    background-color: #F4F4F4*/
+}
+#addPraise{
+    height:45px;
+    background: #3C9EFA;
+    border-radius: 2px;
+    font-size: 17px;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 45px;
+}

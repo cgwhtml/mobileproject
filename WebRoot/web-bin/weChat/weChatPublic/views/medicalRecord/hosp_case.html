@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html style="height: 1762px; ">
+  <head>
+    <title>住院病例</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="/web-bin/mobile/medical/patient/css/hosp_case.css">
+	<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/jquery/jquery.mobile-1.3.2.min.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/js/jquery.barcode.all.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+	<script type="text/javascript" src="/web-bin/mobile/medical/patient/js/hosp_case.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".ui-page ui-body-c ui-page-active").css("min-height","0 !important");
+		});
+	</script>
+  </head>
+  
+  <body>
+    <div id="mian">
+    	
+    	<div id="top">
+	  		<div id="top_in">
+	  			<div>
+		  			<img alt="" src="/web-bin/mobile/medical/patient/images/white-left.png">
+		  			<p>医疗</p>
+		  		</div>
+		  		<p>住院病例</p>
+	  		</div>
+	  	</div>
+	  	
+    	<div id="main_head">
+	    	<div id="head_in">
+	    		<img alt="" src="/web-bin/resources/images/men.png" id="photo">
+	    		<div id="head_text">
+	    			<p id="pat_name"></p>
+					<span id="pat_sex"></span>
+					<span id="admit_date"></span>
+	    			<p id="hosp_name"></p>
+	    			<p id="base_info"><span id="in_hosp"></span></p>
+	    		</div>
+	    	</div>
+    	</div>
+    	<div id="main_body">
+	    	<div class="main_body_block" id="message">
+	    		<img alt="" src="/web-bin/mobile/medical/patient/images/iconA.png" class="img1">
+	    		<div class="c2">
+	    			<div class="block_tit">
+	    				<p>就诊信息</p>
+	    			</div>
+	    			<div id="block_mess"></div>
+	    			<p style="display:none"><textarea id="Template-Info" rows="0" cols="0">
+	    			<div class="block_info" id="mes_det">
+	    				<p>患者姓名：{$T.patName}</p>
+	    				<p>出生日期：{$T.birthDate.substring(0,11)}</p>
+	    				<p>主治医生：<span class="doc_name">{$T.attendDrName}</span></p>
+	    				<p>入院科室：{$T.deptName}</p>
+	    				<p>住院病区：{$T.wardName}</p>
+	    				<p>病床号 ：{$T.bedNo}</p>
+	    				<p>出院诊断：{$T.disChargeDiagName}</p>
+	    			</div>
+	    			</textarea></p>
+	    		</div>
+	    	</div>
+	    	<div class="main_body_block" id="fee">
+	    		<img alt="" src="/web-bin/mobile/medical/patient/images/iconB.png" class="img1">
+	    		<div class="c2">
+	    			<div class="block_tit">
+	    				<p>费用信息</p>
+	    			</div>
+	    			<div id="block_fee"></div>
+	    			<p style="display:none"><textarea id="Template-Fee" rows="0" cols="0">
+	    			<div class="block_info" id="toCost">
+	    				<p id="medical_category">医保类别：{$T.medicalCategory}<img src="/web-bin/mobile/medical/patient/images/blue.png"></p>
+	    				<div id="cost">
+	    					<img alt="" src="/web-bin/mobile/medical/patient/images/cost.png">
+	    					<div>
+	    						<p>总费用</p>
+	    						<p>{$T.medicalTotalFee}</p>
+	    					</div>
+	    					<div>
+	    						<p>医保报销费用：{#if $T.medicalFee}{$T.medicalFee}{#else}0{#/if}元</p>
+	    						<p>个人现金支付：{$T.selfPaymentFee}元</p>
+	    						<p>医院优惠费用：{#if $T.reduceFee!=null}{$T.reduceFee}{#else}0{#/if}元</p>
+	    					</div>
+	    				</div>
+	    			</div>
+	    			</textarea></p>
+	    		</div>
+	    	</div>
+	    	
+	    	<div class="main_body_block" id="orders">
+	    		<img alt="" src="/web-bin/mobile/medical/patient/images/iconC.png" class="img1">
+	    		<div class="c2">
+	    			<div class="block_tit">
+	    				<p>医嘱信息</p>
+	    			</div>
+	    			<div class="block_info" id="orders_con">
+	    				<div>
+	    					<img alt="" src="/web-bin/mobile/medical/patient/images/111.png">
+	    					<p>出院医嘱：</p>
+	    				</div>
+	    				<div>
+	    					
+	    					<p style="display:none"><textarea id="Template-Orders" rows="0" cols="0">
+	    					{#foreach $T as Row}
+	    					<div class="toMedicine">
+		    					<p id="index">{$T.Row$index+1}</p>
+		    					<p>{$T.Row.drugName}</p>
+		    					<img src="/web-bin/mobile/medical/patient/images/blue.png">
+		    				</div>
+		    				{/for}
+	    					</textarea></p>
+	    					<div class="temp_ord"></div>
+		    				
+	    				</div>
+	    			</div>
+	    		</div>
+	    	</div>
+	    	
+	    	
+	    	<div class="main_body_block" id="operation">
+	    		<img alt="" src="/web-bin/mobile/medical/patient/images/iconF.png" class="img1">
+	    		<div class="c2">
+	    			<div class="block_tit">
+	    				<p>手术信息</p>
+	    			</div>
+	    			<p style="display:none"><textarea id="Template-Operation" rows="0" cols="0">
+	    			{#foreach $T as Row}
+	    			<div class="toOperation">
+	    			<div class="block_info" >
+	    				<p>手术名称：{$T.Row.surgeryOpenName}</p>
+	    				<p>手术时间：{$T.Row.surgeryBeginDate}</p>
+	    				<p>手术医生：<span class="doc_name">{$T.Row.surgeryDrName}</span></p>
+	    				<p>麻醉医生：<span class="doc_name">{$T.Row.anesDrName}</span></p>
+	    				<img alt="" src="/web-bin/mobile/medical/patient/images/blue.png">
+	    				<div class="index_operation">{$T.Row$index}</div>
+	    			</div>
+	    			</div>
+	    			{/for}
+   					</textarea></p>
+   					<div class="temp_ope"></div>
+	    		</div>
+	    	</div>
+	    	
+	    	<div class="main_body_block" id="examination">
+	    		<img alt="" src="/web-bin/mobile/medical/patient/images/iconD.png" class="img1">
+	    		<div class="c2">
+	    			<div class="block_tit">
+	    				<p><span>检查信息</span></p>
+	    			</div>
+	    			
+	    			<p style="display:none"><textarea id="Template-Examination" rows="0" cols="0">
+	    			{#foreach $T as Row}
+	    			<div class="block_info" id="exam_con">
+	    				<div>
+	    					<p>检查类型：{$T.Row.examApplyItemName}</p>
+		    				<p>检查部位：{$T.Row.operPartName}</p>
+		    				<p>申请日期：{$T.Row.applyDate}</p>
+	    				</div>
+	    				<div class="toExamination">
+	    					<p>查看检查报告</p>
+	    					<div class="id_examination">{$T.Row.id}</div>
+	    				</div>
+	    			</div>
+	    			{/for}
+	    			</textarea></p>
+	    			<div class="temp_exa"></div>
+	    			
+	    		</div>
+	    	</div>
+	    	
+	    	
+	    	<div class="main_body_block" id="inspect">
+	    		<img alt="" src="/web-bin/mobile/medical/patient/images/iconE.png" class="img1">
+	    		<div class="c2">
+	    			<div class="block_tit">
+	    				<p>检验信息</p>
+	    			</div>
+	    			
+	    			<p style="display:none"><textarea id="Template-Inspect" rows="0" cols="0">
+	    			{#foreach $T as Row}
+	    			<div class="block_info inspect" id="">
+	    				<div>
+	    					<p class="item_name">检验大类：<span>{$T.Row.testApplyItemName}</span></p>
+		    				<p class="apply_date">申请日期：<span>{$T.Row.applyDate}</span></p>
+		    				<input type="hidden" class="sampling_date" value={$T.Row.samplingDate}>
+		    				<input type="hidden" class="sampling_location" value={$T.Row.samplingLocation}>
+		    				<input type="hidden" class="take_report_location" value={$T.Row.takeReportLocation}>
+		    				<input type="hidden" class="take_report_date" value={$T.Row.takeReportDate}>
+	    				</div>
+	    				<div>
+	    					<!--<div class="bcTarget"></div>-->
+							<div class="bcTarget_info">
+								<img class="bcTarget">
+							</div>
+	    					<input type="hidden" class="barCodeNo"/>
+	    					<p>扫条码打印报告</p>
+	    				</div>
+	    				<div class="toInspection">
+	    					<p>查看检验报告</p>
+	    					<div class="id_inspection">{$T.Row.id}</div>
+	    				</div>
+	    			</div>
+	    			{/for}
+	    			</textarea></p>
+	    			<div class="s3">
+	    			    <div id="inspect_data"></div>
+		    			<div id="loading_inspect">
+			    	       <img alt="" src="/web-bin/resources/images/loading_1.gif">
+			            </div>
+	    			</div>
+	    			
+	    		</div>
+	    	</div>
+	    	
+    	</div>
+    </div>
+    <div id="line1"></div>
+    <div id="line2"></div>
+    <div id="loading">
+    	<img alt="" src="/web-bin/resources/images/loading_1.gif">
+    </div>
+  </body>
+</html>

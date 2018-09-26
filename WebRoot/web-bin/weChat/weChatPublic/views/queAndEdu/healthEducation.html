@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>健康宣教</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/basic.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/queAndEdu/quesAndEdu.css">
+</head>
+<body>
+<div class="main">
+    <div class="main_body">
+        <div class="education education_js">
+            <div class="education_lists">
+                <p style="display:none"><textarea id="education" rows="0" cols="0">
+                {#foreach $T as Row}
+                <div class="education_list" categType="{$T.Row.categType}">
+                    <div class="contentImg1"></div>
+                    <p class="title">{$T.Row.title}</p>
+                    <p class="hospital">{$T.Row.hospName}</p>
+                    <p class="getTime">接收时间：<span>{$T.Row.sendTimeStr}</span></p>
+                    <div class="isRead read">{$T.Row.isBack==1 && $T.Row.categType==6?"已读":$T.Row.isBack==0 && $T.Row.categType==6?"未读":$T.Row.isBack==1 && $T.Row.categType!=6?"已回复":"未回复"}</div>
+                    <span class="sender">发送人：{$T.Row.sendName}</span>
+                    <div class="id" style="display:none">{$T.Row.interviewId}</div>
+                </div>
+                {/for}
+                </textarea></p>
+            <div class="e"></div>
+        </div>
+    </div>
+</div>
+<div class="main_bottom">此服务由蓝牛云随访提供</div>
+</div>
+</body>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/zepto/zepto.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script src="/web-bin/resources/rem/rem.js"></script>
+<script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.js"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/artDialog.source.js?skin=white"></script>
+<script type="text/javascript" src="/web-bin/weChat/weChatPublic/js/queAndEdu/healthEducation.js"></script>
+</html>

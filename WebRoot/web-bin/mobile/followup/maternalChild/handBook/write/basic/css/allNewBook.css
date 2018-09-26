@@ -1,0 +1,105 @@
+body{
+    padding-top: 1.44rem !important;
+}
+.poster-list{
+    width:100%;
+    height:100%;
+    overflow: hidden;
+    position: relative;
+}
+.poster-item{
+    width:6.6rem;
+    height:12.1rem;
+    margin-top:1.44rem;
+    position:absolute;
+    border-radius:10px;
+}
+.book_content_warp{
+    padding: 0.28rem;
+    height: 9.342rem;
+    background-color:#FFF8FD;
+    box-shadow: 1px 2px 13px rgba(120,34,83,0.14);
+    position:relative;
+}
+.current-item .book_content_warp{
+    height:10.38rem;
+}
+.book_content{
+    background-color: #ffffff;
+    height:100%;
+}
+.mc_content_bg{
+    background-image: url("../../../images/indexBg.png");
+    background-size: 5.445rem 6.75rem;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    bottom: 0.121rem;
+    background-position: 100% 100%;
+    right: 0.28rem;
+}
+.current-item .mc_content_bg{
+    background-size: 6.05rem 7.5rem;
+}
+.index_title{
+    background-image: url("../../../images/indexTitle.png");
+    background-size: 4.299rem 0.685rem;
+    background-repeat: no-repeat;
+    height: 0.685rem;
+    width: 4.299rem;
+    position:absolute;
+    top:1.21rem;
+    left:50%;
+    margin-left:-2.1175rem;
+}
+.mc_content_main{
+    text-align:center;
+    padding-top:3rem !important;
+}
+.mc_content_main span{
+    letter-spacing: 0.018rem;
+    line-height: 0.4477rem;
+}
+.mc_content_main input[type="text"]{
+    border:0 !important;
+    border-bottom:1px solid #333 !important;
+    background-color:transparent;
+    width:1.9844rem;
+}
+.content_bottom{
+    margin-top: 4.455rem;
+}
+.current-item .content_bottom{
+    margin-top: 4.95rem;
+}
+.addBook{
+    background-image: url("../../../images/addBook.png");
+    background-size: 1.333rem 1.333rem;
+    background-repeat: no-repeat;
+    height: 1.333rem;
+    width: 1.333rem;
+    position: absolute;
+    background-position: center center;
+    bottom: 1rem;
+    z-index: 9999;
+    left:50%;
+    margin-left:-0.666rem;
+}
+.hos_img {
+    width: auto;
+    height: 2rem;
+    position: absolute;
+    bottom: 0.3rem;
+    right: 0.3rem;
+}
+@media (min-height:551px) and (max-height:600px) and (-webkit-min-device-pixel-ratio:1){
+    .addBook{
+        bottom: 1rem !important;
+    }
+}
+@media (min-height:1201px) and (max-height:1300px) and (-webkit-min-device-pixel-ratio:2){
+    .addBook{
+        bottom: 1rem !important;
+    }
+}

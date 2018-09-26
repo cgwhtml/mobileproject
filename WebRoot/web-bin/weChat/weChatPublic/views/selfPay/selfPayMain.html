@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自助缴费</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/weui/weui.min.css">
+    <link rel="stylesheet" href="/web-bin/resources/weui/jquery-weui.css">
+    <link rel="stylesheet" href="/web-bin/resources/css/basicMobile.css">
+    <link rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/selfPay/selfPayMain.css">
+</head>
+<body>
+<div id="wrapper">
+    <div class="pay_head">
+        <div class="pay_name"></div>
+        <ul id="person_detail">
+            <li>时&emsp;&emsp;间：<span id="payTime"></span></li>
+            <li>就诊卡号：<span id="cardNo"></span></li>
+            <li>交易单号：<span id="trasactionId"></span></li>
+        </ul>
+    </div>
+    <ul id="payList"></ul>
+    <div id="payFeeBox">
+        <div id="payFee">缴纳费用</div>
+    </div>
+    <div id="payDefeatBox">
+        <div id="payDefeat">缴费超时</div>
+    </div>
+</div>
+<p style="display:none">
+        <textarea id="template_payMain" rows="0" cols="0">
+                {#foreach $T as Row}
+                <li>
+                    <div class="pay_left">
+                        <div class="substr">{$T.Row.item}</div>
+                        <div>{$T.Row.frequency}</div>
+                    </div>
+                    <div class="pay_right">
+                        {$T.Row.money}元
+                    </div>
+                </li>
+                {#/for}
+        </textarea>
+</p>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/weui/jquery-weui.js"></script>
+<script type="text/javascript" src="/web-bin/resources/weui/fastclick.js"></script>
+<!--解决ios下click的300ms的延迟，需引入fastclick-->
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+<script type="text/javascript" src="/web-bin/weChat/weChatPublic/js/selfPay/selfPayMain.js"></script>
+</body>
+</html>

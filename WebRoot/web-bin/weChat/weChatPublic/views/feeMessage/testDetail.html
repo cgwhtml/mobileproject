@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>检验报告详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/weui/weui.min.css">
+    <link rel="stylesheet" href="/web-bin/resources/weui/jquery-weui.css">
+    <link rel="stylesheet" href="/web-bin/resources/css/basicMobile.css">
+    <link rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/feeMessage/testDetail.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="check_head substr">项目名称：<span></span></div>
+    <div class="detail_box"></div>
+</div>
+<p style="display:none">
+    <textarea id="template_testDetail" rows="0" cols="0">
+        <table class="bg_change_table text_table">
+        <tr>
+            <th>项目</th>
+            <th>结果</th>
+            <th>参考</th>
+            <th>单位</th>
+        </tr>
+        {#foreach $T as Row}
+            <tr>
+                <td>{$T.Row.testItemName}</td>
+                <td>
+                    {#if $T.Row.normalFlag}
+                        <span style="color:red">
+                            {$T.Row.testResultValue}
+                            {$T.Row.normalFlag}
+                        </span>
+                    {#else}
+                        {$T.Row.testResultValue}
+                    {#/if}
+                </td>
+                <td>{$T.Row.referenceRanges}</td>
+                <td>{$T.Row.testResultValueUnit}</td>
+            </tr>
+        {#/for}
+        </table>
+</textarea>
+</p>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/js/jquery.barcode.all.js"></script>
+<script type="text/javascript" src="/web-bin/resources/weui/jquery-weui.js"></script>
+<script type="text/javascript" src="/web-bin/resources/weui/fastclick.js"></script>
+<!--解决ios下click的300ms的延迟，需引入fastclick-->
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+<script type="text/javascript" src="/web-bin/weChat/weChatPublic/js/feeMessage/testDetail.js"></script>
+</body>
+</html>

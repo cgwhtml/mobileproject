@@ -1,0 +1,184 @@
+/**
+* Created by heyating
+* Created time 2017/5/18 19:16
+* Description  
+*/
+/*基础样式*/
+body{
+    padding-top: 1.70667rem !important;
+}
+.weChat{
+    padding-top: 0 !important;
+}
+*{margin:0;padding:0;outline:none}
+html{background-color: #F9F9F9 !important;color: #666!important;}
+img{border:0}
+ul{list-style: none;}
+a{text-decoration: none;font-family: "Microsoft YaHei","微软雅黑";color:#3B3B3B;}
+input[type="number"],input[type="tel"],input[type="text"],input[type="password"]{font-family: "Microsoft YaHei","微软雅黑";font-size:0.32rem;border:1px solid transparent !important;box-sizing: border-box;color:#333;border-radius:0;-webkit-tap-highlight-color: transparent;-webkit-appearance:none;-webkit-opacity:1;opacity: 1;min-width: 4rem;}
+input[disabled="disabled"]{background-color: #FFFFFF;}
+input[type="radio"],input[type="checkbox"]{opacity: 0;position: relative;}
+p{line-height: 0.48rem;color: #666}
+input:-moz-placeholder,textarea:-moz-placeholder{color: #A1A1A1;text-align: right;}
+input::-moz-placeholder,textarea::-moz-placeholder{color: #A1A1A1;text-align: right;}
+input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{color: #A1A1A1;text-align: right;}
+input:-ms-input-placeholder,textarea:-ms-input-placeholder{color: #A1A1A1;text-align: right;}
+.input_disabled{background-color: #fff !important;}
+.pull_left{float: left;}
+.pull_right{float: right}
+/*字符截取*/
+.substr {white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+/*textarea输入框*/
+.textarea_msg{width: 8.2rem;height: 3.053rem;border: 1px solid #FABDE9;padding: 0.133rem;-webkit-tap-highlight-color: transparent;-webkit-appearance: none;}
+.textarea_msg:-moz-placeholder{text-align: left;}
+.textarea_msg::-moz-placeholder{text-align: left;}
+.textarea_msg::-webkit-input-placeholder{text-align: left;}
+.textarea_msg:-ms-input-placeholder{text-align: left;}
+/*查看图标*/
+.look_over{background-image: url(../images/lookOver.png);background-size: 0.41rem 0.41rem;background-repeat: no-repeat;display:inline-block;width:0.41rem;height:0.41rem;vertical-align: middle;}
+/*粉色长按钮*/
+.pink_btn{  width: 9.21rem;line-height:1.08rem;background-color: #EC9DD6;text-align: center;border-radius: 6px;color: #fff;font-size: 0.4rem;margin: 1rem auto;border-style: none;}
+/*首航缩进*/
+.p_indent{text-indent:2em;}
+/*灰色右箭头*/
+.gray_arrow_right{background-image: url(../images/grayArrowRight.png);background-size: 0.186rem 0.293rem;background-repeat: no-repeat;display:inline-block;width:0.186rem;height:0.293rem;vertical-align: middle;}
+/*粉色右箭头*/
+.pink_arrow_right{background-image: url(../images/pinkArrowRight.png);background-size: 0.186rem 0.293rem;background-repeat: no-repeat;display:inline-block;width:0.186rem;height:0.293rem;vertical-align: middle;}
+/*蓝色向下箭头*/
+.blue_arrow_right{background-image: url(../images/blueArrowBottom.png);background-size: 0.24rem 0.146rem;background-repeat: no-repeat;display:inline-block;width:0.24rem;height:0.2rem;vertical-align: middle;}
+/*粉色右箭头位置*/
+.pink_arrow_right_position{float: right;width: 0.186rem;margin-top: 0.386rem;margin-right: 0.373rem;}
+/*粉色加号*/
+.pink_add_circle{background-image: url(../images/pinkAdd.png);background-size: 0.573rem 0.573rem;background-repeat: no-repeat;display:inline-block;width:0.584rem;height:0.584rem;vertical-align: middle;}
+/*粉色铅笔*/
+.pink_pen{background-image: url(../images/pinkPen.png);background-size: 0.333rem 0.333rem;background-repeat: no-repeat;display:inline-block;width:0.333rem;height:0.333rem;vertical-align: middle;}
+/*粉色铅笔位置*/
+.pink_pen_position{float: right;margin-top: 0.373rem;margin-right: 0.373rem;}
+/*粉色下箭头*/
+.pink_arrow_bottom{background-image: url(../images/pinkArrowBottom.png);background-size: 0.293rem 0.186rem;background-repeat: no-repeat;display:inline-block;width:0.293rem;height:0.186rem;vertical-align: middle;}
+/*粉色圆圈选择*/
+.pink_r_uncheck{background-image: url(../images/radioUncheckedPink.png);background-size: 0.36rem 0.36rem;background-repeat: no-repeat;display:inline-block;width:0.36rem;height:0.36rem;vertical-align: middle;}
+.pink_r_check{background-image: url(../images/radioCheckedPink.png);background-size: 0.36rem 0.36rem;background-repeat: no-repeat;display:inline-block;width:0.36rem;height:0.36rem;vertical-align: middle;}
+.pink_r_uncheck_position{position: absolute;left: 0;top: 0.34rem;}
+.parent_msg{padding: 0.226rem 0.4rem 0;}
+.input_msg{float: right;margin-top: 0.3rem;margin-right: 0.373rem;text-align: right;}
+/*列表项*/
+.main_option{padding-left: 0.4rem;line-height: 1.08rem;border-bottom: 1px solid #EFEFEF;background-color: #fff;}
+/*列表项右侧的灰色提示文字*/
+.main_option_status{color: #A1A1A1;float: right;margin-right: 0.253rem;}
+/*列表项第一行题目*/
+.option_title{font-size: 0.4rem;text-align: center;}
+/*单选样式*/
+.option_radio{margin-right: 0.373rem}
+/*粉色链接*/
+.acolor_pink{color: #FE9EE3}
+.must{color: #FF0000;}
+/*粉色复选框*/
+.pink_c_check{background-image: url(../images/checkPink.png);background-size: 0.583rem 0.583rem;background-repeat: no-repeat;display:inline-block;width:0.583rem;height:0.583rem;vertical-align: middle;}
+.gray_c_uncheck{background-image: url(../images/checkGray.png);background-size: 0.583rem 0.583rem;background-repeat: no-repeat;display:inline-block;width:0.583rem;height:0.583rem;vertical-align: middle;}
+.c_check{float: right;margin-top: 0.28rem;margin-right: 0.373rem;}
+/*粉色删除*/
+.icon_delete{background-image: url(../images/pinkDelete.png);background-size: 0.56rem 0.56rem;background-repeat: no-repeat;display:inline-block;width:0.572rem;height:0.572rem;vertical-align: middle;}
+.icon_delete_position{position: absolute;right: 0.24rem;top: 0.76rem;}
+/*蓝色选择位置的图标*/
+.chose_map{background-image: url(../images/choseMap.png);background-size: 0.5rem 0.56rem;background-repeat: no-repeat;display:inline-block;width:0.5rem;height:0.56rem;vertical-align: middle;}
+/*记录页面的样式*/
+.total{padding: 0.373rem;}
+.item{position: relative;margin-bottom: 0.4rem;}
+.item_img{background-image: url(../images/pinkCircleBig.png);background-size: 1.12rem 1.12rem;background-repeat: no-repeat;display:inline-block;width:1.12rem;height:1.12rem;vertical-align: middle;}
+.item_circle{background-image: url(../images/w_2150_icon1.png);background-size: 0.32rem 0.32rem;background-repeat: no-repeat;display:inline-block;width:0.32rem;height:0.32rem;vertical-align: middle;}
+.item_calender{background-image: url(../images/calendar.png);background-size: 0.533rem 0.533rem;background-repeat: no-repeat;display:inline-block;width:0.533rem;height:0.533rem;vertical-align: middle;}
+.item_calender_position{position: absolute;top: 0.3rem;left: 0.3rem;}
+.item_border_short{height: 0.333rem;width: 0.133rem;background-color: #FFB8EB;border-radius: 6px;position: absolute;left: 0.5rem;}
+.add_content{width: 7.88rem;line-height: 1.08rem;background-color: #EC9DD6;text-align: center;color: #fff;border-radius: 6px;font-size: 0.4rem;position: absolute;top: 0;right: 0;}
+.item_triangle_pink{background-image: url(../images/trianglePink.png);background-size: 0.173rem 0.173rem;background-repeat: no-repeat;display:inline-block;width:0.173rem;height:0.173rem;vertical-align: middle;}
+.item_triangle_write{background-image: url(../images/triangleWrite.png);background-size: 0.173rem 0.173rem;background-repeat: no-repeat;display:inline-block;width:0.173rem;height:0.173rem;vertical-align: middle;}
+.item_triangle_position{position: absolute;top:0.4rem;left: 1.2rem;}
+.item_data{color: #DA7FC1;font-size: 0.4rem;width: 0.453rem;position: absolute;top: 0.1rem;left: 0.3rem;}
+.small_font{font-size: 0.32rem;position: relative;top: -0.2rem;left: 0.08rem;}
+.item_border_long{height: 2.026rem;width: 0.133rem;background-color: #FFB8EB;border-radius: 6px;position: absolute;left: 0.5rem;}
+.read_content{padding: 0 0.413rem 0.413rem 0.373rem;width: 7.88rem;background-color: #fff;border-radius: 6px;  position: absolute;top: 0;right: 0;box-sizing: border-box;}
+.read_content_title{line-height: 0.866rem;text-align: left;font-size: 0.4rem;color: #DA7FC1;border-bottom: 1px solid #BDBDBD;}
+.edit_read_ontent{float: right;margin-top: 0.266rem;}
+.read_content_detail_num{float: right;color: #DA7FC1;}
+.read_content_detail{margin-top: 0.426rem;}
+.item_middle{margin-bottom: 2.9rem;}
+.item_baby{background-image: url(../images/w_2150_icon.png);background-size: 0.64rem 0.64rem;background-repeat: no-repeat;display:inline-block;width:0.64rem;height:0.64rem;vertical-align: middle;}
+.item_baby_position{position: absolute;top: 0.2rem;left: 0.24rem;}
+.add_style{margin-right: 0.32rem;margin-left: 0.72rem;}
+/*弹框样式*/
+.window {position:fixed;top:15%;left:10%;width:80%;height:70%;background-color:#fff;z-index:20;border-radius:11px;}
+.window>div { position:relative;width:100%;height:100%;}
+.window_in{margin:25px 10px 20px 10px; height: 70%; overflow:scroll; font-size: 0.32rem; }
+.window_in p {margin:10px 20px 20px 60px; position:relative;}
+.iradio_square-blue {position:absolute;left:-40px;top:50%;margin-top:-11px !important;}
+.icheckbox_square-blue {position:absolute; left:-40px;top:-10%;margin-top:-11px;}
+.check { position:absolute; bottom:0.8rem; left:15%;width:70%;background-color:#EC9DD6;text-align:center;color:white;line-height:1rem;margin:20px auto; border-radius:50px; }
+#background {position:fixed;top:0px;left:0px;width:100%;height:100%;background-color:#000;opacity:0.7;z-index:10;}
+#fake_alert {position:fixed; top:40%; left:17%; width:66%;background-color:#fff;border-radius:11px;padding:10px 0px;z-index:20;}
+#fake_alert_in {position:relative; width:100%;height:100%;}
+#msg {line-height:20px;text-align:center;margin:10px 20px 20px 20px; }
+#sure { width:50%; background-color:#EC9DD6; text-align:center; color:white; margin:5px auto; line-height:30px;border-radius:7px;}
+label:first-child{margin-left:0;}
+label{position:relative;display: inline-block;margin-left:0.4rem;}
+.symptom label{float:right;}
+.teeth_img{background-image: url("../images/teethImg.png");background-size: 6.8rem 5.77rem;background-repeat: no-repeat;display:inline-block;width:100%;height:5.87rem;vertical-align: middle;background-position: 50% 50%;margin-top: 0.56rem;margin-bottom: 1.2rem}
+/*灰色背景*/
+.bg_gray{background-color: #F9F9F9}
+/*宝宝印记男童*/
+.baby_brand_boy{background-image: url(../images/babyBrandBoy.png);background-size: 2.18rem 2.18rem;background-repeat: no-repeat;display:inline-block;width:100%;height:2.28rem;vertical-align: middle;background-position: 50%;}
+.baby_brand_girl{background-image: url(../images/babyBrandGirl.png);background-size: 2.18rem 2.18rem;background-repeat: no-repeat;display:inline-block;width:100%;height:2.28rem;vertical-align: middle;background-position: 50%;}
+/*添加图片的虚线框*/
+/*.add_img{width: 2.13rem;height: 2.13rem;border: 3px dashed #BCBCBC;border-radius: 11px;font-size: 1.53rem;text-align: center;color: #BCBCBC;box-sizing: border-box;}*/
+/*.add_img>span{position: absolute;width: 1.53rem;height: 1.53rem;top: 0;right: 0;bottom: 0;left: 0;margin: auto;}*/
+/*添加图片的虚线框图片*/
+.add_img{background-image: url(../images/addImg.png);background-size: 2.13rem 2.13rem;background-repeat: no-repeat;display:inline-block;width:2.23rem;height:2.23rem;vertical-align: middle;}
+/*图片删除符号*/
+.delete_img{background-image: url(../images/deleteImg.png);background-size: 0.48rem 0.48rem;background-repeat: no-repeat;display:inline-block;width:0.58rem;height:0.58rem;vertical-align: middle;}
+/*图片删除符号的位置 注意：父元素加相对定位*/
+.delete_img{position: absolute;right: -0.3rem;top: -0.3rem;}
+/*家庭树连接短线*/
+.link_line_short{  background-image: url(../images/link_line_short.png);background-size: 2.38rem 1.02rem;background-repeat: no-repeat;display:inline-block;width:2.48rem;height:1.02rem;vertical-align: middle;margin: 0.09rem 0;}
+/*家庭树连接长线*/
+.link_line_long{  background-image: url(../images/link_line_long.png);background-size: 4.973rem 1.386rem;background-repeat: no-repeat;display:inline-block;width:100%;height:1.386rem;vertical-align: middle;background-position: 50%;margin: 0.09rem 0;}
+/*育儿记录Title*/
+.rearing_record{width: 50%;float: left;}
+/*检查记录Title*/
+.inspect_record{width: 50%;float: right;}
+/*儿童期的记录页面样式*/
+.mother{
+    line-height: 1.08rem;
+    font-size: 0.4rem;
+    color: #EC99D5;
+}
+.father{
+    color: #EC99D5;
+    line-height: 1.08rem;
+    font-size: 0.4rem;
+}
+.title{
+    background-color: #fff;
+    border-bottom: 1px solid #F7E3F1;
+    text-align: center;
+}
+.main_option:after,
+.title:after{
+    content: '';
+    clear: both;
+    display: block;
+}
+.bottom_line{
+    border-bottom: 3px solid #FABDE9;
+}
+.save_btn{
+    margin-top: 0.373rem;
+}
+#father_msg{
+    display: none;
+}
+.special_option_radio{
+    margin-right: 0.1rem ;
+}
+.page_btns{
+    text-align: center;
+}

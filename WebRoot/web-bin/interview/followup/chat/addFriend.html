@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>新建好友</title>
+	<link rel="stylesheet" href="/web-bin/interview/followup/chat/css/basic.css">
+	<link rel="stylesheet" href="/web-bin/interview/followup/chat/css/addFriend.css">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="search_friend">
+			<input type="text" t_placeholder="请输入蓝牛号或手机号码" class="s_input"/>
+		</div>
+		<p style="display:none">
+			<textarea id="template_friendNameList" rows="0" cols="0">
+				<table cellspacing="0" cellpadding="0"  border="0" style="width:100%;border-collapse:collapse" class="bg_change_table">
+					<tr class="bg_class_even">
+						<td>姓名</td>
+						<td>手机号</td>
+						<td>蓝牛号</td>
+						<td>职业信息</td>
+						<td>职称</td>
+						<td>粉丝数</td>
+						<td>操作</td>
+					</tr>
+					{#foreach $T as Row}
+					<tr class="bg_class_even">
+						<td>{$T.Row.name}</td>
+						<td>{$T.Row.phone}</td>
+						<td class="hug_id">{$T.Row.hgId}</td>
+						<td></td>
+						<td>{$T.Row.drTitle}</td>
+						<td></td>
+						<td><a href="javascript:void(0)" class="a_color1">添加好友</a></td> 
+					</tr>
+					{#/for}		
+				</table>
+			</textarea>
+		</p>		
+		<div class="content_table"></div>
+	</div>
+<script src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+<script src="/web-bin/resources/inputer/inputer.js"></script>
+<script src="/web-bin/resources/config/config.js"></script>
+<script src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script src="/web-bin/resources/artdialog/artDialog.source.js?skin=white"></script>
+<script src="/web-bin/resources/artdialog/iframeTools.source.js"></script>
+<script src="/web-bin/interview/followup/chat/js/addFriend.js"></script>
+</body>
+</html>

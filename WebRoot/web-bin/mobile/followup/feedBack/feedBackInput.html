@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>投诉表扬登记</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/mobile/followup/feedBack/css/basic.css">
+    <link rel="stylesheet" href="/web-bin/mobile/followup/feedBack/css/feedBackInput.css">
+    <script src="/web-bin/resources/rem/rem2.js"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="content">
+            <div class="header">
+                <ul>
+                    <li class="event_type">
+                        <label>事件类型</label>
+                        <i class="arrow"></i>
+                        <select>
+                            <option value="1">投诉</option>
+                            <option value="2">表扬</option>
+                        </select>
+                    </li>
+                    <li class="category">
+                        <label>投诉类别</label>
+                        <i class="arrow"></i>
+                        <select></select>
+                        <textarea id="category_temp" cols="30" rows="10" style="display: none;">
+                            {#foreach $T as Row}
+                                <option value="{$T.Row.rangeValue}">{$T.Row.rangeKey}</option>
+                            {#/for}
+                        </textarea>
+                    </li>
+                    <li class="target">
+                        <i class="arrow"></i>
+                        <label>投诉对象</label>
+                        <input type="text" placeholder="请输入投诉/表扬对象">
+                    </li>
+                    <li class="purpose">
+                        <label>投诉目的</label>
+                        <i class="arrow"></i>
+                        <select></select>
+                        <textarea id="purpose_temp" cols="30" rows="10" style="display: none;">
+                            {#foreach $T as Row}
+                                <option value="{$T.Row.rangeValue}">{$T.Row.rangeKey}</option>
+                            {#/for}
+                        </textarea>
+                    </li>
+                    <li class="patient_type">
+                        <label>患者类型</label>
+                        <i class="arrow"></i>
+                        <select></select>
+                        <textarea id="patient_type_temp" cols="30" rows="10" style="display: none;">
+                            {#foreach $T as Row}
+                                <option value="{$T.Row.rangeValue}">{$T.Row.rangeKey}</option>
+                            {#/for}
+                        </textarea>
+                    </li>
+                </ul>
+            </div>
+            <div class="event">
+                <p class="event_title"><span>事件描述:</span></p>
+                <div class="event_describe">
+                    <textarea name="event_describe" id="event_describe_input" placeholder="请详细描述事件" maxlength="1000"></textarea>
+                </div>
+            </div>
+            <div class="black_box"></div>
+            <div class="anonymous">
+                <label>是否匿名</label>
+                <div id="div1" class="close1">
+                    <div id="div2" class="close2"></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">确 定</div>
+    </div>
+</body>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/zepto/zepto.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.js"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/artDialog.source.js?skin=white"></script>
+<script type="text/javascript" src="/web-bin/mobile/followup/feedBack/js/feedBackInput.js"></script>
+</html>

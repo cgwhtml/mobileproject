@@ -1,0 +1,49 @@
+/*
+ 	* Created by cgw
+ 	* Created time 2017.3.20
+	* Description  ҩƷ����ҳ��ʽ
+*/
+html,body {
+	height:100%;
+	background-color:#fff;
+}
+html {
+	font-size:100px;
+}
+section {
+	background-color: #fff;
+}
+.drug_title {
+	width:94%;
+	height:1rem;
+	margin:0 auto;
+	line-height:1rem;
+	padding-left:0.2rem;
+	font-size:18px;
+	color:#000;
+}
+.sub_box {
+    height:0.8rem;
+    border-bottom:3px solid  #ccc;
+    margin:0 auto;
+    box-sizing:border-box;
+    padding-left:0.2rem;
+}
+.sub {
+    border:1px solid #E3E3E3;
+    text-align: center;
+    line-height:0.6rem;
+    font-size:15px;
+    padding:0.1rem 0.2rem 0.1rem 0.2rem;  
+}
+.detail {
+    padding:0.2rem 0 0.2rem 0;
+}
+.contain_in {
+	width:93%;
+    height:100%;
+    margin:0 auto;
+    line-height:0.44rem;
+    font-size:14px;
+    background:#fff;
+}

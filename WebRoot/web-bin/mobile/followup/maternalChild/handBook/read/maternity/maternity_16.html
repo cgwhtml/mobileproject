@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>阅读</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+        .r_m_maternity16 .pink_content_title,.record_info{
+            text-align:center;
+        }
+        .r_m_maternity16 .pink_content_title{
+            padding-bottom:0.32rem;
+        }
+        .r_m_maternity16 .purple_cut_line{
+            margin-top:0.28rem;
+        }
+        .r_m_maternity16 .c_info_content{
+            padding-left:0;
+            padding-top:0.2rem;
+            padding-bottom:0.2rem;
+        }
+        .r_m_maternity16 .c_info_content>div{
+            float:left;
+            box-sizing: border-box;
+            padding-left:0.15rem;
+        }
+        .r_m_maternity16 .c_info_content:AFTER{
+            content:"";
+            display:block;
+            clear:both;
+        }
+        .r_m_maternity16 .m_width{
+            width:1.4rem;
+            display:inline-block;
+        }
+        .r_m_maternity16 .m_left{
+            margin-left:9em;
+        }
+        @media (min-height:1201px) and (max-height:1300px) and (-webkit-min-device-pixel-ratio:2){
+           .r_m_maternity16 #profession{
+               width: 2.7rem !important;
+           }
+        }
+        @media (min-height:1001px) and (max-height:1100px) and (-webkit-min-device-pixel-ratio:2){
+            .r_m_maternity16 .mc_content_main{
+                padding-right: 0.1rem !important;
+                padding-left: 0.1rem !important;
+            }
+            .r_m_maternity16 #profession{
+                width: 2.3rem !important;
+            }
+            .r_m_maternity16 #vehicle{
+                 width: 1.4rem !important;
+            }
+            .r_m_maternity16 #doctorPhone{
+                width:4rem !important;
+            }
+            .r_m_maternity16 .m_width{
+                width: 1.5rem ;
+            }
+        }
+        @media (min-height:601px) and (max-height:650px) and (-webkit-min-device-pixel-ratio:1){
+            .r_m_maternity16 .mc_content_main .content_font1{line-height: 0.53rem !important;height: 0.53rem !important;box-sizing: border-box;}
+            .r_m_maternity16 #profession{
+                width: 2.55rem !important;
+            }
+            .r_m_maternity16 #vehicle{
+                width: 1.5rem !important;
+            }
+            .r_m_maternity16 #doctorPhone{
+                width: 4.2rem !important;
+            }
+        }
+        @media (min-height:551px) and (max-height:600px) and (-webkit-min-device-pixel-ratio:1){
+            .r_m_maternity16 .mc_content_main .content_font1{line-height: 0.53rem !important;height: 0.53rem !important;box-sizing: border-box;}
+            .r_m_maternity16 #profession{
+                width: 2.55rem !important;
+            }
+            .r_m_maternity16 #vehicle{
+                width: 1.5rem !important;
+            }
+            .r_m_maternity16 #doctorPhone{
+                width: 4.2rem !important;
+            }
+        }
+        @media (min-height:501px) and (max-height:550px) and (-webkit-min-device-pixel-ratio:1){
+            .r_m_maternity16 #profession{
+                width: 2.55rem !important;
+            }
+            .r_m_maternity16 #vehicle{
+                width: 1.5rem !important;
+            }
+            .r_m_maternity16 #doctorPhone{
+                width: 4.2rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="r_m_maternity r_m_maternity16">
+        <div class="gradient_top gradient_pink_top"></div>
+        <div class="mc_content_main">
+            <p class="pink_content_title">准妈妈的基本情况</p>
+            <div class="record_info bold">
+                <div class="content_font1">
+                    <span>当您成为准妈妈时，请填写以下信息！</span>
+                </div>
+            </div>
+            <div class="purple_cut_line"></div>
+            <div class="c_basic_info">
+                <div class="c_info_title pink_bg_color4 bold">准妈妈工作情况</div>
+                <div class="c_info_content pink_bg_color2">
+                    <div class="m_basic_info">
+                        <div class="content_font1">
+                            <span>职业：</span>
+                            <input type="text" class="border_bottom" id="profession" disabled="disabled" style="width:2.55rem"/>
+                            <span id="workEnvironment">工作环境：</span>
+                            <span class="sc_unchecked"></span>
+                            <span>安静</span>
+                            <span class="sc_unchecked"></span>
+                            <span>一般</span>
+                            <span class="sc_unchecked"></span>
+                            <span>嘈杂</span>
+                        </div>
+                        <div class="content_font1">
+                            <span>上、下班交通工具：</span>
+                            <input type="text" class="border_bottom" id="vehicle" disabled="disabled" style="width:1.7rem"/>
+                            <span>上班单程时间：</span>
+                            <input type="text" class="border_bottom" id="tripTime" disabled="disabled" style="width:1.06rem"/>
+                            <span>小时</span>
+                        </div>
+                        <div class="content_font1">
+                            <span>怀孕后工作变更情况：</span>
+                            <input type="text" class="border_bottom" id="pregnantProfessionalChange" disabled="disabled" style="width:5.6rem"/>
+                        </div>
+                        <div class="content_font1">
+                            <span id="homeEnvironment">家庭居住环境：</span>
+                            <span class="sc_unchecked"></span>
+                            <span>安静</span>
+                            <span class="sc_unchecked"></span>
+                            <span>一般</span>
+                            <span class="sc_unchecked"></span>
+                            <span>嘈杂</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="purple_cut_line"></div>
+            <div class="c_basic_info">
+                <div class="c_info_title blue_bg_color1 bold">医疗建档情况</div>
+                <div class="c_info_content blue_bg_color2">
+                    <div class="m_basic_info">
+                        <div class="content_font1">
+                            <span>建册单位（或保健医生）电话：</span>
+                            <input type="text" class="border_bottom" id="doctorPhone" disabled="disabled" style="width:4.4rem"/>
+                        </div>
+                        <div class="content_font1">
+                            <span>建册时间： </span>
+                            <input type="text" class="border_bottom" id="createBookTimeYear" disabled="disabled" style="width:0.88rem"/>
+                            <span>年</span>
+                            <input type="text" class="border_bottom" id="createBookTimeMonth" disabled="disabled" style="width:0.53rem"/>
+                            <span>月</span>
+                            <input type="text" class="border_bottom" id="createBookTimeDay" disabled="disabled" style="width:0.53rem"/>
+                            <span>日</span>
+                        </div>
+                        <div class="content_font1">
+                            <span>计划分娩医院：</span>
+                            <input type="text" class="border_bottom" id="planDeliveryHospital" disabled="disabled" style="width:6.52rem"/>
+                        </div>
+                        <div class="content_font1">
+                            <span>产后计划修养地址：</span>
+                            <input type="text" class="border_bottom" id="puerperalRestAddress" disabled="disabled" style="width:5.93rem"/>
+                        </div>
+                        <div class="content_font1">
+                            <span>产后访视单位电话：</span>
+                            <input type="text" class="border_bottom" disabled="disabled" id="puerperalVisitPhone" style="width:5.93rem"/>
+                        </div>
+                        <div class="content_font1">
+                            <span class="absolute" id="pregnantMedicalSecurity">孕妇医疗保障类型：</span>
+                            <span class="sc_unchecked m_left"></span>
+                            <span class="m_width">自费</span>
+                            <span class="sc_unchecked"></span>
+                            <span class="m_width">医疗保险</span>
+                            <span class="sc_unchecked"></span>
+                            <span class="m_width">公费医疗</span>
+                        </div>
+                        <div class="content_font1">
+                            <span class="sc_unchecked m_left"></span>
+                            <span class="m_width">生育保险</span>
+                            <span class="sc_unchecked"></span>
+                            <span class="m_width">新农合</span>
+                            <span class="sc_unchecked"></span>
+                            <span class="m_width">商业保险</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="purple_cut_line"></div>
+            <div class="c_basic_info">
+                <div class="c_info_title green_bg_color1 bold">备孕感想</div>
+                <div class="note_box green_bg_color2">
+                    <div>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                    </div>
+                    <div style="position:absolute;top:0.04rem">
+                        <p class="content_font1" id="preparePregnancyFeel"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="gradient_bottom gradient_pink_bottom"></div>
+    </div>
+    <script>
+        $(function(){
+            if(healthBookId!=''&&typeof(healthBookId)!="undefined"&&healthBookId!="undefined") {
+                $.ajax({
+                    type: "post",
+                    url: localhostUrl + '/web-bin/m/nosen/followup/maternalChild/handBook/query_mather_data?healthBookId=' + healthBookId,
+                    dataType: 'json',
+                    success: function (data) {
+                        var msg = data.data;
+                        if (msg) {
+                            for (o in msg) {
+                                $("#" + o).val(msg[o]);
+                            }
+                            var workEnvironment = msg.workEnvironment;
+                            workEnvironment&&$('#workEnvironment').siblings('.sc_unchecked').eq(workEnvironment - 1).removeClass('sc_unchecked').addClass('sc_checked');
+                            var homeEnvironment = msg.homeEnvironment;
+                            homeEnvironment&&$('#homeEnvironment').siblings('.sc_unchecked').eq(homeEnvironment - 1).removeClass('sc_unchecked').addClass('sc_checked');
+                            var createBookTime = msg.createBookTime;
+                           if(createBookTime){
+                               var arr = createBookTime.split('-');
+                               $('#createBookTimeYear').val(arr[0]);
+                               $('#createBookTimeMonth').val(arr[1]);
+                               $('#createBookTimeDay').val(arr[2]);
+                           }
+                            var pregnantMedicalSecurity = msg.pregnantMedicalSecurity;
+                            $('.r_m_maternity16 .m_width').each(function () {
+                                pregnantMedicalSecurity&&$(this).text() == pregnantMedicalSecurity && $(this).prev().removeClass('sc_unchecked').addClass('sc_checked');
+                            })
+                            var preparePregnancyFeel = msg.preparePregnancyFeel;
+                            preparePregnancyFeel&&$('.r_m_maternity16 #preparePregnancyFeel').text(preparePregnancyFeel);
+                            substrText($(".r_m_maternity16 #preparePregnancyFeel"), msg.preparePregnancyFeel, 160);
+                        }
+                    }
+                });
+            }
+        })
+    </script>
+</body>
+</html>

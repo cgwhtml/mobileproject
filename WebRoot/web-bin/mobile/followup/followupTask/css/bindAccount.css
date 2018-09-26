@@ -1,0 +1,19 @@
+.main{width:100%;overflow: hidden;height:100%;font-size:0.18rem;}
+.bind_header{height:1.97rem;overflow: hidden;}
+.bind_header .bind_icon_box{width:1.1rem;height:1.1rem;display: block;margin:0.5rem auto;background-color: #cbdde4;border-radius:50%;position: relative;}
+.bind_header .bind_icon{width:0.6rem;height:0.41rem;display: inline-block;position: absolute;top:50%;left:50%;margin-top:-0.2rem;margin-left:-0.3rem;}
+.bind_if_num{margin:0 auto 0.5rem;text-align: center;}
+.bind_btn{width:92%;height:0.5rem;background-color: #479FD4;color:#fff;line-height:0.5rem;text-align: center;margin:0.4rem auto 0.2rem;}
+.bind_tips{display: block;margin:0 auto;font-size:0.14rem;text-align: center;}
+.bind_second{display: none;}
+.bind_first{display: block;}
+.bind_if_num{height:0.64rem;line-height:0.64rem;background-color: #fff;border-bottom:1px solid #bbb;}
+.bind_if_num .bind_if_number{color: #00A1D8;margin-left:0.17rem;}
+.main{width:100%;overflow: hidden;height:100%;font-size:0.18rem;background-color: #EFEFF4;}
+.main ul{}
+.main ul li{height:0.5rem;border-bottom:1px solid #bbb;padding:0 0.2rem;background-color: #fff;}
+.main ul li i{width:0.22rem;height:0.25rem;display: inline-block;margin-right:0.3rem;vertical-align: middle;}
+.main ul li input{background: none;line-height:0.3rem;height:0.3rem;width:80%;font-size:0.16rem;margin-top:0.15rem;}
+.main ul li.account_num i{background: url(../img/token.png) no-repeat;background-size: 100% 100%;}
+.main ul li.account_pwd i{background: url(../img/pwd.png) no-repeat;background-size: 100% 100%;}
+.verify_btn{width:92%;height:0.5rem;background-color: #479FD4;color:#fff;line-height:0.5rem;text-align: center;margin:0.4rem auto 0.2rem;}

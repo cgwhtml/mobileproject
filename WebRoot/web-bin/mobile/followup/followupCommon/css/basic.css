@@ -1,0 +1,22 @@
+*{margin:0;padding:0;outline:none}
+img{border:0}
+ul{list-style: none;}
+a{text-decoration: none;font-family: "Microsoft YaHei","微软雅黑";color:#3B3B3B;}
+input[type="text"],input[type="password"]{font-family: "Microsoft YaHei","微软雅黑";box-sizing: border-box;}
+input[disabled="disabled"]{background-color: #FFFFFF;}
+textarea{overflow:auto;resize:none;font-family: "Microsoft YaHei","微软雅黑";color:#3B3B3B;border:1px solid #D8D8D8 !important;box-sizing: border-box;padding:2px 5px 2px 5px;font-size: 12px;}
+body{font-size: 12px;font-family: "Microsoft YaHei","微软雅黑";color:#3B3B3B;overflow: hidden;background-color: #F6F7FB;}
+button{font-family: "Microsoft YaHei","微软雅黑";font-size:12px;border:none;color:#FFFFFF;}
+i{font-style: normal;}
+/*清浮动*/
+.clearfix:after{
+    content:"";
+    display:block;
+    clear:both;
+}
+.substr {white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+html,.main{width:100%;overflow: hidden;display: block;background-color: #f4f4f4;position: relative;height:100%;}
+html{font-size:100px;}
+input{border:none;}
+html,body{overflow: auto;height:100%;background-color: #F4F4F4;}
+

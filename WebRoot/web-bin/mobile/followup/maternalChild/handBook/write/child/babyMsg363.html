@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>疫苗与筛查</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_002.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_003.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+    <style>
+        .tip{
+            padding: 0.2rem 0;
+        }
+        input[type="text"]{
+            min-width: 2.5rem;
+            max-width: 2.5rem;
+        }
+    </style>
+</head>
+<body>
+    <form action="" id="myForm" name="myForm">
+        <div class="parent_msg">
+            <div class="main_option">
+                <span>宝宝第一针乙肝疫苗接种时间</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="hepatitisBVaccineTime" name="hepatitisBVaccineTime">
+            </div>
+            <div class="main_option">
+                <span>宝宝卡介苗接种时间</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="bcgVaccinationTime" name="bcgVaccinationTime">
+            </div>
+            <div class="main_option neonatalScreeningFlag">
+                <span>新生儿疾病筛查</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="neonatalScreeningFlag" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>有</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="neonatalScreeningFlag" value="0"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>无</span>
+                    </label>
+                </div>
+            </div>
+            <div class="main_option hearingScreeningFlag">
+                <span>新生儿听力筛查</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="hearingScreeningFlag" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>有</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="hearingScreeningFlag" value="0"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>无</span>
+                    </label>
+                </div>
+            </div>
+            <div class="main_option">
+                <p class="tip">在育儿方面美好的体验、担心的事情、患过的疾病，希望保留的记录感想等，请随意记录。</p>
+                <textarea class="textarea_msg" id="parentingRecord" name="parentingRecord"></textarea>
+            </div>
+        </div>
+    </form>
+    <div id="background" style="display: none"></div>
+    <div id="fake_alert"  style="display:none">
+        <div id="fake_alert_in">
+            <div id="msg"></div>
+            <div id="sure">确定</div>
+        </div>
+    </div>
+    <div class="page_btns">
+        <div class="pink_btn save">保存</div>
+    </div>
+    <input type="hidden" id="data_id">
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_002.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_004.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_003.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_005.js"></script>
+    <script>
+        $(function(){
+            var localhostUrl=window.location.origin;
+            var query=getRequest();
+            var healthBookId=query.healthBookId;
+            var babyId=query.babyId;
+            var cansubmit=true;
+            var currYear = (new Date()).getFullYear();
+            var opt={};
+            opt.date = {preset : 'date'};
+            opt.datetime = {preset : 'datetime'};
+            opt.time = {preset : 'time'};
+            opt.default2 = {
+                theme: 'android-ics light', //皮肤样式
+                display: 'modal', //显示方式
+                mode: 'scroller', //日期选择模式
+                dateFormat: 'yy-mm-dd',
+                lang: 'zh',
+                showNow: true,
+                nowText: "今天",
+                startYear: currYear - 2, //开始年份
+                endYear: currYear + 3 //结束年份
+            };
+            $(document).on("change","input[type='radio']",function(){
+                $("input[type='radio']").each(function() {
+                    $(this).is(":checked")?$(this).next().removeClass('pink_r_uncheck').addClass('pink_r_check'):$(this).next().removeClass('pink_r_check').addClass('pink_r_uncheck');
+                });
+            });
+            $("#hepatitisBVaccineTime,#bcgVaccinationTime").mobiscroll($.extend(opt['date'], opt['default2']));
+            //回显
+            $.ajax({
+                type:"post",
+                url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_childRearingRecordVaccine_data?babyId='+babyId+"&ram="+Math.random(),
+                dataType:'json',
+                contentType:'application/json;charset=UTF-8',
+                success:function(data){
+                    if(data.res==0){
+                        console.log(data);
+                        var msg=data.data;
+                        $('#data_id').val(msg&&msg.id);
+                        for(var o in msg){
+                            $("#"+o).val(msg[o]);
+                            o!=null&&$("."+o+" input[value="+ boolToNumber(msg[o]) +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                        }
+                    }else{
+                        alert('请求失败');
+                    }
+                },
+                error:function () {
+                    alert('请求失败');
+                    return;
+                }
+            });
+            //保存
+            $('.save').click(function(){
+                var JsonObj=$("#myForm").serializeObject();
+                JsonObj.healthBookId=healthBookId;
+                JsonObj.id=$('#data_id').val();
+                JsonObj.babyId=babyId;
+                var data_id=$("#data_id").val();
+                if(cansubmit){
+                    cansubmit=false;
+                    $.ajax({
+                        type:"post",
+                        url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/submit_childRearingRecordVaccine_data',
+                        data:JsonObj,
+                        contentType:'application/json;charset=UTF-8',
+                        success:function(data){
+                            if(data.res==0){
+                                fake_alert("保存成功");
+                                setTimeout(function(){
+                                    window.history.go(-1);
+                                },500)
+                            }else{
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                cansubmit=true;
+                            }
+                        },
+                        error:function () {
+                            fake_alert("保存失败！请检查网络是否正常。");
+                            cansubmit=true;
+                            return;
+                        }
+                    });
+                }
+            })
+        })
+        function fake_alert(text,element){
+            $("#background").show();
+            $("#fake_alert").show();
+            $("#msg").html(text);
+            $("#sure").click(function(){
+                $("#background").hide();
+                $("#fake_alert").hide();
+            });
+            element&&$("html,body").animate({scrollTop:$(element).offset().top-75},500);
+        }
+    </script>
+</body>
+</html>

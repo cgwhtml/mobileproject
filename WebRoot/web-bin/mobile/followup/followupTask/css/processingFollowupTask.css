@@ -1,0 +1,189 @@
+*{margin: 0 auto;}
+body{
+    background: #eee;
+    font-family: "Microsoft YaHei", "微软雅黑";
+    color:#333;
+    width: 100%;
+}
+.design_icon{background-image:url("/web-bin/interview/followup/patientArchive/images/designIco.png");background-repeat:no-repeat;}
+
+.base_info{
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 1px solid #ddd;
+    padding-left: 10px;
+    background: #fff;
+    margin-bottom: 10px;
+}
+.base_info .per_img,.base_info .per_img img{
+    width: 40px;
+    height: 40px;
+    margin-top: 7px;
+}
+.base_info span{
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 15px;
+}
+.head{
+    width: 40px;
+    height: 40px;
+    background-position: -186px -10px;
+    margin-top: 7px;
+}
+.name{
+    font-weight: bold;
+}
+.right_arrow{
+    width: 15px;
+    height: 25px;
+    background-position: -139px -700px;
+    float: right;
+    margin-top: 14px;
+}
+.main_body{
+    background: #fff;
+    margin-bottom: 10px;
+}
+.title{
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    padding-left: 10px;
+    border-bottom: 1px solid #eee;
+}
+.list div{
+    padding: 0 10px;
+    height: 45px;
+    line-height: 45px;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+.list .arrow{background: url("../img/arrow.png") no-repeat;background-size: 100%;}
+.red,.green{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 10px;
+    margin-top: 5px;
+    vertical-align: text-bottom;
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+    margin-left: 10px;
+}
+.red{
+    background: #E99493;
+}
+.green{
+    background: #259B24;
+}
+.followup{
+    overflow: hidden;
+    height: 45px;
+    line-height: 45px;
+}
+.followup div{
+    float: left;
+    width: 49.5%;
+    text-align: center;
+}
+.send{
+    border-right: 1px solid #eee;
+}
+.followup span{display: block;float:left;}
+#followup_record{
+    border: none;
+    width: 100%;
+    min-height: 180px;
+    max-height: 220px;
+    padding: 10px;
+    box-sizing: border-box;
+    resize: none;
+    font-size:14px;
+    overflow: auto;
+}
+.submit{
+    width: 95%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+    background: #4DA9EB;
+    margin-top: 50px;
+}
+#handlingOpinion{
+    width: 100%;
+    min-height: 180px;
+    max-height: 220px;
+    background: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    overflow: auto;
+}
+.followup_time{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: #fff;
+    padding: 0 15px;
+    box-sizing: border-box;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.date{
+    float: right;
+    color: #aaa;
+}
+.isnormal{
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 15px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    box-sizing: border-box;
+}
+
+/*开关按钮*/
+#div1{
+    float: right;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 7px;
+    width: 50px;
+    height: 30px;
+    border-radius: 15px;
+    position: relative;
+}
+#div2{
+    width: 28px;
+    height: 28px;
+    border-radius: 14px;
+    position: absolute;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+.open1{
+    background: rgba(0,184,0,0.8);
+}
+.open2{
+    top: 1px;
+    right: 0;
+}
+.close1{
+    background: rgba(255,255,255,0.4);
+    border:1px solid rgba(0,0,0,0.2);
+    border-left: transparent;
+}
+.close2{
+    left: 0;
+    top: 0;
+    border:1px solid rgba(0,0,0,0.1);
+}
+.icon_processing{width:25px;height:25px;display: block;float:left;margin: 10px 10px 0 30px;}
+.icon_send{background: url("../img/icon_04.png") no-repeat;background-size: 100%;}
+.icon_phone{background: url("../img/icon_05.png") no-repeat;background-size: 100%;}

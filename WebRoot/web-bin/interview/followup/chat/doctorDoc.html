@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>医医沟通</title>
+</head>
+<body>
+<!--聊天区-->
+           <ul class="doc_choosen_model">
+               <li data-role="doc_msg_list">消息
+               		<div class="doctor_spot"></div>
+               </li>
+               <li data-role="doctor_manage">同行</li>
+           </ul>
+           <!--信息列表-->
+           <p style="display:none">
+			   <textarea id="doc_template_msgList" rows="0" cols="0">
+			   {#foreach $T as Row}
+			   <li data-hugId={$T.Row.targetHugId}>
+	               <div class="friend_head">
+		               <div class="design_icon icon_head"></div>
+		               {#if $T.Row.number!=0}
+		                   <div class="msg_number">{$T.Row.number}</div>
+		               {#else}
+		               	   <div class="msg_number" style="display:none">{$T.Row.number}</div>
+		               {#/if}
+	               </div>
+	           	   <div class="msg_nameBox">
+		               <div class="msg_name substr">{$T.Row.nickName}</div>
+		               <div class="msg_time substr">{$T.Row.lastmsg}</div>
+	               </div>
+	               <input  type="hidden" value="" class="msg_id"/>
+	           </li>
+			   {#/for}
+			   </textarea>
+		   </p>
+		   <ul class="doc_msg_list"></ul>
+           <!--医生好友列表-->
+           <div class="doctor_manage">
+               <div class="inputbox">
+                   <input type="text" t_placeholder="查找好友" class="s_input friend_input"/>
+                   <div class="design_icon design_icon bar_blue_left add_friend">
+                   	   <div class="red_spot"></div>
+                       <div class="design_icon creat_white_small add_icon"></div>
+                     	添加
+                       <ul class="friend_box">
+                           <li class="friend_add">添加好友</li>
+                           <li class="friend_request">
+                              	好友请求
+                           <div class="red_spot_request"></div>   	
+                           </li>
+                       </ul>
+                   </div>
+               </div>
+		        <p style="display:none">
+				   <textarea id="template_friendNameList" rows="0" cols="0">
+				   <ul class="search_friend_list"></ul>
+				   {#foreach $T as Row}
+				   	<li class="doctor_item" data-hugId={$T.Row.targetHugId}>	
+						<div class="friend_head_item"></div>
+						<div class="msg_nameBox">
+							<div class="doctor_name substr">{$T.Row.remarkName}</div>
+							<input  type="hidden" value={$T.Row.friendId} class="friend_id"/>
+						</div>
+				   </li>
+				   {#/for}
+				   </textarea>
+		       </p>
+               <ul class="doctor_group_list"></ul>
+           </div>      
+<script src="/web-bin/interview/followup/chat/js/doctorDoc.js"></script>
+</body>
+</html>

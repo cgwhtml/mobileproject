@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>医患聊天</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="apple-mobile-web-app-capable" content="no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/basic.css">
+    <link rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/myMedic/weChat.css">
+</head>
+<body>
+<div data-role="page" class="wrapper">
+    <!--聊天区-->
+	<input type="hidden" id="myHead" value="">
+    <div class="chat_in">
+		<input type="hidden" id="status">
+        <div class="sender"></div>
+		<!--<div class="sender_top"></div>-->
+        <p style="display:none">
+				<textarea id="session_template_msgList" rows="0" cols="0">
+				<li class="show_more">
+				    <div class="show_more_box" style="display:none">
+						<img src="/web-bin/resources/images/loading_1.gif" width="20px"/>
+					</div>
+				</li>
+			   {#foreach $T as Row}
+					{#if $T.Row.protocol=="820004" || $T.Row.protocol=="820005" || $T.Row.protocol=="820006" || $T.Row.protocol=="820010" || $T.Row.protocol=="820007"}
+						<li class="receive_time"><span>{$T.Row.imTime}</span></li>
+						{#if $T.Row.type==0}
+							{#if $T.Row.protocol=="820006"}
+								<li>
+									<div class="send_head design_icon"></div>
+									<div class="sended_msg">
+										<div class="send_triangle design_icon"></div>
+										<span>{$T.Row.msgContent}</span>
+									</div>
+								</li>
+							{#elseif $T.Row.protocol=="820004" || $T.Row.protocol=="820005"}
+								<li>
+									<div class="send_head design_icon">
+									</div>
+									<div class="sended_msg">
+										<div class="send_triangle design_icon"></div>
+										<span>{$T.Row.msgContent}</span>
+									</div>
+								</li>
+							{#elseif $T.Row.protocol=="820010"}
+					      <!--宣传问卷-->
+								<li>
+									<div class="send_head design_icon"></div>
+										<div class="sended_question" data-type=0>
+											<span style="display:none" class="question_id">{$T.Row.msgDomain.id}</span>
+											<div class="send_triangle design_icon"></div>
+											<div class="question_title">{$T.Row.msgDomain.title}</div>
+											<div class="question_png"></div>
+										</div>
+								</li>
+							{#elseif $T.Row.protocol=="820007"}
+								{#if $T.Row.msgDomain.msgType==0}
+                    <!--发送的图片-->
+									<li>
+										<div class="send_head  design_icon"></div>
+										<div class="img_box float_right">
+											<!--<div class="send_triangle design_icon"></div>-->
+											<input type="hidden" value="{$T.Row.msgDomain.id}" class="id_src">
+											<img src=""  height="200px"/>
+										</div>
+									</li>
+								{#elseif $T.Row.msgDomain.msgType==1}
+								<!--发送的语音-->
+									<li>
+										<div class="send_head design_icon"></div>
+											<div class="receive_triangle design_icon"></div>
+										<div class="audio_controller float_rVideo">
+											<div class="send_triangle design_icon"></div>
+											<div class="audio_img"><img src="/web-bin/interview/followup/chat/images/audio.png"/></div>
+											<span>{$T.Row.msgDomain.chatLength}s</span>
+											<input type="hidden" value="{$T.Row.msgDomain.id}" class="id_src">
+											<audio src=""></audio>
+										</div>
+									</li>
+								{#elseif $T.Row.msgDomain.msgType==2}
+								<!--发送的视频-->
+									<li>
+										<div class="send_head  design_icon"></div>
+										<div class="video_controller float_right">
+											<div class="send_triangle design_icon"></div>
+											<div class="play_video"><img src="/web-bin/resources/images/play.png"/></div>
+											<input type="hidden" value="{$T.Row.msgDomain.id}" class="id_src">
+											<input type="hidden" value="{$T.Row.msgDomain.firstImage}" class="video_imgSrc">
+											<img src="" alt="" class="firstImage">
+											<video width="1" height="1">
+												<source src="" type="video/mp4" />
+											</video>
+										</div>
+									</li>
+								{#/if}
+							{#/if}
+						{#else}
+					<!--收到的消息处理-->
+							{#if $T.Row.protocol=="820006"}
+					<!--收到的文字-->
+								<li>
+									<div class="receive_head design_icon"></div>
+									<div class="receive_msg">
+										<div class="receive_triangle design_icon"></div>
+										<span>{$T.Row.msgContent}</span>
+									</div>
+								</li>
+							{#elseif $T.Row.protocol=="820004" || $T.Row.protocol=="820005"}
+					<!--收到好友请求等-->
+								<li>
+									<div class="send_head design_icon">
+									</div>
+									<div class="sended_msg">
+										<div class="send_triangle design_icon"></div>
+										<span>{$T.Row.msgContent}</span>
+									</div>
+								</li>
+					<!--收到的宣传问卷-->
+							{#elseif $T.Row.protocol=="820010"}
+								{#if $T.Row.msgDomain.categType && $T.Row.msgDomain.categType==6}
+								<li>
+									<div class="receive_head design_icon"></div>
+									<div class="receive_question" data-type="6">
+										<span style="display:none" class="question_id">{$T.Row.msgDomain.id}</span>
+										<div class="receive_triangle design_icon"></div>
+										<div class="question_title">{$T.Row.msgDomain.title}</div>
+										<div class="education_png"></div>
+									</div>
+								</li>
+								{#else}
+								<li>
+									<div class="receive_head design_icon"></div>
+									<div class="receive_question" data-type=0>
+										<span style="display:none" class="question_id">{$T.Row.msgDomain.id}</span>
+										<div class="receive_triangle design_icon"></div>
+										<div class="question_title">{$T.Row.msgDomain.title}</div>
+										<div class="question_png"></div>
+									</div>
+								</li>
+								{#/if}
+							{#elseif $T.Row.protocol=="820007"}
+								{#if $T.Row.msgDomain.msgType==0}
+                    <!--收到的图片-->
+								<li>
+									<div class="receive_head  design_icon"></div>
+									<div class="img_box">
+									<div class="receive_triangle design_icon"></div>
+									<input type="hidden" value="{$T.Row.msgDomain.id}" class="id_src">
+									<img src=""  height="200px"/>
+									</div>
+								</li>
+								{#elseif $T.Row.msgDomain.msgType==1}
+									<li>
+										<div class="receive_head design_icon"></div>
+											<div class="receive_triangle design_icon"></div>
+										<div class="audio_controller">
+											<div class="receive_triangle design_icon"></div>
+											<div class="audio_img"><img src="/web-bin/interview/followup/chat/images/audio.png"/></div>
+                                            <input type="hidden" value="{$T.Row.msgDomain.id}" class="id_src">
+											<span>{$T.Row.msgDomain.chatLength}s</span>
+											<audio src="{$T.Row.id}"></audio>
+										</div>
+									</li>
+								{#elseif $T.Row.msgDomain.msgType==2}
+								<li>
+									<div class="receive_head  design_icon"></div>
+									<div class="video_controller">
+										<div class="receive_triangle design_icon"></div>
+										<div class="play_video"><img src="/web-bin/resources/images/play.png"/></div>
+										<input type="hidden" value="{$T.Row.msgDomain.id}" class="id_src">
+										<input type="hidden" value="{$T.Row.msgDomain.firstImage}" class="video_imgSrc">
+										<img src="" alt="" class="firstImage">
+										<video width="1" height="1">
+                                            <source src="" type="video/mp4" />
+                                        </video>
+									</div>
+								</li>
+								{#/if}
+							{#/if}
+						{#/if}
+					{#/if}
+			   {#/for}
+			   </textarea>
+        </p>
+		<ul class="chat_top"></ul>
+        <div class="chat_input">
+            <div class="speak">
+				<form method="post" enctype="multipart/form-data" id="myForm">
+					<div class="speack_img"></div>
+					<input type="file" id="file" name="thumbnail" multiple="multipart/form-data" value="1111"/>
+					<!--<input type="submit" onclick="uploadByForm()">-->
+				</form >
+			</div>
+			<div class="input_box">
+				<input type="text" class="input_area">
+			</div>
+			<div class="add_functon">
+				<div class="send">发送</div>
+			</div>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script src="/web-bin/resources/artdialog/artDialog.source.js?skin=white"></script>
+<script src="/web-bin/resources/artdialog/iframeTools.source.js"></script>
+<script src="/web-bin/weChat/weChatPublic/js/ytx/ytx-web-im-min-new.js"></script>
+<script type="text/javascript" src="/web-bin/weChat/weChatPublic/js/myMedic/weChat.js"></script>
+<!--去除因为加载jquery.mobile页面底部出现loading字样-->
+<script type="text/javascript">
+    $(document).bind('mobileinit',function(){
+        $.mobile.loadingMessage = false;
+    })
+</script>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery.mobile-1.3.2.min.js"></script>
+</body>
+</html>

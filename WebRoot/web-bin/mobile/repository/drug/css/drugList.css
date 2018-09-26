@@ -1,0 +1,211 @@
+/*
+ 	* Created by cgw
+ 	* Created time 20173.20
+	* Description  ҩƷ�б�ҳ��ʽ
+*/
+html,body {
+	height:100%;
+     overflow:hidden;
+     user-select: none;
+    -moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+html {
+	font-size:100px;
+}
+/*����*/
+.search_box {
+	width:100%;
+	height:1.1rem;
+	background:#D3D3D3;
+	overflow:hidden;
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:199;
+}
+.search {
+	width:95%;
+	height:0.9rem;
+	border-radius:0.2rem;
+	margin:0.1rem auto;
+	position:relative;
+	font-size:16px;
+	box-sizing:border-box;
+	padding:0.22rem 0 0.22rem 0;
+	background:#fff;
+	border:1px solid #ccc
+}
+.searchInput {
+    width:100%;
+    height:100%;
+    padding-left:0.65rem;
+    padding-right: 0.3rem;
+    box-sizing:border-box;
+    border:0;
+    outline:none;
+    line-height:0.5rem;
+    font-size:16px;
+}
+.input_mes {
+	width:100%;
+	height:0.9rem;
+	color:#5AC6EA;
+    text-align:center;
+    line-height:0.9rem;
+    font-size:15px;
+    background:#fff;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:200;
+    box-sizing:border-box;
+    border-bottom:1px solid #5AC6EA;
+}
+.null_mes {
+	height:0.9rem;
+	color:#157190;
+    text-align:center;
+    line-height:0.9rem;
+    font-size:15px;
+    background:#fff;
+    display:none;
+    margin-top:0.9rem
+}
+.cancle {
+	padding:0 0.2rem 0 0.2rem;
+	background:#00A2D8;
+	text-align:center;
+	line-height:0.8rem;
+	border:0;
+	outline:none;
+	border-radius:0.1rem;
+	color:#fff;
+	font-size:15px;
+	display:none;
+	position:fixed;
+	top:0.15rem;
+	right:0.1rem;
+	z-index:200;
+}
+.search_res {
+	width:100%;
+	height:100%;
+	background:#fff;
+	position:absolute;
+	top:1.1rem;
+	left:0;
+	z-index:100;
+	display:none;
+}
+#searchList_result {
+	width:100%;
+	margin-top:0.9rem;
+	position:absolute;
+	top:0;
+	left:0;
+}
+.search_img {
+	width:0.5rem;
+	height:0.6rem;
+	position:absolute;
+	left:0.15rem;
+	top:0.25rem;
+	border-radius:0.1rem;
+	color:#fff;
+	font-size:14px;
+	line-height:0.6rem;
+}
+.search_img img {
+	width:0.4rem
+}
+/*��������б�*/
+.searchItem {
+	width:100%;
+	height:55px;
+	padding-left:0.3rem;
+	line-height:55px;
+	border-bottom:1px solid #E7E7E7;
+	font-size:16px;
+	box-sizing:border-box;
+	padding-right:40px;
+	position:relative;
+    color:#333;
+    background:#fff;
+}
+/*�����б�*/
+.mainList {
+	width:100%;
+	height:100%;
+	display:flex;
+	position: absolute;
+    padding-top:1.1rem;
+    top: 0;
+    box-sizing: border-box;
+}
+#partList_result {
+	width:2rem;
+    height:auto;
+    background:#F4F4F4;
+    box-sizing:border-box;
+    overflow:auto;
+	float:left;
+}
+/*���С����*/
+.partItem {
+	width:100%;
+	height:2rem;
+	border-bottom:1px solid #E7E7E7;
+	border-right:1px solid #E7E7E7;
+	overflow:hidden;
+	box-sizing:border-box;
+	text-align:center;
+	font-size:15px;'
+}
+.activeBox {
+	background-color:#fff;
+	border-right:1px solid #fff;
+}
+.imgBox {
+	width:1.1rem;
+	height:1.1rem;
+	margin:0.2rem auto;
+}
+.imgBox img {
+	width:100%;
+	height:100%;
+}
+/*�Ҳ�ҩƷ�б�*/
+#drugList_result {
+    height:auto;
+    flex-grow:1;
+    background-color:#fff;
+    padding-left:15px;
+    box-sizing:border-box;
+}
+.drugItem {
+	width:100%;
+	height:1rem;
+	padding-left:0.3rem;
+	line-height:1rem;
+	border-bottom:1px solid #E7E7E7;
+	font-size:16px;
+	box-sizing:border-box;
+	padding-right:40px;
+	position:relative;
+    color:#333
+}
+.drugName  {
+	width:4rem;
+}
+/*С��ͷ*/
+.arrows {
+	width:0.3rem;
+	height:0.3rem;
+	position:absolute;
+	right:0.28rem;
+	top:0.4rem;
+	background:url(../images/jian.png) no-repeat;
+	background-size:100%;
+}

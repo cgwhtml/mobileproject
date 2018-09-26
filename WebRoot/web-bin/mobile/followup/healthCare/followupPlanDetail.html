@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>随访计划详情</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name = "format-detection" content = "telephone=no">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/healthCare/css/followupPlanDetail.css"/>
+    <script src="/web-bin/resources/rem/rem.js"></script>
+</head>
+<body>
+<div class="main_body">
+    <p style="display:none"><textarea id="Template-followUp" rows="0" cols="0">
+        {#foreach $T as Row}
+            {#if $T.Row.revisitResult==0}
+                <div class="item">
+                    <span class="unfinished">未完成</span>
+                    <span class="date">{$T.Row.plantimeStr}</span>
+                    <span class="form">{$T.Row.formTitle}</span>
+                </div>
+            {#elseif $T.Row.revisitResult==1}
+                <div class="item">
+                    <span class="finished">完成</span>
+                    <span class="date">{$T.Row.plantimeStr}</span>
+                    <span class="form">{$T.Row.formTitle}</span>
+                </div>
+            {#elseif $T.Row.revisitResult==2}
+                <div class="item">
+                    <span class="close">结案</span>
+                    <span class="date">{$T.Row.plantimeStr}</span>
+                    <span class="form">{$T.Row.formTitle}</span>
+                </div>
+            {#/if}
+        {#/for}
+    </textarea></p>
+    <div class="wait_followup"></div>
+</div>
+<div class="close_case">
+    <button id="close_button">结案</button>
+</div>
+
+</body>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/weui/fastclick.js"></script>
+<!--解决ios下click的300ms的延迟，需引入fastclick-->
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+<script type="text/javascript" src="/web-bin/mobile/followup/healthCare/js/followupPlanDetail.js"></script>
+</html>

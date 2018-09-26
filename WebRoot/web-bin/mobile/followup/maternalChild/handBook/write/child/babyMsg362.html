@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>育儿记录</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+</head>
+<body>
+    <form action="" id="myForm" name="myForm">
+        <div class="parent_msg">
+            <div class="main_option feedingWay">
+                <span>喂养方式</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="feedingWay" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>母乳喂养</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="feedingWay" value="2"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>人工喂养</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="feedingWay" value="3"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>混合喂养</span>
+                    </label>
+                </div>
+            </div>
+            <div class="main_option">
+                <span>吃奶次数</span>
+                <input type="tel" placeholder="请填写" class="input_msg" id="feedingTimes" name="feedingTimes">
+            </div>
+            <div class="main_option">
+                <span>小便次数</span>
+                <input type="tel" placeholder="请填写" class="input_msg" id="peeTimes" name="peeTimes">
+            </div>
+            <div class="main_option">
+                <span>大便次数</span>
+                <input type="tel" placeholder="请填写" class="input_msg" id="shitTimes" name="shitTimes">
+            </div>
+            <div class="main_option">
+                <span>体重（g）</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="weight" name="weight">
+            </div>
+            <div class="main_option skinYellowDyeFlag">
+                <span>皮肤黄染</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="skinYellowDyeFlag" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>有</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="skinYellowDyeFlag" value="0"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>无</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div id="background" style="display: none"></div>
+    <div id="fake_alert"  style="display:none">
+        <div id="fake_alert_in">
+            <div id="msg"></div>
+            <div id="sure">确定</div>
+        </div>
+    </div>
+    <div class="page_btns">
+        <div class="pink_btn save">保存</div>
+    </div>
+    <input type="hidden" id="data_id">
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script>
+        $(function(){
+            var localhostUrl=window.location.origin;
+            var query=getRequest();
+            var healthBookId=query.healthBookId;
+            var feedingDay=query.feedingDay;
+            var babyId=query.babyId;
+            var id=query.id;
+            var cansubmit=true;
+            $(document).on("change","input[type='radio']",function(){
+                $("input[type='radio']").each(function() {
+                    $(this).is(":checked")?$(this).next().removeClass('pink_r_uncheck').addClass('pink_r_check'):$(this).next().removeClass('pink_r_check').addClass('pink_r_uncheck');
+                });
+            });
+            //回显
+            $.ajax({
+                type:"post",
+                url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_simplyNewBabyEarlyChildRearingRecord_data?id='+id+"&ram="+Math.random(),
+                dataType:'json',
+                contentType:'application/json;charset=UTF-8',
+                success:function(data){
+                    console.log(data);
+                    if(data.res==0){
+                        var msg=data.data;
+                        $('#data_id').val(msg&&msg.id);
+                        for(var o in msg){
+                            $("#"+o).val(msg[o]);
+                            o!=null&&$("."+o+" input[value="+ msg[o] +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                            o!=null&&$("."+o+" input[value="+ boolToNumber(msg[o]) +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                        }
+                    }else{
+                        alert('请求失败');
+                    }
+                },
+                error:function () {
+                    alert('请求失败');
+                    return;
+                }
+            });
+            //保存
+            $('.save').click(function(){
+                if(checkForm()==false){
+                    return false;
+                }
+                var JsonObj=$("#myForm").serializeObject();
+                JsonObj.healthBookId=healthBookId;
+                JsonObj.id=$('#data_id').val();
+                JsonObj.babyId=babyId;
+                JsonObj.feedingDay=feedingDay;
+                var data_id=$("#data_id").val();
+                console.log(JsonObj);
+                if(cansubmit){
+                    cansubmit=false;
+                    $.ajax({
+                        type:"post",
+                        url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/submit_simplyNewBabyEarlyChildRearingRecord_data',
+                        data:JsonObj,
+                        contentType:'application/json;charset=UTF-8',
+                        success:function(data){
+                            console.log(data);
+                            if(data.res==0){
+                                fake_alert("保存成功");
+                                setTimeout(function(){
+                                    window.history.go(-1);
+                                },500)
+                            }else{
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                cansubmit=true;
+                            }
+                        },
+                        error:function () {
+                            fake_alert("保存失败！请检查网络是否正常。");
+                            cansubmit=true;
+                            return;
+                        }
+                    });
+                }
+            })
+        })
+        function fake_alert(text,element){
+            $("#background").show();
+            $("#fake_alert").show();
+            $("#msg").html(text);
+            $("#sure").click(function(){
+                $("#background").hide();
+                $("#fake_alert").hide();
+            });
+            element&&$("html,body").animate({scrollTop:$(element).offset().top-75},500);
+        }
+        function checkForm(){
+            var regu = "^[0-9]+\.?[0-9]*$";//验证数字和小数
+            var re = new RegExp(regu);
+            var feedingTimes=$('#feedingTimes').val();
+            if(feedingTimes!=''&&!IsNumberValidateFun(feedingTimes)){
+                fake_alert("吃奶次数必须是整数","#feedingTimes");
+                return false;
+            }
+            var peeTimes=$('#peeTimes').val();
+            if(peeTimes!=''&&!IsNumberValidateFun(peeTimes)){
+                fake_alert("小便次数必须是整数","#peeTimes");
+                return false;
+            }
+            var shitTimes=$('#shitTimes').val();
+            if(shitTimes!=''&&!IsNumberValidateFun(shitTimes)){
+                fake_alert("大便次数必须是整数","#shitTimes");
+                return false;
+            }
+            var weight=$('#weight').val();
+            if(weight!=''&&!re.test(weight)){
+                fake_alert("体重必须是数字","#weight");
+                return false;
+            }
+            if(/.*[\u4e00-\u9fa5]+.*$/.test(weight)){
+                fake_alert("体重必须是数字","#weight");
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

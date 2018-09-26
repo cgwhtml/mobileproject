@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>自我记录</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_002.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_003.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+    <style>
+        .textarea_msg{
+            margin-top: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+<form action="" id="myForm" name="myForm">
+    <div class="parent_msg">
+        <div class="main_option">
+            <div class="option_title">记录日期</div>
+        </div>
+        <div class="main_option">
+            <span>记录日期</span>
+            <div class="pink_arrow_right pink_arrow_right_position"></div>
+            <input type="text" placeholder="请选择" class="input_msg" id="recordTime" name="recordTime">
+        </div>
+    </div>
+    <div class="parent_msg">
+        <div class="main_option">
+            <div class="option_title">结婚年龄</div>
+        </div>
+        <div class="main_option">
+            <span>备孕妈妈</span>
+            <input type="text" placeholder="请填写" class="input_msg" id="motherMarryAge" name="motherMarryAge">
+        </div>
+        <div class="main_option">
+            <span>备孕爸爸</span>
+            <input type="text" placeholder="请填写" class="input_msg" id="fatherMarryAge" name="fatherMarryAge">
+        </div>
+    </div>
+    <div class="parent_msg">
+        <div class="main_option">
+            <div class="option_title">计划怀孕年龄</div>
+        </div>
+        <div class="main_option">
+            <span>备孕妈妈</span>
+            <input type="text" placeholder="请填写" class="input_msg" id="motherPlanPregentAge" name="motherPlanPregentAge">
+        </div>
+        <div class="main_option">
+            <span>备孕爸爸</span>
+            <input type="text" placeholder="请填写" class="input_msg" id="fatherPlanPregentAge" name="fatherPlanPregentAge">
+        </div>
+    </div>
+    <div class="parent_msg">
+        <div class="main_option">
+            <div class="option_title">备孕妈妈基本情况</div>
+        </div>
+        <div class="main_option">
+            <span>身高（cm）</span>
+            <input type="text" placeholder="请填写" class="input_msg" id="motherHeight" name="motherHeight">
+        </div>
+        <div class="main_option">
+            <span>体重（kg）</span>
+            <input type="text" placeholder="请填写" class="input_msg" id="motherWeight" name="motherWeight">
+        </div>
+        <div class="main_option">
+            <span>BMI</span>
+            <input type="tel" class="input_msg input_disabled" id="mother_BMI" disabled>
+        </div>
+        <div class="main_option">
+            <span>肥胖程度</span>
+            <input type="tel" class="input_msg input_disabled" id="mother_fat" disabled>
+        </div>
+        <div class="main_option">
+            <span>孕期检查结果</span>
+            <div class="pull_right option_radio motherCheckResultFlag">
+                <label>
+                    <input type="radio" name="motherCheckResultFlag" value="1"/>
+                    <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                    <span>健康</span>
+                </label>
+                <label>
+                    <input type="radio" name="motherCheckResultFlag" value="0"/>
+                    <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                    <span>疾病</span>
+                </label>
+            </div>
+        </div>
+        <div class="main_option" style="display: none;">
+            <textarea class="textarea_msg" id="motherDiseaseName" name="motherDiseaseName" placeholder="请填写疾病名称"></textarea>
+        </div>
+    </div>
+    <div class="parent_msg">
+        <div class="main_option">
+            <div class="option_title">备孕爸爸基本情况</div>
+        </div>
+        <div class="main_option">
+            <span>身高（cm）</span>
+            <input type="text" placeholder="请填写" class="input_msg" id="fatherHeight" name="fatherHeight">
+        </div>
+        <div class="main_option">
+            <span>体重（kg）</span>
+            <input type="text" placeholder="请填写" class="input_msg" id="fatherWeight" name="fatherWeight">
+        </div>
+        <div class="main_option">
+            <span>BMI</span>
+            <input type="tel" class="input_msg input_disabled" id="father_BMI" disabled>
+        </div>
+        <div class="main_option">
+            <span>肥胖程度</span>
+            <input type="tel" class="input_msg input_disabled" id="father_fat" disabled>
+        </div>
+        <div class="main_option">
+            <span>孕期检查结果</span>
+            <div class="pull_right option_radio fatherCheckResultFlag">
+                <label>
+                    <input type="radio" name="fatherCheckResultFlag" value="1"/>
+                    <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                    <span>健康</span>
+                </label>
+                <label>
+                    <input type="radio" name="fatherCheckResultFlag" value="0"/>
+                    <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                    <span>疾病</span>
+                </label>
+            </div>
+        </div>
+        <div class="main_option" style="display: none;">
+            <textarea class="textarea_msg" id="fatherDiseaseName" name="fatherDiseaseName" placeholder="请填写疾病名称"></textarea>
+        </div>
+    </div>
+    <div class="parent_msg">
+        <div class="main_option">
+            <span>备孕感想</span>
+            <textarea class="textarea_msg" id="preparePregnancyFeel" name="preparePregnancyFeel"></textarea>
+        </div>
+    </div>
+</form>
+<div id="window"  style="display:none" class="window">
+    <div>
+        <div id="window_in" class="window_in"></div>
+        <div id="check" class="check">确定</div>
+    </div>
+</div>
+<div id="background" style="display: none"></div>
+<div id="fake_alert"  style="display:none">
+    <div id="fake_alert_in">
+        <div id="msg"></div>
+        <div id="sure">确定</div>
+    </div>
+</div>
+<div class="page_btns">
+    <div class="pink_btn save">保存</div>
+</div>
+<input type="hidden" id="data_id">
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+<script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_002.js"></script>
+<script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_004.js"></script>
+<script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll.js"></script>
+<script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_003.js"></script>
+<script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_005.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var localhostUrl=window.location.origin;
+        var query = getRequest();
+        var healthBookId = query.healthBookId;
+        var regu = "^[0-9]+\.?[0-9]*$";//验证数字和小数
+        var re = new RegExp(regu);
+        var cansubmit=true;
+        var currYear = (new Date()).getFullYear();
+        var opt = {};
+        opt.date = {preset: 'date'};
+        opt.datetime = {preset: 'datetime'};
+        opt.time = {preset: 'time'};
+        opt.default1 = {
+            theme: 'android-ics light', //皮肤样式
+            display: 'modal', //显示方式
+            mode: 'scroller', //日期选择模式
+            dateFormat: 'yy-mm-dd',
+            lang: 'zh',
+            showNow: true,
+            nowText: "今天",
+            startYear: currYear - 50, //开始年份
+            endYear: currYear + 10 //结束年份
+        };
+        $("#recordTime").mobiscroll($.extend(opt['date'], opt['default1']));
+        $(document).on("change","input[type='radio']",function(){
+            $("input[type='radio']").each(function() {
+                $(this).is(":checked")?$(this).next().removeClass('pink_r_uncheck').addClass('pink_r_check'):$(this).next().removeClass('pink_r_check').addClass('pink_r_uncheck');
+            });
+        });
+        //妈妈孕期检查结果
+        $('input[name="motherCheckResultFlag"]').change(function(){
+            $(this).val()==0?$(this).parents('.main_option').next().show():$(this).parents('.main_option').next().hide()&&$('#motherDiseaseName').val('');
+        })
+        //爸爸孕期检查结果
+        $('input[name="fatherCheckResultFlag"]').change(function(){
+            $(this).val()==0?$(this).parents('.main_option').next().show():$(this).parents('.main_option').next().hide()&&$('#fatherDiseaseName').val('');
+        })
+        //妈妈BMI
+        $('#motherHeight,#motherWeight').change(function(){
+            motherBMI();
+        })
+        //爸爸BMI
+        $('#fatherHeight,#fatherWeight').change(function(){
+            fatherBMI();
+        })
+        $.ajax({
+            type:"post",
+            url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_parentSelfRecord_data?healthBookId='+healthBookId,
+            dataType:'json',
+            async:false,
+            contentType:'application/json;charset=UTF-8',
+            success:function(data){
+                console.log(data);
+                if(data.res==0){
+                    var msg=data.data;
+                    $('#data_id').val(msg&&msg.id);
+                    if(msg!=null){
+                        for(var o in msg){
+                            $("#"+o).val(msg[o]);
+                        }
+                        msg.fatherCheckResultFlag!=null&&$(".fatherCheckResultFlag input[value="+ boolToNumber(msg.fatherCheckResultFlag) +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                        msg.fatherCheckResultFlag==false&&$('.fatherCheckResultFlag').parents('.main_option').next().show();
+                        msg.motherCheckResultFlag!=null&&$(".motherCheckResultFlag input[value="+ boolToNumber(msg.motherCheckResultFlag) +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                        msg.motherCheckResultFlag==false&&$('.motherCheckResultFlag').parents('.main_option').next().show();
+                        motherBMI();
+                        fatherBMI();
+                    }
+                }else{
+                    fake_alert("请求失败！请检查网络是否正常。");
+                }
+            },
+            error:function () {
+                fake_alert("请求失败！请检查网络是否正常。");
+                return;
+            }
+        });
+        //保存
+        $('.save').click(function(){
+            if(checkForm()==false){
+                return false;
+            }
+            var JsonObj=$("#myForm").serializeObject();
+            JsonObj.healthBookId=healthBookId;
+            JsonObj.id=$('#data_id').val();
+            if(cansubmit){
+                cansubmit=false;
+                $.ajax({
+                    type:"post",
+                    url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/submit_parentSelfRecord_data',
+                    data:JsonObj,
+                    contentType:'application/json;charset=UTF-8',
+                    success:function(data){
+                        console.log(data);
+                        if(data.res==0){
+                            fake_alert("保存成功");
+                            setTimeout(function(){
+                                window.history.go(-1);
+                            },500)
+                        }else{
+                            fake_alert("保存失败！请检查网络是否正常。");
+                            cansubmit=true;
+                        }
+                    },
+                    error:function () {
+                        fake_alert("保存失败！请检查网络是否正常。");
+                        cansubmit=true;
+                        return;
+                    }
+                });
+            }
+        })
+        function fake_alert(text, element) {
+            $("#background").show();
+            $("#fake_alert").show();
+            $("#msg").html(text);
+            $("#sure").click(function () {
+                $("#background").hide();
+                $("#fake_alert").hide();
+            });
+            element && $("html,body").animate({scrollTop: $(element).offset().top - 75}, 500);
+        }
+        function motherBMI() {
+            var motherHeight=$('#motherHeight').val();
+            var motherWeight=$('#motherWeight').val();
+            var motherBMI;
+            if(motherHeight!=''&&motherWeight!=''){
+                motherBMI=motherWeight/(motherHeight*motherHeight);
+                motherBMI=parseFloat(motherBMI*10000).toFixed(1);
+                isNaN(motherBMI)?$('#mother_BMI').val():$('#mother_BMI').val(motherBMI);
+                if(motherBMI<18.5){
+                    $('#mother_fat').val('低体重');
+                }else if(motherBMI>=18.5&&motherBMI<24.9){
+                    $('#mother_fat').val('标准体重');
+                }else if(motherBMI>=25.0&&motherBMI<29.9){
+                    $('#mother_fat').val('超重');
+                }else if(motherBMI>=30.0){
+                    $('#mother_fat').val('肥胖');
+                }
+            }
+        }
+        function fatherBMI(){
+            var fatherHeight=$('#fatherHeight').val();
+            var fatherWeight=$('#fatherWeight').val();
+            var fatherBMI;
+            if(fatherHeight!=''&&fatherWeight!=''){
+                fatherBMI=fatherWeight/(fatherHeight*fatherHeight);
+                fatherBMI=parseFloat(fatherBMI*10000).toFixed(1);
+                isNaN(fatherBMI)?$('#father_BMI').val():$('#father_BMI').val(fatherBMI);
+                if(fatherBMI<18.5){
+                    $('#father_fat').val('低体重');
+                }else if(fatherBMI>=18.5&&fatherBMI<24.9){
+                    $('#father_fat').val('标准体重');
+                }else if(fatherBMI>=25.0&&fatherBMI<29.9){
+                    $('#father_fat').val('超重');
+                }else if(fatherBMI>=30.0){
+                    $('#father_fat').val('肥胖');
+                }
+            }
+        }
+        function checkForm(){
+            var motherMarryAge = $("#motherMarryAge").val();
+            if(motherMarryAge!=''&&!IsNumberValidateFun(motherMarryAge)){
+                fake_alert("妈妈结婚年龄必须是整数","#motherMarryAge");
+                return false;
+            }
+            var fatherMarryAge = $("#fatherMarryAge").val();
+            if(fatherMarryAge!=''&&fatherMarryAge!=''&&!IsNumberValidateFun(fatherMarryAge)){
+                fake_alert("爸爸结婚年龄必须是整数","#fatherMarryAge");
+                return false;
+            }
+            var motherPlanPregentAge = $("#motherPlanPregentAge").val();
+            if(motherPlanPregentAge!=''&&motherPlanPregentAge!=''&&!IsNumberValidateFun(motherPlanPregentAge)){
+                fake_alert("妈妈计划年龄必须是整数","#motherPlanPregentAge");
+                return false;
+            }
+            var fatherPlanPregentAge = $("#fatherPlanPregentAge").val();
+            if(fatherPlanPregentAge!=''&&fatherPlanPregentAge!=''&&!IsNumberValidateFun(fatherPlanPregentAge)){
+                fake_alert("爸爸计划年龄必须是整数","#fatherPlanPregentAge");
+                return false;
+            }
+            var motherHeight = $("#motherHeight").val();
+            if(motherHeight!=''&&!re.test(motherHeight)){
+                fake_alert("妈妈身高必须是数字","#motherHeight");
+                return false;
+            }
+            if(/.*[\u4e00-\u9fa5]+.*$/.test(motherHeight)){
+                fake_alert("妈妈身高必须是数字","#motherHeight");
+                return false;
+            }
+            var motherWeight = $("#motherWeight").val();
+            if(motherWeight!=''&&!re.test(motherWeight)){
+                fake_alert("妈妈体重必须是数字","#motherWeight");
+                return false;
+            }
+            if(/.*[\u4e00-\u9fa5]+.*$/.test(motherWeight)){
+                fake_alert("妈妈体重必须是数字","#motherWeight");
+                return false;
+            }
+            var fatherHeight = $("#fatherHeight").val();
+            if(fatherHeight!=''&&!re.test(fatherHeight)){
+                fake_alert("爸爸身高必须是数字","#fatherHeight");
+                return false;
+            }
+            if(/.*[\u4e00-\u9fa5]+.*$/.test(fatherHeight)){
+                fake_alert("爸爸身高必须是数字","#fatherHeight");
+                return false;
+            }
+            var fatherWeight = $("#fatherWeight").val();
+            if(fatherWeight!=""&&!re.test(fatherWeight)){
+                fake_alert("爸爸体重必须是数字","#fatherWeight");
+                return false;
+            }
+            if(/.*[\u4e00-\u9fa5]+.*$/.test(fatherWeight)){
+                fake_alert("爸爸体重必须是数字","#fatherWeight");
+                return false;
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+@mixin font-basic{
+  font-family: $font-family-base;
+  color:$text-color;
+  font-size: $font-size-base;
+}
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td, img{
+  margin: 0;
+  padding:0;
+  outline: none;
+}
+body{
+  overflow: hidden;
+}
+body,button, input, select, textarea ,a{
+  @include font-basic;
+}
+input[type="text"],input[type="password"]{
+ box-sizing: border-box;
+}
+
+ul,ol{
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+textarea{
+  word-break: break-all;
+  overflow: auto;
+}
+img{
+  border:0;
+}
+body{
+  background-color: $body-bg;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+a {
+  cursor: pointer;
+}
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}

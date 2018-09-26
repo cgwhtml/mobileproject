@@ -1,0 +1,50 @@
+.wrapper{
+    height:100%;
+    padding:0 12px 0 12px;
+    box-sizing: border-box;
+}
+.wrapper ul{
+    overflow: auto;
+}
+.wrapper ul li{
+    height:88px;
+    background-color: #ffffff;
+    margin-top: 10px;
+    display: flex;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.04);
+    border-radius: 4px;
+}
+.wrapper ul li .status_box{
+    width: 90px;
+    height: 100%;
+    padding: 15px 15px 0 15px;
+    box-sizing: border-box;
+}
+.medic_msg{
+    flex-grow: 1;
+    line-height: 24px;
+    padding: 10px 10px 10px 0;
+    box-sizing: border-box;
+}
+.status1{
+    width:42px;
+    height:42px;
+    border-radius: 50%;
+    background:#EE7534;
+    line-height: 42px;
+    color:#ffffff;
+    font-size: 12px;
+    text-align: center;
+    margin:0 auto;
+}
+.status2{
+    width:42px;
+    height:42px;
+    border-radius: 50%;
+    background:#8BB949;
+    line-height: 42px;
+    color:#ffffff;
+    font-size: 12px;
+    text-align: center;
+    margin:0 auto;
+}

@@ -1,0 +1,56 @@
+*{
+    margin: 0 auto;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    /*text-decoration:none;*/
+}
+html,body{
+    height: 100%;
+}
+body{
+    background: #eee;
+    color:#333;
+    font-family: "Microsoft YaHei", "微软雅黑";
+}
+.main_body{
+    background: #fff;
+    margin-bottom: 0.7rem;
+}
+.item{
+    height: 0.9rem;
+    line-height: 0.9rem;
+    padding: 0 0.3rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid #eee;
+    font-size: 0.25rem;
+}
+.unfinished,.finished,.close,.date{
+    margin-right: 0.2rem;
+}
+.unfinished{
+    color: #f00;
+}
+.finished{
+    color: #0f0;
+}
+.close{
+    color: #00f;
+}
+.form{
+    font-size: 0.3rem;
+}
+.close_case{
+    display: none;
+    text-align: center;
+}
+#close_button{
+    width: 95%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+    background: #4DA9EB;
+    border: none;
+    font-size: 0.32rem;
+}

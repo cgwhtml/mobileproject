@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>孕8~10月自我记录</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_002.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_003.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/icheck/skins/all.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+    <style>
+        .main_option_tip{
+            line-height: 0.54rem;
+        }
+    </style>
+</head>
+<body>
+    <form action="" id="myForm" name="myForm">
+        <div class="parent_msg">
+            <div class="main_option">
+                <span>准备分娩地点</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="planDeliveryPlace" name="planDeliveryPlace">
+            </div>
+            <div class="main_option fetalMovementFlag">
+                <span>每天数胎动吗？</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="fetalMovementFlag" value="0"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>无</span>
+                    </label>
+                    <label class="add_style">
+                        <input type="radio" name="fetalMovementFlag" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>有</span>
+                    </label>
+                </div>
+            </div>
+            <div class="main_option weightIncreaseRange">
+                <span>您的体重增长范围</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="weightIncreaseRange" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>正常</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="weightIncreaseRange" value="2"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>超重</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="weightIncreaseRange" value="3"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>不足</span>
+                    </label>
+                </div>
+            </div>
+            <div class="main_option riskFactorFlag">
+                <span>这一时期您有高危因素吗？</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="riskFactorFlag" value="0"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>无</span>
+                    </label>
+                    <label class="add_style">
+                        <input type="radio" name="riskFactorFlag" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>有</span>
+                    </label>
+                </div>
+            </div>
+            <div class="main_option">
+                <span>具体情况</span>
+                <textarea class="textarea_msg" id="riskFactorContent" name="riskFactorContent"></textarea>
+            </div>
+        </div>
+        <div class="parent_msg symptom">
+            <div class="main_option main_option_tip">
+                <span>在这段时期您如果出现以下任何症状，请记录下第一次出现的时间，并及时去医院就诊！</span>
+            </div>
+            <div class="main_option">
+                <span>阴道出血</span>
+                <label>
+                    <input type="checkbox"  name="vaginalBleedingFlag" id="vaginalBleedingFlag" value="1"/>
+                    <div class="c_check gray_c_uncheck"></div>
+                </label>
+            </div>
+            <div class="main_option" style="display: none">
+                <span>出现时间</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="vaginalBleedingTime" name="vaginalBleedingTime">
+            </div>
+            <div class="main_option">
+                <span>腹痛</span>
+                <label>
+                    <input type="checkbox"  name="bellyacheFlag" id="bellyacheFlag" value="1"/>
+                    <div class="c_check gray_c_uncheck"></div>
+                </label>
+            </div>
+            <div class="main_option" style="display: none">
+                <span>出现时间</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="bellyacheTime" name="bellyacheTime">
+            </div>
+            <div class="main_option">
+                <span>阴道流水</span>
+                <label>
+                    <input type="checkbox"  name="vaginalWaterFlag" id="vaginalWaterFlag" value="1"/>
+                    <div class="c_check gray_c_uncheck"></div>
+                </label>
+            </div>
+            <div class="main_option" style="display: none">
+                <span>出现时间</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="vaginalWaterTime" name="vaginalWaterTime">
+            </div>
+            <div class="main_option">
+                <span>浮肿</span>
+                <label>
+                    <input type="checkbox"  name="edemaFlag" id="edemaFlag" value="1"/>
+                    <div class="c_check gray_c_uncheck"></div>
+                </label>
+            </div>
+            <div class="main_option" style="display: none">
+                <span>出现时间</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="edemaTime" name="edemaTime">
+            </div>
+            <div class="main_option">
+                <span>头晕、头痛、视物不清</span>
+                <label>
+                    <input type="checkbox"  name="dizzinessHeadacheFlag" id="dizzinessHeadacheFlag" value="1"/>
+                    <div class="c_check gray_c_uncheck"></div>
+                </label>
+            </div>
+            <div class="main_option" style="display: none">
+                <span>出现时间</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="dizzinessHeadacheTime" name="dizzinessHeadacheTime">
+            </div>
+            <div class="main_option">
+                <span>心慌、气短、夜间不能平卧</span>
+                <label>
+                    <input type="checkbox"  name="flusteredBreathFlag" id="flusteredBreathFlag" value="1"/>
+                    <div class="c_check gray_c_uncheck"></div>
+                </label>
+            </div>
+            <div class="main_option" style="display: none">
+                <span>出现时间</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="flusteredBreathTime" name="flusteredBreathTime">
+            </div>
+            <div class="main_option">
+                <span>血压≥140/90mmHg</span>
+                <label>
+                    <input type="checkbox"  name="pressureGreater14090Flag" id="pressureGreater14090Flag" value="1"/>
+                    <div class="c_check gray_c_uncheck"></div>
+                </label>
+            </div>
+            <div class="main_option" style="display: none">
+                <span>出现时间</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="pressureGreater14090Time" name="pressureGreater14090Time">
+            </div>
+            <div class="main_option">
+                <span>胎动异常</span>
+                <label>
+                    <input type="checkbox"  name="abnormalFetalMovementFlag" id="abnormalFetalMovementFlag" value="1"/>
+                    <div class="c_check gray_c_uncheck"></div>
+                </label>
+            </div>
+            <div class="main_option" style="display: none">
+                <span>出现时间</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="abnormalFetalMovementTime" name="abnormalFetalMovementTime">
+            </div>
+            <div class="main_option">
+                <span>孕周≥41周</span>
+                <label>
+                    <input type="checkbox"  name="gestationWeekGreater41Flag" id="gestationWeekGreater41Flag" value="1"/>
+                    <div class="c_check gray_c_uncheck"></div>
+                </label>
+            </div>
+            <div class="main_option" style="display: none">
+                <span>出现时间</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="gestationWeekGreater41Time" name="gestationWeekGreater41Time">
+            </div>
+        </div>
+        <div class="parent_msg">
+            <div class="main_option">
+                <span>请教医生的问题</span>
+                <textarea class="textarea_msg" id="consultDoctorQuestion" name="consultDoctorQuestion"></textarea>
+            </div>
+            <div class="main_option">
+                <span>医生建议</span>
+                <textarea class="textarea_msg" id="doctorAdvice" name="doctorAdvice"></textarea>
+            </div>
+        </div>
+        <div class="parent_msg">
+            <div class="main_option">
+                <span>准妈妈随笔</span>
+                <textarea class="textarea_msg" id="pregnancywomenEssay" name="pregnancywomenEssay"></textarea>
+            </div>
+        </div>
+    </form>
+    <div class="page_btns">
+        <div class="pink_btn save">保存</div>
+    </div>
+    <div id="window"  style="display:none" class="window">
+        <div>
+            <div id="window_in" class="window_in"></div>
+            <div id="check" class="check">确定</div>
+        </div>
+    </div>
+    <div id="background" style="display: none"></div>
+    <div id="fake_alert"  style="display:none">
+        <div id="fake_alert_in">
+            <div id="msg"></div>
+            <div id="sure">确定</div>
+        </div>
+    </div>
+    <input type="hidden" id="data_id">
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_002.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_004.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_003.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_005.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/js/dialogData.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/icheck/icheck.js"></script>
+    <script>
+        $(function(){
+            var localhostUrl=window.location.origin;
+            var query=getRequest();
+            var healthBookId=query.healthBookId;
+            var currYear = (new Date()).getFullYear();
+            var opt={};
+            var cansubmit=true;
+            opt.date = {preset : 'date'};
+            opt.datetime = {preset : 'datetime'};
+            opt.time = {preset : 'time'};
+            opt.default1 = {
+                theme: 'android-ics light', //皮肤样式
+                display: 'modal', //显示方式
+                mode: 'scroller', //日期选择模式
+                dateFormat: 'yy-mm-dd',
+                lang: 'zh',
+                showNow: true,
+                nowText: "今天",
+                startYear: currYear - 50, //开始年份
+                endYear: currYear -10 //结束年份
+            };
+            opt.default2 = {
+                theme: 'android-ics light', //皮肤样式
+                display: 'modal', //显示方式
+                mode: 'scroller', //日期选择模式
+                dateFormat: 'yy-mm-dd',
+                lang: 'zh',
+                showNow: true,
+                nowText: "今天",
+                startYear: currYear - 2, //开始年份
+                endYear: currYear + 2 //结束年份
+            };
+            opt.default3 = {
+                theme: 'android-ics light', //皮肤样式
+                display: 'modal', //显示方式
+                mode: 'scroller', //日期选择模式
+                dateFormat: 'yyyy-mm-dd',
+                lang: 'zh',
+                showNow: true,
+                nowText: "今天",
+                startYear: currYear - 30, //开始年份
+                endYear: currYear //结束年份
+            };
+            $(document).on("change","input[type='radio']",function(){
+                $("input[type='radio']").each(function() {
+                    $(this).is(":checked")?$(this).next().removeClass('pink_r_uncheck').addClass('pink_r_check'):$(this).next().removeClass('pink_r_check').addClass('pink_r_uncheck');
+                });
+            });
+            $("input[type='checkbox']").change(function(){
+                $(this).is(":checked")?$(this).next('div').toggleClass('pink_c_check').toggleClass('gray_c_uncheck'):$(this).next('div').toggleClass('gray_c_uncheck').toggleClass('pink_c_check');
+                $(this).is(':checked')?$(this).parents('.main_option').next('.main_option').show():$(this).parents('.main_option').next('.main_option').hide()&&$(this).parents('.main_option').next('.main_option').find("input[type='text']").val('');
+            })
+            $("#vaginalBleedingTime,#bellyacheTime,#vaginalWaterTime,#edemaTime,#dizzinessHeadacheTime,#flusteredBreathTime,#pressureGreater14090Time,#abnormalFetalMovementTime,#gestationWeekGreater41Time").mobiscroll($.extend(opt['date'], opt['default2']));
+            $.ajax({
+                type:"post",
+                url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_eightTenSelfRecord_data?healthBookId='+healthBookId,
+                dataType:'json',
+                async:false,
+                contentType:'application/json;charset=UTF-8',
+                success:function(data){
+                    console.log(data);
+                    if(data.res==0){
+                        var msg=data.data;
+                        $('#data_id').val(msg&&msg.id);
+                        if(msg!=null){
+                            for(var o in msg){
+                                $("#"+o).val(msg[o]);
+                            }
+                            msg.fetalMovementFlag!=null&&$(".fetalMovementFlag input[value="+ boolToNumber(msg.fetalMovementFlag) +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                            $(".weightIncreaseRange input[value="+ msg.weightIncreaseRange +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                            msg.riskFactorFlag!=null&&$(".riskFactorFlag input[value="+ boolToNumber(msg.riskFactorFlag) +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                            msg.vaginalBleedingFlag==true?$('#vaginalBleedingFlag').attr('checked',true).next().removeClass('gray_c_uncheck').addClass('pink_c_check').parents('.main_option').next().show():false;
+                            msg.bellyacheFlag==true?$('#bellyacheFlag').attr('checked',true).next().removeClass('gray_c_uncheck').addClass('pink_c_check').parents('.main_option').next().show():false;
+                            msg.vaginalWaterFlag==true?$('#vaginalWaterFlag').attr('checked',true).next().removeClass('gray_c_uncheck').addClass('pink_c_check').parents('.main_option').next().show():false;
+                            msg.edemaFlag==true?$('#edemaFlag').attr('checked',true).next().removeClass('gray_c_uncheck').addClass('pink_c_check').parents('.main_option').next().show():false;
+                            msg.dizzinessHeadacheFlag==true?$('#dizzinessHeadacheFlag').attr('checked',true).next().removeClass('gray_c_uncheck').addClass('pink_c_check').parents('.main_option').next().show():false;
+                            msg.flusteredBreathFlag==true?$('#flusteredBreathFlag').attr('checked',true).next().removeClass('gray_c_uncheck').addClass('pink_c_check').parents('.main_option').next().show():false;
+                            msg.pressureGreater14090Flag==true?$('#pressureGreater14090Flag').attr('checked',true).next().removeClass('gray_c_uncheck').addClass('pink_c_check').parents('.main_option').next().show():false;
+                            msg.abnormalFetalMovementFlag==true?$('#abnormalFetalMovementFlag').attr('checked',true).next().removeClass('gray_c_uncheck').addClass('pink_c_check').parents('.main_option').next().show():false;
+                            msg.gestationWeekGreater41Flag==true?$('#gestationWeekGreater41Flag').attr('checked',true).next().removeClass('gray_c_uncheck').addClass('pink_c_check').parents('.main_option').next().show():false;
+                        }
+                    }else{
+                        fake_alert("请求失败！请检查网络是否正常。");
+                    }
+                },
+                error:function () {
+                    fake_alert("请求失败！请检查网络是否正常。");
+                    return;
+                }
+            });
+            $('.save').click(function () {
+                var JsonObj=$("#myForm").serializeObject();
+                JsonObj.healthBookId=healthBookId;
+                console.log(JsonObj);
+                var data_id=$("#data_id").val();
+                if(cansubmit){
+                    cansubmit=false;
+                    if(data_id!=null && data_id!=''){
+                        $.ajax({
+                            type:"post",
+                            url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/update_eightTenSelfRecord_data',
+                            data:JsonObj,
+                            contentType:'application/json;charset=UTF-8',
+                            success:function(data){
+                                console.log(data);
+                                if(data.res==0){
+                                    fake_alert("保存成功");
+                                    cansubmit=false;
+                                    setTimeout(function(){
+                                        window.history.go(-1);
+//                                    window.location=localhostUrl+":"+port+"/web-bin/m/nosen/followup/maternalChild/handBook/to_beforeMater_page?healthBookId="+healthBookId;
+                                    },500)
+                                }else{
+                                    fake_alert("保存失败！请检查网络是否正常。");
+                                    cansubmit=true;
+                                }
+                            },
+                            error:function () {
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                cansubmit=true;
+                                return;
+                            }
+                        });
+                    }else{
+                        $.ajax({
+                            type:"post",
+                            url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/submit_eightTenSelfRecord_data',
+                            data:JsonObj,
+                            dataType:'json',
+                            contentType:'application/json;charset=UTF-8',
+                            success:function(data){
+                                console.log(data);
+                                if(data.res==0){
+                                    fake_alert("保存成功");
+                                    cansubmit=false;
+                                    setTimeout(function(){
+                                        window.history.go(-1);
+//                                    window.location=localhostUrl+":"+port+"/web-bin/m/nosen/followup/maternalChild/handBook/to_beforeMater_page?healthBookId="+healthBookId;
+                                    },500)
+                                }else{
+                                    fake_alert("保存失败！请检查网络是否正常。");
+                                    cansubmit=true;
+                                }
+                            },
+                            error:function () {
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                cansubmit=true;
+                                return;
+                            }
+                        });
+                    }
+                }
+            })
+            function fake_alert(text,element){
+                $("#background").show();
+                $("#fake_alert").show();
+                $("#msg").html(text);
+                $("#sure").click(function(){
+                    $("#background").hide();
+                    $("#fake_alert").hide();
+                });
+                element&&$("html,body").animate({scrollTop:$(element).offset().top-75},500);
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+.tab-triangle {
+  ul {
+    border-bottom: 2px solid $boder-color-base;
+    //padding-bottom: 2px;
+  }
+  li {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    top: 2px;
+    a {
+      padding: 0 3px;
+    }
+    .hover-triangle {
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 4px solid $brand-primary;
+      display: none;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      top: 3px;
+    }
+    &:focus,
+    &.focus,&:hover {
+      a{
+        color: $brand-primary;
+        border-bottom: 2px solid $brand-primary;
+        padding-bottom: 2px;
+      }
+      .hover-triangle {
+        display: block;
+      }
+    }
+  }
+  li + li {
+    margin-left: 26px;
+  }
+}
+
+.tab-simple {
+  height: 30px;
+  padding-top: 10px;
+  padding-left: 20px;
+  li {
+    display: inline-block;
+    cursor: pointer;
+    a {
+      padding: 0 3px;
+    }
+    &:focus,
+    &.focus,&:hover {
+      a{
+        color: $brand-primary;
+        border-bottom: 2px solid $brand-primary;
+        padding-bottom: 2px;
+      }
+    }
+  }
+  li + li {
+    margin-left: 24px;
+  }
+}
+.tab-triangle-scroll{
+  position: relative;
+  .icon_moveLf{
+  }
+  .icon_moveRt{
+    right: 0;
+    top:0
+  }
+  .icon_moveLf,.icon_moveRt{
+    position: absolute;
+    color: white;
+    background: $brand-primary;
+    height: 21px;
+    padding-top: 7px;
+    z-index: 999;
+    display: none;
+  }
+  #scrollNav {
+    overflow:hidden;
+    display: inline-block;
+    ul{
+      white-space: nowrap;
+      width: 10000000px;
+      &:before{
+        content: " ";
+        border-bottom: 2px solid #bbb;
+        position: relative;
+        top: 22px;
+        display: block;
+      }
+    }
+    li {
+      display: inline-block;
+      cursor: pointer;
+      &:before{
+        content: " ";
+        border-bottom: 2px solid $brand-primary;
+        visibility: hidden;
+        position: relative;
+        display: block;
+        top: 20px;
+      }
+      a {
+        padding: 0 3px;
+      }
+      .hover-triangle {
+        width: 12px;
+        height: 0;
+        position: relative;
+        top: -1px;
+        visibility:hidden;
+        margin-left: auto;
+        margin-right: auto;
+        color: $brand-primary ;
+      }
+      &:focus,
+      &.focus,&:hover {
+        &:before{
+          visibility: visible;
+        }
+        a{
+          color: $brand-primary;
+          //padding-bottom: 2px;
+        }
+        .hover-triangle {
+          //display: block;
+          visibility:visible;
+        }
+      }
+    }
+    li + li {
+      margin-left: 26px;
+    }
+  }
+}

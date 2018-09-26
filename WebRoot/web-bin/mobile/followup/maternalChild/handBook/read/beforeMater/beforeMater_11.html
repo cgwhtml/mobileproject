@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>阅读</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+    	.r_b_before11 .purple_content_title,.record_info{
+		    text-align:center;
+		}
+		.r_b_before11 .purple_content_title{
+			padding-bottom:0.32rem;
+		}
+		.r_b_before11 .purple_cut_line{
+			margin-top:0.28rem;
+		}
+		.r_b_before11 .c_info_content{
+			padding-left:0;
+			padding-top:0.2rem;
+			padding-bottom:0.2rem;
+		}
+		.r_b_before11 .c_info_content>div{
+			float:left;
+			width:50%;
+			box-sizing: border-box;
+			padding-left:0.15rem;
+		}
+		.r_b_before11 .c_info_content:AFTER{
+			content:"";
+			display:block;
+			clear:both;
+		}
+		.r_b_before11 .m_basic_info{
+			border-right:2px solid #333333;
+		}
+		.r_b_before11 .m_width{
+			width:1rem;
+			display:inline-block;
+		}
+		.r_b_before11 .m_left{
+			margin-left:3em;
+		}
+		@media (min-height:1201px) and (max-height:1300px) and (-webkit-min-device-pixel-ratio:2){
+			.r_b_before11 .purple_cut_line{
+				margin-top: 0.18rem !important;
+			}
+			.r_b_before11 .purple_content_title{
+				padding-bottom: 0.15rem !important;
+			}
+			.r_b_before11 .c_info_content{
+				padding-top: 0.1rem !important;
+				padding-bottom: 0.1rem !important;
+			}
+		}
+		@media (min-height:1001px) and (max-height:1100px) and (-webkit-min-device-pixel-ratio:2){
+			.r_b_before11 .mc_content_main{
+				padding-left: 0.1rem !important;
+				padding-right: 0.1rem !important;
+			}
+		}
+		@media (min-height:601px) and (max-height:650px) and (-webkit-min-device-pixel-ratio:1){
+			.r_b_before11 .mc_content_main .content_font1{line-height: 0.5rem !important;}
+			.r_b_before11 .purple_cut_line{
+				margin-top: 0.18rem !important;
+			}
+			.r_b_before11 .purple_content_title{
+				padding-bottom: 0.15rem !important;
+			}
+			.r_b_before11 .c_info_content{
+				padding-top: 0.1rem !important;
+				padding-bottom: 0.1rem !important;
+			}
+		}
+		@media (min-height:551px) and (max-height:600px) and (-webkit-min-device-pixel-ratio:1){
+			.r_b_before11 .mc_content_main .content_font1{line-height: 0.5rem !important;}
+			.r_b_before11 .purple_cut_line{
+				margin-top: 0.18rem !important;
+			}
+			.r_b_before11 .purple_content_title{
+				padding-bottom: 0.15rem !important;
+			}
+			.r_b_before11 .c_info_content{
+				padding-top: 0.1rem !important;
+				padding-bottom: 0.1rem !important;
+			}
+		}
+		@media (min-height:501px) and (max-height:550px) and (-webkit-min-device-pixel-ratio:1){
+			.r_b_before11 .purple_cut_line{
+				margin-top: 0.15rem !important;
+			}
+			.r_b_before11 .purple_content_title{
+				padding-bottom: 0.15rem !important;
+			}
+			.r_b_before11 .c_info_content{
+				padding-top: 0.1rem !important;
+				padding-bottom: 0.1rem !important;
+			}
+		}
+    </style>
+</head>
+<body>
+    <div class="r_b_before11">
+	    <div class="gradient_top gradient_purple_top"></div>
+	    <div class="mc_content_main">
+	    	<p class="purple_content_title">孕前优生健康检查记录</p>
+	    	<div class="record_info bold">
+	    		<div class="content_font1">
+		    		<span>检查日期</span>
+		    		<input type="text" class="border_bottom" id="checkTimeYear" disabled="disabled" style="width:0.83rem"/>
+		    		<span>年</span>
+		    		<input type="text" class="border_bottom" id="checkTimeMonth" disabled="disabled" style="width:0.67rem"/>
+		    		<span>月</span>
+		    		<input type="text" class="border_bottom" id="checkTimeDay" disabled="disabled" style="width:0.67rem"/>
+		    		<span>日</span>
+	    		</div>
+	    	</div>
+	    	<div class="purple_cut_line"></div>
+	    	<div class="c_basic_info">
+	    		<div class="c_info_title purple_bg_color1 bold">体格检查</div>
+	    		<div class="c_info_content purple_bg_color2">
+	    			<div class="m_basic_info">
+	    				<div class="content_font1 bold">备孕妈妈</div>
+	    				<div class="content_font1">
+	    					<span>血压</span>
+				    		<input type="text" class="border_bottom" id="motherSystolicPressure" disabled="disabled" style="width:0.67rem"/>
+				    		<span>/</span>
+				    		<input type="text" class="border_bottom" id="motherDiastolicPressure" disabled="disabled" style="width:0.67rem"/>
+				    		<span>mmHg</span>
+	    				</div>
+	    				<div class="content_font1 motherReproductiveSystemCheckFlag">
+		    				<span>生殖系统检查:</span>
+		    				<span class="sc_unchecked item1"></span>
+		    				<span>正常</span>
+		    				<span class="sc_unchecked item0"></span>
+		    				<span>异常</span>
+		    			</div>
+	    			</div>
+	    			<div class="f_basic_info">
+	    				<div class="content_font1 bold">备孕爸爸</div>
+	    				<div class="content_font1">
+	    					<span>血压</span>
+				    		<input type="text" class="border_bottom" id="fatherSystolicPressure" disabled="disabled" style="width:0.67rem"/>
+				    		<span>/</span>
+				    		<input type="text" class="border_bottom" id="fatherDiastolicPressure" disabled="disabled" style="width:0.67rem"/>
+				    		<span>mmHg</span>
+	    				</div>
+	    				<div class="content_font1 fatherReproductiveSystemCheckFlag">
+		    				<span>生殖系统检查:</span>
+		    				<span class="sc_unchecked item1"></span>
+		    				<span>正常</span>
+		    				<span class="sc_unchecked item0"></span>
+		    				<span>异常</span>
+		    			</div>
+	    			</div>
+	    		</div>
+	    	</div>
+	    	<div class="purple_cut_line"></div>
+	    	<div class="c_basic_info">
+	    		<div class="c_info_title blue_bg_color1 bold">血液检查</div>
+	    		<div class="c_info_content blue_bg_color2">
+	    			<div class="m_basic_info">
+	    				<div class="content_font1 bold">备孕妈妈</div>
+	    				<div class="content_font1">
+		    				<span class="absolute">ABO:</span>
+		    				<span class="sc_unchecked m_left"></span>
+		    				<span class="m_width motherAboBloodType">A型</span>
+		    				<span class="sc_unchecked"></span>
+		    				<span class="motherAboBloodType">B型</span>
+		    			</div>
+		    			<div class="content_font1">
+		    				<span class="sc_unchecked m_left"></span>
+		    				<span class="m_width motherAboBloodType">O型</span>
+		    				<span class="sc_unchecked"></span>
+		    				<span class="motherAboBloodType">AB型</span>
+		    			</div>
+		    			<div class="content_font1">
+		    				<span class="absolute">RH:</span>
+		    				<span class="sc_unchecked m_left"></span>
+		    				<span class="m_width motherRhBloodType">阴性</span>
+		    				<span class="sc_unchecked"></span>
+		    				<span class="motherRhBloodType">阳性</span>
+		    			</div>
+		    			<div class="content_font1">
+	    					<span>血红蛋白:</span>
+				    		<input type="text" class="border_bottom" id="motherHemoglobin" disabled="disabled" style="width:1.56rem"/>
+				    		<span>g/L</span>
+	    				</div>
+	    				<div class="content_font1">
+	    					<span>血小板计数:</span>
+				    		<input type="text" class="border_bottom" id="motherPlateletCount" disabled="disabled" style="width:1.24rem"/>
+				    		<span>×10<sup>9</sup>/L</span>
+	    				</div>
+	    				<div class="content_font1">
+	    					<span>空腹血糖:</span>
+				    		<input type="text" class="border_bottom" id="motherFastingBloodSugar" disabled="disabled" style="width:1.56rem"/>
+				    		<span>mmol/L</span>
+	    				</div>
+	    			</div>
+	    			<div class="f_basic_info">
+	    				<div class="content_font1 bold">备孕爸爸</div>
+	    				<div class="content_font1">
+		    				<span class="absolute">ABO:</span>
+		    				<span class="sc_unchecked m_left"></span>
+		    				<span class="m_width fatherAboBloodType">A型</span>
+		    				<span class="sc_unchecked"></span>
+		    				<span class="fatherAboBloodType">B型</span>
+		    			</div>
+		    			<div class="content_font1">
+		    				<span class="sc_unchecked m_left"></span>
+		    				<span class="m_width fatherAboBloodType">O型</span>
+		    				<span class="sc_unchecked"></span>
+		    				<span class="fatherAboBloodType">AB型</span>
+		    			</div>
+		    			<div class="content_font1">
+		    				<span class="absolute">RH:</span>
+		    				<span class="sc_unchecked m_left"></span>
+		    				<span class="m_width fatherRhBloodType">阴性</span>
+		    				<span class="sc_unchecked"></span>
+		    				<span class="fatherRhBloodType">阳性</span>
+		    			</div>
+	    			</div>
+	    		</div>
+	    	</div>
+	    	<div class="purple_cut_line"></div>
+	    	<div class="c_basic_info">
+	    		<div class="c_info_title purple_bg_color1 bold">慢性病检查</div>
+	    		<div class="c_info_content purple_bg_color2">
+	    			<div class="m_basic_info">
+	    				<div class="content_font1 bold">备孕妈妈</div>
+	    				<div class="content_font1 motherHypertensionFlag">
+		    				<span>高血压:</span>
+		    				<span class="sc_unchecked item1"></span>
+		    				<span class="m_width">是</span>
+		    				<span class="sc_unchecked item0"></span>
+		    				<span>否</span>
+		    			</div>
+		    			<div class="content_font1 motherDiabetesFlag">
+		    				<span>糖尿病:</span>
+		    				<span class="sc_unchecked item1"></span>
+		    				<span class="m_width">是</span>
+		    				<span class="sc_unchecked item0"></span>
+		    				<span>否</span>
+		    			</div>
+		    			<div class="content_font1 motherLiverFunctionFlag">
+		    				<span>肝功能:</span>
+		    				<span class="sc_unchecked item1"></span>
+		    				<span class="m_width">正常</span>
+		    				<span class="sc_unchecked item0"></span>
+		    				<span>异常</span>
+		    			</div>
+		    			<div class="content_font1">
+		    				<span>(异常时:ALT</span>
+		    				<input type="text" class="border_bottom" id="motherAltValue" disabled="disabled" style="width:1rem"/>
+		    				<span>IU/L)</span>
+		    			</div>
+		    			<div class="content_font1 motherRenalFunctionFlag">
+		    				<span>肾功能:</span>
+		    				<span class="sc_unchecked item1"></span>
+		    				<span class="m_width">正常</span>
+		    				<span class="sc_unchecked item0"></span>
+		    				<span>异常</span>
+		    			</div>
+		    			<div class="content_font1">
+		    				<span>(异常时:肌酐</span>
+		    				<input type="text" class="border_bottom" id="motherCreatinineValue" disabled="disabled" style="width:1rem"/>
+		    				<span>Umol/L)</span>
+		    			</div>
+		    			<div class="content_font1">
+		    				<span>促甲状腺激素水平:</span>
+		    			</div>
+		    			<div class="content_font1 motherThyroidHormoneLevelFlag">
+		    				<span class="sc_unchecked item1"></span>
+		    				<span class="m_width">正常</span>
+		    				<span class="sc_unchecked item0"></span>
+		    				<span>异常</span>
+		    			</div>
+		    			<div class="content_font1">
+		    				<span>(异常时:TSH</span>
+		    				<input type="text" class="border_bottom" id="motherTshValue" disabled="disabled" style="width:1rem"/>
+		    				<span>uIU/ml)</span>
+		    			</div>
+	    			</div>
+	    			<div class="f_basic_info">
+	    				<div class="content_font1 bold">备孕爸爸</div>
+	    				<div class="content_font1 fatherHypertensionFlag">
+		    				<span>高血压:</span>
+		    				<span class="sc_unchecked item1"></span>
+		    				<span class="m_width">是</span>
+		    				<span class="sc_unchecked item0"></span>
+		    				<span>否</span>
+		    			</div>
+		    			<div class="content_font1 fatherDiabetesFlag">
+		    				<span>糖尿病:</span>
+		    				<span class="sc_unchecked item1"></span>
+		    				<span class="m_width">是</span>
+		    				<span class="sc_unchecked item0"></span>
+		    				<span>否</span>
+		    			</div>
+		    			<div class="content_font1 fatherLiverFunctionFlag">
+		    				<span>肝功能:</span>
+		    				<span class="sc_unchecked item1"></span>
+		    				<span class="m_width">正常</span>
+		    				<span class="sc_unchecked item0"></span>
+		    				<span>异常</span>
+		    			</div>
+		    			<div class="content_font1">
+		    				<span>(异常时:ALT</span>
+		    				<input type="text" class="border_bottom" id="fatherAltValue" disabled="disabled" style="width:1rem"/>
+		    				<span>IU/L)</span>
+		    			</div>
+		    			<div class="content_font1 fatherRenalFunctionFlag">
+		    				<span>肾功能:</span>
+		    				<span class="sc_unchecked item1"></span>
+		    				<span class="m_width">正常</span>
+		    				<span class="sc_unchecked item0"></span>
+		    				<span>异常</span>
+		    			</div>
+		    			<div class="content_font1">
+		    				<span>(异常时:肌酐</span>
+		    				<input type="text" class="border_bottom" id="fatherCreatinineValue" disabled="disabled" style="width:1rem"/>
+		    				<span>Umol/L)</span>
+		    			</div>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </div>
+	    <div class="gradient_bottom gradient_purple_bottom"></div>
+		<input type="hidden" id="data_id">
+    </div>
+	<script>
+        $(function(){
+            if(healthBookId!=''&&typeof(healthBookId)!="undefined"&&healthBookId!="undefined") {
+                $.ajax({
+                    type: "post",
+                    url: localhostUrl + '/web-bin/m/nosen/followup/maternalChild/handBook/query_beforeMaterEugenicsHealthTestList_data?healthBookId=' + healthBookId,
+                    dataType: 'json',
+                    async:false,
+                    success: function (data) {
+                        var allMsg = data.data[0];
+                        data.data.length!=0&&$('.r_b_before11 #data_id').val(allMsg.id);
+                    }
+                });
+                var thisId=$('.r_b_before11 #data_id').val();
+                $.ajax({
+                    type: "post",
+                    url: localhostUrl + '/web-bin/m/nosen/followup/maternalChild/handBook/query_beforeMaterEugenicsHealthTest_data?healthBookId=' + healthBookId+"&id="+thisId,
+                    dataType: 'json',
+                    success: function (data) {
+                        var msg = data.data;
+                        if (msg) {
+                            for ( var o in msg) {
+                                $(".r_b_before11 #" + o).val(msg[o]);
+                                o!=null&&$(".r_b_before11 ."+o+" .item"+ boolToNumber(msg[o])).removeClass('sc_unchecked').addClass('sc_checked');
+                            }
+                            var checkTime = msg.checkTime;
+                            if (checkTime != null) {
+                                var checkTimeArr = checkTime.split('-');
+                                $('.r_b_before11 #checkTimeYear').val(checkTimeArr[0]);
+                                $('.r_b_before11 #checkTimeMonth').val(checkTimeArr[1]);
+                                $('.r_b_before11 #checkTimeDay').val(checkTimeArr[2]);
+                            }
+                            $('.r_b_before11 .motherAboBloodType').each(function(){
+                                msg.motherAboBloodType!=null&&$(this).text()==msg.motherAboBloodType&&$(this).prev().removeClass('sc_unchecked').addClass('sc_checked');
+							})
+                            $('.r_b_before11 .motherRhBloodType').each(function(){
+                                msg.motherRhBloodType!=null&&$(this).text()==msg.motherRhBloodType&&$(this).prev().removeClass('sc_unchecked').addClass('sc_checked');
+                            })
+                            $('.r_b_before11 .fatherAboBloodType').each(function(){
+                                msg.fatherAboBloodType!=null&&$(this).text()==msg.fatherAboBloodType&&$(this).prev().removeClass('sc_unchecked').addClass('sc_checked');
+                            })
+                            $('.r_b_before11 .fatherRhBloodType').each(function(){
+                                msg.fatherRhBloodType!=null&&$(this).text()==msg.fatherRhBloodType&&$(this).prev().removeClass('sc_unchecked').addClass('sc_checked');
+                            })
+                        }
+                    }
+                });
+            }
+        })
+	</script>
+</body>
+</html>

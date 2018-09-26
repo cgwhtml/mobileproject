@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>慢病随访自助建档</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/css/basicMobile.css"/>
+    <link rel="stylesheet" href="/web-bin/resources/weui/weui.min.css">
+    <link rel="stylesheet" href="/web-bin/resources/weui/jquery-weui.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/chronicDiseases/selfFiling/css/filingEntrance.css">
+</head>
+<body>
+    <div class="main">
+        <form action="" id="mother_content" name="myForm" method="post">
+            <input type="hidden" class="hospCode" name="hospCode">
+            <div class="list-content">
+                <div>
+                    <span>姓名<span class="must">*</span></span>
+                    <input placeholder="请输入姓名" class="name" name="name"/>
+                </div>
+                <div>
+                    <span>身份证号<span class="must">*</span></span>
+                    <input placeholder="请输入身份证号" class="idCard" name="idCard"/>
+                </div>
+                <div>
+                    <span>手机号<span class="must">*</span></span>
+                    <input placeholder="请输入手机号" class="phone" name="mobileNo"/>
+                </div>
+                <div class="pass-code-div">
+                    <span>验证码<span class="must">*</span></span>
+                    <input placeholder="请输入验证码" class="code_input"/>
+                    <span class="pass_code">获取验证码</span>
+                </div>
+            </div>
+        </form>
+        <div class="submit submit_js">确定</div>
+    </div>
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/weui/jquery-weui.js"></script>
+    <script type="text/javascript" src="/web-bin/mobile/chronicDiseases/selfFiling/js/filingEntrance.js"></script>
+</body>
+</html>

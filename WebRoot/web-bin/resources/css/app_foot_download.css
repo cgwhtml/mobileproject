@@ -1,0 +1,62 @@
+/* µ×²¿ÏÂÔØ */
+.app_foot_download{
+	height:60px;
+	width:100%;
+	position:fixed;
+	bottom:0;
+	z-index:99;
+}
+.app_foot_download .bottom_back{
+	background-color:#3D3D3D;
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	opacity:0.8;
+	z-index:1;
+}
+.app_foot_download .loadNav{
+	position:absolute;
+	z-index:10;
+	width:100%;
+}
+.app_foot_download .downLoad_btn{
+	background-color:#0082F0;
+	color:#FFFFFF;
+	width:50px;
+	height:32px;
+	font-size:16px;
+	text-align:center;
+	border-radius: 5px;
+	float: right;
+	margin-top: 14px;
+	margin-right: 10px;
+    line-height: 32px;
+}
+.app_foot_download .logoNav{
+	float:left;
+	margin-left:10px;
+	margin-top:10px;
+}
+.app_foot_download .logo{
+	height:40px;
+	width:40px;
+	background-image:url(../images/download_logo.png);
+	background-repeat: no-repeat;
+	background-size:40px 40px;
+	float:left;
+}
+.app_foot_download .logo_ts{
+	height:40px;
+	width:40px;
+	background-image:url(../images/logo_ts.png);
+	background-repeat: no-repeat;
+	background-size:40px 40px;
+	float:left;
+}
+.app_foot_download .logo_text{
+	float:right;
+	font-size:14px;
+	margin-left:10px;
+}

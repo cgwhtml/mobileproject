@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>阅读</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <style>
+        .r_c_3{
+            position: relative;
+        }
+        .r_c_3 .child_bg>p{
+            color: #fff;
+            font-size: 0.8rem;
+            padding-left: 1.2rem;
+            padding-top: 1.24rem;
+        }
+        .r_c_3 .content{
+            margin-top: 1rem;
+        }
+        .r_c_3 .blue_content_title{
+            padding-top: 2.6rem;
+        }
+        @media (min-height:451px) and (max-height:500px) and (-webkit-min-device-pixel-ratio:1){
+            .r_c_3 .blue_content_title{
+                padding-top: 1.6rem;
+            }
+            .r_c_3 .sc_checked,
+            .r_c_3 .sc_unchecked{
+                background-size: 0.26rem 0.26rem;
+                width: 0.3rem;
+                height: 0.32rem;
+            }
+        }
+        @media (min-height:501px) and (max-height:550px) and (-webkit-min-device-pixel-ratio:1){
+            .r_c_3 .blue_content_title{
+                padding-top: 2.1rem;
+            }
+            .r_c_3 .sc_checked,
+            .r_c_3 .sc_unchecked{
+                background-size: 0.26rem 0.26rem;
+                width: 0.3rem;
+                height: 0.32rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="r_c_3">
+        <div class="gradient_top gradient_blue_top"></div>
+        <div class="mc_content_main test">
+            <div class="child_bg">
+                <p>0~1岁婴儿期</p>
+            </div>
+            <p class="blue_content_title">宝宝出生记录</p>
+            <p class="content_font1">请爸爸妈妈留下宝宝最珍贵的出生记录作为出生纪念</p>
+            <div class="content">
+                <div class="content_font1">
+                    <span>分娩日期：</span>
+                    <input type="text" class="border_bottom" disabled="disabled" style="width:0.893rem"/>
+                    <span>年</span>
+                    <input type="text" class="border_bottom" disabled="disabled" style="width:0.53rem"/>
+                    <span>月</span>
+                    <input type="text" class="border_bottom" disabled="disabled" style="width:0.53rem"/>
+                    <span>日</span>
+                    <input type="text" class="border_bottom" disabled="disabled" style="width:0.53rem"/>
+                    <span>时</span>
+                    <input type="text" class="border_bottom" disabled="disabled" style="width:0.53rem"/>
+                    <span>分</span>
+                </div>
+                <div class="content_font1">
+                    <span>出生地点：</span>
+                    <input type="text" class="border_bottom" disabled="disabled" style="width:5.45rem"/>
+                </div>
+                <div class="content_font1">
+                    <span>接生机构：</span>
+                    <input type="text" class="border_bottom" disabled="disabled" style="width:5.45rem"/>
+                </div>
+                <div class="content_font1">
+                    <span>出生孕周：</span>
+                    <input type="text" class="border_bottom" disabled="disabled" style="width:2rem"/>
+                    <span>周</span>
+                </div>
+                <div class="content_font1">
+                    <span>宝宝性别：</span>
+                    <span class="sc_unchecked"></span>
+                    <span style="padding-right:2em">男</span>
+                    <span class="sc_unchecked"></span>
+                    <span>女</span>
+                </div>
+                <div class="content_font1">
+                    <span>宝宝出生体重：</span>
+                    <input type="text" class="border_bottom" disabled="disabled" style="width:1.33rem"/>
+                    <span>kg，</span>
+                    <span>身长</span>
+                    <input type="text" class="border_bottom" disabled="disabled" style="width:1.33rem"/>
+                    <span>cm</span>
+                </div>
+            </div>
+        </div>
+        <p style="display:none"><textarea id="Template-ListRows_r_c_3" rows="0" cols="0">
+        {#foreach $T as msg}
+        <div class="mc_content_main">
+            <div class="child_bg">
+                <p>0~1岁婴儿期</p>
+            </div>
+            <p class="blue_content_title">宝宝出生记录</p>
+            <p class="content_font1">请爸爸妈妈留下宝宝最珍贵的出生记录作为出生纪念</p>
+            <div class="content">
+                <div class="content_font1">
+                    <span>分娩日期：</span>
+                    <input type="text" class="border_bottom" value="{($T.msg.babyBirthTime).substring(0,4)}" disabled="disabled" style="width:0.893rem"/>
+                    <span>年</span>
+                    <input type="text" class="border_bottom" value="{($T.msg.babyBirthTime).substr(5,2)}" disabled="disabled" style="width:0.53rem"/>
+                    <span>月</span>
+                    <input type="text" class="border_bottom" value="{($T.msg.babyBirthTime).substr(8,2)}" disabled="disabled" style="width:0.53rem"/>
+                    <span>日</span>
+                    <input type="text" class="border_bottom" value="{($T.msg.babyBirthTime).substr(11,2)}" disabled="disabled" style="width:0.53rem"/>
+                    <span>时</span>
+                    <input type="text" class="border_bottom" value="{($T.msg.babyBirthTime).substr(14,2)}" disabled="disabled" style="width:0.53rem"/>
+                    <span>分</span>
+                </div>
+                <div class="content_font1">
+                    <span>出生地点：</span>
+                    <input type="text" class="border_bottom" value="{$T.msg.babyBirthAddr}" disabled="disabled" style="width:5.45rem"/>
+                </div>
+                <div class="content_font1">
+                    <span>接生机构：</span>
+                    <input type="text" class="border_bottom" value="{$T.msg.deliveryOrganization}" disabled="disabled" style="width:5.45rem"/>
+                </div>
+                <div class="content_font1">
+                    <span>出生孕周：</span>
+                    <input type="text" class="border_bottom" value="{$T.msg.babyBirthGestation}" disabled="disabled" style="width:2rem"/>
+                    <span>周</span>
+                </div>
+                <div class="content_font1">
+                    <span>宝宝性别：</span>
+                    {#if $T.msg.sex==1}
+                    <span class="sc_checked"></span>
+                    {#else}
+                    <span class="sc_unchecked"></span>
+                    {#/if}
+                    <span style="padding-right:2em">男</span>
+                    {#if $T.msg.sex==2}
+                    <span class="sc_checked"></span>
+                    {#else}
+                    <span class="sc_unchecked"></span>
+                    {#/if}
+                    <span>女</span>
+                </div>
+                <div class="content_font1">
+                    <span>宝宝出生体重：</span>
+                    <input type="text" class="border_bottom" value="{$T.msg.babyBirthWeight}" disabled="disabled" style="width:1.33rem"/>
+                    <span>kg，</span>
+                    <span>身长</span>
+                    <input type="text" class="border_bottom" value="{$T.msg.babyHeight}" disabled="disabled" style="width:1.33rem"/>
+                    <span>cm</span>
+                </div>
+            </div>
+        </div>
+        {#/for}
+        </textarea></p>
+        <div id="data_table"></div>
+        <div class="gradient_bottom gradient_blue_bottom"></div>
+    </div>
+    <script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+    <script>
+        $(function(){
+            change();//计算滚动条
+            // 高度宽度再计算
+            $(window).resize(function(){
+                change();
+            });
+            // 滚动条
+            $(".r_c_3").niceScroll({
+                railpadding: { top:0, right: 0, left: 0, bottom:0 },
+                cursorwidth:0
+            });
+            if(healthBookId!=''&&typeof(healthBookId)!="undefined"&&healthBookId!="undefined") {
+                $.ajax({
+                    type: "post",
+                    url: localhostUrl + '/web-bin/m/nosen/followup/maternalChild/handBook/query_readBabyBirthRecord_data?healthBookId=' + healthBookId,
+                    dataType: 'json',
+                    success: function (data) {
+                        var msg = data.data;
+                        if(msg!=null&&msg.length!=0){
+                            $('.r_c_3 .test').hide();
+                            $(".r_c_3 #data_table").setTemplateElement("Template-ListRows_r_c_3").processTemplate(msg);
+                            if(msg.length>1){
+                                $('.r_c_3 .gradient_bottom').css('position', 'relative');
+                            }
+                        }
+                    }
+                });
+            }
+        })
+        function change(){
+            $('.r_c_3').height($(window).height());
+        }
+    </script>
+</body>
+</html>

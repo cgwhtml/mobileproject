@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宣教</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/followupTask/css/education.css"/>
+    <!--<link rel="stylesheet" href="/web-bin/resources/dropload/dropload.css">-->
+</head>
+<body>
+<!-- 置顶搜索框 -->
+<div class="search_box">
+    <div class="search" >
+        <input type="text" placeholder="搜索28" class="searchInput">
+        <div class="search_img"><img src="/web-bin/mobile/repository/drug/images/search.png"/></div>
+    </div>
+</div>
+<!-- 取消-->
+<button class="cancle">取消</button>
+<!-- 搜索结果 -->
+<div class="search_res">
+    <div class="input_mes substr">在列表中搜索“<span></span>”</div>
+    <div class="null_mes">没有匹配结果</div>
+    <!-- 搜索结果列表隐藏域 -->
+    <p style="display:none">
+    <textarea id="template_searchList" rows="0" cols="0">
+        {#foreach $T as Row}
+        <div class="item">
+            <div class="design_icon head"></div>
+            <div class="bed">{$T.Row.bedNo}</div>
+            <div class="info">
+                <p>{$T.Row.patName}</p>
+                <p><span>{$T.Row.wardName}</span>&nbsp;&nbsp;<span>{$T.Row.admitDate.substring(0,10)}入院</span></p>
+            </div>
+            <div class="design_icon right_arrow"></div>
+        </div>
+        {/for}
+    </textarea></p>
+    <div id="searchList_result"></div>
+</div>
+<div class="swiper-container">
+    <div class="main_body">
+        <p style="display:none">
+            <textarea id="Template-Education" rows="0" cols="0">
+                {#foreach $T as Row}
+                    <div class="item">
+                        <input type="hidden" class="inhospNo" value="{$T.Row.inhospNo}">
+                        <input type="hidden" class="phone" value="{$T.Row.mobileNo}">
+                        <input type="hidden" class="inhospSerialNo" value="{$T.Row.inhospSerialNo}">
+                        <input type="hidden" class="patIndexNo" value="{$T.Row.patIndexNo}">
+                        <input type="hidden" class="mobileNo" value="{$T.Row.mobileNo}">
+                        <input type="hidden" class="idCard" value="{$T.Row.idNumber}">
+                        <input type="hidden" class="deptCode" value="{$T.Row.deptCode}">
+                        <input type="hidden" class="deptName" value="{$T.Row.deptName}">
+                        <input type="hidden" class="wardCode" value="{$T.Row.wardCode}">
+                        <input type="hidden" class="wardName" value="{$T.Row.wardName}">
+                        <input type="hidden" class="visitCardNo" value="{$T.Row.visitCardNo}">
+                        <div class="design_icon head"></div>
+                        <div class="bed">{$T.Row.bedNo}</div>
+                        <div class="info">
+                        <p class="patName">{$T.Row.patName}</p>
+                        <p><span class="wardName">{$T.Row.wardName}</span>&nbsp;&nbsp;<span><i class="admitDate" style="font-style: normal;">{$T.Row.admitDate.substring(0,10)}</i>入院</span></p>
+                        </div>
+                        <div class="design_icon right_arrow"></div>
+                    </div>
+                {#/for}
+            </textarea>
+        </p>
+        <div class="pat" style="overflow-y: auto;"></div>
+    </div>
+</div>
+
+<div class="bottom">
+    <div id="followup">
+        <span class="design_icon" id="sf"></span>
+        <span>随访</span>
+    </div>
+    <div>
+        <span class="design_icon" id="xj"></span>
+        <span class="menu">宣教</span>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<!--<script type="text/javascript" src="/web-bin/resources/dropload/dropload.js"></script>-->
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.js"></script>
+<script src="/web-bin/resources/rem/rem.js"></script>
+<script type="text/javascript" src="/web-bin/mobile/followup/followupTask/js/education.js"></script>
+</html>

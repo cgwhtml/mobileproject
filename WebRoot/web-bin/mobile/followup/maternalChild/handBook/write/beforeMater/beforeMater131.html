@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>优生检查记录</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_002.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_003.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/icheck/skins/all.css">
+    <link rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/beforeMater/css/basicInfo.css">
+    <style>
+        .prev_btn{
+            margin-bottom: 0;
+        }
+        .save_btn{
+            margin-top: 0.373rem;
+        }
+        #father_msg{
+            display: none;
+        }
+        .area_current1,
+        .area_btn{
+            color: #EC9DD6;
+        }
+        .icheckbox_square-blue, .iradio_square-blue{
+            background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/pink@2x.png);
+            -webkit-background-size: 240px 24px;
+            background-size: 240px 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <span class="mother">备孕妈妈</span>
+        <span class="father">备孕爸爸</span>
+    </div>
+    <div id="mother_msg">
+        <form action="" id="mother_content" name="myForm" method="post">
+            <div class="parent_msg">
+                <div class="main_option">
+                    <div class="option_title">体格检查</div>
+                </div>
+                <div class="main_option">
+                    <span>舒张压（mmhg）</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="motherDiastolicPressure" name="motherDiastolicPressure">
+                </div>
+                <div class="main_option">
+                    <span>收缩压（mmhg）</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="motherSystolicPressure" name="motherSystolicPressure">
+                </div>
+                <div class="main_option motherReproductiveSystemCheckFlag">
+                    <span>生殖系统检查结果</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="motherReproductiveSystemCheckFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>正常</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="motherReproductiveSystemCheckFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>异常</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="parent_msg">
+                <div class="main_option">
+                    <div class="option_title">血液检查</div>
+                </div>
+                <div class="main_option">
+                    <span>ABO血型</span>
+                    <div class="pink_arrow_right pink_arrow_right_position"></div>
+                    <span class="main_option_status" id="motherAboBloodTypeText">请选择</span>
+                    <input type="hidden" name="motherAboBloodType" id="motherAboBloodType">
+                </div>
+                <div class="main_option">
+                    <span>RH血型</span>
+                    <div class="pink_arrow_right pink_arrow_right_position"></div>
+                    <span class="main_option_status" id="motherRhBloodTypeText">请选择</span>
+                    <input type="hidden" name="motherRhBloodType" id="motherRhBloodType">
+                </div>
+                <div class="main_option age">
+                    <span>血红蛋白（g/L）</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="motherHemoglobin" name="motherHemoglobin">
+                </div>
+                <div class="main_option age">
+                    <span>血小板计数（× 10^9/L）</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="motherPlateletCount" name="motherPlateletCount">
+                </div>
+                <div class="main_option age">
+                    <span>空腹血糖（mmol/L）</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="motherFastingBloodSugar" name="motherFastingBloodSugar">
+                </div>
+            </div>
+            <div class="parent_msg">
+                <div class="main_option">
+                    <div class="option_title">慢性病检查</div>
+                </div>
+                <div class="main_option motherHypertensionFlag">
+                    <span>是否有高血压</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="motherHypertensionFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>是</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="motherHypertensionFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>否</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option motherDiabetesFlag">
+                    <span>是否有糖尿病</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="motherDiabetesFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>是</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="motherDiabetesFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>否</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option motherLiverFunctionFlag">
+                    <span>肝功能</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="motherLiverFunctionFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>正常</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="motherLiverFunctionFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>异常</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option" style="display: none">
+                    <span>ALT（IU/L）</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="motherAltValue" name="motherAltValue">
+                </div>
+                <div class="main_option motherRenalFunctionFlag">
+                    <span>肾功能</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="motherRenalFunctionFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>正常</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="motherRenalFunctionFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>异常</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option" style="display: none">
+                    <span>肌酐（Umol/L）</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="motherCreatinineValue" name="motherCreatinineValue">
+                </div>
+                <div class="main_option motherThyroidHormoneLevelFlag">
+                    <span>促甲状腺激素水平</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="motherThyroidHormoneLevelFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>正常</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="motherThyroidHormoneLevelFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>异常</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option" style="display: none">
+                    <span>TSH（uIU/ml）</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="motherTshValue" name="motherTshValue">
+                </div>
+            </div>
+            <div class="parent_msg">
+                <div class="main_option">
+                    <div class="option_title">生殖道感染</div>
+                </div>
+                <div class="main_option motherBacterialVaginosisFlag">
+                    <span>细菌性阴道病</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="motherBacterialVaginosisFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>否</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="motherBacterialVaginosisFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>是</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option motherCandidaInfectionFlag">
+                    <span>假丝酵母菌感染</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="motherCandidaInfectionFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阴性</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="motherCandidaInfectionFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阳性</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option motherTrichomonasInfectionFlag">
+                    <span>滴虫感染</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="motherTrichomonasInfectionFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阴性</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="motherTrichomonasInfectionFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阳性</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option motherChlamydiaTrachomatisScreeningFlag">
+                    <span>沙眼衣原体筛查</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="motherChlamydiaTrachomatisScreeningFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阴性</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="motherChlamydiaTrachomatisScreeningFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阳性</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option motherNeisseriaGonorrhoeaeInfectionFlag">
+                    <span>淋球菌感染</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="motherNeisseriaGonorrhoeaeInfectionFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阴性</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="motherNeisseriaGonorrhoeaeInfectionFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阳性</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="parent_msg">
+                <div class="main_option">
+                    <div class="option_title">感染性疾病筛查</div>
+                </div>
+                <div class="main_option motherHbsagFlag">
+                    <span>乙型肝炎表面抗原</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="motherHbsagFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阴性</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="motherHbsagFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阳性</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option motherTreponemaPallidumScreeningFlag">
+                    <span>梅毒螺旋体筛查</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="motherTreponemaPallidumScreeningFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阴性</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="motherTreponemaPallidumScreeningFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阳性</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option motherHivAntibodyTestFlag">
+                    <span>HIV抗体检查</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="motherHivAntibodyTestFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阴性</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="motherHivAntibodyTestFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阳性</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option motherRcubellaVirusCheckIggAntibodyFlag">
+                    <span>风疹病毒检查IgG抗体</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="motherRcubellaVirusCheckIggAntibodyFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阴性</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="motherRcubellaVirusCheckIggAntibodyFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阳性</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option age">
+                    <span>巨细胞病毒检查</span>
+                </div>
+                <div class="main_option motherCytomegalovirusIgmAntibodyFlag">
+                    <span>IgM抗体</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="motherCytomegalovirusIgmAntibodyFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阴性</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="motherCytomegalovirusIgmAntibodyFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阳性</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option motherCytomegalovirusIggAntibodyFlag">
+                    <span>IgG抗体</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="motherCytomegalovirusIggAntibodyFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阴性</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="motherCytomegalovirusIggAntibodyFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阳性</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option age">
+                    <span>弓形体检验</span>
+                </div>
+                <div class="main_option motherToxoplasmaIgmAntibodyFlag">
+                    <span>IgM抗体</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="motherToxoplasmaIgmAntibodyFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阴性</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="motherToxoplasmaIgmAntibodyFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阳性</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option motherToxoplasmaIggAntibodyFlag">
+                    <span>IgG抗体</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="motherToxoplasmaIggAntibodyFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阴性</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="motherToxoplasmaIggAntibodyFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阳性</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="page_btns">
+            <div class="pink_btn next_btn" onclick="">下一步</div>
+        </div>
+    </div>
+    <div id="father_msg">
+        <form action="" id="father_content" name="myForm">
+            <div class="parent_msg">
+                <div class="main_option">
+                    <div class="option_title">体格检查</div>
+                </div>
+                <div class="main_option">
+                    <span>舒张压（mmhg）</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="fatherDiastolicPressure" name="fatherDiastolicPressure">
+                </div>
+                <div class="main_option">
+                    <span>收缩压（mmhg）</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="fatherSystolicPressure" name="fatherSystolicPressure">
+                </div>
+                <div class="main_option fatherReproductiveSystemCheckFlag">
+                    <span>生殖系统检查结果</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="fatherReproductiveSystemCheckFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>正常</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="fatherReproductiveSystemCheckFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>异常</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="parent_msg">
+                <div class="main_option">
+                    <div class="option_title">血液检查</div>
+                </div>
+                <div class="main_option">
+                    <span>ABO血型</span>
+                    <div class="pink_arrow_right pink_arrow_right_position"></div>
+                    <span class="main_option_status" id="fatherAboBloodTypeText">请选择</span>
+                    <input type="hidden" name="fatherAboBloodType" id="fatherAboBloodType">
+                </div>
+                <div class="main_option">
+                    <span>RH血型</span>
+                    <div class="pink_arrow_right pink_arrow_right_position"></div>
+                    <span class="main_option_status" id="fatherRhBloodTypeText">请选择</span>
+                    <input type="hidden" name="fatherRhBloodType" id="fatherRhBloodType">
+                </div>
+            </div>
+            <div class="parent_msg">
+                <div class="main_option">
+                    <div class="option_title">慢性病检查</div>
+                </div>
+                <div class="main_option fatherHypertensionFlag">
+                    <span>是否有高血压</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="fatherHypertensionFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>是</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="fatherHypertensionFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>否</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option fatherDiabetesFlag">
+                    <span>是否有糖尿病</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="fatherDiabetesFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>是</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="fatherDiabetesFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>否</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option fatherLiverFunctionFlag">
+                    <span>肝功能</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="fatherLiverFunctionFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>正常</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="fatherLiverFunctionFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>异常</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option" style="display: none">
+                    <span>ALT（IU/L）</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="fatherAltValue" name="fatherAltValue">
+                </div>
+                <div class="main_option fatherRenalFunctionFlag">
+                    <span>肾功能</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="fatherRenalFunctionFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>正常</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="fatherRenalFunctionFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>异常</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option" style="display: none">
+                    <span>肌酐（Umol/L）</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="fatherCreatinineValue" name="fatherCreatinineValue">
+                </div>
+            </div>
+            <div class="parent_msg">
+                <div class="main_option">
+                    <div class="option_title">感染性疾病筛查</div>
+                </div>
+                <div class="main_option fatherHbsagFlag">
+                    <span>乙型肝炎表面抗原</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="fatherHbsagFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阴性</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="fatherHbsagFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阳性</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option fatherTreponemaPallidumScreeningFlag">
+                    <span>梅毒螺旋体筛查</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="fatherTreponemaPallidumScreeningFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阴性</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="fatherTreponemaPallidumScreeningFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阳性</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option fatherHivAntibodyTestFlag">
+                    <span>HIV抗体检查</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="fatherHivAntibodyTestFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阴性</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="fatherHivAntibodyTestFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>阳性</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="parent_msg">
+                <div class="main_option">
+                    <span>指导事项</span>
+                    <textarea class="textarea_msg" id="guidance" name="guidance"></textarea>
+                </div>
+                <div class="main_option">
+                    <span>检查日期</span><span class="must">*</span>
+                    <div class="pink_arrow_right pink_arrow_right_position"></div>
+                    <input type="text" placeholder="请选择" class="input_msg" id="checkTime" name="checkTime">
+                </div>
+                <div class="main_option">
+                    <span>检查单位</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="checkUnit" name="checkUnit">
+                </div>
+                <div class="main_option">
+                    <span>检查者</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="checker" name="checker">
+                </div>
+            </div>
+        </form>
+        <div class="page_btns">
+            <div class="pink_btn prev_btn">上一步</div>
+            <div class="pink_btn save_btn">保存</div>
+        </div>
+    </div>
+
+    <div id="window"  style="display:none" class="window">
+        <div>
+            <div id="window_in" class="window_in"></div>
+            <div id="check" class="check">确定</div>
+        </div>
+    </div>
+    <div id="background" style="display: none"></div>
+    <div id="fake_alert"  style="display:none">
+        <div id="fake_alert_in">
+            <div id="msg"></div>
+            <div id="sure">确定</div>
+        </div>
+    </div>
+    <input type="hidden" id="data_id">
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_002.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_004.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_003.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_005.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/icheck/icheck.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/js/dialogData.js"></script>
+    <script>
+        $(function(){
+            var localhostUrl=window.location.origin;
+            var query=getRequest();
+            var healthBookId=query.healthBookId;
+            var thisId=query.id;
+            var cansubmit=true;
+            var currYear = (new Date()).getFullYear();
+            var opt={};
+            opt.date = {preset : 'date'};
+            opt.datetime = {preset : 'datetime'};
+            opt.time = {preset : 'time'};
+            opt.default2 = {
+                theme: 'android-ics light', //皮肤样式
+                display: 'modal', //显示方式
+                mode: 'scroller', //日期选择模式
+                dateFormat: 'yy-mm-dd',
+                lang: 'zh',
+                showNow: true,
+                nowText: "今天",
+                startYear: currYear - 2, //开始年份
+                endYear: currYear + 3 //结束年份
+            };
+            $(document).on("change","input[type='radio']",function(){
+                $("input[type='radio']").each(function() {
+                    $(this).is(":checked")?$(this).next().removeClass('pink_r_uncheck').addClass('pink_r_check'):$(this).next().removeClass('pink_r_check').addClass('pink_r_uncheck');
+                });
+            });
+            $(".window_in").niceScroll({
+                railpadding: { top:0, right: 0, left: 0, bottom:0 },
+                cursorborder:"",
+                cursoropacitymin: 0.3,
+                cursoropacitymax: 0.3,
+                cursorcolor:"#000000",
+                zindex: "99",
+                cursorwidth: "3px",
+                touchbehavior:true
+            });
+            //肝功能
+            $('input[name="motherLiverFunctionFlag"]').change(function(){
+                $(this).val()==0?$(this).parents('.main_option').next().show():$(this).parents('.main_option').next().hide()&&$('#motherAltValue').val('');
+            })
+            //肾功能
+            $('input[name="motherRenalFunctionFlag"]').change(function(){
+                $(this).val()==0?$(this).parents('.main_option').next().show():$(this).parents('.main_option').next().hide()&&$('#motherCreatinineValue').val('');
+            })
+            //促甲状腺激素水平
+            $('input[name="motherThyroidHormoneLevelFlag"]').change(function(){
+                $(this).val()==0?$(this).parents('.main_option').next().show():$(this).parents('.main_option').next().hide()&&$('#motherTshValue').val('');
+            })
+            //肝功能
+            $('input[name="fatherLiverFunctionFlag"]').change(function(){
+                $(this).val()==0?$(this).parents('.main_option').next().show():$(this).parents('.main_option').next().hide()&&$('#fatherAltValue').val('');
+            })
+            //肾功能
+            $('input[name="fatherRenalFunctionFlag"]').change(function(){
+                $(this).val()==0?$(this).parents('.main_option').next().show():$(this).parents('.main_option').next().hide()&&$('#fatherCreatinineValue').val('');
+            })
+            //abo血型
+            $('#motherAboBloodTypeText').click(function(){
+                $("#window_in").html(aboBloodTypeDate);
+                initChecked($(this));
+            })
+            //RH血型
+            $("#motherRhBloodTypeText").click(function(){
+                $("#window_in").html(rhBloodTypeDate);
+                initChecked($(this));
+            });
+            //abo血型
+            $('#fatherAboBloodTypeText').click(function(){
+                $("#window_in").html(aboBloodTypeDate);
+                initChecked($(this));
+            })
+            //RH血型
+            $("#fatherRhBloodTypeText").click(function(){
+                $("#window_in").html(rhBloodTypeDate);
+                initChecked($(this));
+            });
+            $("#checkTime").mobiscroll($.extend(opt['date'], opt['default2']));
+            //弹框选择
+            $("#check").click(function(){
+                var obj=$("#check").data("checkObj");
+                var val="",
+                    text="";
+                if($('input:radio').length>0){
+                    val=$('input:radio[name="radio"]:checked').val();
+                    text=$('input:radio[name="radio"]:checked').parent().next().text();
+                }else{
+                    $('input:checkbox[name="checkbox"]:checked').each(function(){
+                        val+=","+$(this).val();
+                        text+=","+$(this).parent().next().text();
+                    });
+                    val=val.substr(1);
+                    text=text.substr(1);
+                }
+                if(text==""){
+                    text=$("#check").data("checkText");
+                }
+                obj.text(text).css('color','#333');
+                obj.next().val(val);
+                $("#background").hide();
+                $("#window").hide();
+            });
+            //下一步
+            $('.next_btn').click(function(){
+                if(nextCheckForm()==false){
+                    return false;
+                }
+                $('.mother').hide().next().show();
+                $('#mother_msg').hide().next().show();
+                $("html,body").animate({scrollTop:$('html').offset().top},500);
+            })
+            //上一步
+            $('.prev_btn').click(function(){
+                $('.mother').show().next().hide();
+                $('#mother_msg').show().next().hide();
+            })
+            //回显
+            $.ajax({
+                type:"post",
+                url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_beforeMaterEugenicsHealthTest_data?healthBookId='+healthBookId+'&id='+thisId,
+                dataType:'json',
+                async:false,
+                contentType:'application/json;charset=UTF-8',
+                success:function(data){
+                    console.log(data);
+                    if(data.res==0){
+                        var msg=data.data;
+                        $('#data_id').val(msg&&msg.id);
+                        if(msg!=null){
+                            for(var o in msg){
+                                $("#"+o).val(msg[o]);
+                                o!=null&&$("."+o+" input[value="+ boolToNumber(msg[o]) +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                                o!=null&&boolToNumber(msg[o])==0&&$('.'+o).next().show();
+                            }
+                            if( msg.motherAboBloodType!=null){
+                                if(msg.motherAboBloodType==""){
+                                    $('#motherAboBloodTypeText').text('请选择')
+                                }else {
+                                    $('#motherAboBloodTypeText').text(msg.motherAboBloodType).css('color','#333')&&$('#motherAboBloodType').val(msg.motherAboBloodType);
+                                }
+                            }
+                            if( msg.motherRhBloodType!=null){
+                                if(msg.motherRhBloodType==""){
+                                    $('#motherRhBloodTypeText').text('请选择')
+                                }else {
+                                    $('#motherRhBloodTypeText').text(msg.motherRhBloodType).css('color','#333')&&$('#motherRhBloodType').val(msg.motherRhBloodType);
+                                }
+                            }
+                            if( msg.fatherAboBloodType!=null){
+                                if(msg.fatherAboBloodType==""){
+                                    $('#fatherAboBloodTypeText').text('请选择')
+                                }else {
+                                    $('#fatherAboBloodTypeText').text(msg.fatherAboBloodType).css('color','#333')&&$('#fatherAboBloodType').val(msg.fatherAboBloodType);
+                                }
+                            }
+                            if( msg.fatherRhBloodType!=null){
+                                if(msg.fatherRhBloodType==""){
+                                    $('#fatherRhBloodTypeText').text('请选择')
+                                }else {
+                                    $('#fatherRhBloodTypeText').text(msg.fatherRhBloodType).css('color','#333')&&$('#fatherRhBloodType').val(msg.fatherRhBloodType);
+                                }
+                            }
+                        }
+                    }else{
+                        fake_alert("请求失败！请检查网络是否正常。");
+                    }
+                },
+                error:function () {
+                    fake_alert("请求失败！请检查网络是否正常。");
+                    return;
+                }
+            });
+            //保存
+            $('.save_btn').click(function(){
+                if(saveCheckForm()==false){
+                    return false;
+                }
+                var mJsonObj=$("#mother_content").serializeObject();
+                var fJsonObj=$("#father_content").serializeObject();
+                var JsonObj= $.extend(true, mJsonObj, fJsonObj);
+                JsonObj.healthBookId=healthBookId;
+                JsonObj.id=$('#data_id').val();
+                if(cansubmit){
+                    cansubmit=false;
+                    $.ajax({
+                        type:"post",
+                        url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/submit_beforeMaterEugenicsHealthTest_data',
+                        data:JsonObj,
+                        contentType:'application/json;charset=UTF-8',
+                        success:function(data){
+                            if(data.res==0){
+                                fake_alert("保存成功");
+                                setTimeout(function(){
+                                    window.history.go(-1);
+                                },500)
+                            }else{
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                cansubmit=true;
+                            }
+                        },
+                        error:function () {
+                            fake_alert("保存失败！请检查网络是否正常。");
+                            cansubmit=true;
+                            return;
+                        }
+                    });
+                }
+            })
+        })
+        //下一步的验证
+        function nextCheckForm(){
+            var regu = "^[0-9]+\.?[0-9]*$";//验证数字和小数
+            var re = new RegExp(regu);
+            var motherDiastolicPressure=$('#motherDiastolicPressure').val();
+            if(motherDiastolicPressure!=''&&!IsNumberValidateFun(motherDiastolicPressure)){
+                fake_alert("舒张压必须是整数","#motherDiastolicPressure");
+                return false;
+            }
+            var motherSystolicPressure=$('#motherSystolicPressure').val();
+            if(motherSystolicPressure!=''&&!IsNumberValidateFun(motherSystolicPressure)){
+                fake_alert("收缩压必须是整数","#motherSystolicPressure");
+                return false;
+            }
+            var motherHemoglobin = $("#motherHemoglobin").val();
+            if(motherHemoglobin!=''&& !re.test(motherHemoglobin)){
+                fake_alert("血红蛋白必须是数字","#motherHemoglobin");
+                return false;
+            }
+            if(/.*[\u4e00-\u9fa5]+.*$/.test(motherHemoglobin)){
+                fake_alert("血红蛋白必须是数字","#motherHemoglobin");
+                return false;
+            }
+            var motherPlateletCount = $("#motherPlateletCount").val();
+            if(motherPlateletCount!=''&& !re.test(motherPlateletCount)){
+                fake_alert("血小板计数必须是数字","#motherPlateletCount");
+                return false;
+            }
+            if(/.*[\u4e00-\u9fa5]+.*$/.test(motherPlateletCount)){
+                fake_alert("血小板计数必须是数字","#motherPlateletCount");
+                return false;
+            }
+            var motherFastingBloodSugar = $("#motherFastingBloodSugar").val();
+            if(motherFastingBloodSugar!=''&& !re.test(motherFastingBloodSugar)){
+                fake_alert("空腹血糖必须是数字","#motherFastingBloodSugar");
+                return false;
+            }
+            if(/.*[\u4e00-\u9fa5]+.*$/.test(motherFastingBloodSugar)){
+                fake_alert("空腹血糖必须是数字","#motherFastingBloodSugar");
+                return false;
+            }
+            var motherAltValue = $("#motherAltValue").val();
+            if(motherAltValue!=''&& !re.test(motherAltValue)){
+                fake_alert("ALT必须是数字","#motherAltValue");
+                return false;
+            }
+            if(/.*[\u4e00-\u9fa5]+.*$/.test(motherAltValue)){
+                fake_alert("ALT必须是数字","#motherAltValue");
+                return false;
+            }
+            var motherCreatinineValue = $("#motherCreatinineValue").val();
+            if(motherCreatinineValue!=''&& !re.test(motherCreatinineValue)){
+                fake_alert("肌酐必须是数字","#motherCreatinineValue");
+                return false;
+            }
+            if(/.*[\u4e00-\u9fa5]+.*$/.test(motherCreatinineValue)){
+                fake_alert("肌酐必须是数字","#motherCreatinineValue");
+                return false;
+            }
+            var motherTshValue = $("#motherTshValue").val();
+            if(motherTshValue!=''&& !re.test(motherTshValue)){
+                fake_alert("TSH必须是数字","#motherTshValue");
+                return false;
+            }
+            if(/.*[\u4e00-\u9fa5]+.*$/.test(motherTshValue)){
+                fake_alert("TSH必须是数字","#motherTshValue");
+                return false;
+            }
+        }
+        //保存验证
+        function saveCheckForm(){
+            var regu = "^[0-9]+\.?[0-9]*$";//验证数字和小数
+            var re = new RegExp(regu);
+            var fatherDiastolicPressure=$('#fatherDiastolicPressure').val();
+            if(fatherDiastolicPressure!=''&&!IsNumberValidateFun(fatherDiastolicPressure)){
+                fake_alert("舒张压必须是整数","#fatherDiastolicPressure");
+                return false;
+            }
+            var fatherSystolicPressure=$('#fatherSystolicPressure').val();
+            if(fatherSystolicPressure!=''&&!IsNumberValidateFun(fatherSystolicPressure)){
+                fake_alert("收缩压必须是整数","#fatherSystolicPressure");
+                return false;
+            }
+            var fatherAltValue = $("#fatherAltValue").val();
+            if(fatherAltValue!=''&& !re.test(fatherAltValue)){
+                fake_alert("ALT必须是数字","#fatherAltValue");
+                return false;
+            }
+            if(/.*[\u4e00-\u9fa5]+.*$/.test(fatherAltValue)){
+                fake_alert("ALT必须是数字","#fatherAltValue");
+                return false;
+            }
+            var fatherCreatinineValue = $("#fatherCreatinineValue").val();
+            if(fatherCreatinineValue!=''&& !re.test(fatherCreatinineValue)){
+                fake_alert("肌酐必须是数字","#fatherCreatinineValue");
+                return false;
+            }
+            if(/.*[\u4e00-\u9fa5]+.*$/.test(fatherCreatinineValue)){
+                fake_alert("肌酐必须是数字","#fatherCreatinineValue");
+                return false;
+            }
+            var checkTime=$('#checkTime').val();
+            if(checkTime==''){
+                fake_alert("检查日期必填","#checkTime");
+                return false;
+            }
+        }
+        //打开弹框初始化选择
+        function initChecked(a){
+            $("#check").data("checkObj",a);
+            $("#check").data("checkText",a.text());
+            if($('input:radio').length>0){
+                $("#window_in").find("input[name='radio'][value='" + a.next().val() + "']").attr("checked",true);
+            }else{
+                var str=a.next().val().split(",");
+                for(var i=0;i<str.length;i++){
+                    $('#window_in input:checkbox[name="checkbox"][value='+str[i]+']').attr("checked",true);
+                }
+            }
+            $(".window input").iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%'
+            });
+            $("#background").show();
+            $("#window").show();
+        }
+        function fake_alert(text,element){
+            $("#background").show();
+            $("#fake_alert").show();
+            $("#msg").html(text);
+            $("#sure").click(function(){
+                $("#background").hide();
+                $("#fake_alert").hide();
+            });
+            element&&$("html,body").animate({scrollTop:$(element).offset().top-75},500);
+        }
+    </script>
+</body>
+</html>

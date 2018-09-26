@@ -1,0 +1,84 @@
+html,body,ul,li,div,a,img,input,p{margin:0;padding:0;}
+img{border:0}
+ul{list-style: none;}
+a{text-decoration: none;}
+
+body {
+	font-family:"Microsoft YaHei","Î¢ÈíÑÅºÚ",Arial,Simsun,Helvetica,sans-serif;
+	background-color:#F3F3F3;
+}
+
+.title {
+	line-height:40px;
+	font-size:16px;
+	text-align:center;
+	border-bottom:1px solid #D9D9D9;
+	background-color:#fff;
+}
+.content>div>div {
+	line-height:50px;
+	font-size:15px;
+	background-color:#fff;
+	border-bottom:1px solid #D9D9D9;
+	padding-left:20px;
+}
+.checkPhoneNum {
+	margin-bottom:60px;
+}
+.phoneNum,.code {
+	position:relative;
+}
+.phoneNum input,.code input {
+	position:absolute;
+	height:20px;
+	top:15px;
+	left:80px;
+	text-indent:5px;
+	border:0px;
+	font-size:14px;
+	width:50%;
+}
+.code input {
+	width:40%;
+}
+.code div {
+	position:absolute;
+	line-height:30px;
+	top:10px;
+	right:10px;
+	min-width:80px;
+	background-color:#46C0EB;
+	color:#fff;
+	text-align:center;
+	border-radius:4px;
+	font-size:14px;
+	padding:0px 5px;
+}
+.second {
+	margin-left:10px;
+	display:none;
+} 
+
+
+.hint {
+	padding:0 15px;
+	font-size:16px;
+}
+.hint span {
+	color:#00A1D8;
+}
+
+.next {
+	margin:30px auto;
+	color:#fff;
+	font-size:18px;
+	line-height:40px;
+	text-align:center;
+	background-color:#47C0EB;
+	width:90%;
+	border-radius:4px;
+}
+
+
+
+

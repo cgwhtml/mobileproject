@@ -1,0 +1,18 @@
+/**
+* Created by heyating
+* Created time 2017/5/18 17:24
+* Description  新建手册1
+*/
+.page_title{
+    margin: 3.8rem 0.6rem 0;
+}
+.page_title>p{
+    text-align: center;
+    font-size: 0.32rem;
+}
+.page_btns{
+    margin-top: 3.97rem;
+}
+.pink_btn{
+    margin: 30px auto 0;
+}

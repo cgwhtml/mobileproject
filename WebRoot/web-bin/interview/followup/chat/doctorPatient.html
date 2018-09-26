@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>医患沟通</title>
+</head>
+<body>
+    <!--患者列表-->
+            <ul class="choosen_model">
+                <li data-role="msg_list">消息
+                	<div class="patient_spot"></div>
+                </li>
+                <li data-role="patient_manage">患者管理</li>
+                <li data-role="fans_manage">我的粉丝</li>
+            </ul>
+            <!--信息列表-->
+           <p style="display:none">
+				   <textarea id="template_msgList" rows="0" cols="0">
+					{#foreach $T as Row}
+					<li data-hugId={$T.Row.targetHugId}>
+                    	<div class="friend_head">
+                       		<div class="design_icon icon_head"></div>
+                       		{#if $T.Row.number!=0}
+		                    	<div class="msg_number">{$T.Row.number}</div>
+		               	    {#else}
+		               	    	<div class="msg_number" style="display:none">{$T.Row.number}</div>
+		                    {#/if}
+                   		</div>
+                  		<div class="msg_nameBox">
+	                    	<div class="msg_name substr">{$T.Row.nickName}</div>
+	                        <div class="msg_time substr">{$T.Row.lastmsg}</div>
+                   		</div>
+                    </li>
+					{#/for}
+				   </textarea>
+		   </p>  
+		   <ul class="msg_list"></ul>		
+            <!--患者列表-->
+            <div class="patient_manage">
+                <div class="inputbox">
+                    <input type="text" t_placeholder="查找患者" class="s_input patient_input"/>
+                </div>
+                <p style="display:none">
+		   			<textarea id="template_patientList" rows="0" cols="0">
+		   				<ul class="search_patient_list"></ul>
+						{#foreach $T as Row}
+						<div class="patient_item">
+		             		<div class="patient_group_item substr">
+		                            <div class="design_icon arrow"></div>
+		                       		{#if $T.Row.groupName}
+										{$T.Row.groupName}	
+									{#else}
+		                       			未分组 	
+									{#/if}
+		                        <ul class="people_list">
+		                         	{#foreach $T.Row.collectUsers as Mow}
+		                            <li data-hugId={$T.Mow.hugId}>
+		                                <div class="friend_head_item">
+		                                    <div class="design_icon"></div>
+		                                </div>
+		                                <div class="msg_nameBox">
+		                                    <div class="patient_name substr">{$T.Mow.name}</div>
+		                                </div>
+		                            </li>
+		                            {#/for}
+		                        </ul>
+		                    </div>
+	                    </div>
+						{#/for}
+		  			</textarea>
+   				</p>
+                <div class="patient_group_list"></div>
+            </div>
+            <!--粉丝列表-->
+            <div class="fans_manage">
+                <div class="inputbox">
+                    <input type="text" t_placeholder="查找粉丝" class="s_input fans_input"/>
+                </div>
+                <div class="fans_group_list">
+                	<ul class="search_fans_list"></ul>
+                    <div class="fans_item">
+                        <div class="fans_group_item substr">
+                            <div class="design_icon arrow_t"></div>
+                           	 新的关注 
+                        </div>
+                        <p style="display:none">
+				   			<textarea id="template_fansList" rows="0" cols="0">
+							{#foreach $T as Row}
+							<li data-hugId={$T.Row.targetHugId}>
+                  				<div class="friend_head_item">
+                                    <div class="design_icon"></div>
+                                </div>
+                                <div class="msg_nameBox">
+                                    <div class="patient_name substr">{$T.Row.remarkName}</div>
+                                </div>
+                    		</li>
+							{#/for}
+				  			</textarea>
+		   				</p>
+                        <ul class="fans_list1"></ul>
+                    </div>
+                    <div class="fans_item">
+                        <div class="fans_group_item substr">
+                            <div class="design_icon arrow_t"></div>
+                           	 一周内 
+                        </div>
+                        <ul class="fans_list2"></ul>
+                    </div>
+                    <div class="fans_item">
+                        <div class="fans_group_item substr">
+                            <div class="design_icon arrow_t"></div>
+                           	 一月内 
+                        </div>
+                        <ul class="fans_list3"></ul>
+                    </div>
+                    <div class="fans_item">
+                        <div class="fans_group_item substr">
+                            <div class="design_icon arrow_t"></div>
+                           	3月内
+                        </div>
+                        <ul class="fans_list4"></ul>
+                    </div>
+                    <div class="fans_item">
+                        <div class="fans_group_item substr">
+                            <div class="design_icon arrow_t"></div>
+                           	6月内 
+                        </div>
+                        <ul class="fans_list5"></ul>
+                    </div>
+                    <div class="fans_item">
+                        <div class="fans_group_item substr">
+                            <div class="design_icon arrow_t"></div>
+                           	6月前 
+                        </div>
+                        <ul class="fans_list6"></ul>
+                    </div>
+                </div>
+            </div>
+<script src="/web-bin/interview/followup/chat/js/doctorPatient.js"></script>
+</body>
+</html>

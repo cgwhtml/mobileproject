@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>检验报告</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/weui/weui.min.css">
+    <link rel="stylesheet" href="/web-bin/resources/weui/jquery-weui.css">
+    <link rel="stylesheet" href="/web-bin/resources/css/basicMobile.css">
+    <link rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/feeMessage/testList.css">
+</head>
+<body>
+<div class="wrapper"></div>
+<p style="display:none">
+    <textarea id="template_testList" rows="0" cols="0">
+        {#foreach $T as Row}
+        <ul class="msg_box">
+            <li>检验名称：<span>{$T.Row.testItemName}</span></li>
+            <li>{$T.Row.applyDate}</li>
+            <li class="test_code_box">
+            <div class="test_code">
+                {#if $T.Row.reportNo}
+                <svg class="imgcode"></svg>
+                {#else}
+                <span>暂无条码信息</span>
+                {#/if}
+            </div>
+                <p>扫条形码打印报告</p>
+            </li>
+            <li class="lookCheck_url">
+                <input type="hidden" value="{$T.Row.reportNo}" class="reportNo">
+                <input type="hidden" value="{$T.Row.testItemName}" class="testItemName">
+                <div class="look_check">查看检验报告</div>
+                <div class="gray_arrow"></div>
+            </li>
+        </ul>
+        {#/for}
+    </textarea>
+</p>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/js/jquery.barcode.all.js"></script>
+<script type="text/javascript" src="/web-bin/resources/weui/jquery-weui.js"></script>
+<script type="text/javascript" src="/web-bin/resources/weui/fastclick.js"></script>
+<!--解决ios下click的300ms的延迟，需引入fastclick-->
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+<script type="text/javascript" src="/web-bin/weChat/weChatPublic/js/feeMessage/testList.js"></script>
+</body>
+</html>

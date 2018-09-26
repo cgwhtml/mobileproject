@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>胎动记录</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+    <link rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_002.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_003.css">
+</head>
+<body>
+    <form action="" id="myForm" name="myForm">
+        <div class="parent_msg">
+            <div class="main_option">
+                <span>日期</span><span class="must">*</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="recordTime" name="recordTime">
+            </div>
+            <div class="main_option">
+                <span>早上胎动次数</span>
+                <input type="tel" placeholder="请填写" class="input_msg" id="morningFetalMovementNum" name="morningFetalMovementNum">
+            </div>
+            <div class="main_option">
+                <span>中午胎动次数</span>
+                <input type="tel" placeholder="请填写" class="input_msg" id="nooningFetalMovementNum" name="nooningFetalMovementNum">
+            </div>
+            <div class="main_option">
+                <span>晚上胎动次数</span>
+                <input type="tel" placeholder="请填写" class="input_msg" id="eveningFetalMovementNum" name="eveningFetalMovementNum">
+            </div>
+        </div>
+    </form>
+    <div id="background" style="display: none"></div>
+    <div id="fake_alert"  style="display:none">
+        <div id="fake_alert_in">
+            <div id="msg"></div>
+            <div id="sure">确定</div>
+        </div>
+    </div>
+    <div class="page_btns">
+        <div class="pink_btn save">保存</div>
+    </div>
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_002.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_004.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_003.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_005.js"></script>
+    <script>
+        var localhostUrl=window.location.origin;
+        var query=window.location.search;
+        var queryJson=getRequest();
+        var healthBookId=queryJson.healthBookId;
+        var id=queryJson.id;
+        var currYear = (new Date()).getFullYear();
+        var opt={};
+        var cansubmit=true;
+        opt.date = {preset : 'date'};
+        opt.datetime = {preset : 'datetime'};
+        opt.time = {preset : 'time'};
+        opt.default2 = {
+            theme: 'android-ics light', //皮肤样式
+            display: 'modal', //显示方式
+            mode: 'scroller', //日期选择模式
+            dateFormat: 'yy-mm-dd',
+            lang: 'zh',
+            showNow: true,
+            nowText: "今天",
+            startYear: currYear - 2, //开始年份
+            endYear: currYear + 10 //结束年份
+        };
+        $("#recordTime").mobiscroll($.extend(opt['date'], opt['default2']));
+        if(id!=''&&id!=null){
+            $.ajax({
+                type:"post",
+                url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_simplyQuickening_data?id='+id,
+                dataType:'json',
+                contentType:'application/json;charset=UTF-8',
+                success:function(data){
+                    console.log(data);
+                    if(data.res==0){
+                        var msg=data.data;
+                        for(var o in msg){
+                            $("#"+o).val(msg[o]);
+                        }
+                        data.data.morningFetalmovementNum==0?false:$('#morningFetalMovementNum').val(data.data.morningFetalmovementNum);
+                        data.data.nooningFetalmovementNum==0?false:$('#nooningFetalMovementNum').val(data.data.nooningFetalmovementNum);
+                        data.data.eveningFetalmovementNum==0?false:$('#eveningFetalMovementNum').val(data.data.eveningFetalmovementNum);
+                    }
+
+                },
+                error:function () {
+                    fake_alert("保存失败！请检查网络是否正常。");
+                    return;
+                }
+            });
+        }
+        $('.save').click(function(){
+            var recordTime = $("#recordTime").val();
+            if($.trim(recordTime)==''){
+                fake_alert("日期必填","#recordTime");
+                return false;
+            }
+            var morningFetalMovementNum = $("#morningFetalMovementNum").val();
+            if(morningFetalMovementNum!=''&& !IsNumberValidateFun(morningFetalMovementNum)){
+                fake_alert("早上胎动次数必须是整数","#morningFetalMovementNum");
+                return false;
+            }
+
+            var nooningFetalMovementNum = $("#nooningFetalMovementNum").val();
+            if(nooningFetalMovementNum!=''&& !IsNumberValidateFun(nooningFetalMovementNum)){
+                fake_alert("中午胎动次数必须是整数","#nooningFetalMovementNum");
+                return false;
+            }
+
+            var eveningFetalMovementNum = $("#eveningFetalMovementNum").val();
+            if(eveningFetalMovementNum!=''&& !IsNumberValidateFun(eveningFetalMovementNum)){
+                fake_alert("晚上胎动次数必须是整数","#eveningFetalMovementNum");
+                return false;
+            }
+
+            var JsonObj=$("#myForm").serializeObject();
+            JsonObj.morningFetalMovementNum==''?JsonObj.morningFetalMovementNum=null:JsonObj.morningFetalMovementNum=parseInt(JsonObj.morningFetalMovementNum);
+            JsonObj.nooningFetalMovementNum==''?JsonObj.nooningFetalMovementNum=null:JsonObj.nooningFetalMovementNum=parseInt(JsonObj.nooningFetalMovementNum);
+            JsonObj.eveningFetalMovementNum==''?JsonObj.eveningFetalMovementNum=null:JsonObj.eveningFetalMovementNum=parseInt(JsonObj.eveningFetalMovementNum);
+            JsonObj.healthBookId=healthBookId;
+            JsonObj.id=id;
+            if(cansubmit){
+                cansubmit=false;
+                if(id!=''&&id!=null){
+                    $.ajax({
+                        type:"post",
+                        url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/update_simplyQuickening_data',
+                        data:JsonObj,
+                        dataType:'json',
+                        contentType:'application/json;charset=UTF-8',
+                        success:function(data){
+                            if(data.res==0){
+                                fake_alert("保存成功");
+                                setTimeout(function(){
+                                    window.history.go(-1);
+//                                window.location=localhostUrl+":"+port+"/web-bin/m/nosen/followup/maternalChild/handBook/to_quickening_page"+query;
+                                },500)
+                            }else{
+                                fake_alert("保存失败");
+                                cansubmit=true;
+                            }
+                        },
+                        error:function () {
+                            fake_alert("保存失败！请检查网络是否正常。");
+                            cansubmit=true;
+                            return;
+                        }
+                    });
+                }else {
+                    $.ajax({
+                        type:"post",
+                        url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/submit_simplyQuickening_data',
+                        data:JsonObj,
+                        dataType:'json',
+                        contentType:'application/json;charset=UTF-8',
+                        success:function(data){
+                            if(data.res==0){
+                                fake_alert("保存成功");
+                                setTimeout(function(){
+                                    window.history.go(-1);
+//                                window.location=localhostUrl+":"+port+"/web-bin/m/nosen/followup/maternalChild/handBook/to_quickening_page"+query;
+                                },500)
+                            }else{
+                                fake_alert("该日已有记录，请前往修改该日记录");
+                                cansubmit=true;
+                            }
+                        },
+                        error:function () {
+                            fake_alert("保存失败！请检查网络是否正常。");
+                            cansubmit=true;
+                            return;
+                        }
+                    });
+                }
+            }
+        })
+        function fake_alert(text,element){
+            $("#background").show();
+            $("#fake_alert").show();
+            $("#msg").html(text);
+            $("#sure").click(function(){
+                $("#background").hide();
+                $("#fake_alert").hide();
+            });
+            element&&$("html,body").animate({scrollTop:$(element).offset().top-75},500);
+        }
+    </script>
+</body>
+</html>

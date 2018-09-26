@@ -1,0 +1,179 @@
+html,body,ul,li,div,a,img,input,p{margin:0;padding:0;}
+img{border:0}
+ul{list-style: none;}
+a{text-decoration: none;}
+
+.ui-loader-default{ display:none}
+.ui-mobile-viewport{ border:none;}
+.ui-page {padding: 0; margin: 0; outline: 0}
+
+body {
+    font-family:"Microsoft YaHei","微软雅黑",Arial,Simsun,Helvetica,sans-serif;
+    background-color:#f4f4f4;
+}
+body>div {
+    min-height:400px !important;
+}
+
+#main_head {
+    position:fixed;
+    top:0;
+    width:100%;
+    background-color:white;
+    z-index: 99;
+}
+#head_in {
+    position:relative;
+    padding:5px 0;
+   /* border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;*/
+    width:100%;
+}
+#main_head img {
+    max-height:18px;
+}
+#head_left {
+    position:relative;
+    width:73%;
+    padding:3px;
+}
+#head_left>img {
+    max-height:38px;
+    margin-left:10px;
+    position:relative;
+    top:2px;
+    height:0.38rem;
+}
+#head_left span {
+    font-size:18px;
+    font-weight:bold;
+    margin-left:12px;
+    position:relative;
+    line-height:18px;
+}
+#i1 {
+    position:absolute;
+    right:10px;
+    top:7px;
+    font-size:14px;
+    text-align:center;
+    color:#555;
+}
+.head_right {
+    position:absolute;
+    right:10px;
+    top:0.1rem;
+    width:20%;
+    z-index:10;
+    font-size:14px;
+    text-align:center;
+    color:#555;
+}
+.head_right{height:28px;display: block;background-color:#39bcea;color:#fff;line-height:28px;text-align: center;border-radius:4px;}
+
+#main_body {
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    background-color:#fff;
+}
+.d1 {
+    position:relative;
+    padding-top:15px;
+}
+.d1 img {
+    position:absolute;
+    width:60px;
+    top:15px;
+    left:15px;
+}
+.hosp{
+    margin-left:90px;
+    border-bottom:1px solid #ccc;
+    min-height:60px;
+    padding-bottom:15px;
+}
+.visit{
+    margin-left:90px;
+    border-bottom:1px solid #ccc;
+    min-height:60px;
+    padding-bottom:15px;
+}
+
+.d2>div:last-of-type>div {
+    border-bottom:0px solid #ccc;
+}
+
+
+.p1 {
+    font-size:15px;
+    font-weight:bold;
+}
+.p2 {
+    font-size:14px;
+    line-height:16px;
+    margin:5px 0;
+    width:95%;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+}
+.p2 span {
+    display:inline-block;
+    font-size:14px;
+    line-height:20px;
+    width:45px;
+    text-align:center;
+    margin-right:7px;
+    color:white;
+    border-radius:3px;
+}
+.s1 {
+    background-color:#F88379;
+}
+.s2 {
+    background-color:#46D9BF;
+}
+.p3 {
+    font-size:11px;
+    color:#777;
+}
+#loading {
+    position:absolute;
+    top:40%;
+    width:100%;
+    text-align:center;
+}
+#loading img{
+    width:30px;
+}
+#none {
+    position:fixed;
+    width:80px;
+    height:80px;
+    top:50%;
+    left:50%;
+    margin-top:-40px;
+    margin-left:-40px;
+    text-align:center;
+}
+#none img {
+    width:80px;
+}
+#none p {
+    color:#888;
+    font-size:16px;
+}
+body{position: relative;}
+.error{width:100%;height:100%;display:none;position: fixed;top:0;left:0;background:rgba(0,0,0,0.5);}
+.error_box{width:81.3%;height:3.8rem;display: block;position: absolute;top:50%;left:50%;margin-top:-1.9rem;margin-left:-40.65%;border-radius:0.08rem;background-color: #fff;}
+.error_box .error_inner{margin:0 0.35rem 0;overflow: hidden;}
+.error_box .error_inner .error_tips{height:0.8rem;font-size:0.35rem;color:#01a0d7;border-bottom:1px solid #d9d9d9;text-align: center;}
+.error_box .error_inner .error_tips span{line-height:0.8rem;}
+.error_box .error_content{height:2.05rem;overflow: hidden;font-size:0.3rem;position:relative;width:100%;}
+.error_box .error_con_inner{margin:0 auto;overflow: hidden;}
+.error_box .error_content span{width:50%;text-align: center;float: left;padding:0.7rem 0;word-wrap:break-word;}
+.error_box .error_content i.error_icon{width:0.6rem;height:0.6rem;display:block;background: url(../../img/icon_08.png)no-repeat;background-size: 100%;float: left;margin:0.8rem 0.4rem 0.8rem 0.5rem;}
+.error_box .error_close{width:100%;height:0.8rem;display: block;position: absolute;bottom:0;left:0;border-top:1px solid #dbdbdb;text-align: center;line-height:0.8rem;font-size:0.35rem;color:#01a2d8;}
+.change_icon{width:0.25rem;height:0.16rem;display: inline-block;background: url(/web-bin/resources/images/arrow_down.png) no-repeat;background-size: 100% 100%;position: relative;margin:0 0 0 2px;}
+
+

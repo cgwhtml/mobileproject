@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>阅读</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<style type="text/css">
+		.r_m_maternity28{
+			position: relative;
+		}
+		.r_m_maternity28 .pink_content_title{
+			text-align:center;
+		}
+		.r_m_maternity28 .table_box{
+			padding-top:0.853rem;
+		}
+		.r_m_maternity28 .table_box .content_table{
+			margin: 0 auto;
+		}
+		.r_m_maternity28 .table_box .content_table tr{
+			height:0.44rem;
+			color: #333;
+			font-size: 0.21rem;
+		}
+		.r_m_maternity28 .table_box .content_table tr td:first-child{
+			border-left: 1px solid transparent;
+		}
+		.r_m_maternity28 .table_box .content_table tr td:first-child>div{
+			width: 0.7rem;
+		}
+		.r_m_maternity28 .table_box .content_table tr td:not(:first-child)>div{
+			width: 1.2rem;
+		}
+		.r_m_maternity28 .table_box .content_table .table_title{
+			background-color: #D986C2;
+			color: #fff !important;
+			font-size: 0.186rem;
+		}
+		.r_m_maternity28 .table_box .content_table .table_odd{
+			background-color: #FFF3FD;
+		}
+		.r_m_maternity28 .table_box .content_table td{
+			border-left:1px solid #666;
+			text-align:center;
+		}
+		@media (min-height:551px) and (max-height:600px) and (-webkit-min-device-pixel-ratio:1){
+			.r_m_maternity28 .mc_content_main{
+				padding-right: 0.1rem !important;
+				padding-left: 0.1rem !important;
+			}
+			.r_m_maternity28 .table_box .content_table tr td:not(:first-child)>div{
+				width: 1.24rem !important;
+			}
+		}
+		@media (min-height:601px) and (max-height:650px) and (-webkit-min-device-pixel-ratio:1){
+			.r_m_maternity28 .mc_content_main{
+				padding-right: 0.1rem !important;
+				padding-left: 0.1rem !important;
+			}
+			.r_m_maternity28 .table_box .content_table tr td:not(:first-child)>div{
+				width: 1.2rem !important;
+			}
+		}
+		@media (min-height:621px) and (max-height:650px) and (-webkit-min-device-pixel-ratio:1){
+			.r_m_maternity28 .mc_content_main{
+				padding-right: 0.1rem !important;
+				padding-left: 0.1rem !important;
+			}
+			.r_m_maternity28 .table_box .content_table tr td:not(:first-child)>div{
+				width: 1.24rem !important;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="r_m_maternity r_m_maternity28">
+		<div class="gradient_top gradient_pink_top"></div>
+		<div class="mc_content_main">
+			<p class="pink_content_title">胎动记录表</p>
+			<div class="m_28_icon"></div>
+			<div class="table_box">
+				<table cellspacing="1" cellpadding="0" border="0" style="width:100%;" class="content_table test">
+					<tr  class="table_title">
+						<td><div>孕周</div></td>
+						<td>1</td>
+						<td>2</td>
+						<td>3</td>
+						<td>4</td>
+						<td>5</td>
+						<td>6</td>
+						<td>7</td>
+					</tr>
+					<tr>
+						<td><div>日期</div></td>
+						<td><div></div></td>
+						<td><div></div></td>
+						<td><div></div></td>
+						<td><div></div></td>
+						<td><div></div></td>
+						<td><div></div></td>
+						<td><div></div></td>
+					</tr>
+					<tr class="table_odd">
+						<td>
+							<div>
+								胎动
+							</div>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+				<p style="display:none"><textarea id="Template-ListRows2" rows="0" cols="0">
+				{#foreach $T as msg}
+				<table cellspacing="1" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;" class="content_table test">
+					<tr  class="table_title">
+						<td><div>{$T.msg.gestationalWeek}周</div></td>
+						<td>1</td>
+						<td>2</td>
+						<td>3</td>
+						<td>4</td>
+						<td>5</td>
+						<td>6</td>
+						<td>7</td>
+					</tr>
+					<tr>
+						<td>
+							<div>日期</div>
+						</td>
+						{#foreach $T.msg.weekList as Row}
+						{#if $T.Row.weekDay=="1"}
+						<td>
+							<div>
+								{$T.Row.recordTime}
+							</div>
+						</td>
+						{#elseif $T.Row.weekDay=="2"}
+						<td>
+							<div>
+								{$T.Row.recordTime}
+							</div>
+						</td>
+							{#elseif $T.Row.weekDay=="3"}
+						<td>
+							<div>
+								{$T.Row.recordTime}
+							</div>
+						</td>
+							{#elseif $T.Row.weekDay=="4"}
+						<td>
+							<div>
+								{$T.Row.recordTime}
+							</div>
+						</td>
+							{#elseif $T.Row.weekDay=="5"}
+						<td>
+							<div>
+								{$T.Row.recordTime}
+							</div>
+						</td>
+							{#elseif $T.Row.weekDay=="6"}
+						<td>
+							<div>
+								{$T.Row.recordTime}
+							</div>
+						</td>
+							{#elseif $T.Row.weekDay=="7"}
+						<td>
+							<div>
+								{$T.Row.recordTime}
+							</div>
+						</td>
+						{#else}
+						<td></td>
+						{#/if}
+						{#/for}
+					</tr>
+					<tr class="table_odd">
+						<td>
+							<div>
+								胎动
+							</div>
+						</td>
+						{#foreach $T.msg.weekList as Row}
+						{#if $T.Row.weekDay=="1"}
+						<td>{$T.Row.twelveHourFetalMovementNum}</td>
+						{#elseif $T.Row.weekDay=="2"}
+						<td>{$T.Row.twelveHourFetalMovementNum}</td>
+							{#elseif $T.Row.weekDay=="3"}
+						<td>{$T.Row.twelveHourFetalMovementNum}</td>
+							{#elseif $T.Row.weekDay=="4"}
+						<td>{$T.Row.twelveHourFetalMovementNum}</td>
+							{#elseif $T.Row.weekDay=="5"}
+						<td>{$T.Row.twelveHourFetalMovementNum}</td>
+							{#elseif $T.Row.weekDay=="6"}
+						<td>{$T.Row.twelveHourFetalMovementNum}</td>
+							{#elseif $T.Row.weekDay=="7"}
+						<td>{$T.Row.twelveHourFetalMovementNum}</td>
+						{#else}
+						<td></td>
+						{#/if}
+						{#/for}
+					</tr>
+				</table>
+				{#/for}
+				</textarea></p>
+				<div id="data_table"></div>
+			</div>
+		</div>
+		<div class="gradient_bottom gradient_pink_bottom" style="margin-top: 0.4rem"></div>
+		<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+		<script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+		<script>
+            $(function(){
+                change();//计算滚动条
+                // 高度宽度再计算
+                $(window).resize(function(){
+                    change();
+                });
+                // 滚动条
+                $(".r_m_maternity28").niceScroll({
+                    railpadding: { top:0, right: 0, left: 0, bottom:0 },
+                    cursorwidth:0
+                });
+                if(healthBookId!=''&&typeof(healthBookId)!="undefined"&&healthBookId!="undefined") {
+                    $.ajax({
+                        type: "post",
+                        url: localhostUrl + '/web-bin/m/nosen/followup/maternalChild/handBook/query_quickening_data?healthBookId=' + healthBookId + '&model=2',
+                        dataType: 'json',
+                        success: function (data) {
+                            var msg = data.data;
+                            if(msg!=null&&msg.length!=0){
+								$('.r_m_maternity28 .test').hide();
+                                $(".r_m_maternity28 #data_table").setTemplateElement("Template-ListRows2").processTemplate(msg);
+                                if(msg.length>5){
+                                    $('.r_m_maternity28 .gradient_bottom').css('position', 'relative');
+                                }
+                            }
+                        }
+                    });
+                }
+            })
+            function change(){
+                $('.r_m_maternity28').height($(window).height());
+            }
+		</script>
+	</div>
+</body>
+</html>

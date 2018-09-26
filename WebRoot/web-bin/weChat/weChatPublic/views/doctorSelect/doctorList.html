@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>选择医生</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/basic.css">
+    <link rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/doctorSelect/doctorSelect.css">
+</head>
+<body>
+<div class="main" style="overflow: auto">
+    <div class="header">
+        <div class="all_list active"><span>全部<br/>可约</span></div>
+        <div class="single_list"></div>
+        <textarea id="single_temp" style="display: none;">
+            <ul>
+                {#foreach $T as Row}
+                <li><span>{$T.Row.week}</span><br/><span>{$T.Row.day}</span><input type="hidden" value="{$T.Row.date}"></li>
+                {#/for}
+            </ul>
+        </textarea>
+    </div>
+    <div class="content"></div>
+    <textarea id="content_temp" style="display: none;">
+        <ul>
+            {#foreach $T as Row}
+            <li>
+                <div class="doc_photo"></div>
+                <div class="doc_txt">
+                    <h2><b class="staffName">{$T.Row.staffName}</b><span class="titleName">{$T.Row.titleName}</span></h2>
+                </div>
+                <i class="arrow"></i>
+                <input type="hidden" value="{$T.Row.staffCode}" class="staffCode">
+            </li>
+            {#/for}
+        </ul>
+    </textarea>
+    <div class="normalSch">
+        <div class="doc_photo"></div><span class="normal_deptName"></span><span>：普通门诊</span>
+        <i class="arrow"></i>
+    </div>
+    <div class="footer">已经全部加载完毕</div>
+</div>
+</body>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/zepto/zepto.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script src="/web-bin/resources/rem/rem.js"></script>
+<script type="text/javascript" src="/web-bin/weChat/weChatPublic/js/doctorSelect/doctorList.js"></script>
+</html>

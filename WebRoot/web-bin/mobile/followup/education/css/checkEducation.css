@@ -1,0 +1,43 @@
+/**
+ * Created by xyz
+ * Created time 2017/4/5 20:14
+ * Description 
+ */
+/*»ù´¡ÑùÊ½*/
+*{margin:0;padding:0;outline:none}
+img{border:0}
+ul{list-style: none;}
+a{text-decoration: none;font-family: "Microsoft YaHei","Î¢ÈíÑÅºÚ";color:#333333;}
+body{font-size: 14px;font-family: "Microsoft YaHei","Î¢ÈíÑÅºÚ";color:#333333;}
+html,body,.wrapper{
+	height: 100%;
+}
+/*±íµ¥ÑùÊ½*/
+.noFound{
+	background-color: red;
+    color: #FFFFFF;
+    padding: 10px 0 10px 0;
+    text-indent: 10px;
+}
+.form_view .form_head{
+	padding: 6px 14px 6px 14px;
+}
+.form_view .form_head .hospName{
+	font-size:18px;
+}
+.form_view .form_head .form_head_desc{
+	color:#888;
+	font-size:16px;
+}
+.form_view .form_head .form_head_title{
+	font-size:20px;
+	font-weight:600;
+    padding: 4px 0 8px 0;
+}
+.hide{
+	display:none !important;
+}
+iframe {
+	width: 100% !important;
+	height: 200px !important;
+}

@@ -1,0 +1,49 @@
+/**
+ * Created by Jialiang Fei
+ * Created time 2018/3/15 17:31
+ * Description  
+ */
+.list-content > div > span {
+    display: inline-block;
+    width: 90px;
+}
+.list-content > div > input {
+    height: 25px;
+    font-size: 16px;
+    width: 59%;
+    line-height: 25px;
+}
+.code_input {
+    width: 40% !important;
+}
+.pass-code-div {
+    position: relative;
+}
+.pass_code {
+    position: absolute;
+    right: 10px;
+    width: auto !important;
+    padding: 0 8px;
+    font-size: 14px;
+    background-color: #3C9EFA;
+    color: #fff;
+    border-radius: 5px;
+}
+.pass_code.cannot {
+    background-color: #999;
+}
+.submit {
+    margin-left: 10%;
+    width: 80%;
+    background-color: #3C9EFA;
+    color: #fff;
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 40px;
+    border-radius: 5px;
+}
+.list-content > div{
+    font-size: 16px !important;
+}

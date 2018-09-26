@@ -1,0 +1,11 @@
+.header{height:0.45rem;border-bottom:1px solid #d9d9d9;line-height:0.45rem;padding:0 0.15rem;margin-bottom:0.15rem;background-color: #fff;}
+.header span{float:right;color:#8F8E94;}
+.main label,.main span{font-size:0.16rem;}
+.content{background-color: #fff;}
+.content ul{}
+.content ul li{height:0.45rem;line-height:0.45rem;border-bottom:1px solid #d9d9d9;padding:0 0.15rem;}
+.content ul li:first-child{border-top:1px solid #d9d9d9;}
+.content ul li span{float:right;color:#8F8E94;}
+.footer{padding-bottom:0.1rem;}
+.footer span{font-size:0.16rem;margin:0.1rem 0 0.1rem 0.15rem;display: inline-block;}
+.footer p{border-top:1px solid #bbb;border-bottom:1px solid #d9d9d9;margin:0 auto;padding:0.1rem;font-size:0.13rem;min-height:1.7rem;max-height: 2.2rem;background-color: #fff;color:rgb(51,51,51);}

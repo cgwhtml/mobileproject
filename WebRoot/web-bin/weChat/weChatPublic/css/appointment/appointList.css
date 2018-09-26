@@ -1,0 +1,44 @@
+html{background-color: #f4f4f4;}
+.header{height:1.65rem;width:100%;background-color: #00a1d8;color:#fff;position: fixed;top:0;left:0;z-index: 15;}
+.header .doctor_img{width:1rem;height:1rem;float:left;margin:0.325rem 0.3rem 0;background: url(../../img/icon_03.png)no-repeat;background-size:100%;}
+.header .doctor_name{float:left;line-height:0.5rem;margin-top:0.35rem;}
+.header .doctor_name h2 b{font-size:0.3rem;display: inline-block;}
+.header .doctor_name h2 span{font-size:0.24rem;color:#fff;}
+.header .arrow{width:0.14rem;height:0.25rem;display: block;background: url(../../img/icon_05.png)no-repeat;background-size:100%;float:right;margin:0.7rem 0.3rem 0 0;}
+.content{width:100%;background-color: #fff;margin-top:10px;position: fixed;bottom:0;left:0;}
+.content ul li{margin-left:0.3rem;border-bottom:1px solid #d9d9d9;overflow: hidden;height:1.35rem;}
+.content ul li .con_left{float:left;line-height:1.8;margin-top:0.2rem;}
+.content ul li .con_left p{font-size:0.3rem;color:#333333;}
+.content ul li .con_left p i{color:#00a3d8;font-style: normal;}
+.content ul li .con_left span{font-size:0.24rem;color:#7d7d7d;}
+.content ul li .con_right{float:right;font-size:0.28rem;text-align: center;width:1.5rem;height:0.9rem;color:#fff;border-radius:0.09rem;line-height:1.2;margin:0.28rem 0.3rem 0 0;}
+.content ul li .con_right.allow_appoint{background-color: #1fceaf;}
+.content ul li .con_right.no_appoint{background-color: #b4b4b4;}
+.content ul li .con_right p{margin-top:0.1rem;}
+.content ul li .con_right span{font-size:0.24rem;}
+.footer{width:100%;height:100%;display: none;position: fixed;top:0;left:0;background:rgba(0,0,0,0.5);}
+.footer_box{height:8.56rem;width:100%;background-color: #ffffff;position: absolute;bottom:0;left:0;}
+.footer_box .footer_title{height:1.3rem;border-bottom: 1px solid #d9d9d9;}
+.footer_box .footer_title .doctor_name{float:left;line-height:0.5rem;margin-top:0.1rem;margin-left: 0.3rem;}
+.footer_box .footer_title .doctor_name h2 b{font-size:0.3rem;display: inline-block;margin:0 0.2rem 0 0;}
+.footer_box .footer_title .doctor_name h2 span{font-size:0.24rem;}
+.footer_box .footer_title .box_close{width:0.4rem;height:0.43rem;display: block;background: url(../../img/icon_06.png) no-repeat;background-size: 100%;float:right;margin:0.46rem 0.3rem 0 0;}
+.footer_box .footer_list{height:7.26rem;overflow: auto;}
+.footer_box .footer_list ul li{height:0.9rem;margin-left:0.3rem;border-bottom: 1px solid #d9d9d9;color:#00a1d8;font-size:0.3rem;text-align: center;line-height:0.9rem;}
+#none {
+    position:absolute;
+    width:120px;
+    height:120px;
+    top:50%;
+    left:50%;
+    margin-top:-60px;
+    margin-left:-60px;
+    text-align:center;
+}
+#none img {
+    width:120px;
+}
+#none p {
+    color:#888;
+    font-size:16px;
+}

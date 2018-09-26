@@ -1,0 +1,67 @@
+body{
+	background-color:#FFFFFF;
+}
+#main_head {
+	border-bottom:1px solid #ccc;
+	padding-left:18px;
+	line-height:40px;
+	font-size:15px;
+}
+#main_body {
+	padding-left:18px;
+}
+#d1 {
+	border-bottom:1px solid #ccc;
+	padding:12px 0;
+	height:60px;
+}
+#d1 img {
+	width:60px;
+}
+#d1 div {
+	display:inline-block;
+	margin:0 40px 0 20px;
+	position:relative;
+	top:-35px;
+	line-height:26px;
+	font-size:12px;
+}
+#p1 {
+	font-size:13px;
+	font-weight:bold;
+}
+#d2 {
+	font-size:12px;
+	line-height:36px;
+}
+#d2 input {
+	height:30px;
+	-webkit-appearance: none; 
+	outline:none;
+	border:1px solid #ccc;
+	text-indent:5px;
+    line-height: 30px;
+}
+#img {
+	background:url(/web-bin/resources/images/fetalImg.png);
+	background-repeat:no-repeat;
+	background-position:-60px -108px;
+	display:inline-block;
+	height:18px;
+	width:18px;
+	position:relative;
+	top:5px;
+}
+.sp1 {
+	color:#2788CC;
+	font-weight:bold;
+}
+#sp2 {
+	font-size:12px;
+}
+.main_bottom{
+	padding:10px 10px;
+}
+.main_bottom>div{
+	float:right;
+}

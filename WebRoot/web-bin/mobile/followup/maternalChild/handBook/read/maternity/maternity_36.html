@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>阅读</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<style type="text/css">
+		.r_m_maternity36{
+			position: relative;
+		}
+		.r_m_maternity36 .pink_content_title{
+			text-align:center;
+		}
+		.r_m_maternity36 .table_box{
+			padding-left:0.4rem;
+			padding-right:0.4rem;
+		}
+		.r_m_maternity36 .table_box .content_table tr{
+			height:0.67rem;
+			font-size: 0.293rem;
+		}
+		.r_m_maternity36 .table_box .content_table td{
+			border:1px solid #444;
+			text-align:center;
+			background-color: #FFF3FD;
+		}
+		@media (min-height:901px) and (-webkit-min-device-pixel-ratio:2){
+			.r_m_maternity36 .table_box .content_table{
+				border: 0.5px solid #444;
+			}
+			.r_m_maternity36 .table_box .content_table tr td {
+				border: 0.5px solid #444;
+			}
+		}
+    </style>
+</head>
+<body>
+    <div class="r_m_maternity r_m_maternity36">
+	    <div class="gradient_top gradient_pink_top"></div>
+	    <div class="mc_content_main">
+		    <p class="pink_content_title">产后42天医生检查表</p>
+		    <div class="table_box">
+		    	<table cellspacing="1" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;" class="content_table test">
+			    	<tr>
+		    			<td style="width: 2rem">检查日期</td>
+		    			<td style="width: 2.72rem"></td>
+						<td style="width: 1.86rem">产后天数</td>
+						<td></td>
+		    		</tr>
+					<tr>
+						<td style="width: 2.72rem">血压(mmHg)</td>
+						<td></td>
+						<td style="width: 1.86rem">体重(kg)</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>主诉</td>
+						<td colspan="3"></td>
+					</tr>
+					<tr>
+						<td>乳房</td>
+						<td colspan="3"></td>
+					</tr>
+					<tr>
+						<td>乳汁</td>
+						<td colspan="3"></td>
+					</tr>
+					<tr>
+						<td>恶露</td>
+						<td colspan="3">
+							<span class="sc_unchecked "></span>
+							<span style="margin-right: 0.66rem">正常</span>
+							<span class="sc_unchecked "></span>
+							<span>异常</span>
+						</td>
+					</tr>
+					<tr>
+						<td>伤口情况</td>
+						<td colspan="3"></td>
+					</tr>
+					<tr>
+						<td>外阴情况</td>
+						<td colspan="3"></td>
+					</tr>
+					<tr>
+						<td>阴道情况</td>
+						<td colspan="3"></td>
+					</tr>
+					<tr>
+						<td>宫颈情况</td>
+						<td colspan="3"></td>
+					</tr>
+					<tr>
+						<td>宫体情况</td>
+						<td colspan="3"></td>
+					</tr>
+					<tr>
+						<td>附件情况</td>
+						<td colspan="3"></td>
+					</tr>
+					<tr>
+						<td>血红蛋白(g/L)</td>
+						<td colspan="3"></td>
+					</tr>
+					<tr>
+						<td>尿常规</td>
+						<td colspan="3"></td>
+					</tr>
+					<tr>
+						<td>处理及指导</td>
+						<td colspan="3"></td>
+					</tr>
+					<tr>
+						<td>检查者</td>
+						<td colspan="3"></td>
+					</tr>
+		    	</table>
+				<p style="display:none"><textarea id="Template-ListRows4" rows="0" cols="0">
+				{#foreach $T as msg}
+				<table cellspacing="1" cellpadding="0" border="0" style="width:100%;margin-bottom:0.4rem;border-collapse:collapse;" class="content_table">
+			    	<tr>
+		    			<td style="width: 2rem">检查日期</td>
+		    			<td style="width: 2.72rem">{$T.msg.checkTime}</td>
+						<td style="width: 1.86rem">产后天数</td>
+						<td>{$T.msg.postpartumDay}</td>
+		    		</tr>
+					<tr>
+						<td style="width: 2.72rem">血压(mmHg)</td>
+						<td><span>{$T.msg.systolicPressure}</span>/ <span>{$T.msg.diastolicPressure}</span></td>
+						<td style="width: 1.86rem">体重(kg)</td>
+						<td>{$T.msg.weight}</td>
+					</tr>
+					<tr>
+						<td>主诉</td>
+						<td colspan="3">{$T.msg.chiefComplaint}</td>
+					</tr>
+					<tr>
+						<td>乳房</td>
+						<td colspan="3">{$T.msg.breastCondition}</td>
+					</tr>
+					<tr>
+						<td>乳汁</td>
+						<td colspan="3">{$T.msg.breastMilkCondition}</td>
+					</tr>
+					<tr>
+						<td>恶露</td>
+						<td colspan="3">
+						 	{#if $T.msg.lochiaCondition==1}
+							<span class="sc_checked "></span>
+							<span style="margin-right: 0.66rem">正常</span>
+							<span class="sc_unchecked "></span>
+							<span>异常</span>
+							{#elseif $T.msg.lochiaCondition==2}
+							<span class="sc_unchecked "></span>
+							<span style="margin-right: 0.66rem">正常</span>
+							<span class="sc_checked "></span>
+							<span>异常</span>
+							{#/if}
+						</td>
+					</tr>
+					<tr>
+						<td>伤口情况</td>
+						<td colspan="3">{$T.msg.woundCondition}</td>
+					</tr>
+					<tr>
+						<td>外阴情况</td>
+						<td colspan="3">{$T.msg.vulvaCondition}</td>
+					</tr>
+					<tr>
+						<td>阴道情况</td>
+						<td colspan="3">{$T.msg.vaginaCondition}</td>
+					</tr>
+					<tr>
+						<td>宫颈情况</td>
+						<td colspan="3">{$T.msg.cervicalCondition}</td>
+					</tr>
+					<tr>
+						<td>宫体情况</td>
+						<td colspan="3">{$T.msg.corpusCondition}</td>
+					</tr>
+					<tr>
+						<td>附件情况</td>
+						<td colspan="3">{$T.msg.adnexaCondition}</td>
+					</tr>
+					<tr>
+						<td>血红蛋白(g/L)</td>
+						<td colspan="3">{$T.msg.hemoglobin}</td>
+					</tr>
+					<tr>
+						<td>尿常规</td>
+						<td colspan="3">{$T.msg.urineRoutines}</td>
+					</tr>
+					<tr>
+						<td>处理及指导</td>
+						<td colspan="3">{$T.msg.processAdvice}</td>
+					</tr>
+					<tr>
+						<td>检查者</td>
+						<td colspan="3">{$T.msg.checker}</td>
+					</tr>
+		    	</table>
+				{#/for}
+				</textarea></p>
+				<div id="data_table"></div>
+		    </div>
+	    </div>
+	    <div class="gradient_bottom gradient_pink_bottom"></div>
+    </div>
+	<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+	<script>
+       $(function(){
+           change();//计算滚动条
+           // 高度宽度再计算
+           $(window).resize(function(){
+               change();
+           });
+           // 滚动条
+           $(".r_m_maternity36").niceScroll({
+               railpadding: { top:0, right: 0, left: 0, bottom:0 },
+               cursorwidth:0
+           });
+           if(healthBookId!=''&&typeof(healthBookId)!="undefined"&&healthBookId!="undefined") {
+               $.ajax({
+                   type: "post",
+                   url: localhostUrl + '/web-bin/m/nosen/followup/maternalChild/handBook/query_readAfter42DoctorResearch_data?healthBookId=' + healthBookId,
+                   dataType: 'json',
+                   success: function (data) {
+                       var msg = data.data;
+                       if(msg!=null&&msg.length!=0){
+                           $('.r_m_maternity36 .test').hide();
+                           $(".r_m_maternity36 #data_table").setTemplateElement("Template-ListRows4").processTemplate(msg);
+                           if(msg.length>1){
+                               $('.r_m_maternity36 .gradient_bottom').css('position', 'relative');
+                           }
+                       }
+                   }
+               });
+           }
+	   })
+       function change(){
+           $('.r_m_maternity36').height($(window).height());
+       }
+	</script>
+</body>
+</html>

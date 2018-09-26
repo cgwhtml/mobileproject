@@ -1,0 +1,15 @@
+*{-webkit-tap-highlight-color: transparent;}
+.user_input{width:100%;overflow: hidden;margin-bottom:15px;}
+.user_input .name,.user_input .sex,.user_input .card,.user_input .hospName,.user_input .phone,.user_input .hospCard,.user_input .QRcode,.user_input .memberManage{height:50px;border-bottom:1px solid #d9d9d9;line-height:50px;font-size:0.3rem;padding:0 15px;background-color: #fff;}
+.user_input .user_arrow{width:9px;height:15px;display: block;float:right;background: url(../../img/icon_04.png) no-repeat;background-size: 100% 100%;margin-top:18px;}
+.user_input span{float:right;margin-right:0.2rem;}
+.footer{margin:24px 15px 0;overflow: hidden;font-size:17px;line-height:39px;height:39px;text-align: center;border-radius:0.08rem;color:#fff;background-color: #00A1D8;}
+.exit{margin:20px 15px 0;line-height:39px;height:39px;text-align: center;color:#00A1D8;border:1px solid #00A1D8;border-radius:4px;font-size:17px;}
+.QRcode #QRcode{width:30px;height:30px;display: inline-block;float:right;overflow: hidden;margin:10px 10px 0 0;}
+.QRcode #QRcode img{width:100%;height:100%;display: block;}
+.QRcode_box{width:100%;height:100%;position: fixed;background-color: rgba(0,0,0,0.5);z-index: 1;top:0;left:0;display: none;}
+.QRcode_inner{width:68%;height:320px;display: block;position: absolute;top:0;left:0;bottom:0;right:0;margin:auto;z-index: 99;}
+.QRcode_img_box{width:100%;height:320px;background-color: #fff;border-radius:3px;overflow: hidden;}
+.QRcode_img_box .QRcode_img img{width:100%;display: block;}
+.QRcode_img_box p{font-size:18px;font-weight:bold;text-align: center;margin-top:-40px;}
+.QRcode_close{width:40px;height:40px;display: block;background: url(../../img/close.png) no-repeat;background-size: 100% 100%;margin:10px auto;}

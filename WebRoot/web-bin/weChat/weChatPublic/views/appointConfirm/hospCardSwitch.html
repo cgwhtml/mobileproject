@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>就诊卡选择</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/basic.css">
+    <link rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/appointConfirm/hospCardSwitch.css">
+</head>
+<body>
+<div class="main">
+    <div class="HospCard_box">
+        <div class="HospCard_list"></div>
+        <textarea id="HospCard_temp" style="display: none;">
+        <ul>
+            {#foreach $T as Row}
+            <li class="{$T.Row.style}">
+                <div class="list_span_left"><img src="http://www.lanniuh.com/hug-web/r/file/download/{$T.Row.image}" alt=""></div>
+                <div class="list_span_right">
+                    <input type="hidden" value="{$T.Row.id}" class="cardId">
+                    <h2></h2>
+                    <label>{$T.Row.cardTypeTxt}</label>：<span class="hospCard">{$T.Row.hospCard}</span>
+                </div>
+                <i class="icon arrow"></i>
+            </li>
+            {#/for}
+        </ul>
+    </textarea>
+        <div class="footer">添加就诊卡号/住院号</div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/zepto/zepto.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script src="/web-bin/resources/rem/rem2.js"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/artDialog.source.js?skin=white"></script>
+<script type="text/javascript" src="/web-bin/weChat/weChatPublic/js/appointConfirm/hospCardSwitch.js"></script>
+</html>

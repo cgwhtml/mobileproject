@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>体重记录</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+    <link rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_002.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_003.css">
+</head>
+<body>
+    <form action="" id="myForm" name="myForm">
+        <div class="parent_msg">
+            <div class="main_option">
+                <span>日期</span><span class="must">*</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="recordTime" name="recordTime">
+            </div>
+            <div class="main_option">
+                <span>体重（kg）</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="weight" name="weight">
+            </div>
+            <div class="main_option">
+                <span>和上周比体重增长(kg)</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="increaseWeight" name="increaseWeight">
+            </div>
+        </div>
+    </form>
+    <div id="background" style="display: none"></div>
+    <div id="fake_alert"  style="display:none">
+        <div id="fake_alert_in">
+            <div id="msg"></div>
+            <div id="sure">确定</div>
+        </div>
+    </div>
+    <div class="page_btns">
+        <div class="pink_btn save">保存</div>
+    </div>
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_002.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_004.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_003.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_005.js"></script>
+    <script>
+        $(function(){
+            var localhostUrl=window.location.origin;
+            var regu = "^[0-9]+\.?[0-9]*$";//验证数字和小数
+            var re = new RegExp(regu);
+            var query=getRequest();
+            var healthBookId=query.healthBookId;
+            var id=query.id;
+            var currYear = (new Date()).getFullYear();
+            var opt={};
+            var cansubmit=true;
+            opt.date = {preset : 'date'};
+            opt.datetime = {preset : 'datetime'};
+            opt.time = {preset : 'time'};
+            opt.default1 = {
+                theme: 'android-ics light', //皮肤样式
+                display: 'modal', //显示方式
+                mode: 'scroller', //日期选择模式
+                dateFormat: 'yyyy-mm-dd',
+                lang: 'zh',
+                showNow: true,
+                nowText: "今天",
+                startYear: currYear - 50, //开始年份
+                endYear: currYear -10 //结束年份
+            };
+            opt.default2 = {
+                theme: 'android-ics light', //皮肤样式
+                display: 'modal', //显示方式
+                mode: 'scroller', //日期选择模式
+                dateFormat: 'yy-mm-dd',
+                lang: 'zh',
+                showNow: true,
+                nowText: "今天",
+                startYear: currYear - 2, //开始年份
+                endYear: currYear + 10 //结束年份
+            };
+            $("#recordTime").mobiscroll($.extend(opt['date'], opt['default2']));
+            if(id!=''&&id!=null){
+                $.ajax({
+                    type:"post",
+                    url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_simplyWeight_record_data?id='+id,
+                    dataType:'json',
+                    contentType:'application/json;charset=UTF-8',
+                    success:function(data){
+                        if(data.res==0){
+                            var msg=data.data;
+                            for(var o in msg){
+                                $("#"+o).val(msg[o]);
+                            }
+                            $('#weight').val()==0&&$('#weight').val('');
+                            $('#increaseWeight').val()==0&&$('#increaseWeight').val('');
+                        }
+
+                    },
+                    error:function () {
+                        fake_alert("保存失败！请检查网络是否正常。");
+                        return;
+                    }
+                });
+            }
+            $('#weight').focus(function(){
+                var recordTime = $("#recordTime").val();
+                if($.trim(recordTime)==''){
+                    fake_alert("日期必填","#recordTime");
+                    return false;
+                }
+            })
+            $('#weight').change(function(){
+                var recordTime=$('#recordTime').val();
+                var weight = $("#weight").val();
+                weight==''?weight=null:weight=parseFloat(weight);
+                $.ajax({
+                    type:"post",
+                    url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_count_data?healthBookId='+healthBookId+"&recordTime="+recordTime+'&weight='+weight,
+                    dataType:'json',
+                    contentType:'application/json;charset=UTF-8',
+                    success:function(data){
+                        console.log(data);
+                        if(data.res==0){
+                            $('#increaseWeight').val(data.data);
+                        }
+                    },
+                    error:function () {
+                        return;
+                    }
+                });
+            })
+            $('.save').click(function(){
+                var recordTime = $("#recordTime").val();
+                if($.trim(recordTime)==''){
+                    fake_alert("日期必填","#recordTime");
+                    return false;
+                }
+                var weight = $("#weight").val();
+                if(weight!=''&& !re.test(weight)){
+                    fake_alert("体重必须是数字","#weight");
+                    return false;
+                }
+                var increaseWeight = $("#increaseWeight").val();
+                if(increaseWeight!=''&& !re.test(increaseWeight)){
+                    fake_alert("增长值必须是数字","#increaseWeight");
+                    return false;
+                }
+
+                var JsonObj=$("#myForm").serializeObject();
+                JsonObj.weight==''?JsonObj.weight=0:JsonObj.weight=parseFloat(JsonObj.weight);
+                JsonObj.increaseWeight==''?JsonObj.increaseWeight=0:JsonObj.increaseWeight=parseFloat(JsonObj.increaseWeight);
+                JsonObj.healthBookId=healthBookId;
+                JsonObj.id=id;
+                console.log(JsonObj);
+                if(cansubmit){
+                    cansubmit=false;
+                    if(id!=''&&id!=null){
+                        $.ajax({
+                            type:"post",
+                            url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/update_simplyWeight_record_data',
+                            data:JsonObj,
+                            dataType:'json',
+                            contentType:'application/json;charset=UTF-8',
+                            success:function(data){
+                                if(data.res==0){
+                                    fake_alert("保存成功");
+                                    setTimeout(function(){
+                                        window.history.go(-1);
+//                                    window.location=localhostUrl+":"+port+"/web-bin/m/nosen/followup/maternalChild/handBook/to_weightSelfTest_page?healthBookId="+healthBookId;
+                                    },500)
+                                }else{
+                                    fake_alert("保存失败");
+                                    cansubmit=true;
+                                }
+                            },
+                            error:function () {
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                cansubmit=true;
+                                return;
+                            }
+                        });
+                    }else {
+                        $.ajax({
+                            type:"post",
+                            url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/submit_addWeightSelfTest_data',
+                            data:JsonObj,
+                            dataType:'json',
+                            contentType:'application/json;charset=UTF-8',
+                            success:function(data){
+                                if(data.res==0){
+                                    fake_alert("保存成功");
+                                    setTimeout(function(){
+                                        window.history.go(-1);
+//                                    window.location=localhostUrl+":"+port+"/web-bin/m/nosen/followup/maternalChild/handBook/to_weightSelfTest_page?healthBookId="+healthBookId;
+                                    },500)
+                                }else{
+                                    fake_alert("该日已有记录，请前往修改该日记录");
+                                    cansubmit=true;
+                                }
+                            },
+                            error:function () {
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                cansubmit=true;
+                                return;
+                            }
+                        });
+                    }
+                }
+            })
+            function fake_alert(text,element){
+                $("#background").show();
+                $("#fake_alert").show();
+                $("#msg").html(text);
+                $("#sure").click(function(){
+                    $("#background").hide();
+                    $("#fake_alert").hide();
+                });
+                element&&$("html,body").animate({scrollTop:$(element).offset().top-75},500);
+            }
+        })
+    </script>
+</body>
+</html>

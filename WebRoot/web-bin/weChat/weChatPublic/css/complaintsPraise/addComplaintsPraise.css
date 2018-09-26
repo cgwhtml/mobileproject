@@ -1,0 +1,148 @@
+.add_head{
+    height:70px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    box-shadow: 0 1px 0 0 rgba(217,217,217,0.50);
+    font-size: 17px;
+    color: #333333;
+    line-height: 35px;
+    margin-bottom: 15px;
+}
+.contain_box{
+    padding: 0 10px 10px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+.contain_box li{
+    box-shadow: 0 1px 0 0 rgba(217,217,217,0.50);
+    padding:10px 0;
+    box-sizing: border-box;
+    position: relative;
+}
+.subject_title{
+    font-size: 16px;
+    color: #333333;
+    margin-bottom: 10px;
+}
+.subject_text{
+    width:100%;
+    height:120px;
+    background: #F5F5F5;
+    border-radius: 2px;
+    margin-bottom: 20px;
+}
+#addBottom{
+    width: 100%;
+    height:105px;
+    padding: 30px 15px;
+    box-sizing: border-box;
+}
+#addPraise{
+    height:45px;
+    background: #3C9EFA;
+    border-radius: 2px;
+    font-size: 17px;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 45px;
+}
+.limit_font{
+    width:100%;
+    height:20px;
+    text-align: right;
+    font-size: 12px;
+    color: #666666;
+    background: #F5F5F5;
+    padding-right: 5px;
+    box-sizing: border-box;
+    position: absolute;
+    left:0;
+    bottom:20px;
+}
+.file_wrapper{
+    padding: 0 10px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+.file_head{
+    font-size: 16px;
+    color: #333333;
+    margin-bottom: 10px;
+}
+.file_addBox{
+    float: right;
+    position: relative;
+}
+.add_file{
+    width:75px;
+    height:25px;
+    background: #3C9EFA;
+    border-radius: 2px;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-align: center;
+}
+.file{
+    width:22px;
+    height:20px;
+    position:absolute; top:0;
+    left:0;
+    filter:alpha(opacity:0);
+    opacity: 0;
+    cursor:pointer;
+}
+.file_detail{
+    overflow: hidden;
+}
+.file_detail li{
+    height:65px;
+    box-shadow: 0 1px 0 0 rgba(217,217,217,0.50);
+    padding:15px 0;
+    box-sizing: border-box;
+    position: relative;
+}
+.file_images{
+    width:35px;
+    float: left;
+    margin-right: 15px;
+}
+.file_images img{
+    width:100%;
+}
+.file_message{
+    max-width: 80%;
+    float: left;
+    font-size: 14px;
+    color: #666666;
+    line-height: 20px;
+}
+.deleteImg{
+    height:20px;
+    position:absolute;
+    right:10px;
+    top:50%;
+    margin-top: -10px;
+}
+.deleteImg img{
+    height:20px;
+}
+.item-delete {
+    position: absolute;
+    top: 0;
+    right: -62px;
+    background: #fc3e38;
+    color: #fff;
+    width: 60px;
+    height: 100%;
+    text-align: center;
+    display: inline-block;
+    line-height: 67px;
+    font-size: 15px;
+    border: 1px solid #fff;
+    z-index: 100;
+}
+.item-delete:before {
+    content: '删除';
+    color: #fff;
+}

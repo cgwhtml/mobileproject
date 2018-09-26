@@ -1,0 +1,54 @@
+/*基础样式*/
+*{margin:0;padding:0;outline:none}
+img{border:0}
+ul{list-style: none;}
+a{text-decoration: none;font-family: "Microsoft YaHei","微软雅黑";color:#222;}
+input[type="text"],input[type="password"]{font-family: "Microsoft YaHei","微软雅黑";font-size:12px;color:#222;border:1px solid #D8D8D8 !important;padding: 3px 5px 3px 5px;box-sizing: border-box;height: 24px;}
+input[disabled="disabled"]{background-color: #FFFFFF;}
+textarea{overflow:auto;resize:none;font-family: "Microsoft YaHei","微软雅黑";color:#222;border:1px solid #D8D8D8 !important;box-sizing: border-box;padding:2px 5px 2px 5px;font-size: 12px;}
+body{font-size: 12px;font-family: "Microsoft YaHei","微软雅黑";color:#222;overflow: hidden;background-color: #F6F7FB;}
+button{font-family: "Microsoft YaHei","微软雅黑";font-size:12px;border:none;color:#FFFFFF;}
+/* 浮动样式 */
+.pull_left{float: left !important;}
+.pull_right{float: right !important;}
+/* 页面信息标题样式 */
+.p_head_icon1{width: 41px;height: 30px;position: absolute;right: -35px;}
+.p_head_icon2{width: 4px;height: 4px;position: absolute;left: 0px;bottom: -4px;}
+.p_head_title1,.p_head_title2{height: 30px;position: relative;left: -4px;color: #FFFFFF;line-height: 30px;font-size: 14px;display:inline-block;}
+/**绿色标题**/
+.p_head_title1{background-color: #64AF31;}
+.p_head_title1 .p_head_icon1{background-position:-22px -664px;}
+.p_head_title1 .p_head_icon2{background-position:-24px -721px;}
+.p_head_title1 p,.p_head_title2 p{position:relative;left:14px;padding-right:10px;}
+/**蓝色标题**/
+.p_head_title2{background-color: #00A2F4;}
+.p_head_title2 .p_head_icon1{background-position:-59px -664px;}
+.p_head_title2 .p_head_icon2{background-position:-64px -721px;}
+/* 小模块标题样式 */
+.content_title{height: 35px;border: 1px solid #E1E1E1;border-bottom:0;background-color:#E2E8EC;position: relative;width: 100%;box-sizing: border-box;}
+.content_title .bTitle_text{font-size: 14px;float:left;margin-top:8px;margin-left:10px;}
+.content_title .oper_box{float:right;margin-top:5px;margin-right:10px;}
+/* a标签字体颜色 */
+.color_blue{color:#00A1F6;}
+.color_red{color:#ff7878;}
+.a_color1 {color: #0175ce;}
+.a_color1:hover{color:#f86f00;}
+/*灰色背景*/
+.gray_background {background-color: #EEEEEE; }
+/* 其余样式 */
+.border_radius3{border-radius:3px;}
+.substr {white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.must{color:#FF0000;font-weight: bold;padding-left:4px;position:relative;top:2px;}
+/****************************************************图标的所有样式******************************************************/
+/* 公用图标集 */
+.design_icon{background-image:url("/interview/followup/patientArchive/images/designIco.png");background-repeat:no-repeat;}
+
+/*进度条*/
+ .progress_green_circle{background-position: -399px -87px;width:16px;height:16px;}
+.progress_green_circle_big{background-position: -555px -212px;width:20px;height:20px;}
+.progress_pink_circle{background-position: -447px -87px;width:16px;height:16px;}
+.progress_gray_circle{background-position: -500px -87px;width:16px;height:16px;}
+.progress_gray_circle_small{background-position: -583px -144px;width:10px;height:10px;}
+.progress_white_circle_small{background-position: -583px -129px;width:10px;height:10px;}
+.progress_blue_circle_small{background-position: -583px -159px;width:10px;height:10px;}
+

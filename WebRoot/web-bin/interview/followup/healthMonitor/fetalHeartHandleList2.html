@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>胎心处理列表</title><!--2.0-->
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="/web-bin/resources/css/fonts.css"/>
+	<link rel="stylesheet" type="text/css" href="/web-bin/resources/mypagination/js/myPagination/page.css"/>
+	<link rel="stylesheet" type="text/css" href="/web-bin/resources/mypagination/js/msgbox/msgbox.css"/>
+	<link rel="stylesheet" type="text/css" href="/web-bin/interview/followup/healthMonitor/css/fetalHeartHandleList2.css"/>
+</head>
+<body>
+<div class="wrapper">
+	<input type="hidden" value="" id="moreConditionJsonStr"/>
+	<div class="mainContent" id="mainContent">
+		<div class="patient_list">
+			<div class="content_title">
+				<div class="bTitle_text" id="content_title">待处理胎心列表</div>
+			</div>
+			<div class="content_table">
+				<!-- JTemplate模板 -->
+				<p style="display:none"><textarea id="Template-ListRows" rows="0" cols="0">
+					<table cellspacing="0" cellpadding="0"  border="0" style="width:100%;border-collapse:collapse;" class="bg_change_table">
+						<tr>
+							<td>姓名</td>
+							<td>年龄</td>
+							<td>手机号</td>
+							<td>监测时间</td>
+							<td>上传时间</td>
+							<td style="width:70px">操作</td>
+						</tr>
+						{#foreach $T as Row}
+						<tr>
+							<td>{$T.Row.name}</td>
+							<td>{$T.Row.age}</td>
+							<td>{$T.Row.phone}</td>
+							<td>{$T.Row.measuringTime.substring(0,16)}</td>
+							<td>{$T.Row.uploadTime.substring(0,16)}</td>
+							<td>
+								{#if $T.Row.dataStatus =='1'}
+								<a href="javascript:void(0)" class="a_color1" onclick="toFetalHeartHandle('{$T.Row.healthId}','{$T.Row.phone}','{$T.Row.hospCode}')">处理</a>
+								{#elseif $T.Row.dataStatus =='2'}
+								<a href="javascript:void(0)" class="a_color1" onclick="toCheckReport('{$T.Row.healthId}','{$T.Row.hospCode}')">查看</a>
+								{#/if}
+							</td>
+						</tr>
+						{#/for}
+					</table>
+				</textarea></p>
+				<div id="dataTable"></div>
+				<div id="page"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/mypagination/js/myPagination/jquery.myPagination6.0.js"></script>
+<script type="text/javascript" src="/web-bin/resources/mypagination/js/msgbox/msgbox.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/artDialog.source.js?skin=white"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/iframeTools.source.js"></script>
+<script type="text/javascript" src="/web-bin/interview/followup/healthMonitor/js/fetalHeartHandleList2.js"></script>
+</body>
+</html>

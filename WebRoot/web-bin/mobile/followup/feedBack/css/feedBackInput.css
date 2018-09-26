@@ -1,0 +1,59 @@
+* {margin: 0 auto;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+.header{background-color: #fff;}
+.header ul{}
+.header ul li{height:0.45rem;line-height:0.45rem;border-bottom:1px solid #d9d9d9;padding:0 0.15rem;font-size:0.16rem;}
+.header ul li label{font-size:15px;color:rgb(51,51,51);}
+.header ul li select{float:right;width:60%;background: none;border:none;height:0.45rem;line-height:0.45rem;text-align: left;color:rgb(102,102,102);font-size:0.15rem;
+    -webkit-appearance:none;
+    appearance:none;
+}
+.header ul li input{float:right;background: none;border:none;width:60%;height:0.45rem;line-height:0.24rem;text-align: left;color:rgb(102,102,102);font-size:0.15rem;padding: 0.1rem 0;}
+.content{margin-bottom:0.3rem;background-color: #fff;}
+.content .event_describe{overflow: hidden;font-size:0.16rem;}
+.content .event span{font-size:0.15rem;display:inline-block;color:rgb(51,51,51);line-height:0.4rem;padding-left:0.15rem;}
+.content .event_describe textarea{min-height:1.7rem;margin:0.15rem 0.15rem 0.1rem;max-height:2rem;width:92%;font-size:0.13rem;padding: 0.1rem;background-color: #f2f5f6;border:none !important;}
+.content .anonymous{height:0.45rem;border:1px solid #bbbbbb;font-size:0.16rem;line-height: 0.45rem;padding-left:0.15rem;border-left:none;border-right:none;}
+.content .anonymous label{font-size:15px;color:rgb(51,51,51);}
+.footer{width:92%;height:0.45rem;display:block;background-color: #3c9efa;color:rgb(255,255,255);font-size:0.17rem;text-align:center;line-height:0.45rem;border-radius: 5px;}
+.header ul li .arrow{width:0.1rem;height:0.15rem;display: block;float:right;margin:0.15rem 0 0 0;background: url(../img/arrow.png) no-repeat;background-size:100% 100%;}
+/*开关按钮*/
+#div1{
+    float: right;
+    display: inline-block;
+    vertical-align: top;
+    margin:0.07rem 0.15rem 0 0;
+    width: 0.5rem;
+    height: 0.3rem;
+    border-radius: 0.15rem;
+    position: relative;
+}
+#div2{
+    width: 0.28rem;
+    height: 0.28rem;
+    border-radius: 0.14rem;
+    position: absolute;
+    background: white;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.4);
+}
+.open1{
+    background: rgba(0,184,0,0.8);
+}
+.open2{
+    top: 1px;
+    right: 0;
+}
+.close1{
+    background: rgba(255,255,255,0.4);
+    border:1px solid rgba(0,0,0,0.2);
+    border-left: transparent;
+}
+.close2{
+    left: 0;
+    top: 0;
+    border:1px solid rgba(0,0,0,0.1);
+}
+.event_title{height:0.4rem;width:100%;background-color: #f4f4f4;color:#333;}
+.black_box{height:0.15rem;display: block;background-color: #f4f4f4;}

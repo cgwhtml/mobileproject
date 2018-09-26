@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>阅读</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <style>
+        .r_m_maternity20 .c_basic_info{
+            margin-top: 0.566rem;
+        }
+        .r_m_maternity20 .content_font1:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .r_m_maternity20 .note_box{
+            padding-top: 0.66rem;
+        }
+        @media (min-height:501px) and (max-height:550px) and (-webkit-min-device-pixel-ratio:1){
+            .r_m_maternity20 .mc_content_main .content_font1{line-height: 0.4rem !important;}
+        }
+        @media (min-height:551px) and (max-height:600px) and (-webkit-min-device-pixel-ratio:1){
+            .r_m_maternity20 .mc_content_main .content_font1{line-height: 0.52rem !important;height: 0.5rem;box-sizing: border-box;}
+            .r_m_maternity20 .c_basic_info{margin-top: 0.96rem}
+        }
+        @media (min-height:601px) and (max-height:650px) and (-webkit-min-device-pixel-ratio:1){
+            .r_m_maternity20 .mc_content_main .content_font1{line-height: 0.53rem !important;}
+        }
+    </style>
+</head>
+<body>
+    <div class="r_m_maternity r_m_maternity20">
+        <div class="gradient_top gradient_pink_top"></div>
+        <div class="mc_content_main">
+            <p class="content_font1 text_indent">在这一时期您可以感觉到胎动了，您可以将此时的感受和想跟宝宝要说的话，以及这一时期觉得有意义的事情记录下来。</p>
+            <div class="c_basic_info">
+                <div class="note_box pink_bg_color2">
+                    <div>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                    </div>
+                    <div style="position:absolute;top:0.7rem" class="font_size_22">
+                        <p class="content_font1"><span id="pregnancywomenEssay"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="gradient_bottom gradient_pink_bottom"></div>
+        <script>
+            $(function(){
+                if(healthBookId!=''&&typeof(healthBookId)!="undefined"&&healthBookId!="undefined") {
+                    $.ajax({
+                        type: "post",
+                        url: localhostUrl + '/web-bin/m/nosen/followup/maternalChild/handBook/query_fourSevenSelfRecord_data?healthBookId=' + healthBookId,
+                        dataType: 'json',
+                        success: function (data) {
+                           var msg = data.data;
+                            msg&&msg.pregnancywomenEssay&&$('.r_m_maternity20 #pregnancywomenEssay').text(msg.pregnancywomenEssay);
+                        }
+                    });
+                }
+            })
+        </script>
+    </div>
+</body>
+</html>

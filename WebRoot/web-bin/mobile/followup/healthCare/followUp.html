@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随访管理</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name = "format-detection" content = "telephone=no">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/healthCare/css/basic.css"/>
+    <link rel="stylesheet" href="/web-bin/resources/weui/weui.min.css">
+    <link rel="stylesheet" href="/web-bin/resources/weui/jquery-weui.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/healthCare/css/followUp.css?20171012"/>
+</head>
+<body>
+<div class="main">
+    <div id="container">
+        <div id="followup">
+            <div class="top">
+                <div id="wait">待处理</div>
+                <div class="finish">已完成</div>
+            </div>
+            <div class="function_box">
+                <div class="search_left">
+                    <div class="search">
+                        <div class="search_img"></div>
+                        <span>搜索</span>
+                    </div>
+                </div>
+                <div class="filter_right">
+                    <div class="filter">
+                        <div class="filter_img"></div>
+                        <span>筛选</span>
+                    </div>
+                </div>
+            </div>
+            <!--搜索结果-->
+            <div class="search_body">
+                <div class="search_box">
+                    <div class="search_input" >
+                        <input type="text" placeholder="按患者姓名搜索" class="searchInput">
+                        <div class="search_sm_img"></div>
+                    </div>
+                    <div class="cancle">取消</div>
+                    <div class="search_follow">搜索</div>
+                </div>
+                <div class="search_result_box"></div>
+            </div>
+            <!--筛选结果-->
+            <div class="filter_body">
+                <div class="filter_title">按时间筛选</div>
+                <div class="filter_contain">
+                    <div class="filter_tag_box">
+                        <div class="filter_tag today_day filter_tag_selected">今日</div>
+                        <div class="filter_tag three_day">3天内</div>
+                        <div class="filter_tag week_day">7天内</div>
+                        <div class="filter_tag other_day">其他</div>
+                    </div>
+                    <div class="date_title">开始日期：</div>
+                    <div class="date_input_box">
+                        <input type="text" class="begin_date" placeholder="点击选择开始日期">
+                    </div>
+                    <div class="date_title">结束日期：</div>
+                    <div class="date_input_box">
+                        <input type="text" class="ended_date" placeholder="点击选择结束日期">
+                    </div>
+                </div>
+                <div class="filter_btn">
+                    <div class="cancel_filter">取消</div>
+                    <div class="sure_filter filter_btn_active">确定</div>
+                </div>
+            </div>
+            <div class="main_body">
+                <input type="hidden" id="hospCode" value="">
+                <p style="display:none"><textarea id="Template-followUp" rows="0" cols="0">
+                {#foreach $T as Row}
+                    {#if $T.Row.revisitResult==0}
+                        <div class="item" data-role="0">
+                            <input type="hidden" class="revisitResult" value="{$T.Row.revisitResult}">
+                            <input type="hidden" value="{$T.Row.id}" class="form_id">
+                            <input type="hidden" value="{$T.Row.empiId}" class="empiId">
+                            <div class="base_info">
+                                <input type="hidden" class="inHosNo" value="{$T.Row.inHosNo}">
+                                <input type="hidden" class="visitCardNo" value="{$T.Row.visitCardNo}">
+                                <input type="hidden" class="mobileNo" value="{$T.Row.mobileNo}">
+                                <span class="per_img"><img src="{$T.Row.src}" alt="头像"></span>
+                                <div class="base_smInfo_box">
+                                    <div class="base_sm_info">
+                                        <span class="name">{$T.Row.patName}</span>
+                                    </div>
+                                    <div class="base_sm_info sex_age">
+                                        <span class="sex">{$T.Row.sexName}</span>
+                                        <span class="age">{$T.Row.age}岁</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="subject">
+                                <div class="flag closeCase">
+                                    <input type="hidden" value="{$T.Row.planId}" class="planId">
+                                    <span class="sub_tit">{$T.Row.planName}</span>
+                                     <div class="date">
+                                        <span>{$T.Row.plantimeStr}</span>
+                                        <div class="right_gray_arrow"></div>
+                                    </div>
+                                </div>
+                                <div class="list">
+                                    <span class="list_form">{$T.Row.formTitle}</span>
+                                    {#if $T.Row.revisitExcp==1}
+                                        <div class="abnormity_markers">异</div>
+                                    {#/if}
+                                    <div class="followup_button">随访</div>
+                                </div>
+                            </div>
+                        </div>
+                    {#else}
+                     <div class="item" data-role="1">
+                         <input type="hidden" class="revisitResult" value="{$T.Row.revisitResult}">
+                        <input type="hidden" value="{$T.Row.id}" class="form_id">
+                        <input type="hidden" value="{$T.Row.empiId}" class="empiId">
+                        <input type="hidden" value="{$T.Row.handlingOpinion}" class="handlingOpinion">
+                        <!--<input type="hidden" value="{$T.Row.returnVisitTime}" class="returnVisitTime">-->
+                        <div class="base_info">
+                            <input type="hidden" class="inHosNo" value="{$T.Row.inHosNo}">
+                            <input type="hidden" class="visitCardNo" value="{$T.Row.visitCardNo}">
+                            <span class="per_img"><img src="{$T.Row.src}" alt="头像"></span>
+                            <div class="base_smInfo_box">
+                                <div class="base_sm_info">
+                                    <span class="name">{$T.Row.patName}</span>
+                                </div>
+                                <div class="base_sm_info sex_age">
+                                    <span class="sex">{$T.Row.sexName}</span>
+                                    <span class="age">{$T.Row.age}岁</span>
+                                </div>
+                            </div>
+                            <!--<span class="design_icon right_arrow"></span>-->
+                        </div>
+                        <div class="subject">
+                            <div class="flag">
+                                <input type="hidden" value="{$T.Row.planId}" class="planId">
+                                <span class="sub_tit">{$T.Row.planName}</span>
+                                <div class="date">
+                                    <span>{$T.Row.plantimeStr}</span>
+                                    <div class="right_gray_arrow"></div>
+                                </div>
+                            </div>
+                            <div class="list">
+                                <span class="list_form">{$T.Row.formTitle}</span>
+                                {#if $T.Row.revisitExcp==1}
+                                    <div class="abnormity_markers">异</div>
+                                {#/if}
+                                <div class="check_button">查看</div>
+                            </div>
+                        </div>
+                    </div>
+                    {#/if}
+                {#/for}
+            </textarea></p>
+                <div class="wait_followup"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/weui/jquery-weui.js"></script>
+<script type="text/javascript" src="/web-bin/resources/weui/fastclick.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.js"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/artDialog.source.js?skin=white"></script>
+<!--解决ios下click的300ms的延迟，需引入fastclick-->
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+<script type="text/javascript" src="/web-bin/mobile/followup/healthCare/js/followup.js"></script>
+</html>

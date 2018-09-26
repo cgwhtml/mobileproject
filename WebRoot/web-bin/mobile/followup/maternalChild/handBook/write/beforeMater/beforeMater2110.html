@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>分娩情况自我记录</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_002.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_003.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/icheck/skins/all.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+    <style>
+        .main_option_title{
+            line-height: 0.54rem;
+        }
+        .main_option_title>div{
+            padding-bottom: 0.08rem;
+        }
+    </style>
+</head>
+<body>
+    <form action="" id="myForm" name="myform">
+        <div class="parent_msg">
+            <div class="main_option">
+                <div class="option_title">我的阵痛</div>
+            </div>
+            <div class="main_option">
+                <span>时间</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="deliveryTime" name="deliveryTime">
+            </div>
+            <div class="main_option">
+                <span>地点</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="deliveryAddress" name="deliveryAddress">
+            </div>
+            <div class="main_option">
+                <span>陪护人</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="deliveryAccompany" name="deliveryAccompany">
+            </div>
+        </div>
+        <div class="parent_msg">
+            <div class="main_option">
+                <div class="option_title">宝宝出生</div>
+            </div>
+            <div class="main_option">
+                <span>时间</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="babyBirthTime" name="babyBirthTime">
+            </div>
+            <div class="main_option">
+                <span>地点</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="babyBirthAddress" name="babyBirthAddress">
+            </div>
+            <div class="main_option">
+                <span>陪护人</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="babyBirthAccompany" name="babyBirthAccompany">
+            </div>
+            <div class="main_option">
+                <span>妈妈的感受</span>
+                <textarea class="textarea_msg" id="motherFeel" name="motherFeel"></textarea>
+            </div>
+            <div class="main_option">
+                <span>爸爸的感受</span>
+                <textarea class="textarea_msg" id="fatherFeel" name="fatherFeel"></textarea>
+            </div>
+            <div class="main_option main_option_title">
+                <div>
+                    <span>请记录您和爸爸在待产及分娩过程中的心情及感受，及第一次 看到宝宝时的感受。</span>
+                </div>
+                <textarea class="textarea_msg" id="predeliveryDeliveryBabyFeel" name="predeliveryDeliveryBabyFeel"></textarea>
+            </div>
+        </div>
+    </form>
+    <div class="page_btns">
+        <div class="pink_btn save">保存</div>
+    </div>
+    <div id="window"  style="display:none" class="window">
+        <div>
+            <div id="window_in" class="window_in"></div>
+            <div id="check" class="check">确定</div>
+        </div>
+    </div>
+    <div id="background" style="display: none"></div>
+    <div id="fake_alert"  style="display:none">
+        <div id="fake_alert_in">
+            <div id="msg"></div>
+            <div id="sure">确定</div>
+        </div>
+    </div>
+    <input type="hidden" id="data_id">
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_002.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_004.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_003.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_005.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/js/dialogData.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/icheck/icheck.js"></script>
+    <script>
+        $(function () {
+            var localhostUrl=window.location.origin;
+            var query=getRequest();
+            var id=query.id;
+            var healthBookId=query.healthBookId;
+            var currYear = (new Date()).getFullYear();
+            var myReg = /^\d+(\.\d+)?$/;
+            var opt={};
+            var cansubmit=true;
+            opt.date = {preset : 'date'};
+            opt.datetime = {preset : 'datetime'};
+            opt.time = {preset : 'time'};
+            opt.default2 = {
+                theme: 'android-ics light', //皮肤样式
+                display: 'modal', //显示方式
+                mode: 'scroller', //日期选择模式
+                dateFormat: 'yy-mm-dd',
+                lang: 'zh',
+                showNow: true,
+                nowText: "今天",
+                startYear: currYear - 2, //开始年份
+                endYear: currYear + 10 //结束年份
+            };
+            $("#deliveryTime,#babyBirthTime").mobiscroll($.extend(opt['datetime'], opt['default2']));
+            $.ajax({
+                type:"post",
+                url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_deliverSelfRecord_data?healthBookId='+healthBookId,
+                dataType:'json',
+                async:false,
+                contentType:'application/json;charset=UTF-8',
+                success:function(data){
+                    if(data.res==0){
+                        var msg=data.data;
+                        $('#data_id').val(msg&&msg.id);
+                        if(msg!=null){
+                            for(var o in msg){
+                                $("#"+o).val(msg[o]);
+                            }
+                        }
+                    }else{
+                        fake_alert("请求失败！请检查网络是否正常。");
+                    }
+                },
+                error:function () {
+                    fake_alert("请求失败！请检查网络是否正常。");
+                    return;
+                }
+            });
+            //保存
+            $('.save').click(function () {
+                var JsonObj=$("#myForm").serializeObject();
+                JsonObj.healthBookId=healthBookId;
+                var data_id=$("#data_id").val();
+                if(cansubmit){
+                    cansubmit=false;
+                    if(data_id!=null && data_id!=''){
+                        $.ajax({
+                            type:"post",
+                            url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/update_deliverSelfRecord_data',
+                            data:JsonObj,
+                            contentType:'application/json;charset=UTF-8',
+                            success:function(data){
+                                console.log(data);
+                                if(data.res==0){
+                                    fake_alert("保存成功");
+                                    setTimeout(function(){
+                                        window.history.go(-1);
+//                                    window.location=localhostUrl+":"+port+"/web-bin/m/nosen/followup/maternalChild/handBook/to_beforeMater_page?healthBookId="+healthBookId;
+                                    },500)
+                                }else{
+                                    fake_alert("保存失败！请检查网络是否正常。");
+                                    cansubmit=true;
+                                }
+                            },
+                            error:function () {
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                cansubmit=true;
+                                return;
+                            }
+                        });
+                    }else{
+                        $.ajax({
+                            type:"post",
+                            url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/submit_deliverSelfRecord_data',
+                            data:JsonObj,
+                            dataType:'json',
+                            contentType:'application/json;charset=UTF-8',
+                            success:function(data){
+                                console.log(data);
+                                if(data.res==0){
+                                    fake_alert("保存成功");
+                                    setTimeout(function(){
+                                        window.history.go(-1);
+//                                    window.location=localhostUrl+":"+port+"/web-bin/m/nosen/followup/maternalChild/handBook/to_beforeMater_page?healthBookId="+healthBookId;
+                                    },500)
+                                }else{
+                                    fake_alert("保存失败！请检查网络是否正常。");
+                                    cansubmit=true;
+                                }
+                            },
+                            error:function () {
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                cansubmit=true;
+                                return;
+                            }
+                        });
+                    }
+                }
+
+            })
+            function fake_alert(text,element){
+                $("#background").show();
+                $("#fake_alert").show();
+                $("#msg").html(text);
+                $("#sure").click(function(){
+                    $("#background").hide();
+                    $("#fake_alert").hide();
+                });
+                element&&$("html,body").animate({scrollTop:$(element).offset().top-75},500);
+            }
+        })
+    </script>
+</body>
+</html>

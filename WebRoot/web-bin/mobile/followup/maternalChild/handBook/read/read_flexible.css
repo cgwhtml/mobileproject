@@ -1,0 +1,162 @@
+*{margin:0;padding:0;outline:none}
+img{border:0}
+ul{list-style: none;}
+html,body{color:#333;font-size:0.32rem;height:100%;}
+.weChat{
+	padding-top: 0 !important;
+}
+.weChat .gradient_top{
+	height: 0.8rem;
+}
+.weChat .gradient_bottom{
+	height: 0.6rem;
+}
+.weChat .mc_content_main{
+	padding-top: 0.8rem;
+}
+.mc_content_main{padding-left:0.4rem;padding-right:0.4rem;padding-top: 1.70667rem;position:relative;z-index:99;}
+.mc_content_main input[type="text"]{color:#333;border-radius:0;-webkit-tap-highlight-color: transparent;-webkit-appearance:none;-webkit-text-fill-color:#333;-webkit-opacity:1;opacity: 1;background-color:transparent;}
+/* 字体加粗 */
+.bold{font-weight:bold;}
+/* 字体颜色 */
+.color1{color:#9E88C0;}/* 紫色 */
+.color2{color:#FF2E2E;}/* 红色 */
+/* 字体大小 */
+.font_size_20{font-size:0.267rem}/* 20px */
+.font_size_22{font-size:0.29rem}/* 22px */
+.font_size_24{font-size:0.32rem}/* 24px */
+.font_size_18{font-size:0.24rem}/* 18px */
+/* 文字缩进2个字符 */
+.mc_content_main .text_indent{text-indent:2em;}
+/* 字间距 */
+/* .mc_content_main .letter_space{letter-spacing: 0.11rem;}
+.mc_content_main .letter_space2_4{letter-spacing: 0.97rem;} */
+/* 基本信息-小标题样式 */
+.c_info_title{text-align:center;line-height:0.58rem;}
+.c_info_content{padding-left:0.4rem;padding-top:0.3rem;padding-bottom:0.3rem;}
+/* 背景颜色 */
+.purple_bg_color1{background-color:#D4CAE8}/* 紫色 */
+.purple_bg_color2{background-color:#F8F5FE}/* 浅紫色 */
+.purple_bg_color3{background-color:#9E88C0}/* 深紫色 */
+.purple_bg_color4{background-color:#EEE7F9}/* 浅紫色 --表格*/
+.blue_bg_color1{background-color:#C8DCEC}/* 蓝色 */
+.blue_bg_color2{background-color:#F1F9FF}/* 浅蓝色 */
+.green_bg_color1{background-color:#C7E2CE}/* 绿色 */
+.green_bg_color2{background-color:#F1FFF5}/* 浅绿色 */
+.yellow_bg_color1{background-color:#F5E9D1}/* 浅黄色 */
+.pink_bg_color1{background-color:#D986C2}/* 深粉色 */
+.pink_bg_color2{background-color:#FFE5F8}/* 浅粉色 */
+.pink_bg_color3{background-color:#F4E9D0}/* 杏粉色 */
+.pink_bg_color4{background-color:#EBC2E0}/* 紫粉色 */
+.gray_bg_color1{background-color:#eee}/* 浅灰色 */
+/* note */
+.note_box{padding-left:0.13rem;padding-right:0.13rem;padding-bottom:0.13rem;position:relative;}
+/* 多选框 */
+.sc_checked{background-image: url(../images/sc_checked.png);background-size: 0.3rem 0.3rem;background-repeat: no-repeat;display:inline-block;width:0.32rem;height:0.32rem;vertical-align: middle;}
+.sc_unchecked{background-image: url(../images/sc_unchecked.png);background-size: 0.3rem 0.3rem;background-repeat: no-repeat;display:inline-block;width:0.32rem;height:0.32rem;vertical-align: middle;}
+/* 粉色标题——寄语类型 */
+.pink_content_title{color:#EC99D5;font-size:0.48rem;padding-top:0.6rem;padding-bottom:0.42rem;font-weight:bold;}
+.pink_content_title:FIRST-CHILD{padding-top:0.14rem;}
+/* 紫色标题 */
+.purple_content_title{color:#9E88C0;font-size:0.48rem;padding-top:0.6rem;padding-bottom:0.42rem;font-weight:bold;}
+.purple_content_title:FIRST-CHILD{padding-top:0.14rem;}
+/* 蓝色标题 */
+.blue_content_title{color:#509DCB;font-size:0.48rem;padding-top:0.6rem;padding-bottom:0.42rem;font-weight:bold;}
+.blue_content_title:FIRST-CHILD{padding-top:0.14rem;}
+/* 绿色标题 */
+.green_content_title{color:#6CAE96;font-size:0.48rem;padding-top:0.6rem;padding-bottom:0.42rem;font-weight:bold;}
+.green_content_title:FIRST-CHILD{padding-top:0.14rem;}
+/* 棕色标题 */
+.brown_content_title{color:#AB8241;font-size:0.48rem;padding-top:0.6rem;padding-bottom:0.42rem;font-weight:bold;}
+.brown_content_title:FIRST-CHILD{padding-top:0.14rem;}
+/* 黑色小标题 */
+.black_content_title{font-weight:bold;padding-top:0.1rem}
+.mc_content_main p:not(.pink_content_title){line-height: 0.58rem;}
+/* 浮动样式 */
+.pull_left{float: left !important;}
+.pull_right{float: right !important;}
+/* 定位样式 */
+.relative{position:relative;}
+.absolute{position:absolute;}
+/* 分割线  */
+.pink_cut_line{background-image: url(../images/splite_pink.png);background-repeat: repeat-x;width: 100%;height: 2px;background-size: 4px 2px;}
+.purple_cut_line{background-image: url(../images/splite_purple.png);background-repeat: repeat-x;width: 100%;height: 2px;background-size: 4px 2px;}
+.blue_cut_line{background-image: url(../images/splite_blue.png);background-repeat: repeat-x;width: 100%;height: 2px;background-size: 4px 2px;}
+/* 边框  */
+.border_bottom{border:0;border-bottom:1px solid #333 !important;}
+.no_border{border:0;}
+.border_bottom_dashed_green{border:0;border-bottom:1px dashed #A1BFAA !important;}
+/* 项目符号 */
+.purple_circle_symbol:before{content: "";width: 0.21rem;height: 0.21rem;background-color: #9E88C0;border-radius: 0.105rem;position: relative;left: -0.1rem;top:-0.004rem;display: inline-block;margin-left: -0.21rem;}
+.pink_circle_symbol:before{content: "";width: 0.21rem;height: 0.21rem;background-color: #EC99D5;border-radius: 0.105rem;position: relative;left: -0.1rem;top:-0.004rem;display: inline-block;margin-left: -0.21rem;}
+.blue_circle_symbol:before{content: "";width: 0.21rem;height: 0.21rem;background-color: #509DCB;border-radius: 0.105rem;position: relative;left: -0.1rem;top:-0.004rem;display: inline-block;margin-left: -0.21rem;}
+.green_circle_symbol:before{content: "";width: 0.21rem;height: 0.21rem;background-color: #6CAE96;border-radius: 0.105rem;position: relative;left: -0.1rem;top:-0.004rem;display: inline-block;margin-left: -0.21rem;}
+/* 渐变效果 */
+.gradient_top{height:1.70667rem;width:100%;position:absolute;top:0;}
+.gradient_bottom{height:1.2rem;width:100%;position:absolute;bottom:0;}
+.gradient_pink_top{background: linear-gradient(180deg,rgba(236,153,213,0.7), rgba(255,255,255,0.7));}/* 粉色向下渐变 */
+.gradient_pink_bottom{background: linear-gradient(0deg,rgba(236,153,213,0.7), rgba(255,255,255,0.7));}/* 粉色向上渐变 */
+.gradient_purple_top{background: linear-gradient(180deg,rgba(200,177,235,0.7), rgba(255,255,255,0.7));}/* 紫色向下渐变 */
+.gradient_purple_bottom{background: linear-gradient(0deg,rgba(200,177,235,0.7), rgba(255,255,255,0.7));}/* 紫色向上渐变 */
+.gradient_blue_top{background: linear-gradient(180deg,rgba(102,188,239,0.7), rgba(255,255,255,0.7));}/* 蓝色向下渐变 */
+.gradient_blue_bottom{background: linear-gradient(0deg,rgba(102,188,239,0.7), rgba(255,255,255,0.7));}/* 蓝色向上渐变 */
+.gradient_green_top{background: linear-gradient(180deg,rgba(152,209,188,0.7), rgba(255,255,255,0.7));}/* 绿色向下渐变 */
+.gradient_green_bottom{background: linear-gradient(0deg,rgba(152,209,188,0.7), rgba(255,255,255,0.7));}/* 绿色向上渐变 */
+.gradient_brown_top{background: linear-gradient(180deg,rgba(176,152,93,0.7), rgba(255,255,255,0.7));}/* 棕色向下渐变 */
+.gradient_brown_bottom{background: linear-gradient(0deg,rgba(176,152,93,0.7), rgba(255,255,255,0.7));}/* 棕色向上渐变 */
+/*异常描述的行高*/
+.unusual_detail_textarea_content{  line-height: 0.36rem !important; }
+/* 其他效果 */
+.substr{text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+/* 媒体查询 */
+@media (min-height:451px) and (max-height:500px) and (-webkit-min-device-pixel-ratio:1){
+	.mc_content_main .content_font1{line-height: 0.42rem !important;}
+	.mc_content_main .content_font1.line_half{line-height: 0.21rem !important;}
+}
+/*王雪雪华为*/
+@media (min-height:501px) and (max-height:550px) and (-webkit-min-device-pixel-ratio:1){
+	.mc_content_main .content_font1{line-height: 0.47rem !important;}
+	.mc_content_main .content_font1.line_half{line-height: 0.285rem !important;}
+}
+/*贺亚婷vivo，王菲oppoR9*/
+@media (min-height:551px) and (max-height:600px) and (-webkit-min-device-pixel-ratio:1){
+	.mc_content_main .content_font1{line-height: 0.53rem !important;}
+	.mc_content_main .content_font1.line_half{line-height: 0.265rem !important;}
+}
+/*贺亚婷手机app,王菲oppoR9App*/
+@media (min-height:601px) and (max-height:650px) and (-webkit-min-device-pixel-ratio:1){
+	.mc_content_main .content_font1{line-height: 0.58rem !important;}
+	.mc_content_main .content_font1.line_half{line-height: 0.29rem !important;}
+}
+@media (min-height:901px) and (max-height:1000px) and (-webkit-min-device-pixel-ratio:2){
+	body{font-size:0.34rem !important;}
+	.mc_content_main .content_font1{line-height: 0.455rem !important;}
+	.mc_content_main .content_font1.line_half{line-height: 0.278rem !important;}
+	.mc_content_main .pink_cut_line{height: 4px;background-size: 8px 4px;}
+	.mc_content_main .purple_cut_line{height: 4px;background-size: 8px 4px;}
+}
+/*iphone5*/
+@media (min-height:1001px) and (max-height:1100px) and (-webkit-min-device-pixel-ratio:2){
+	.mc_content_main .content_font1{line-height: 0.405rem !important;}
+	.mc_content_main .content_font1.line_half{line-height: 0.208rem !important;}
+	.mc_content_main .pink_cut_line{height: 4px;background-size: 8px 4px;}
+	.mc_content_main .purple_cut_line{height: 4px;background-size: 8px 4px;}
+}
+@media (min-height:1101px) and (max-height:1200px) and (-webkit-min-device-pixel-ratio:2){
+	.mc_content_main .content_font1{line-height: 0.45rem !important;}
+	.mc_content_main .content_font1.line_half{line-height: 0.225rem !important;}
+	.mc_content_main .pink_cut_line{height: 4px;background-size: 8px 4px;}
+	.mc_content_main .purple_cut_line{height: 4px;background-size: 8px 4px;}
+}
+/*iphone6*/
+@media (min-height:1201px) and (max-height:1300px) and (-webkit-min-device-pixel-ratio:2){
+	.mc_content_main .content_font1{line-height: 0.50rem !important;}
+	.mc_content_main .content_font1.line_half{line-height: 0.25rem !important;}
+	.mc_content_main .pink_cut_line{height: 4px;background-size: 8px 4px;}
+	.mc_content_main .purple_cut_line{height: 4px;background-size: 8px 4px;}
+}
+@media (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 2) {/* ipad竖屏 */
+	body{font-size:0.38rem !important;}
+	.mc_content_main .content_font1{line-height: 0.65rem !important;}
+	.mc_content_main .content_font1.line_half{line-height: 0.325rem !important;}
+}

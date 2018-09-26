@@ -1,0 +1,18 @@
+.HospCard_list{display: block;overflow: hidden;}
+.HospCard_list ul{}
+.HospCard_list ul li{height:1.35rem;width:100%;border-bottom:1px solid #d9d9d9;padding:0 0.3rem;overflow: hidden;}
+.HospCard_list ul li .list_span_left{width:1rem;height:1rem;display: block;float:left;margin:0.17rem 0.3rem 0 0;background:#f4f4f4;}
+.HospCard_list ul li .list_span_left img{width:100%;height:100%;display: block;}
+.HospCard_list ul li .list_span_right{line-height:1.8;overflow: hidden;margin-top:0.1rem;}
+.footer{width:92%;height:0.8rem;display: block;margin:0.6rem auto 0;text-align: center;line-height:0.8rem;color:#fff;background-color: #00a1d8;border-radius:0.08rem;font-size:14px;}
+.nocard{width:100%;height:4rem;overflow: hidden;position: relative;}
+.error{width:100%;height:100%;display:none;position: fixed;top:0;left:0;background:rgba(0,0,0,0.5);}
+.error_box{width:81.3%;height:3.8rem;display: block;position: absolute;top:50%;left:50%;margin-top:-2.65rem;margin-left:-40.65%;border-radius:0.08rem;background-color: #fff;}
+.error_box .error_inner{margin:0 0.35rem 0;overflow: hidden;}
+.error_box .error_inner .error_tips{height:0.8rem;font-size:0.35rem;color:#01a0d7;border-bottom:1px solid #d9d9d9;text-align: center;}
+.error_box .error_inner .error_tips span{line-height:0.8rem;}
+.error_box .error_content{height:2.05rem;overflow: hidden;font-size:0.3rem;position:relative;width:100%;}
+.error_box .error_con_inner{margin:0 auto;overflow: hidden;}
+.error_box .error_content span{width:50%;text-align: center;float: left;padding:0.7rem 0;word-wrap:break-word;}
+.error_box .error_content i.error_icon{width:0.6rem;height:0.6rem;display:block;background: url(../../img/icon_08.png)no-repeat;background-size: 100%;float: left;margin:0.8rem 0.4rem 0.8rem 0.5rem;}
+.error_box .error_close{width:100%;height:0.8rem;display: block;position: absolute;bottom:0;left:0;border-top:1px solid #dbdbdb;text-align: center;line-height:0.8rem;font-size:0.35rem;color:#01a2d8;}

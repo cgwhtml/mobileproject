@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>体检预约列表</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/css/fonts.css"/>
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/chosen/chosen.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mypagination/js/myPagination/page.css"/>
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mypagination/js/msgbox/msgbox.css"/>
+    <link type="text/css" rel="stylesheet" href="/web-bin/interview/followup/physical/css/physicalExamList.css"/>
+</head>
+  <body> 
+    <div class="wrapper">
+         <div class="mainContent T1" id="mainContent">
+              <div class="basic_select_nav">
+              	 <input type="text" placeholder="输入预约人姓名搜索" id="patName" />
+                 <select data-placeholder="请选择状态" class="chosen_select_deselect" id="regStatus">
+                     <option value="1">未处理</option>
+                     <option value="2">已处理</option>
+                 </select>
+                 <div class="flat_blue_highlight search" id="basicQusery">搜&nbsp;索</div>
+                 <div class="more" id="more">
+                     <span>更多筛选条件</span><i class="triangle"></i>
+                 </div>
+              </div>
+              <div class="more_select_nav">
+                  <table cellspacing="0" cellpadding="0" style="table-layout:fixed;">
+                  	  <tr>
+                         <td style="width:61px;padding-left:12px">联系号码：</td>
+                         <td style="width:13%"><input type="text" id="phone"/></td>
+                         <td style="width:73px;padding-left:12px">体检套餐：</td>
+                         <td style="width:13%"><input type="text" id="packageName"/></td>
+                         <td style="width:61px;padding-left:20px">身份证号：</td>
+                         <td style="width:14%"><input type="text" id="card"/></td>
+                         <td style="width:61px;padding-left:20px">预约时间：</td>
+                         <td style="width:110px;position:relative;">
+                              <input class="add-input laydate-icon" type="text" id="startDate"/>
+                         </td>
+                         <td style="width:18px;padding-left:8px">至 </td>
+                         <td style="width:110px;position:relative;">
+                              <input class="add-input laydate-icon" type="text" id="endDate"/>
+                         </td>
+                         <td></td>
+                      </tr>
+	              </table>
+              </div>
+              <div class="patient_list">
+                   <div class="content_title">
+	                    <div class="bTitle_text T4">体检预约列表</div>
+                   </div>
+                   <div class="content_table">
+                   		<!-- JTemplate模板 -->
+						<p style="display:none"><textarea id="Template-ListRows" rows="0" cols="0">	
+                        <table cellspacing="0" cellpadding="0"  border="0" style="width:100%;border-collapse:collapse;">
+                           <tr class="title-tr">
+                              <td>编号</td>
+                              <td>预约人</td>
+                              <td>联系号码</td>
+                              <td>身份证号</td>
+                              <td>预约时间</td>
+                              <td>预约体检套餐</td>
+                              <td>套餐价格（元）</td>
+                              <td style="min-width:40px">操作</td>
+                           </tr>
+			    		   {#foreach $T as Row}
+                           <tr class="content-tr">
+                              <td id="xuhao_{$T.Row$index}"></td>
+                              <td title="{$T.Row.patName}">
+                              	  {#if $T.Row.patName.length >10}
+                              	  	  {($T.Row.patName).substring(0,10)}...
+                              	  {#else}
+                              	  	  {$T.Row.patName}
+                              	  {#/if}
+                              </td>
+                              <td>{$T.Row.phone}</td>
+                              <td>{$T.Row.card}</td>
+                              <td>{$T.Row.regDate}</td>
+                              <td>{$T.Row.packageName}</td>
+                              <td>{$T.Row.packagePrice}</td>
+                              {#if $T.Row.regStatus ==1}
+                              <td>
+                              	  <a href="javascript:handlePhysical('{$T.Row.id}')" class="a_color1">处理</a>
+                              </td>
+                              {#else}
+                              <td title="{$T.Row.description}">
+                              	  {#if $T.Row.description.length >10}
+                              	  	  {($T.Row.description).substring(0,10)}...
+                              	  {#else}
+                              	  	  {$T.Row.description}
+                              	  {#/if}
+                              </td>
+                              {#/if}
+                           </tr>
+                           {#/for}
+                        </table>
+                        </textarea></p>			
+						<div id="dataTable"></div>
+	               </div>
+              </div>
+              <div class="bottom-page">
+					<span id="total"></span>
+					<div id="page"></div>
+			  </div>
+         </div>
+    </div>
+	<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/laydate/laydate.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/chosen/chosen.jquery.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/mypagination/js/myPagination/jquery.myPagination6.0.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/mypagination/js/msgbox/msgbox.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/artdialog/artDialog.source.js?skin=white"></script>
+	<script type="text/javascript" src="/web-bin/resources/artdialog/iframeTools.source.js"></script>
+	<script type="text/javascript" src="/web-bin/interview/followup/physical/js/physicalExamList.js"></script>
+	<script type="text/javascript">
+	    var select_status="basic";
+        window.onload=function(){
+		   change();
+		};
+        $(window).resize(function(){
+           if(select_status=="basic"){
+              change();
+           }else{
+              changeS_H();
+           }
+		});
+		function change(){
+		   $("#mainContent").height($(window).height()-10);
+		   $("#mainContent").width($(window).width()-22);
+		   $(".patient_list").height($(window).height()-56-32);
+		   $(".content_table").height($(".patient_list").height()-37);
+		   $(".content_table").width($(window).width()-20);
+		}
+		function changeS_H(){
+		   $("#mainContent").height($(window).height()-10);
+		   $("#mainContent").width($(window).width()-22);
+		   $(".patient_list").height($(window).height()-123-2);
+		   $(".content_table").height($(".patient_list").height()-37);
+		   $(".content_table").width($(window).width()-20);
+		}
+		$(function(){
+            //下拉框
+            $(".chosen_select_deselect").chosen({
+                disable_search_threshold: 10,
+                allow_single_deselect: true,
+                search_contains: true,
+                no_results_text: "未找到此选项",
+                width: "120px"
+            });
+		    //滚动条
+		   $(".patient_list").height($(window).height()-56-32);
+		   $(".content_table").height($(".patient_list").height()-37);
+		   $(".content_table").width($(window).width()-20);
+		   $(".content_table").niceScroll({
+		       railpadding: { top:0, right: 2, left: 0, bottom:0 }
+           });
+		
+		   $(".more_select_nav").hide();
+		   $("#more").toggle(function(){
+		      $(".more_select_nav").show();
+		      select_status="more";
+		      changeS_H();
+		   },function(){
+		   	  $(".more_select_nav").hide();
+		   	  select_status="basic";
+		   	  change();
+		   });
+		});
+    </script> 
+  </body>
+</html>

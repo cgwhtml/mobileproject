@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>样式demo2</title>
+    <link rel="stylesheet" type="text/css" href="common.css"/>
+    <script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.nicescroll.min.js"></script>
+</head>
+<body>
+    <div style="padding-right:10px">
+        <div style="background-color: #ffffff;height: 300px">iframe嵌套的页面，高度通过js控制,此处写死300px</div>
+    </div>
+    <script type="text/javascript">
+        $(function(){
+            $("html").niceScroll({
+                railpadding : {top : 0,right : 1,left : 0,bottom : 0}
+            });
+        });
+    </script>
+</body>
+</html>

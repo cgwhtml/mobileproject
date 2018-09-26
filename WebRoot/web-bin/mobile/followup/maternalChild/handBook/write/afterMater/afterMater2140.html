@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>产后访视医生记录</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_002.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_003.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/icheck/skins/all.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+</head>
+<body>
+    <form action="" id="myForm" name="myForm">
+        <div class="parent_msg">
+            <div class="main_option">
+                <span>访视日期</span><span class="must">*</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="visitTime" name="visitTime">
+            </div>
+            <div class="main_option">
+                <span>产后天数</span>
+                <input type="tel" placeholder="请填写" class="input_msg" id="postpartumDay" name="postpartumDay">
+            </div>
+            <div class="main_option">
+                <span>体温（℃）</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="temperature" name="temperature">
+            </div>
+            <div class="main_option">
+                <span>收缩压（mmhg）</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="systolicPressure" name="systolicPressure">
+            </div>
+            <div class="main_option">
+                <span>舒张压（mmhg）</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="diastolicPressure" name="diastolicPressure">
+            </div>
+            <div class="main_option milk">
+                <span>乳汁</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="milk" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>多</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="milk" value="2"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>少</span>
+                    </label>
+                </div>
+            </div>
+            <div class="main_option breastInflamedFlag">
+                <span>乳房红肿</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="breastInflamedFlag" value="0"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>无</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="breastInflamedFlag" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>有</span>
+                    </label>
+                </div>
+            </div>
+            <div class="main_option breastCrackedFlag">
+                <span>乳头皲裂</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="breastCrackedFlag" value="0"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>无</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="breastCrackedFlag" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>有</span>
+                    </label>
+                </div>
+            </div>
+            <div class="main_option">
+                <span>宫底高度</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="uterusFundusHeight" name="uterusFundusHeight">
+            </div>
+            <div class="main_option woundHeal">
+                <span>伤口愈合</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="woundHeal" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>好</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="woundHeal" value="2"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>差</span>
+                    </label>
+                </div>
+            </div>
+            <div class="main_option">
+                <span>恶露色、量</span>
+                <textarea class="textarea_msg" id="lochiaColorAmount" name="lochiaColorAmount"></textarea>
+            </div>
+            <div class="main_option lochiaAbnormalSmellFlag">
+                <span>恶露异味</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="lochiaAbnormalSmellFlag" value="0"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>无</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="lochiaAbnormalSmellFlag" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>有</span>
+                    </label>
+                </div>
+            </div>
+            <div class="main_option">
+                <span>其他</span>
+                <textarea class="textarea_msg" id="otherContent" name="otherContent"></textarea>
+            </div>
+            <div class="main_option">
+                <span>治疗及指导</span>
+                <textarea class="textarea_msg" id="adviceCure" name="adviceCure"></textarea>
+            </div>
+            <div class="main_option">
+                <span>预约时间</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="appointmentTime" name="appointmentTime">
+            </div>
+            <div class="main_option">
+                <span>检查者</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="checker" name="checker">
+            </div>
+        </div>
+    </form>
+    <div class="page_btns">
+        <div class="pink_btn save">保存</div>
+    </div>
+    <div id="window"  style="display:none" class="window">
+        <div>
+            <div id="window_in" class="window_in"></div>
+            <div id="check" class="check">确定</div>
+        </div>
+    </div>
+    <div id="background" style="display: none"></div>
+    <div id="fake_alert"  style="display:none">
+        <div id="fake_alert_in">
+            <div id="msg"></div>
+            <div id="sure">确定</div>
+        </div>
+    </div>
+    <input type="hidden" id="data_id">
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_002.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_004.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_003.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_005.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/js/dialogData.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/icheck/icheck.js"></script>
+    <script>
+        $(function(){
+            var localhostUrl=window.location.origin;
+            var query=getRequest();
+            var healthBookId=query.healthBookId;
+            var myReg = /^\d+(\.\d+)?$/;
+            var currYear = (new Date()).getFullYear();
+            var opt={};
+            var cansubmit=true;
+            opt.date = {preset : 'date'};
+            opt.datetime = {preset : 'datetime'};
+            opt.time = {preset : 'time'};
+            opt.default2 = {
+                theme: 'android-ics light', //皮肤样式
+                display: 'modal', //显示方式
+                mode: 'scroller', //日期选择模式
+                dateFormat: 'yy-mm-dd',
+                lang: 'zh',
+                showNow: true,
+                nowText: "今天",
+                startYear: currYear - 2, //开始年份
+                endYear: currYear + 10 //结束年份
+            };
+            $(document).on("change","input[type='radio']",function(){
+                $("input[type='radio']").each(function() {
+                    $(this).is(":checked")?$(this).next().removeClass('pink_r_uncheck').addClass('pink_r_check'):$(this).next().removeClass('pink_r_check').addClass('pink_r_uncheck');
+                });
+            });
+            $("input[type='checkbox']").change(function(){
+                $(this).is(":checked")?$(this).next('div').toggleClass('pink_c_check').toggleClass('gray_c_uncheck'):$(this).next('div').toggleClass('gray_c_uncheck').toggleClass('pink_c_check');
+                $(this).is(':checked')?$(this).parents('.main_option').next('.main_option').show():$(this).parents('.main_option').next('.main_option').hide()&&$(this).parents('.main_option').next('.main_option').find("input[type='text']").val('');
+            })
+            $("#visitTime").mobiscroll($.extend(opt['date'], opt['default2']));
+            $("#appointmentTime").mobiscroll($.extend(opt['datetime'], opt['default2']));
+            $.ajax({
+                type:"post",
+                url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_afterMaterDoctorRecord_data?healthBookId='+healthBookId,
+                dataType:'json',
+                async:false,
+                contentType:'application/json;charset=UTF-8',
+                success:function(data){
+                    console.log(data);
+                    if(data.res==0){
+                        var msg=data.data;
+                        $('#data_id').val(msg&&msg.id);
+                        if(msg!=null){
+                            for(var o in msg){
+                                $("#"+o).val(msg[o]);
+                            }
+                            $(".milk input[value="+ msg.milk +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                            $(".woundHeal input[value="+ msg.woundHeal +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                            msg.breastInflamedFlag!=null&&$(".breastInflamedFlag input[value="+ boolToNumber(msg.breastInflamedFlag) +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                            msg.breastCrackedFlag!=null&&$(".breastCrackedFlag input[value="+ boolToNumber(msg.breastCrackedFlag) +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                            msg.lochiaAbnormalSmellFlag!=null&&$(".lochiaAbnormalSmellFlag input[value="+ boolToNumber(msg.lochiaAbnormalSmellFlag) +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                        }
+                    }else{
+                        fake_alert("请求失败！请检查网络是否正常。");
+                    }
+                },
+                error:function () {
+                    fake_alert("请求失败！请检查网络是否正常。");
+                    return;
+                }
+            });
+            //保存
+            $('.save').click(function(){
+                var visitTime=$('#visitTime').val();
+                if(visitTime==''){
+                    fake_alert("访视时间必填","#visitTime");
+                    return false;
+                }
+                var postpartumDay=$('#postpartumDay').val();
+                if(!IsNumberValidateFun(postpartumDay)){
+                    fake_alert("产后天数必须是整数","#postpartumDay");
+                    return false;
+                }
+                var temperature=$('#temperature').val();
+                if(temperature!=''&&!myReg.test(temperature)){
+                    fake_alert("体温必须是数字","#temperature");
+                    return false;
+                }
+                var systolicPressure=$('#systolicPressure').val();
+                if(!IsNumberValidateFun(systolicPressure)){
+                    fake_alert("收缩压必须是整数","#systolicPressure");
+                    return false;
+                }
+                var diastolicPressure=$('#diastolicPressure').val();
+                if(!IsNumberValidateFun(diastolicPressure)){
+                    fake_alert("舒张压必须是整数","#diastolicPressure");
+                    return false;
+                }
+                var uterusFundusHeight=$('#uterusFundusHeight').val();
+                if(uterusFundusHeight!=''&&!myReg.test(uterusFundusHeight)){
+                    fake_alert("宫底高度必须是数字","#uterusFundusHeight");
+                    return false;
+                }
+                var JsonObj=$("#myForm").serializeObject();
+                JsonObj.healthBookId=healthBookId;
+                console.log(JsonObj);
+                var data_id=$("#data_id").val();
+                if(cansubmit){
+                    cansubmit=false;
+                    if(data_id!=null && data_id!=''){
+                        $.ajax({
+                            type:"post",
+                            url: localhostUrl + '/web-bin/m/nosen/followup/maternalChild/handBook/update_afterMaterDoctorRecord_data',
+                            data:JsonObj,
+                            contentType:'application/json;charset=UTF-8',
+                            success:function(data){
+                                console.log(data);
+                                if(data.res==0){
+                                    fake_alert("保存成功");
+                                    setTimeout(function(){
+                                        window.history.go(-1);
+//                                    window.location=localhostUrl+":"+port+"/web-bin/m/nosen/followup/maternalChild/handBook/to_beforeMater_page?healthBookId="+healthBookId;
+                                    },500)
+                                }else{
+                                    fake_alert("保存失败！请检查网络是否正常。");
+                                    cansubmit=true;
+                                }
+                            },
+                            error:function () {
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                cansubmit=true;
+                                return;
+                            }
+                        });
+                    }else{
+                        $.ajax({
+                            type:"post",
+                            url: localhostUrl + '/web-bin/m/nosen/followup/maternalChild/handBook/submit_afterMaterDoctorRecord_data',
+                            data:JsonObj,
+                            dataType:'json',
+                            contentType:'application/json;charset=UTF-8',
+                            success:function(data){
+                                if(data.res==0){
+                                    fake_alert("保存成功");
+                                    setTimeout(function(){
+                                        window.history.go(-1);
+//                                    window.location=localhostUrl+":"+port+"/web-bin/m/nosen/followup/maternalChild/handBook/to_beforeMater_page?healthBookId="+healthBookId;
+                                    },500)
+                                }else{
+                                    fake_alert("保存失败！请检查网络是否正常。");
+                                    cansubmit=true;
+                                }
+                            },
+                            error:function () {
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                cansubmit=true;
+                                return;
+                            }
+                        });
+                    }
+                }
+            })
+            function fake_alert(text,element){
+                $("#background").show();
+                $("#fake_alert").show();
+                $("#msg").html(text);
+                $("#sure").click(function(){
+                    $("#background").hide();
+                    $("#fake_alert").hide();
+                });
+                element&&$("html,body").animate({scrollTop:$(element).offset().top-75},500);
+            }
+        })
+    </script>
+</body>
+</html>

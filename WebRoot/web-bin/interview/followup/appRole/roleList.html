@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>角色列表</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="/web-bin/resources/css/interview_basic.css"/>
+	<link rel="stylesheet" type="text/css" href="/web-bin/resources/mypagination/js/myPagination/page_small.css"/>
+    <link rel="stylesheet" type="text/css" href="/interview/followup/appRole/css/roleList.css"/>
+</head>
+<body>
+	<div class="wrapper">
+	    <div class="main">
+	    	<div class="iframe">
+	    		<iframe id="mainFrame" width="100%" height="100%" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" src=""></iframe>
+	    	</div>
+	    	<div class="rightList">
+	    		<div class="list_top">
+	    			<p>角色列表</p>
+	    			<div class="roleList_img2 btn_bg2 create_js" title="添加">
+	    				<div class="creat_white_medium design_icon" style="margin:4px 0px 0px 4px;"></div>
+	    			</div>
+	    			<div class="roleList_img1 btn_bg2" id="delete_js" title="删除">
+	    				<div class="delete_white_big design_icon" style="margin:4px 0px 0px 4px;"></div>
+	    			</div>
+	    		</div>
+	    		<div class="list_body">
+	    			<div class="list_search">
+	    				<input class="search search_js" type="text" t_placeholder="输入角色名称搜索" id="roleName"/>
+	    			</div>
+	    			<div class="list_content">
+	    				<p style="display:none"><textarea id="Template-ListRows" rows="0" cols="0">
+						<table class="list_table" cellspacing="0" cellpadding="0">
+							<tr class="table_head">
+								<td style="width:16px"><div class="roleList_img4 design_icon sc_unchecked checkAll"></div></td>
+								<td style="width:32px">序号</td>
+								<td>角色名称</td>
+							</tr>
+							<!--{#foreach $T as Row}
+							<tr id="{$T.Row.id}">
+								<td><div class="roleList_img4 design_icon sc_unchecked checkOne"></div></td>
+								<td class="index" id="xuhao_{$T.Row$index}"></td>
+								<td class="name"><div class="substr" style="width:110px" title="{$T.Row.roleName}">{$T.Row.roleName}</div></td>
+							</tr>
+							{#/for}-->
+						</table>
+						</textarea></p>
+			    		<div id="data_table"></div>
+						<div id="page"></div>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </div>
+    </div>
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mypagination/js/myPagination/jquery.myPagination6.0.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/inputer/inputer.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/artdialog/artDialog.source.js?skin=white"></script>
+    <script type="text/javascript" src="/web-bin/resources/artdialog/iframeTools.source.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/interview/followup/appRole/js/roleList.js"></script>
+    <script type="text/javascript">
+	  	function change(){
+	  		$("#data_table").height($(window).height()-127);
+	  		$(".iframe").width($(window).width()-224);
+	  		$(".iframe").height($(window).height()-10);
+	  	}
+	  	$(window).resize(function(){
+			change();
+	    });
+	  	$(function(){
+	  		change();
+	  		$("#data_table").niceScroll({
+			    railpadding: { top:0, right: 0, left: 0, bottom:0 }
+			});
+		});
+    </script>
+</body>
+</html>

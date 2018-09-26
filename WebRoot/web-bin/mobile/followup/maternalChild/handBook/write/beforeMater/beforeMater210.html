@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>甜蜜时刻</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_002.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_003.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+</head>
+<body>
+    <form action="" id="myForm" name="myForm">
+        <div class="parent_msg">
+            <div class="main_option">
+                <div class="option_title">第一次听医生说“您要当妈妈”的日子</div>
+            </div>
+            <div class="main_option">
+                <span>记录日期</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="motherTobeRecordTime" name="motherTobeRecordTime">
+            </div>
+            <div class="main_option">
+                <span>心情记录</span>
+                <textarea class="textarea_msg" id="motherTobeMoodRecord" name="motherTobeMoodRecord"></textarea>
+            </div>
+        </div>
+        <div class="parent_msg">
+            <div class="main_option">
+                <div class="option_title">第一次听到胎心的日子</div>
+            </div>
+            <div class="main_option">
+                <span>记录日期</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="fetalmovementHeartFirstTime" name="fetalmovementHeartFirstTime">
+            </div>
+            <div class="main_option">
+                <span>心情记录</span>
+                <textarea class="textarea_msg" id="fetalmovementHeartFirstMoodRecord" name="fetalmovementHeartFirstMoodRecord"></textarea>
+            </div>
+        </div>
+        <div class="parent_msg">
+            <div class="main_option">
+                <div class="option_title">第一次感受到胎动的日子</div>
+            </div>
+            <div class="main_option">
+                <span>记录日期</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="fetalmovementFeelFirstTime" name="fetalmovementFeelFirstTime">
+            </div>
+            <div class="main_option">
+                <span>心情记录</span>
+                <textarea class="textarea_msg" id="fetalmovementFeelFirstMoodRecord" name="fetalmovementFeelFirstMoodRecord"></textarea>
+            </div>
+        </div>
+    </form>
+    <div id="window"  style="display:none" class="window">
+        <div>
+            <div id="window_in" class="window_in"></div>
+            <div id="check" class="check">确定</div>
+        </div>
+    </div>
+    <div id="background" style="display: none"></div>
+    <div id="fake_alert"  style="display:none">
+        <div id="fake_alert_in">
+            <div id="msg"></div>
+            <div id="sure">确定</div>
+        </div>
+    </div>
+    <div class="page_btns">
+        <div class="pink_btn save">保存</div>
+    </div>
+    <input type="hidden" id="data_id">
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_002.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_004.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_003.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_005.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/js/dialogData.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            document.getElementById("fake_alert").addEventListener("touchmove", function (event) {
+                event.preventDefault();
+            }, false);
+            var localhostUrl=window.location.origin;
+            var query = getRequest();
+            var healthBookId = query.healthBookId;
+            var currYear = (new Date()).getFullYear();
+            var opt = {};
+            var cansubmit=true;
+            opt.date = {preset: 'date'};
+            opt.datetime = {preset: 'datetime'};
+            opt.time = {preset: 'time'};
+            opt.default1 = {
+                theme: 'android-ics light', //皮肤样式
+                display: 'modal', //显示方式
+                mode: 'scroller', //日期选择模式
+                dateFormat: 'yy-mm-dd',
+                lang: 'zh',
+                showNow: true,
+                nowText: "今天",
+                startYear: currYear - 50, //开始年份
+                endYear: currYear + 10 //结束年份
+            };
+            $("#motherTobeRecordTime").mobiscroll($.extend(opt['date'], opt['default1']));
+            $("#fetalmovementHeartFirstTime").mobiscroll($.extend(opt['date'], opt['default1']));
+            $("#fetalmovementFeelFirstTime").mobiscroll($.extend(opt['date'], opt['default1']));
+            $(".window_in").niceScroll({
+                railpadding: {top: 0, right: 0, left: 0, bottom: 0},
+                cursorborder: "",
+                cursoropacitymin: 0.3,
+                cursoropacitymax: 0.3,
+                cursorcolor: "#000000",
+                zindex: "99",
+                cursorwidth: "3px",
+                touchbehavior: true
+            });
+            $.ajax({
+                type: "post",
+                url: localhostUrl + '/web-bin/m/nosen/followup/maternalChild/handBook/query_sweetTime_data?healthBookId=' + healthBookId,
+                async:false,
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    if (data.res == 0) {
+                        var msg = data.data;
+                        $('#data_id').val(msg&&msg.id);
+                        if (msg != null) {
+                            for (var o in msg) {
+                                $("#" + o).val(msg[o]);
+                            }
+                        }
+                    } else {
+                        fake_alert("请求失败！请检查网络是否正常。");
+                    }
+                },
+                error: function () {
+                    fake_alert("请求失败！请检查网络是否正常。");
+                    return;
+                }
+            });
+            $('.save').click(function () {
+                var JsonObj = $("#myForm").serializeObject();
+                JsonObj.healthBookId = healthBookId;
+                console.log(JsonObj);
+                var data_id = $("#data_id").val();
+                //保存
+                if(cansubmit){
+                    cansubmit=false;
+                    if (data_id!=null && data_id!='') {
+                        $.ajax({
+                            type: "post",
+                            url: localhostUrl + '/web-bin/m/nosen/followup/maternalChild/handBook/update_sweetTime_data',
+                            data: JsonObj,
+                            dataType: 'json',
+                            contentType: 'application/json;charset=UTF-8',
+                            success: function (data) {
+                                if (data.res == 0) {
+                                    fake_alert("保存成功");
+                                    setTimeout(function () {
+                                        window.history.go(-1);
+//                                    window.location = localhostUrl + ":" + port + "/web-bin/m/nosen/followup/maternalChild/handBook/to_beforeMater_page?healthBookId=" + healthBookId;
+                                    }, 500)
+                                } else {
+                                    fake_alert("保存失败！请检查网络是否正常。");
+                                    cansubmit=true;
+                                }
+                            },
+                            error: function () {
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                cansubmit=true;
+                                return;
+                            }
+                        });
+                    } else {
+                        $.ajax({
+                            type: "post",
+                            url: localhostUrl + '/web-bin/m/nosen/followup/maternalChild/handBook/submit_sweetTime_data',
+                            data: JsonObj,
+                            dataType: 'json',
+                            contentType: 'application/json;charset=UTF-8',
+                            success: function (data) {
+                                console.log(data);
+                                if (data.res == 0) {
+                                    fake_alert("保存成功");
+                                    setTimeout(function () {
+                                        window.history.go(-1);
+//                                    window.location = localhostUrl + ":" + port + "/web-bin/m/nosen/followup/maternalChild/handBook/to_beforeMater_page?healthBookId=" + healthBookId;
+                                    }, 500)
+                                } else {
+                                    fake_alert("保存失败！请检查网络是否正常。");
+                                    cansubmit=true;
+                                }
+                            },
+                            error: function () {
+                                cansubmit=true;
+                                return;
+                            }
+                        });
+                    }
+                }
+            });
+        })
+        function fake_alert(text,element){
+            $("#background").show();
+            $("#fake_alert").show();
+            $("#msg").html(text);
+            $("#sure").click(function(){
+                $("#background").hide();
+                $("#fake_alert").hide();
+            });
+            element&&$("html,body").animate({scrollTop:$(element).offset().top-75},500);
+        }
+    </script>
+</body>
+</html>

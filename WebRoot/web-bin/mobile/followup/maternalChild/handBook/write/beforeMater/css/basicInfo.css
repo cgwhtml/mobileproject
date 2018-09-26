@@ -1,0 +1,39 @@
+/**
+* Created by heyating
+* Created time 2017/5/23 9:50
+* Description  基本情况1-1-0
+*/
+.mother{
+    line-height: 1.08rem;
+    font-size: 0.4rem;
+    color: #EC99D5;
+}
+.must{
+    color: #FA2F2F;
+    font-size: 0.24rem;
+}
+.father{
+    color: #EC99D5;
+    line-height: 1.08rem;
+    font-size: 0.4rem;
+    display: none;
+}
+.title{
+    background-color: #fff;
+    border-bottom: 1px solid #F7E3F1;
+    text-align: center;
+}
+.title:after{
+    content: '';
+    clear: both;
+    display: block;
+}
+.remind{
+    margin: 1rem 0.4rem;
+    color: #999;
+    font-size: 0.293rem;
+}
+/*除第一行外缩进*/
+.remind>p{
+    margin-left:1em;text-indent:-1em;line-height:150%;
+}

@@ -1,0 +1,90 @@
+/*
+ 	* Created by cgw
+ 	* Created time 20173.20
+	* Description  ҩƷ�б�ҳ��ʽ
+*/
+html,body {
+	height:100%;
+     overflow:hidden;
+     user-select: none;
+    -moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+html {
+	font-size:100px;
+}
+/*�����б�*/
+.mainList {
+	width:100%;
+	height:100%;
+	display:flex;
+	position: absolute;
+    height: 100%;
+    top: 0;
+    box-sizing: border-box;
+}
+#partList_result {
+	width:2rem;
+    height:auto;
+    background:#F4F4F4;
+    box-sizing:border-box;
+    overflow:auto;
+}
+/*���С����*/
+.partItem {
+	width:100%;
+	height:2rem;
+	border-bottom:1px solid #E7E7E7;
+	border-right:1px solid #E7E7E7;
+	overflow:hidden;
+	box-sizing:border-box;
+	text-align:center;
+	font-size:15px;'
+}
+.activeBox {
+	background-color:#fff;
+	border-right:1px solid #fff;
+}
+.imgBox {
+	width:1rem;
+	height:1rem;
+	margin:0.2rem auto;
+}
+.imgBox img {
+	width:100%;
+	height:100%;
+}
+/*�Ҳ�ҩƷ�б�*/
+#drugList_result {
+    height:auto;
+    flex-grow:1;
+    background-color:#fff;
+    padding-left:15px;
+    box-sizing:border-box;
+}
+.drugItem {
+	width:100%;
+	height:1rem;
+	padding-left:0.3rem;
+	line-height:1rem;
+	border-bottom:1px solid #E7E7E7;
+	font-size:16px;
+	box-sizing:border-box;
+	padding-right:40px;
+	position:relative;
+    color:#333
+}
+.drugName  {
+	width:4rem;
+}
+/*С��ͷ*/
+.arrows {
+	width:0.3rem;
+	height:0.3rem;
+	position:absolute;
+	right:0.28rem;
+	top:0.32rem;
+	background:url(../images/jian.png) no-repeat;
+	background-size:100%;
+}

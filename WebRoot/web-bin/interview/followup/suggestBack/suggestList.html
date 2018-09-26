@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>微信意见反馈</title>
+    <link rel="stylesheet" href="/web-bin/resources/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/web-bin/resources/chosen/chosenNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/web-bin/resources/mypagination/js/myPagination/page.css"/>
+    <link rel="stylesheet" type="text/css" href="/web-bin/interview/followup/suggestBack/css/suggestBack.css"/>
+</head>
+<body>
+    <div class="title_bar">
+        <div class="csm_input_container"><input type="text" t_placeholder="输入反馈人搜索" class="input inputer input-search-md float-left t_placeholder" id="userName" style="color: rgb(153, 153, 153);"><i class="csm_search_btn"></i></div>
+        <div class="btn btn-primary-sm search1">搜索</div>
+        <div class="btn more_filter_btn">更多筛选条件</div>
+        <div class="more-filter-div body-box-shadow">
+            <div>
+                <span>反馈类型：</span>
+                <select class="chosen_for_search suggest_type" data-placeholder="请选择">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+            <div>
+                <span>处理状态：</span>
+                <select class="chosen_for_search" data-placeholder="请选择" id="type">
+                    <option value="">全部</option>
+                    <option value="1">待处理</option>
+                    <option value="2">已处理</option>
+                    <option value="3">无效反馈</option>
+                </select>
+            </div>
+            <div>
+                <span>手机号码：</span>
+                <input type="text" class="input input-xs" id="phone"/>
+            </div>
+            <div>
+                <span>反馈时间：</span>
+                <input type="text" class="input-search input-search-md laydate-icon" id="startTime"> ~
+                <input type="text" class="input-search input-search-md laydate-icon" id="endTime">
+            </div>
+            <div class="btn btn-primary-sm search">搜索</div>
+            <span class="icomoon icomoon-arrow-up color-primary delete-icon close_filter"></span>
+        </div>
+    </div>
+    <div class="table-list-layout">
+        <div class="headbar-primary" >
+            反馈意见列表
+        </div>
+        <div class="table-list-wrapper">
+            <table class="table-list table-list-hover">
+                <thead>
+                <tr>
+                    <td>反馈人</td>
+                    <td>手机号码</td>
+                    <td>反馈时间</td>
+                    <td>反馈类型</td>
+                    <td>意见建议</td>
+                    <td>操作</td>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <div id="page"></div>
+        </div>
+    </div>
+    <p style="display:none">
+       <textarea id="template_suggestList" rows="0" cols="0">
+        {#foreach $T as Row}
+             <tr class="pointer">
+                <td>{$T.Row.userName}</td>
+                <td>{$T.Row.phone}</td>
+                <td class="time">{$T.Row.createTime}</td>
+                <td>{$T.Row.categoryName}</td>
+                <td>{$T.Row.suggestion}</td>
+                <td>
+                    <input type="hidden" class="suggest_id" value="{$T.Row.id}">
+                    {#if $T.Row.type==1}
+                       <span style="color: #4A90E2;" class="do_suggest">处理确认</span>
+                       <span style="color: #4A90E2;" class="no_suggest">无效废弃</span>
+                    {#elseif $T.Row.type==2}
+                        已处理
+                    {#elseif $T.Row.type==3}
+                        无效废弃
+                    {#/if}
+                </td>
+             </tr>
+        {#/for}
+       </textarea>
+    </p>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/mypagination/js/myPagination/jquery.myPagination6.0.1.js"></script>
+<script type="text/javascript" src="/web-bin/resources/chosen/chosen.jquery.js"></script>
+<script type="text/javascript" src="/web-bin/resources/laydate/laydate.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/inputer/inputer.js"></script>
+<script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/artDialog.source.js?skin=white"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/iframeTools.source.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/interview/followup/suggestBack/js/suggest.js"></script>
+    <script type="text/javascript">
+        window.onload=function(){
+            change();
+        };
+        $(window).resize(function(){
+            change();
+        });
+        function change(){
+            $("html").height($(window).height());
+            $(".dataList").width($(window).width()-20);
+        }
+        $(function(){
+            //滚动条
+            $("html").height($(window).height());
+            $("html").niceScroll({
+                railpadding: { top:0, right: 0, left: 0, bottom:0 },
+                cursorborder:"",
+                cursoropacitymin: 0.2,
+                cursoropacitymax: 0.2,
+                cursorcolor:"#000000",
+                zindex: "99",
+                cursorwidth: "9px",
+                horizrailenabled:false//掩藏水平滚动条
+            });
+        });
+    </script>
+</body>
+</html>

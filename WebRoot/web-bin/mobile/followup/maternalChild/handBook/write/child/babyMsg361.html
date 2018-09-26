@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>新生儿早期育儿记录</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+    <style>
+        .read_content{
+            width: 9.213rem;
+        }
+        .item_middle{
+            margin-bottom: 0.6rem;
+        }
+        .read_content{
+            position: relative;
+        }
+        .item_middle .read_content .read_content_detail_left{
+            width: 57.5%;
+            float: left;
+        }
+        .item_middle .read_content .read_content_detail_right{
+            width: 42.5%;
+            float: left;
+        }
+        .item_middle .read_content_detail>span{
+            float: left;
+        }
+        .read_content:after,
+        .read_content_detail:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .read_content_detail_num_left{
+            margin-right: 2.32rem;
+        }
+        .read_content_detail_num_right{
+            margin-right: 0.94rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="total">
+        <div class="item">
+            <div class="read_content">
+                <div class="read_content_title first_item">
+                    疫苗与筛查
+                    <div class="pink_pen edit_read_ontent"></div>
+                </div>
+                <div class="read_content_detail">
+                    <div class="read_content_detail">
+                        宝宝第一针乙肝疫苗接种时间：
+                        <div class="read_content_detail_num" id="hepatitisBVaccineTime"></div>
+                    </div>
+                </div>
+                <div class="read_content_detail">
+                    <div class="read_content_detail">
+                        宝宝卡介苗接种时间：
+                        <div class="read_content_detail_num" id="bcgVaccinationTime"></div>
+                    </div>
+                </div>
+                <div class="read_content_detail">
+                    <div class="read_content_detail">
+                        疾病筛查：
+                        <div class="read_content_detail_num" id="neonatalScreeningFlag"></div>
+                    </div>
+                </div>
+                <div class="read_content_detail">
+                    <div class="read_content_detail">
+                        听力筛查：
+                        <div class="read_content_detail_num" id="hearingScreeningFlag"></div>
+                    </div>
+                </div>
+                <input type="hidden" id="parentingRecord">
+            </div>
+        </div>
+        <div class="item item_middle">
+            <input type="hidden"  class="day_id">
+            <input type="hidden"  class="feedingDay" value="1">
+            <div class="read_content">
+                <div class="read_content_title to_edit">
+                    <span>第一天</span>
+                    <div class="pink_pen edit_read_ontent"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_left">
+                    <span>喂养方式：</span>
+                    <div class="read_content_detail_num read_content_detail_num_left feedingWay"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_right">
+                    <span>吃奶次数：</span>
+                    <div class="read_content_detail_num read_content_detail_num_right feedingTimes"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_left">
+                    <span>小便次数：</span>
+                    <div class="read_content_detail_num read_content_detail_num_left peeTimes"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_right">
+                    <span>体重（g）:</span>
+                    <div class="read_content_detail_num read_content_detail_num_right weight"></div>
+                </div>
+                  <div class="read_content_detail read_content_detail_left">
+                    <span>大便次数：</span>
+                    <div class="read_content_detail_num read_content_detail_num_left shitTimes"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_right">
+                    <span>皮肤黄染：</span>
+                    <div class="read_content_detail_num read_content_detail_num_right skinYellowDyeFlag"></div>
+                </div>
+            </div>
+        </div>
+        <div class="item item_middle">
+            <input type="hidden"  class="day_id">
+            <input type="hidden"  class="feedingDay" value="2">
+            <div class="read_content">
+                <div class="read_content_title to_edit">
+                    <span>第二天</span>
+                    <div class="pink_pen edit_read_ontent"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_left">
+                    <span>喂养方式：</span>
+                    <div class="read_content_detail_num read_content_detail_num_left feedingWay"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_right">
+                    <span>吃奶次数：</span>
+                    <div class="read_content_detail_num read_content_detail_num_right feedingTimes"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_left">
+                    <span>小便次数：</span>
+                    <div class="read_content_detail_num read_content_detail_num_left peeTimes"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_right">
+                    <span>体重（g）:</span>
+                    <div class="read_content_detail_num read_content_detail_num_right weight"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_left">
+                    <span>大便次数：</span>
+                    <div class="read_content_detail_num read_content_detail_num_left shitTimes"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_right">
+                    <span>皮肤黄染：</span>
+                    <div class="read_content_detail_num read_content_detail_num_right skinYellowDyeFlag"></div>
+                </div>
+            </div>
+        </div>
+        <div class="item item_middle">
+            <input type="hidden"  class="day_id">
+            <input type="hidden"  class="feedingDay" value="3">
+            <div class="read_content">
+                <div class="read_content_title to_edit">
+                    <span>第三天</span>
+                    <div class="pink_pen edit_read_ontent"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_left">
+                    <span>喂养方式：</span>
+                    <div class="read_content_detail_num read_content_detail_num_left feedingWay"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_right">
+                    <span>吃奶次数：</span>
+                    <div class="read_content_detail_num read_content_detail_num_right feedingTimes"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_left">
+                    <span>小便次数：</span>
+                    <div class="read_content_detail_num read_content_detail_num_left peeTimes"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_right">
+                    <span>体重（g）:</span>
+                    <div class="read_content_detail_num read_content_detail_num_right weight"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_left">
+                    <span>大便次数：</span>
+                    <div class="read_content_detail_num read_content_detail_num_left shitTimes"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_right">
+                    <span>皮肤黄染：</span>
+                    <div class="read_content_detail_num read_content_detail_num_right skinYellowDyeFlag"></div>
+                </div>
+            </div>
+        </div>
+        <div class="item item_middle">
+            <input type="hidden"  class="day_id">
+            <input type="hidden"  class="feedingDay" value="4">
+            <div class="read_content">
+                <div class="read_content_title to_edit">
+                    <span>第四天</span>
+                    <div class="pink_pen edit_read_ontent"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_left">
+                    <span>喂养方式：</span>
+                    <div class="read_content_detail_num read_content_detail_num_left feedingWay"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_right">
+                    <span>吃奶次数：</span>
+                    <div class="read_content_detail_num read_content_detail_num_right feedingTimes"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_left">
+                    <span>小便次数：</span>
+                    <div class="read_content_detail_num read_content_detail_num_left peeTimes"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_right">
+                    <span>体重（g）:</span>
+                    <div class="read_content_detail_num read_content_detail_num_right weight"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_left">
+                    <span>大便次数：</span>
+                    <div class="read_content_detail_num read_content_detail_num_left shitTimes"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_right">
+                    <span>皮肤黄染：</span>
+                    <div class="read_content_detail_num read_content_detail_num_right skinYellowDyeFlag"></div>
+                </div>
+            </div>
+        </div>
+        <div class="item item_middle">
+            <input type="hidden"  class="day_id">
+            <input type="hidden"  class="feedingDay" value="5">
+            <div class="read_content">
+                <div class="read_content_title to_edit">
+                    <span>第五天</span>
+                    <div class="pink_pen edit_read_ontent"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_left">
+                    <span>喂养方式：</span>
+                    <div class="read_content_detail_num read_content_detail_num_left feedingWay"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_right">
+                    <span>吃奶次数：</span>
+                    <div class="read_content_detail_num read_content_detail_num_right feedingTimes"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_left">
+                    <span>小便次数：</span>
+                    <div class="read_content_detail_num read_content_detail_num_left peeTimes"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_right">
+                    <span>体重（g）:</span>
+                    <div class="read_content_detail_num read_content_detail_num_right weight"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_left">
+                    <span>大便次数：</span>
+                    <div class="read_content_detail_num read_content_detail_num_left shitTimes"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_right">
+                    <span>皮肤黄染：</span>
+                    <div class="read_content_detail_num read_content_detail_num_right skinYellowDyeFlag"></div>
+                </div>
+            </div>
+        </div>
+        <div class="item item_middle">
+            <input type="hidden"  class="day_id">
+            <input type="hidden"  class="feedingDay" value="6">
+            <div class="read_content">
+                <div class="read_content_title to_edit">
+                    <span>第六天</span>
+                    <div class="pink_pen edit_read_ontent"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_left">
+                    <span>喂养方式：</span>
+                    <div class="read_content_detail_num read_content_detail_num_left feedingWay"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_right">
+                    <span>吃奶次数：</span>
+                    <div class="read_content_detail_num read_content_detail_num_right feedingTimes"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_left">
+                    <span>小便次数：</span>
+                    <div class="read_content_detail_num read_content_detail_num_left peeTimes"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_right">
+                    <span>体重（g）:</span>
+                    <div class="read_content_detail_num read_content_detail_num_right weight"></div>
+                </div>
+                  <div class="read_content_detail read_content_detail_left">
+                    <span>大便次数：</span>
+                    <div class="read_content_detail_num read_content_detail_num_left shitTimes"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_right">
+                    <span>皮肤黄染：</span>
+                    <div class="read_content_detail_num read_content_detail_num_right skinYellowDyeFlag"></div>
+                </div>
+            </div>
+        </div>
+        <div class="item item_middle">
+            <input type="hidden"  class="day_id">
+            <input type="hidden"  class="feedingDay" value="7">
+            <div class="read_content">
+                <div class="read_content_title to_edit">
+                    <span>第七天</span>
+                    <div class="pink_pen edit_read_ontent"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_left">
+                    <span>喂养方式：</span>
+                    <div class="read_content_detail_num read_content_detail_num_left feedingWay"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_right">
+                    <span>吃奶次数：</span>
+                    <div class="read_content_detail_num read_content_detail_num_right feedingTimes"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_left">
+                    <span>小便次数：</span>
+                    <div class="read_content_detail_num read_content_detail_num_left peeTimes"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_right">
+                    <span>体重（g）:</span>
+                    <div class="read_content_detail_num read_content_detail_num_right weight"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_left">
+                    <span>大便次数：</span>
+                    <div class="read_content_detail_num read_content_detail_num_left shitTimes"></div>
+                </div>
+                <div class="read_content_detail read_content_detail_right">
+                    <span>皮肤黄染：</span>
+                    <div class="read_content_detail_num read_content_detail_num_right skinYellowDyeFlag"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script>
+        $(function(){
+            var localhostUrl=window.location.origin;
+            var query=getRequest();
+            var healthBookId=query.healthBookId;
+            var babyId=query.babyId;
+            window.addEventListener('pageshow', function () {
+                //疫苗与筛查
+                $.ajax({
+                    type:"post",
+                    url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_childRearingRecordVaccine_data?babyId='+babyId+"&ram="+Math.random(),
+                    dataType:'json',
+                    contentType:'application/json;charset=UTF-8',
+                    success:function(data){
+                        if(data.res==0){
+                            console.log(data);
+                            var msg=data.data;
+                            for(var o in msg){
+                                $("#"+o).text(msg[o]);
+                                if(msg.neonatalScreeningFlag!=null&&msg.neonatalScreeningFlag==true){
+                                    $('#neonatalScreeningFlag').text('有');
+                                }else if(msg.neonatalScreeningFlag!=null&&msg.neonatalScreeningFlag==false){
+                                    $('#neonatalScreeningFlag').text('无');
+                                }
+                                if(msg.hearingScreeningFlag!=null&&msg.hearingScreeningFlag==true){
+                                    $('#hearingScreeningFlag').text('有');
+                                }else if(msg.hearingScreeningFlag!=null&&msg.hearingScreeningFlag==false){
+                                    $('#hearingScreeningFlag').text('无');
+                                }
+                                $('#parentingRecord').val(msg.parentingRecord);
+                            }
+                        }else{
+                            alert('请求失败');
+                        }
+                    },
+                    error:function () {
+                        alert('请求失败');
+                        return;
+                    }
+                });
+                //育儿记录
+                $.ajax({
+                    type:"post",
+                    url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_newBabyEarlyChildRearingRecord_data?babyId='+babyId+"&ram="+Math.random(),
+                    dataType:'json',
+                    contentType:'application/json;charset=UTF-8',
+                    success:function(data){
+                        console.log(data);
+                        if(data.res==0){
+                            var msg=data.data;
+                            $('.feedingDay').each(function(){
+                                for(var o in msg){
+                                    if($(this).val()==msg[o].feedingDay){
+                                        for(var i in msg[o]){
+                                            $(this).next().find("."+i).text(msg[o][i]);
+//                                            console.log(msg[o]['id']);
+                                            msg[o]['feedingWay']==1&&$(this).next().find('.feedingWay').text('母乳');
+                                            msg[o]['feedingWay']==2&&$(this).next().find('.feedingWay').text('人工');
+                                            msg[o]['feedingWay']==3&&$(this).next().find('.feedingWay').text('混合');
+                                            msg[o]['skinYellowDyeFlag']==true&&$(this).next().find('.skinYellowDyeFlag').text('有');
+                                            msg[o]['skinYellowDyeFlag']==false&&$(this).next().find('.skinYellowDyeFlag').text('无');
+                                            $(this).prev().val(msg[o]['id']);
+                                        }
+                                    }
+                                }
+                            })
+                        }else{
+                            alert('请求失败');
+                        }
+                    },
+                    error:function () {
+                        alert('请求失败');
+                        return;
+                    }
+                });
+            });
+            $('.first_item').click(function () {
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_bacterinAndScreen_page?healthBookId="+healthBookId+"&babyId="+babyId;
+            })
+            $('.to_edit').click(function(){
+                var id=$(this).parents('.item_middle').find('.day_id').val();
+                var feedingDay=$(this).parents('.item_middle').find('.feedingDay').val();
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_addNewBabyRecord_page?healthBookId="+healthBookId+'&id='+id+'&feedingDay='+feedingDay+'&babyId='+babyId;
+            })
+        })
+    </script>
+</body>
+</html>

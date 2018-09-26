@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>体重</title>
+	<meta charset="utf-8">
+	<link type="text/css" rel="stylesheet" href="/web-bin/resources/css/fonts.css"/>
+	<link type="text/css" rel="stylesheet" href="/web-bin/resources/mypagination/js/myPagination/page.css"/>
+	<link type="text/css" rel="stylesheet" href="/web-bin/interview/followup/healthMonitor/css/healthMonitor.css">
+</head>
+<body>
+    <div class="wrapper">
+	    <div class="mainContent T1" id="mainContent">
+		    <div class="select_qt">
+			  	  <div class="select_nav">
+	              	 <input class="add-input laydate-icon" type="text" id="beginDate"/>
+	              	 <span>至</span>
+	              	 <input class="add-input laydate-icon" type="text" id="endDate"/>
+	              	 <div class="flat_blue_highlight search" id="chartQusery">搜&nbsp;索</div>
+	              </div>
+            </div>
+		    <div class="chart_item">
+			  	 <div class="content_title">
+                     <div class="bTitle_text T4">图表数据</div>
+                 </div>
+                 <div class="chart" id="chart" style="padding-top:26px">
+					 <div id="loading" style="position:absolute;left:49%;top:39%"></div>
+					 <div id="container" style="height: 480px;"></div>
+	             </div>
+			</div>
+			<div>
+				 <div class="content_title" style="margin-top:10px">
+                     <div class="bTitle_text T4">表格数据</div>
+                 </div>
+                 <div class="content_table" style="padding-bottom:20px">
+                     <!-- JTemplate模板 -->
+					 <p style="display:none"><textarea id="Template-ListRows" rows="0" cols="0">
+	                     <table cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%">
+	                     	<tr>
+	                            <td>监测日期</td>
+	                            <td>体重</td>
+	                            <td>身高</td>
+	                            <td>BMI</td>
+	                            <td>是否异常</td>
+	                            <td>操作</td>
+	                        </tr>
+	                        {#foreach $T as Row}
+                        	<tr>
+	                            <td>{($T.Row.measuringTime).substring(0,16)}</td>
+								<td>{$T.Row.healthValue}kg</td>
+								<td>{($T.Row.instruction).split("/")[0]}cm</td>
+								<td>{($T.Row.instruction).split("/")[1]}</td>
+	                            <td>
+									{#if $T.Row.healthStatus =='-2'}
+                                    <div style="padding:5px 0 5px 5px;float:left;background-color:#FCDAD2;width:80px"><span style="color:red">偏瘦</span></div>
+                                    {#elseif $T.Row.healthStatus =='2'}
+                                    <div style="padding:5px 0 5px 5px;float:left;background-color:#FCDAD2;width:80px"><span style="color:red">偏胖</span></div>
+                                    {#elseif $T.Row.healthStatus =='3'}
+                                    <div style="padding:5px 0 5px 5px;float:left;background-color:#FCDAD2;width:80px"><span style="color:red">肥胖</span></div>
+                                    {#else}
+                                    <div>正常</div>
+                                    {#/if}
+                              	</td>
+                              	<td>
+	                            	{#if $T.Row.healthStatus!=0&&$T.Row.healthStatus!=14&&$T.Row.reportStatus==1}
+									<a href="javascript:void(0)" class="a_color1" onclick="showHandle('{$T.Row.healthId}')">查看处理</a>
+									{#else}
+									——
+                              		{#/if}
+	                            </td>
+	                        </tr>
+	                        {#/for}
+	                     </table>
+                     </textarea></p>
+                     <div id="dataTable"></div>
+                 </div>
+                 <div class="bottom-page">
+				     <div id="page" style="border:1px solid #DFDFDF;margin-bottom:10px;padding-bottom:8px;padding-top:6px;border-top:0"></div>
+			     </div>
+			</div>
+	    </div>
+    </div>
+</body>    
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/artDialog.source.js?skin=white"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/iframeTools.source.js"></script>
+<script type="text/javascript" src="/web-bin/resources/laydate/laydate.js"></script>
+<script type="text/javascript" src="/web-bin/resources/mypagination/js/myPagination/jquery.myPagination6.0.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/js/highcharts.js"></script>
+<script type="text/javascript" src="/web-bin/resources/js/highcharts-more.js"></script>
+<script type="text/javascript" src="/web-bin/interview/followup/healthMonitor/js/weight.js"></script>
+<script>
+    window.onload=function(){
+	   change();
+	};
+    $(window).resize(function(){
+	   change();
+	});
+	function change(){
+	   $("html").height($(window).height());
+	   $("#mainContent").width($(window).width()-22);
+	}
+	$(function(){
+	   //滚动条
+	   $("html").height($(window).height());
+	   $("html").niceScroll({
+	       railpadding: { top:0, right: 2, left: 0, bottom:0 },
+           horizrailenabled:false//掩藏水平滚动条
+       });
+	});
+</script>

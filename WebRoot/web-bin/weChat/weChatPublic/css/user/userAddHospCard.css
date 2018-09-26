@@ -1,0 +1,33 @@
+.user_input{width:100%;overflow: hidden;margin-bottom:30px;}
+.user_input .hospCard{
+    width:100%;
+    height:50px;
+    line-height:50px;
+    font-size:15px;
+    padding:0 15px;
+    background-color: #fff;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+.user_input .hospCard input{
+    font-size:15px;
+    margin-left:15px;
+    height:100%;
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    -moz-flex-grow: 1;
+}
+.footer{width:92%;height:37px;display: block;background-color: #00a1d8;line-height:37px;text-align: center;font-size:17px;color:#fff;margin:0 auto;border-radius:2px;}
+.error{width:100%;height:100%;display:none;position: fixed;top:0;left:0;background:rgba(0,0,0,0.5);}
+.error_box{width:81.3%;height:3.8rem;display: block;position: absolute;top:50%;left:50%;margin-top:-2.65rem;margin-left:-40.65%;border-radius:0.08rem;background-color: #fff;}
+.error_box .error_inner{margin:0 0.35rem 0;overflow: hidden;}
+.error_box .error_inner .error_tips{height:0.8rem;font-size:0.35rem;color:#01a0d7;border-bottom:1px solid #d9d9d9;text-align: center;}
+.error_box .error_inner .error_tips span{line-height:0.8rem;}
+.error_box .error_content{height:2.05rem;overflow: hidden;font-size:0.3rem;position:relative;width:100%;}
+.error_box .error_con_inner{margin:0 auto;overflow: hidden;}
+.error_box .error_content span{width:50%;text-align: center;float: left;padding:0.7rem 0;word-wrap:break-word;}
+.error_box .error_content i.error_icon{width:0.6rem;height:0.6rem;display:block;background: url(../../img/icon_08.png)no-repeat;background-size: 100%;float: left;margin:0.8rem 0.4rem 0.8rem 0.5rem;}
+.error_box .error_close{width:100%;height:0.8rem;display: block;position: absolute;bottom:0;left:0;border-top:1px solid #dbdbdb;text-align: center;line-height:0.8rem;font-size:0.35rem;color:#01a2d8;}

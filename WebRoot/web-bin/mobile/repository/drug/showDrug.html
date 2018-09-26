@@ -1,0 +1,73 @@
+<!doctype html>
+<html  lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>药品知识库详情</title>
+	<meta name="Viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">    
+	<link rel="stylesheet" href="/web-bin/resources/css/basic.css">
+	<link rel="stylesheet" href="/web-bin/mobile/repository/drug/css/showDrug.css">
+	<script src="/web-bin/resources/rem/rem.js"></script>
+</head>
+<body>
+<section>
+	<div class="drug_title"></div>
+	<div class="sub_box">
+		<span class="sub"></span>
+	</div>
+	<div class="title_commit">
+		<div class="commit_in component"></div>
+	</div>
+	<ul class="drugMes_list">
+		<li class="drugItem_box">
+			<div class="drugItem">
+				<div class="drugItem_text substr">禁忌</div>
+				<div class="arrow"></div>
+			</div>
+				<div class="detail hiddenDetail">
+					<div class="contain_in contraindications"></div>
+				</div>
+		</li>
+		<li class="drugItem_box">
+			<div class="drugItem">
+				<div class="drugItem_text substr">药物剂量</div>
+				<div class="arrow"></div>
+			</div>
+			 	<div class="detail hiddenDetail">
+					<div class="contain_in dosage"></div>
+				</div>
+		</li>
+		<li class="drugItem_box">
+			<div class="drugItem">
+				<div class="drugItem_text substr">适应症</div>
+				<div class="arrow"></div>
+			</div>
+			 	<div class="detail hiddenDetail">
+					<div class="contain_in indication"></div>
+				</div>
+		</li>
+		<li class="drugItem_box">
+			<div class="drugItem">
+				<div class="drugItem_text substr">注意事项</div>
+				<div class="arrow"></div>
+			</div>
+			 	<div class="detail hiddenDetail">
+					<div class="contain_in precautions"></div>
+				</div>
+		</li>
+		<li class="drugItem_box">
+			<div class="drugItem">
+				<div class="drugItem_text substr">不良反应</div>
+				<div class="arrow"></div>
+			</div>
+			 	<div class="detail hiddenDetail">
+					<div class="contain_in adverseReactions"></div>
+				</div>
+		</li>
+	</ul>
+</section>
+<script src="/web-bin/resources/zepto/zepto.js"></script>
+<script src="/web-bin/resources/config/config.js"></script>
+<script src="/web-bin/mobile/repository/drug/js/showDrug.js"></script>
+</body>
+</html>

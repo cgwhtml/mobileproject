@@ -1,0 +1,74 @@
+body{
+    /*上下 左右*/
+    padding: 0 10px;
+    box-sizing: border-box;
+
+}
+/*文字*/
+.question{
+    font-size: 14px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    /*文字一行 省略号显示*/
+    width: 100%;   /*必须设置宽度*/
+    max-width: 85%;      /*显示一行中的85%长度*/
+    white-space: nowrap;/*强制不换行*/
+    overflow: hidden; /*溢出隐藏*/
+    text-overflow: ellipsis /*强制不换行*/
+}
+.infinite_scroll{ /*滚动加载*/
+    font-size: 14px;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    justify-content:center ;/*线性布局 左右两边*/
+    align-items: center;
+   /* display: none;*/
+
+}
+.infinite_preloader{ /*转圈的菊花*/
+    height: 30px;
+    display: flex;
+    align-items: center;
+    margin-right: 3px;
+}
+.infinite_preloader>img.play{
+    -webkit-animation: music_disc 1.5s linear infinite;
+    -o-animation: music_disc 1.5s linear infinite ;
+    animation:  music_disc 1.5s linear infinite;
+}
+@-webkit-keyframes  music_disc {
+    0%{
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+/*list item样式*/
+ul li{
+    width: 100%;
+    height: 45px;
+    margin-top: 10px;
+    border-radius: 4px;
+    background: #ffffff;
+
+    display: flex;
+    justify-content: space-between ;/*线性布局 左右两边*/
+    align-items: center;
+
+    padding-right: 15px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}

@@ -1,0 +1,78 @@
+html,body{overflow: auto;}
+.patient_info{width:92%;margin:0.3rem auto 0;background-color: #fff;border-radius:0.18rem;overflow: hidden;padding-bottom:0.1rem;box-shadow:-0.04rem 0 0.04rem #e4e6e5,0 0 0 #e4e6e5,0.04rem 0 0.04rem 0.04rem #e4e6e5,0 0.04rem 0.04rem #e4e6e5;}
+.appoint_info{width:92%;margin:0.3rem auto 0.35rem;background-color: #fff;border-radius:0.18rem;overflow: hidden;padding-bottom:0.1rem;box-shadow:-0.04rem 0 0.04rem #e4e6e5,0 0 0 #e4e6e5,0.04rem 0 0.04rem 0.04rem #e4e6e5,0 0.04rem 0.04rem #e4e6e5;}
+.appoint_info p{overflow: hidden;}
+.appoint_info p span{float:left;margin-right:0.1rem;}
+.appoint_btn{height:0.9rem;width:92%;margin:0 auto;background-color: #00a1d8;border-radius:0.08rem;font-size:0.35rem;line-height:0.9rem;text-align: center;color:#fff;}
+.info_title{height:0.4rem;margin:0.4rem 0 0 0;font-weight:bold;padding-left:0.3rem;line-height:0.4rem;font-size:0.3rem;}
+.patient_info .info_title{border-left:0.1rem solid #00a1d8;color:#00a1d8;}
+.appoint_info .info_title{border-left:0.1rem solid #00bd85;color:#00bd85;}
+.patient_info ul li,.appoint_info ul li{height:0.8rem;line-height:0.8rem;margin-left:0.2rem;border-bottom:1px solid #d9d9d9;position: relative;}
+.patient_info ul li label,.appoint_info ul li label{width:1.3rem;float:left;margin-right:0.4rem;font-weight:bold;}
+.patient_info .card_select,.memberSelect{position: absolute;width:1.3rem;height:0.6rem;display: block;background-color: #39bcea;color:#fff;line-height:0.6rem;text-align: center;right:0.2rem;top:0.1rem;border-radius:0.08rem;font-size:0.22rem;}
+.success,.error,.cancel,.cancel_success{width:100%;height:100%;display:none;position: fixed;top:0;left:0;background:rgba(0,0,0,0.5);}
+.success_box{width:81.3%;height:5.3rem;display: block;position: absolute;top:50%;left:50%;margin-top:-2.65rem;margin-left:-40.65%;border-radius:0.08rem;background-color: #fff;}
+.error_box{width:81.3%;height:3.8rem;display: block;position: absolute;top:50%;left:50%;margin-top:-1.9rem;margin-left:-40.65%;border-radius:0.08rem;background-color: #fff;}
+.cancel_box{width:81.3%;height:3.8rem;display: block;position: absolute;top:50%;left:50%;margin-top:-1.9rem;margin-left:-40.65%;border-radius:0.08rem;background-color: #fff;}
+.success_box .success_inner{margin:0 0.35rem 0.3rem;overflow: hidden;}
+.error_box .error_inner{margin:0 0.35rem 0;overflow: hidden;}
+.success_box .success_inner .success_tips{height:1.6rem;font-size:0.35rem;color:#00bd85;border-bottom:1px solid #d9d9d9;}
+.error_box .error_inner .error_tips{height:1rem;font-size:0.35rem;color:#01a0d7;border-bottom:1px solid #d9d9d9;text-align: center;}
+.error_box .error_inner .error_tips span{line-height:1rem;}
+.success_box .success_inner .success_icon{width:0.7rem;height:0.7rem;display: inline-block;background: url(../../img/icon_07.png)no-repeat;margin:0.45rem 0.4rem 0 1.25rem;background-size: 100%;float: left;}
+.success_box .success_inner .success_tips span{line-height:1.6rem;text-align: center;}
+.success_box .success_inner .success_rules{padding:0.2rem;color:#acacac;font-size:0.24rem;}
+.success_box .success_inner .success_rules p{line-height:2;}
+.success_box .success_inner .skip_btn{height:0.8rem;background-color: #00a1d8;border-radius:0.08rem;position: absolute;bottom:0.2rem;left:50%;width:90%;margin-left:-45%;color:#fff;font-size:0.35rem;text-align: center;line-height:0.8rem;}
+.error_box .error_content{height:2.05rem;overflow: hidden;font-size:0.3rem;position:relative;width:100%;}
+.error_box .error_con_inner{margin:0 auto;overflow: hidden;}
+.error_box .error_content span{width:50%;text-align: center;float: left;padding:0.7rem 0;word-wrap:break-word;}
+.error_box .error_content i.error_icon{width:0.6rem;height:0.6rem;display:block;background: url(../../img/icon_08.png)no-repeat;background-size: 100%;float: left;margin:0.8rem 0.4rem 0.8rem 0.5rem;}
+.error_box .error_content i.success_icon{width:0.6rem;height:0.6rem;display:block;background: url(../../img/icon_07.png)no-repeat;background-size: 100%;float: left;margin:0.8rem 0.4rem 0.8rem 0.5rem;}
+.error_box .error_close{width:100%;height:0.8rem;display: block;position: absolute;bottom:0;left:0;border-top:1px solid #dbdbdb;text-align: center;line-height:0.8rem;font-size:0.35rem;color:#01a2d8;}
+.cancel_box .cancel_close{width:100%;height:0.8rem;display: block;position: absolute;bottom:0;left:0;border-top:1px solid #dbdbdb;text-align: center;line-height:0.8rem;font-size:0.35rem;color:#01a2d8;}
+.cancel_box .cancel_close span{width:50%;text-align: center;line-height:0.8rem;float:left;}
+.cancel_box .cancel_close span.cancel_cancel{color:#666666;}
+.cancel_box .cancel_close span.cancel_submit{color:#02a2dc;}
+.hospCard_box{width:100%;background-color: #fff;position:fixed;bottom:0;left:0;border-top:1px solid #d9d9d9;display:none;}
+.hospCard_box_header{width:100%;height:0.8rem;display: block;border-bottom:1px solid #d9d9d9;}
+.hosp_header_close{float:right;line-height:0.8rem;height:0.8rem;display: inline-block;margin-right:0.4rem;font-size:0.3rem;}
+.hospCard_box_content{text-align: center;}
+.hospCard_box_content ul li{height:0.8rem;line-height:0.8rem;}
+.hospCard_box_content ul li:hover{background-color: #02a2dc;color:#fff;}
+.hospCard_span{display: none;}
+.main{display: block;overflow: auto;}
+
+.myAppoint{width:100%;display:none;background-color: #f4f4f4;padding:0.3rem;box-sizing: border-box;overflow:auto;}
+.myAppoint h2.myAppoint_header{font-size:0.24rem;text-align: center;line-height:1.2;color:#00a4d9;margin-bottom:0.25rem;}
+.myAppoint .appoint_span{height:4.6rem;width:100%;background-color: #fff;margin-bottom:0.3rem;position: relative;}
+.myAppoint .span_header{width:100%;height:1.28rem;background-color: #46d9bf;color:#fff;border-radius:0 0 0.08rem 0.08rem;}
+.myAppoint .span_header p{float:left;margin:0.4rem 0 0 0.2rem;}
+.myAppoint .span_header p .header_txt{font-size:0.35rem;font-weight:bold;}
+.myAppoint .span_header p .header_txt i{color:#f1354d;margin-left:0.1rem;}
+.myAppoint .span_header .cancel_appoint{float:right;height:1.04rem;width:1.8rem;margin:0.12rem 0.2rem 0 0;padding:0.1rem 0 0 0.2rem;box-sizing: border-box;border-left:1px dashed #fff;display: inline-block;line-height:0.9rem;font-size:0.3rem;}
+.myAppoint .span_middle{height:2.1rem;width:100%;border-top:1px dashed #fff;margin-top:-0.05rem;border-radius:0.08rem 0.08rem 0 0;}
+.myAppoint .span_middle .span_img{margin:0.4rem 0.2rem 0;float:left;width:1rem;height:1rem;background: url(../../img/icon_03.png) no-repeat;background-size: 100%;}
+.myAppoint .span_middle .span_content{float:left;color:#9c9c9c;line-height:1.6;margin-top:0.3rem;}
+.myAppoint .span_middle .span_content h2{font-size:0.22rem;color:#9c9c9c;}
+.myAppoint .span_middle .span_content h2 b{font-size:0.3rem;font-weight:bold;color:#333333;margin-left:0.2rem;}
+.myAppoint .span_middle .span_content span b{color:#333333;}
+.myAppoint .span_middle .span_content span i{color:#fe001f;}
+.span_footer{height:1.23rem;display: block;position: absolute;bottom:0;left:0;width:100%;border-top:1px dashed #c6c6c6;}
+.span_footer p{margin:0.2rem;font-size:0.22rem;}
+.span_footer p label{color:#8a8a8a;margin-right:0.2rem;}
+.cancel_box .cancel_inner .cancel_tips{height:1rem;font-size:0.35rem;color:#01a0d7;border-bottom:1px solid #d9d9d9;text-align: center;}
+.cancel_box .cancel_inner .cancel_tips span{line-height:1rem;}
+.cancel_box .cancel_content{height:2.05rem;overflow: hidden;font-size:0.3rem;display: table-cell;vertical-align: middle;}
+.cancel_box .cancel_content span{display:block;margin:0 0.3rem;}
+.header_tips{display: none;}
+.header_txt.canceled{display: none;}
+.header_txt.visited{display: none;}
+.appoint_span.booking .cancel_appoint{color:#f1354d;}
+.appoint_span.canceled .span_header{background-color: #787878;color:#fff;}
+.appoint_span.canceled .span_header .cancel_appoint{display: none;}
+.appoint_span.canceled .span_header span.booking{display: none;}
+.appoint_span.canceled .span_header span.canceled{display: block;}
+.appoint_span.visited .span_header{background-color: #787878;color:#fff;}
+.appoint_span.visited .span_header span.booking{display: none;}
+.appoint_span.visited .span_header span.visited{display: block;}

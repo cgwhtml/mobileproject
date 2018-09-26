@@ -1,0 +1,111 @@
+body{
+	background-color:#fff;
+}
+.wrapper{
+	min-height: 100%;
+}
+.mainContent{
+	position: relative;
+	margin-left:10px;
+}
+.select_qt{
+	height:46px;
+	width:100%;
+	position:relative;
+	box-sizing: border-box;
+}
+.select_nav{
+	position:absolute;
+	top:10px;
+	left:0;
+}
+.select_qt input[type="text"]{
+	width:110px;
+	border-radius: 3px;
+}
+.select_qt p{
+	position: absolute;
+    top: 15px;
+    left: 10px;
+}
+.chart_item .panel-head ul{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    float: left;
+    text-align: center;
+    border-bottom: 1px solid #E1E1E1;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.panel-head ul li{
+    float: left;
+    margin-right: 30px;
+}
+.panel-head ul li img {
+    vertical-align: middle;
+    margin-top:-4px;
+}
+.chart{
+	background-color:#FFFFFF;
+	border: 1px solid #DFDFDF;
+    border-top: 0;
+    padding-right:20px;
+    padding-top:60px;
+}
+.contentChart{
+    width: 1200px;
+    height: 210px;
+    margin-top: 20px;
+}
+.oyLabel{
+    width: 25px;
+    height: 210px;
+    float: left;
+    margin-top: 20px;
+    margin-left: 8px;
+}
+.oxLabel{
+    width: 1200px;
+    height: 25px;
+    margin-left: 41px;
+}
+.uterusYLabel {
+    width: 25px;
+    height: 100px;
+    float:left;
+    margin-top: 0px;
+    margin-left: 8px;
+}
+.uterusChart {
+    width: 1200px;
+    height: 100px;
+    margin-top: 0px;
+}
+.content_table {
+    background-color: #FFFFFF;
+    border: 1px solid #E1E1E1;
+    border-bottom:0;
+    border-top:0;
+}
+.content_table table tr {
+	height:30px;
+}
+.content_table table td {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+/************************************/
+.search{
+    float: right;
+    margin-left: 10px;
+}
+.setUp{
+	float: right;
+    margin-top: 10px;
+    width:140px;
+}
+
+
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>慢病随访自助建档</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/css/basicMobile.css"/>
+    <link rel="stylesheet" href="/web-bin/resources/weui/weui.min.css">
+    <link rel="stylesheet" href="/web-bin/resources/weui/jquery-weui.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/chronicDiseases/selfFiling/css/fileList.css">
+</head>
+<body>
+<div class="main">
+    <p class="title-text">请根据自身情况选择对应的随访档案进行自助建档。</p>
+    <p style="display:none"><textarea id="Template-ListRows" rows="0" cols="0">
+    <div class="list-content">
+        {#foreach $T as msg}
+        <div id="{$T.msg.menuId}" class="menu">
+            <input type="hidden" id="empiId" value="{$T.msg.empiId}">
+            <input type="hidden" id="pcAuditFlag" value="{$T.msg.pcAuditFlag}">
+            <span class="substr">{$T.msg.menuName}</span>
+            <div class="menu_opt">
+                {#if $T.msg.pcAuditFlag==0}
+                <span class="color-warning">未建档</span>
+                {#elseif $T.msg.pcAuditFlag==1}
+                <span class="color-primary">已建档</span>
+                {#elseif $T.msg.pcAuditFlag==2}
+                <span class="color-success">已提交</span>
+                {#/if}
+                <span class="gray_arrow right-icon" id="{$T.msg.pcAuditFlag}"></span>
+            </div>
+        </div>
+        {#/for}
+    </div>
+    </textarea></p>
+    <div id="data_table"></div>
+</div>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/weui/jquery-weui.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/mobile/chronicDiseases/selfFiling/js/fileList.js"></script>
+</body>
+</html>

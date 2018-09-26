@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>阅读</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <style>
+        .r_m_maternity18 .pink_content_title:FIRST-CHILD{
+            text-align: center;
+        }
+        .r_m_maternity18 .check_time{
+            width: 7.2rem;
+            margin: 0 auto;
+        }
+        .r_m_maternity18 .pink_cut_line{
+            margin-top: 0.253rem;
+            margin-bottom: 0.373rem;
+        }
+        .r_m_maternity18 .sc_checked,
+        .r_m_maternity18 .sc_unchecked{
+            background-size: 0.28rem 0.28rem;
+            width: 0.28rem;
+            height: 0.28rem;
+        }
+        .r_m_maternity18 .content_detail_textarea{
+            width: 7.2rem;
+            height: 0.9rem;
+            float: right;
+            color: #333;
+        }
+        .r_m_maternity18 .c_basic_info{
+            margin-top: 0.566rem;
+        }
+        .r_m_maternity18 .content_font1:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .r_m_maternity18 .content{
+            margin-top: 0.266rem;
+        }
+        @media (min-height:501px) and (max-height:550px) and (-webkit-min-device-pixel-ratio:1){
+            .r_m_maternity18 .mc_content_main .content_font1{line-height: 0.4rem !important;}
+            .r_m_maternity18 .add_style{
+                margin-right: 0.7rem !important;
+            }
+            .r_m_maternity18 .add_style1{
+                margin-left: 0.12rem !important;
+            }
+            .r_m_maternity18  #rhBloodType,
+            .r_m_maternity18  #aboBloodType{
+                width: 1.04rem !important;
+            }
+            .r_m_maternity18  .add_style3{
+                margin-right: 1.3rem !important;
+            }
+            .r_m_maternity18  .add_style2{
+                margin-right: 0.8rem !important;
+            }
+        }
+        @media (min-height:551px) and (max-height:600px) and (-webkit-min-device-pixel-ratio:1){
+            .r_m_maternity18 .add_style{
+                margin-right: 0.7rem !important;
+            }
+            .r_m_maternity18 .add_style1{
+                margin-left: 0.25rem !important;
+            }
+            .r_m_maternity18  #rhBloodType,
+            .r_m_maternity18  #aboBloodType{
+                width: 1.08rem !important;
+            }
+            .r_m_maternity18  .add_style3{
+                margin-right: 1.3rem !important;
+            }
+            .r_m_maternity18 #guidance{
+                line-height: 0.52rem;
+                height: 0.52rem;
+                box-sizing: border-box;
+            }
+        }
+        @media (min-height:601px) and (max-height:650px) and (-webkit-min-device-pixel-ratio:1){
+            .r_m_maternity18 .add_style{
+                margin-right: 0.63rem !important;
+            }
+            .r_m_maternity18 .add_style1{
+                margin-left: 0.22rem !important;
+            }
+            .r_m_maternity18  #rhBloodType,
+            .r_m_maternity18  #aboBloodType{
+                width: 1.04rem !important;
+            }
+            .r_m_maternity18  .add_style3{
+                margin-right: 1.3rem !important;
+            }
+            .r_m_maternity18 .pink_content_title{
+                padding-bottom: 0 !important;
+            }
+            .r_m_maternity18 .mc_content_main .content_font1{line-height: 0.51rem !important;}
+            .r_m_maternity17 #guidance{line-height: 0.51rem !important;height: 0.51rem;box-sizing: border-box}
+            .r_m_maternity18 .sc_checked,
+            .r_m_maternity18 .sc_unchecked{background-size: 0.3rem 0.3rem;background-repeat: no-repeat;display:inline-block;width:0.32rem;height:0.32rem;}
+        }
+        @media (min-height:621px) and (max-height:650px) and (-webkit-min-device-pixel-ratio:1){
+            .r_m_maternity18 .add_style{
+                margin-right: 0.58rem !important;
+            }
+            .r_m_maternity18 .add_style1{
+                margin-left: 0.14rem !important;
+            }
+            .r_m_maternity18  #rhBloodType,
+            .r_m_maternity18  #aboBloodType{
+                width: 1rem !important;
+            }
+            .r_m_maternity18  .add_style3{
+                margin-right: 1.2rem !important;
+            }
+            .r_m_maternity18 .add_style2{
+                margin-right: 0.68rem !important;
+            }
+            .r_m_maternity18 .pink_content_title{
+                padding-bottom: 0 !important;
+            }
+            .r_m_maternity18 .mc_content_main .content_font1{line-height: 0.51rem !important;}
+            .r_m_maternity17 #guidance{line-height: 0.51rem !important;height: 0.51rem;box-sizing: border-box}
+            .r_m_maternity18 .sc_checked,
+            .r_m_maternity18 .sc_unchecked{background-size: 0.3rem 0.3rem;background-repeat: no-repeat;display:inline-block;width:0.32rem;height:0.32rem;}
+        }
+        @media (min-height:1001px) and (max-height:1100px) and (-webkit-min-device-pixel-ratio:2){
+            .r_m_maternity18 .add_style{
+                margin-right: 0.4rem !important;
+            }
+            .r_m_maternity18 .add_style1{
+                margin-left: 0.05rem !important;
+            }
+            .r_m_maternity18 .add_style2{
+                margin-right: 0.7rem !important;
+            }
+            .r_m_maternity18  .add_style3{
+                margin-right: 1.16rem !important;
+            }
+        }
+        @media (min-height:1201px) and (max-height:1300px) and (-webkit-min-device-pixel-ratio:2){
+            .r_m_maternity18 .add_style{
+                margin-right: 0.4rem !important;
+            }
+            .r_m_maternity18 .add_style1{
+                margin-left: 0.05rem !important;
+            }
+            .r_m_maternity18 .add_style2{
+                margin-right: 0.7rem !important;
+            }
+            .r_m_maternity18  .add_style3{
+                margin-right: 1.16rem !important;
+            }
+        }
+        @media (min-height:1331px) and (max-height:1400px) and (-webkit-min-device-pixel-ratio:2){
+            .r_m_maternity18 .add_style{
+                padding-right: 0.53rem !important;
+            }
+            .r_m_maternity18 .add_style1{
+                margin-left: 0.06rem !important;
+            }
+            .r_m_maternity18 .add_style2{
+                margin-right: 0.7rem !important;
+            }
+            .r_m_maternity18  .add_style3{
+                margin-right: 1.16rem !important;
+            }
+            .r_m_maternity18 #urine_test_other{
+                width: 4.95rem !important;
+            }
+        }
+        .r_m_maternity18  .chosen_colr{
+            color: #D57DBD;
+        }
+    </style>
+</head>
+<body>
+    <div class="r_m_maternity r_m_maternity18">
+        <div class="gradient_top gradient_pink_top"></div>
+        <div class="mc_content_main">
+            <p class="pink_content_title">孕1~3月健康检查记录</p>
+            <div class="content">
+                <div class="content_font1 check_time font_size_22">
+                    <span>检查日期: </span>
+                    <input type="text" class="border_bottom" id="checkTimeYear" disabled="disabled" style="width:0.89rem"/>
+                    <span>年</span>
+                    <input type="text" class="border_bottom" id="checkTimeMonth" disabled="disabled" style="width:0.53rem"/>
+                    <span>月</span>
+                    <input type="text" class="border_bottom" id="checkTimeDay" disabled="disabled" style="width:0.53rem"/>
+                    <span>日</span>
+                    <span style="padding-left: 0.426rem">孕周：</span>
+                    <input type="text" class="border_bottom" id="gestationalWeek" disabled="disabled" style="width:0.89rem"/>
+                </div>
+            </div>
+            <div class="pink_cut_line"></div>
+            <div class="content">
+                <div class="content_font1 font_size_22">
+                    <span>体重:</span>
+                    <input type="text" class="border_bottom" id="weight" disabled="disabled" style="width:1.2rem"/>
+                    <span>kg</span>
+                    <span style="padding-left: 1.4rem">体质指数（BMI）：</span>
+                    <input type="text" class="border_bottom" id="bmiValue" disabled="disabled" style="width:1.2rem"/>
+                </div>
+                <div class="content_font1 font_size_22">
+                    <span>血压:</span>
+                    <input type="text" class="border_bottom" id="systolicPressure" disabled="disabled" style="width:1.2rem"/>
+                    <span>/</span>
+                    <input type="text" class="border_bottom" id="diastolicPressure" disabled="disabled" style="width:1.2rem"/>
+                    <span>mmHg</span>
+                </div>
+                <div class="pink_cut_line"></div>
+                <div class="content_font1 font_size_22">
+                    <div class="content_font1 bold pull_left" style="width: 39%">血常规:</div>
+                    <div class="content_font1 bold pull_left" style="width:61%;">尿常规:</div>
+                    <span>血红蛋白:</span>
+                    <input type="text" class="border_bottom" id="hemoglobin" disabled="disabled" style="width:1.5rem"/>
+                    <span>g/L</span>
+                    <span class="add_style1" style="padding-left: 0.1rem">尿蛋白:</span>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right albuminuria">有(<span>±</span>,<span>+</span>,<span>++</span>,<span>+++</span>,<span>++++</span>)</span>
+                        <span class="sc_unchecked pull_right" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right">无</span>
+                        <span class="sc_unchecked pull_right albuminuria" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                </div>
+                <div class="content_font1 font_size_22">
+                    <span>血小板计数:</span>
+                    <input type="text" class="border_bottom" id="plateletCount" disabled="disabled" style="width:0.79rem"/>
+                    <span>x10 <sup>9</sup>/L</span>
+                    <span class="add_style1" style="padding-left: 0.07rem">尿糖:</span>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right urineSugar">有(<span>±</span>,<span>+</span>,<span>++</span>,<span>+++</span>,<span>++++</span>)</span>
+                        <span class="sc_unchecked pull_right" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right">无</span>
+                        <span class="sc_unchecked pull_right urineSugar" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                </div>
+                <div class="content_font1 font_size_22">
+                    <span>其他:</span>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right ketone">有(<span>±</span>,<span>+</span>,<span>++</span>,<span>+++</span>,<span>++++</span>)</span>
+                        <span class="sc_unchecked pull_right" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right">无</span>
+                        <span class="sc_unchecked pull_right ketone" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                        <span class="add_style" style="padding-right: 0.14rem">尿酮体:</span>
+                    </div>
+                    <div class="pull_right" id="blood_test_other" style="width: 2.7rem;height: 1.16rem;overflow: hidden"><span id="bloodRoutineOther"></span></div>
+                    <div class="pull_right" style="margin-top: -0.75rem">
+                        <span class="add_style4">其他:</span>
+                        <div class="pull_right" id="urine_test_other" style="width: 5rem;height: 0.773rem"><span id="urineRoutineOther"></span></div>
+                    </div>
+                </div>
+                <div class="pink_cut_line"></div>
+                <div class="content_font1 font_size_22">
+                    <span>血型:</span>
+                    <span style="padding-left: 0.3rem">ABO</span>
+                    <input type="text" class="border_bottom" id="aboBloodType" disabled="disabled" style="width:0.93rem"/>
+                    <span>RH</span>
+                    <input type="text" class="border_bottom" id="rhBloodType" disabled="disabled" style="width:0.93rem"/>
+                    <span style="padding-left: 0.426rem">乙肝表面抗原:</span>
+                    <div class="pull_right hbsagFlag" style="padding: 0 0.13rem">
+                        <span class="pull_right">阳性</span>
+                        <span class="sc_unchecked pull_right item1" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right hbsagFlag" style="padding: 0 0.13rem">
+                        <span class="pull_right">阴性</span>
+                        <span class="sc_unchecked pull_right item0" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                </div>
+                <div class="content_font1 font_size_22">
+                    <span>肝功能:</span>
+                    <div class="pull_right syphilisSerumTestFlag" style="padding: 0 0.13rem">
+                        <span class="pull_right">阳性</span>
+                        <span class="sc_unchecked pull_right item1" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right syphilisSerumTestFlag" style="padding: 0 0.13rem">
+                        <span class="pull_right">阴性</span>
+                        <span class="sc_unchecked pull_right item0" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <span class="pull_right" style="padding-left: 0.426rem">梅毒血清学实验:</span>
+                    <div class="pull_right liverFunctionFlag add_style2" style="padding: 0 0.13rem;margin-right: 0.85rem">
+                        <span class="pull_right">异常</span>
+                        <span class="sc_unchecked pull_right item0" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right liverFunctionFlag" style="padding: 0 0.13rem">
+                        <span class="pull_right">正常</span>
+                        <span class="sc_unchecked pull_right item1 add_style4" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                </div>
+                <div class="content_font1 font_size_22">
+                    <span>肾功能:</span>
+                    <div class="pull_right hivAntibodyTestFlag" style="padding: 0 0.13rem">
+                        <span class="pull_right">阳性</span>
+                        <span class="sc_unchecked pull_right item1" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right hivAntibodyTestFlag" style="padding: 0 0.13rem">
+                        <span class="pull_right">阴性</span>
+                        <span class="sc_unchecked pull_right item0" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <span class="pull_right" style="padding-right: 0.35rem">HIV抗体检测:</span>
+                    <div class="pull_right renalFunctionFlag add_style3" style="padding: 0 0.13rem;margin-right: 1.28rem">
+                        <span class="pull_right">异常</span>
+                        <span class="sc_unchecked pull_right item0" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right renalFunctionFlag" style="padding: 0 0.13rem">
+                        <span class="pull_right">正常</span>
+                        <span class="sc_unchecked pull_right item1" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                </div>
+                <div class="pink_cut_line"></div>
+                <div class="content_font1 content_detail font_size_22">
+                    <span>处理及建议：</span>
+                    <div class="content_detail_textarea"><span id="processAdvice"></span></div>
+                </div>
+            </div>
+            <div class="c_basic_info">
+                <div class="c_info_title green_bg_color2 bold">指导事项</div>
+                <div class="note_box green_bg_color2">
+                    <div>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                    </div>
+                    <div style="position:absolute;top:0.04rem" class="font_size_22">
+                        <p class="content_font1"><span id="guidance"></span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="content_font1 check_office font_size_22">
+                    <span>检查单位：</span>
+                    <input type="text" class="border_bottom" id="checkUnitA" disabled style="width:4.52rem"/>
+                    <span>检查者：</span>
+                    <input type="text" class="border_bottom" id="checkerA" disabled style="width:1.6rem"/>
+                </div>
+            </div>
+        </div>
+        <div class="gradient_bottom gradient_pink_bottom"></div>
+    </div>
+    <script>
+        $(function(){
+            if(healthBookId!=''&&typeof(healthBookId)!="undefined"&&healthBookId!="undefined") {
+                $.ajax({
+                    type: "post",
+                    url: localhostUrl + '/web-bin/m/nosen/followup/maternalChild/handBook/query_oneThreePregnantHealthRecord_data?healthBookId=' + healthBookId,
+                    dataType: 'json',
+                    success: function (data) {
+                        var msg = data.data;
+                        if (msg) {
+                            for (o in msg) {
+                                $("#" + o).val(msg[o]);
+                            }
+                            $('#checkUnitA').val(msg.checkUnit);
+                            $('#checkerA').val(msg.checker);
+                            var checkTime = msg.checkTime;
+                            if (checkTime != null) {
+                                var checkTimeArr = checkTime.split('-');
+                                $('.r_m_maternity18 #checkTimeYear').val(checkTimeArr[0]);
+                                $('.r_m_maternity18 #checkTimeMonth').val(checkTimeArr[1]);
+                                $('.r_m_maternity18 #checkTimeDay').val(checkTimeArr[2]);
+                            }
+                            //血常规其他
+                            msg.bloodRoutineOther&&$('.r_m_maternity18 #bloodRoutineOther').text(msg.bloodRoutineOther);
+                            //尿蛋白
+                            var albuminuria = msg.albuminuria;
+                            if (albuminuria == '无') {
+                                $('.r_m_maternity18 .albuminuria:eq(1)').next().removeClass('sc_unchecked').addClass('sc_checked');
+                            } else {
+                                albuminuria&&$('.r_m_maternity18 .albuminuria:eq(0)').next().removeClass('sc_unchecked').addClass('sc_checked');
+                                $('.r_m_maternity18 .albuminuria:eq(0) span').each(function () {
+                                    albuminuria&&$(this).text() == albuminuria && $(this).addClass('chosen_colr');
+                                })
+                            }
+                            //尿糖
+                            var urineSugar = msg.urineSugar;
+                            if (urineSugar == '无') {
+                                urineSugar&&$('.r_m_maternity18 .urineSugar:eq(1)').next().removeClass('sc_unchecked').addClass('sc_checked');
+                            } else {
+                                urineSugar&&$('.r_m_maternity18 .urineSugar:eq(0)').next().removeClass('sc_unchecked').addClass('sc_checked');
+                                $('.r_m_maternity18 .urineSugar:eq(0) span').each(function () {
+                                    urineSugar&&$(this).text() == urineSugar && $(this).addClass('chosen_colr');
+                                })
+                            }
+                            //尿酮体
+                            var ketone = msg.ketone;
+                            if (ketone == '无') {
+                                $('.r_m_maternity18 .ketone:eq(1)').next().removeClass('sc_unchecked').addClass('sc_checked');
+                            } else {
+                                ketone&&$('.r_m_maternity18 .ketone:eq(0)').next().removeClass('sc_unchecked').addClass('sc_checked');
+                                $('.r_m_maternity18 .ketone:eq(0) span').each(function () {
+                                    ketone&&$(this).text() == ketone && $(this).addClass('chosen_colr');
+                                })
+                            }
+                            msg.urineRoutineOther&&$('.r_m_maternity18 #urineRoutineOther').text(msg.urineRoutineOther);
+                            var hbsagFlag = boolToNumber(msg.hbsagFlag);
+                            msg.hbsagFlag!=null&&$('.r_m_maternity18 .hbsagFlag .item'+hbsagFlag).removeClass('sc_unchecked').addClass('sc_checked');
+                            var liverFunctionFlag = boolToNumber(msg.liverFunctionFlag);
+                            $('.r_m_maternity18 .liverFunctionFlag').each(function () {
+                                msg.liverFunctionFlag!=null&&$(this).find('.item' + liverFunctionFlag).removeClass('sc_unchecked').addClass('sc_checked');
+                            })
+                            var syphilisSerumTestFlag = boolToNumber(msg.syphilisSerumTestFlag);
+                            $('.r_m_maternity18 .syphilisSerumTestFlag').each(function () {
+                                msg.syphilisSerumTestFlag!=null&&$(this).find('.item' + syphilisSerumTestFlag).removeClass('sc_unchecked').addClass('sc_checked');
+                            })
+                            var renalFunctionFlag = boolToNumber(msg.renalFunctionFlag);
+                            msg.renalFunctionFlag!=null&&$('.r_m_maternity18 .renalFunctionFlag .item'+renalFunctionFlag).removeClass('sc_unchecked').addClass('sc_checked');
+                            var hivAntibodyTestFlag = boolToNumber(msg.hivAntibodyTestFlag);
+                            msg.hivAntibodyTestFlag!=null&&$('.r_m_maternity18 .hivAntibodyTestFlag .item'+hivAntibodyTestFlag).removeClass('sc_unchecked').addClass('sc_checked');
+                            msg.processAdvice&&$('.r_m_maternity18 #processAdvice').text(msg.processAdvice);
+                            msg.guidance&&$('.r_m_maternity18 #guidance').text(msg.guidance);
+                            $('.r_m_maternity18 #gestationalWeek').val() == -1 && $('.r_m_maternity18 #gestationalWeek').val('');
+                            substrText($(".r_m_maternity18 #bloodRoutineOther"), msg.bloodRoutineOther, 18);
+                            substrText($(".r_m_maternity18 #urineRoutineOther"), msg.urineRoutineOther, 33);
+                            substrText($(".r_m_maternity18 #processAdvice"), msg.processAdvice, 72);
+                            substrText($(".r_m_maternity18 #guidance"), msg.guidance, 120);
+                        }
+                    }
+                });
+            }
+            //布尔类型转数字
+            function boolToNumber(a){
+                a==true?a=1:a=0;
+                return a;
+            }
+        })
+        //血常规其他
+        var str1=$('#blood_test_other').text();
+        var length1=str1.length;
+        if(length1>27){
+            var newStr1=str1.substring(0,26)+'...';
+            $('#blood_test_other').text(newStr1);
+        }
+        //尿常规
+        var str2=$('#urine_test_other').text();
+        var length2=str2.length;
+        if(length2>34){
+            var newStr2=str2.substring(0,33)+'...';
+            $('#urine_test_other').text(newStr2);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>院内医疗</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link type="text/css" rel="stylesheet" href="/interview/followup/patientArchive/css/pagePublic.css"/>
+    <link type="text/css" rel="stylesheet" href="/interview/followup/patientArchive/css/patientHosp.css"/>
+</head>
+<body>
+<div class="document_right">
+    <div id="scroll_nav" style="margin-top:10px">
+        <div class="right_in">
+            <div class="document_rightbottom">
+
+                <p style="display:none;"><textarea id="Template-ListRows1" rows="0" cols="0">
+                    {#foreach $T as Row}
+                        {#if $T.Row.type == '1'}
+                            <div class="hos_operation">
+                                <div class="exam_result">
+                                    <div class="content_title">
+                                        <P class="bTitle_text">相关描述</P>
+                                    </div>
+                                    <div>
+                                        <div class="report_contain">
+                                            <div class="substr">{$T.Row.descr}</div>
+                                        </div>
+                                        <div class="report_containt">
+                                            {#foreach $T.Row.medicalRecordImageList as durg}
+                                                <div class="img_desc">
+                                                    <img id="{$T.durg.imageId}" src="">
+                                                </div>
+                                            {#/for}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {/#if}
+                    {#/for}
+                </textarea></p>
+                <p style="display:none;"><textarea id="Template-ListRows2" rows="0" cols="0">
+                    {#foreach $T as Row}
+                        {#if $T.Row.type == '2'}
+                            <div class="hos_operation">
+                                <div class="exam_result">
+                                    <div class="content_title">
+                                        <P class="bTitle_text">相关描述</P>
+                                    </div>
+                                    <div>
+                                        <div class="report_contain">
+                                            <div class="substr">{$T.Row.descr}</div>
+                                        </div>
+                                        <div class="report_containt">
+                                            {#foreach $T.Row.medicalRecordImageList as check}
+                                                <div class="img_desc">
+                                                    <img id="{$T.check.imageId}" src="">
+                                                </div>
+                                            {#/for}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {/#if}
+                    {#/for}
+                </textarea></p>
+                <p style="display:none;"><textarea id="Template-ListRows3" rows="0" cols="0">
+                    {#foreach $T as Row}
+                        {#if $T.Row.type == '3'}
+                            <div class="hos_operation">
+                                <div class="exam_result">
+                                    <div class="content_title">
+                                        <P class="bTitle_text">相关描述</P>
+                                    </div>
+                                    <div>
+                                        <div class="report_contain">
+                                            <div class="substr">{$T.Row.descr}</div>
+                                        </div>
+                                        <div class="report_containt">
+                                            {#foreach $T.Row.medicalRecordImageList as test}
+                                            <div class="img_desc">
+                                                <img id="{$T.test.imageId}" src="">
+                                            </div>
+                                            {#/for}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {/#if}
+                    {#/for}
+                </textarea></p>
+                <p style="display:none;"><textarea id="Template-ListRows4" rows="0" cols="0">
+                    {#foreach $T as Row}
+                        {#if $T.Row.type == '4'}
+                            <div class="hos_operation">
+                                <div class="exam_result">
+                                    <div class="content_title">
+                                        <P class="bTitle_text">相关描述</P>
+                                    </div>
+                                    <div>
+                                        <div class="report_contain">
+                                            <div class="substr">{$T.Row.descr}</div>
+                                        </div>
+                                        <div class="report_containt">
+                                            {#foreach $T.Row.medicalRecordImageList as oper}
+                                            <div class="img_desc">
+                                                <img id="{$T.oper.imageId}" src="">
+                                            </div>
+                                            {#/for}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {/#if}
+                    {#/for}
+                </textarea></p>
+                <p style="display:none;"><textarea id="Template-ListRows5" rows="0" cols="0">
+                    {#foreach $T as Row}
+                        {#if $T.Row.type == '5'}
+                            <div class="hos_operation">
+                                <div class="exam_result">
+                                    <div class="content_title">
+                                        <P class="bTitle_text">相关描述</P>
+                                    </div>
+                                    <div>
+                                        <div class="report_contain">
+                                            <div class="substr">{$T.Row.descr}</div>
+                                        </div>
+                                        <div class="report_containt">
+                                            {#foreach $T.Row.medicalRecordImageList as hosp}
+                                            <div class="img_desc">
+                                                <img id="{$T.hosp.imageId}" src="">
+                                            </div>
+                                            {#/for}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {/#if}
+                    {#/for}
+                </textarea></p>
+                <p style="display:none;"><textarea id="Template-ListRows6" rows="0" cols="0">
+                    {#foreach $T as Row}
+                        {#if $T.Row.type == '6'}
+                            <div class="hos_operation">
+                                <div class="exam_result">
+                                    <div class="content_title">
+                                        <P class="bTitle_text">相关描述</P>
+                                    </div>
+                                    <div>
+                                        <div class="report_contain">
+                                            <div class="substr">{$T.Row.descr}</div>
+                                        </div>
+                                        <div class="report_containt">
+                                            {#foreach $T.Row.medicalRecordImageList as visit}
+                                            <div class="img_desc">
+                                                <img id="{$T.visit.imageId}" src="">
+                                            </div>
+                                            {#/for}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {/#if}
+                    {#/for}
+                </textarea></p>
+                <p style="display:none;"><textarea id="Template-ListRows7" rows="0" cols="0">
+                    {#foreach $T as Row}
+                        {#if $T.Row.type == '7'}
+                            <div class="hos_operation">
+                                <div class="exam_result">
+                                    <div class="content_title">
+                                        <P class="bTitle_text">相关描述</P>
+                                    </div>
+                                    <div>
+                                        <div class="report_contain">
+                                            <div class="substr">{$T.Row.descr}</div>
+                                        </div>
+                                        <div class="report_containt">
+                                            {#foreach $T.Row.medicalRecordImageList as other}
+                                            <div class="img_desc">
+                                                <img id="{$T.other.imageId}" src="">
+                                            </div>
+                                            {#/for}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {/#if}
+                    {#/for}
+                </textarea></p>
+
+                <!-- 就诊信息-->
+                <div class="right_in_block">
+                    <div class="p_head_title2">
+                        <div class="design_icon p_head_icon1"></div>
+                        <div class="design_icon p_head_icon2"></div>
+                        <p>就诊信息</p>
+                    </div>
+                    <div id="self_general_scroll">
+                        <div class="report_contain">
+                            <div class="check_item" id="check_date"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--用药信息-->
+                <div class="right_in_block">
+                    <div class="p_head_title2">
+                        <div class="design_icon p_head_icon1"></div>
+                        <div class="design_icon p_head_icon2"></div>
+                        <p>用药信息</p>
+                    </div>
+                    <div id="self_drug_scroll"></div>
+                </div>
+                <!-- 检查报告 -->
+                <div class="right_in_block">
+                    <div class="p_head_title2">
+                        <div class="design_icon p_head_icon1"></div>
+                        <div class="design_icon p_head_icon2"></div>
+                        <p>检查报告</p>
+                    </div>
+                    <div id="self_check_scroll"></div>
+                </div>
+                <!-- 检验报告 -->
+                <div class="right_in_block">
+                    <div class="p_head_title2">
+                        <div class="design_icon p_head_icon1"></div>
+                        <div class="design_icon p_head_icon2"></div>
+                        <p>检验报告</p>
+                    </div>
+                    <div id="self_test_scroll"></div>
+                </div>
+                <!-- 手术信息-->
+                <div class="right_in_block">
+                    <div class="p_head_title2">
+                        <div class="design_icon p_head_icon1"></div>
+                        <div class="design_icon p_head_icon2"></div>
+                        <p>手术信息</p>
+                    </div>
+                    <div id="self_oper_scroll"></div>
+                </div>
+                <!--住院信息-->
+                <div class="right_in_block">
+                    <div class="p_head_title2">
+                        <div class="design_icon p_head_icon1"></div>
+                        <div class="design_icon p_head_icon2"></div>
+                        <p>住院信息</p>
+                    </div>
+                    <div id="self_hosp_scroll"></div>
+                </div>
+                <!-- 门诊信息 -->
+                <div class="right_in_block">
+                    <div class="p_head_title2">
+                        <div class="design_icon p_head_icon1"></div>
+                        <div class="design_icon p_head_icon2"></div>
+                        <p>门诊信息</p>
+                    </div>
+                    <div id="self_visit_scroll"></div>
+                </div>
+                <!-- 其他 -->
+                <div class="right_in_block">
+                    <div class="p_head_title2">
+                        <div class="design_icon p_head_icon1"></div>
+                        <div class="design_icon p_head_icon2"></div>
+                        <p>其他</p>
+                    </div>
+                    <div id="self_other_scroll"></div>
+                </div>
+                <!-- 可拖动滑块 -->
+                <div class="dragbox">
+                    <div class="medical border_radius3">
+                        <div class="move_area"></div>
+                        <div class="design_icon progress_white_circle_small pull_left"></div>
+                        <div class="pageMenu pageMenu_checked">
+                            <div class="progress_gray_bg">
+                                <div class="design_icon progress_gray_circle_small pull_left"></div>
+                            </div>
+                            <span class="pull_right">就诊信息</span>
+                        </div>
+                        <div class="pageMenu">
+                            <div class="progress_gray_bg">
+                                <div class="design_icon progress_gray_circle_small pull_left"></div>
+                            </div>
+                            <span class="pull_right">用药信息</span>
+                        </div>
+                        <div class="pageMenu">
+                            <div class="progress_gray_bg">
+                                <div class="design_icon progress_gray_circle_small pull_left"></div>
+                            </div>
+                            <span class="pull_right">检查报告</span>
+                        </div>
+                        <div class="pageMenu">
+                            <div class="progress_gray_bg">
+                                <div class="design_icon progress_gray_circle_small pull_left"></div>
+                            </div>
+                            <span class="pull_right">检验报告</span>
+                        </div>
+                        <div class="pageMenu">
+                            <div class="progress_gray_bg">
+                                <div class="design_icon progress_gray_circle_small pull_left"></div>
+                            </div>
+                            <span class="pull_right">手术信息</span>
+                        </div>
+                        <div class="pageMenu">
+                            <div class="progress_gray_bg">
+                                <div class="design_icon progress_gray_circle_small pull_left"></div>
+                            </div>
+                            <span class="pull_right">住院信息</span>
+                        </div>
+                        <div class="pageMenu">
+                            <div class="progress_gray_bg">
+                                <div class="design_icon progress_gray_circle_small pull_left"></div>
+                            </div>
+                            <span class="pull_right">门诊信息</span>
+                        </div>
+                        <div class="pageMenu">
+                            <div class="progress_gray_bg">
+                                <div class="design_icon progress_gray_circle_small pull_left"></div>
+                            </div>
+                            <span class="pull_right">其他</span>
+                        </div>
+                        <div class="design_icon progress_white_circle_small progress_last"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/resources/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/resources/inputer/inputer.js"></script>
+<script type="text/javascript" src="/resources/config/config.js"></script>
+<script type="text/javascript" src="/interview/followup/patientArchive/js/patientSelf.js"></script>
+<script type="text/javascript">
+    window.onload=function(){
+        change();
+    };
+    $(window).resize(function(){
+        change();
+    });
+    function change(){
+        $("#scroll_nav").height($(window).height()-10);
+        $(".right_in").css({"min-height":$(window).height()-10});
+    }
+    $(function(){
+        change();
+        $("#scroll_nav").niceScroll({
+            railpadding: { top:0, right:0, left: 0, bottom:0 }
+        });
+        $(".s_input").inputer({
+            css:{"width":"210px","marginLeft":"20px"},
+            callback:function(){
+                return false;
+            }
+        });
+    });
+</script>
+</body>
+</html>

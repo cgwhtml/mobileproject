@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>服务医院</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+    <style>
+        body{
+            padding-bottom: 1rem;
+            padding-top: 0 !important;
+        }
+        .map{
+            line-height: 1.346rem;
+            background-color: #fff;
+            padding: 0 0.4rem;
+            font-size: 0.346rem;
+        }
+        .chose_map{
+            margin-right: 0.26rem;
+        }
+        .city{
+            color: #00A1D9;
+        }
+        .menu{
+            /*margin-top: 0.266rem;*/
+            background-color: #fff;
+        }
+        .menu_title{
+            line-height: 0.93rem;
+            font-size: 0.346rem;
+            margin: 0 0.4rem;
+            color: #00A1D9;
+            border-bottom: 1px solid #D9D9D9;
+        }
+        .main_option{
+            line-height:2.1rem;
+            border-bottom: 1px solid #D9D9D9;
+            margin: 0 0.4rem;
+            box-sizing: border-box;
+            padding: 0.42rem 0 0.42rem 0.2rem;
+        }
+        .hos_img{
+            width: 1.33rem;
+            height: 1.33rem;
+            float: left;
+        }
+
+        .content1{
+            font-size: 0.4rem;
+            color: #333;
+        }
+        .content2{
+            font-size: 0.32rem;
+            color: #8E8E8E;
+        }
+        .content3{
+            font-size: 0.29rem;
+            color: #333;
+        }
+        .main_option>div{
+            margin-left: 1.5rem;
+            height: 1.16rem;
+        }
+        .substr{
+            max-width: 6.5rem;
+        }
+        #loading{
+            text-align: center;
+        }
+        #loading img{
+            margin: 2rem auto;
+            width: 1rem;
+            height: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="map">
+        <div class="chose_map"></div>
+        当前城市：
+        <span class="city" data-code=""></span>
+        <div class="blue_arrow_right"></div>
+    </div>
+    <div class="menu">
+        <div class="menu_title">选择医院</div>
+        <p style="display:none"><textarea id="Template-ListRows" rows="0" cols="0">
+        {#foreach $T as msg}
+             <div class="main_option">
+                <input type="hidden" id="item_id" value="{$T.msg.id}">
+                <input type="hidden" id="hospCode" value="{$T.msg.hospCode}">
+                <input type="hidden" id="regionCode" value="{$T.msg.regionCode}">
+                <img src="" class="hos_img" alt="">
+                <div>
+                    <p class="content1 substr">{$T.msg.name}</p>
+                    <p class="content2 substr">{$T.msg.hospitalIntroduce}</p>
+                    <p class="content3 substr">{$T.msg.level}</p>
+                </div>
+            </div>
+        {#/for}
+        </textarea></p>
+        <div id="data_table"></div>
+    </div>
+    <div id="window"  style="display:none" class="window">
+        <div>
+            <div id="window_in" class="window_in"></div>
+            <div id="check" class="check">确定</div>
+        </div>
+    </div>
+    <div id="background" style="display: none"></div>
+    <div id="fake_alert"  style="display:none">
+        <div id="fake_alert_in">
+            <div id="msg"></div>
+            <div id="sure">确定</div>
+        </div>
+    </div>
+    <div id="loading"><img src="/web-bin/resources/images/loading_1.gif" alt=""></div>
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/area/LAreaData2.js"></script>
+    <!--新浪api-->
+    <script src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"></script>
+    <script>
+        var thisRegionCode;
+        $(function() {
+            var localhostUrl=window.location.origin;
+            var SERVER_URL = window.HUGPAGE_CONFIG.SERVER_URL;//读取图片服务器路径
+            var FILE_URL = window.HUGPAGE_CONFIG.FILE_URL;//读取图片文件路径
+            var query = getRequest();
+            var regicode = query.regicode;
+            var thisCity = query.thisCity;
+            var isIos = queryMobileTypeIsIos();
+            if (isIos) {
+                //获取当前城市
+                var city = remote_ip_info['city'];
+                city==""&&(city="所有市");
+                $('.city').text(city);
+                $('#whichCity', window.parent.document).val(city);
+                hosList(city);
+                getHosList(localhostUrl,SERVER_URL,FILE_URL,regicode,thisRegionCode);//获取医院列表
+            } else {
+                //如果是app走新浪的api定位,微信用H5的定位
+                if(query.isApp=="1"){
+                    //获取当前城市
+                    var city = remote_ip_info['city'];
+                    city==""&&(city="所有市");
+                    $('.city').text(city);
+                    $('#whichCity', window.parent.document).val(city);
+                    hosList(city);
+                    getHosList(localhostUrl,SERVER_URL,FILE_URL,regicode,thisRegionCode);//获取医院列表
+                }else {
+                    if (navigator.geolocation) {
+                        if (thisCity == undefined) {
+                            navigator.geolocation.getCurrentPosition(showPosition, showErr);
+                        }
+                    }
+                }
+                function showPosition(position) {
+                    $.getJSON('http://api.map.baidu.com/geocoder/v2/?ak=3H0B8zqam5SLdqKDijOF9K0ZnpXtSPQS&callback=?&location=' + position.coords.latitude + ',' + position.coords.longitude + '&output=json&pois=1', function (res) {
+                        var city = res.result.addressComponent.city;
+                        $(".city").text(city);
+                        $('#whichCity', window.parent.document).val(city);
+                        hosList(city);
+                        getHosList(localhostUrl,SERVER_URL,FILE_URL,regicode,thisRegionCode);
+                    });
+                }
+                function show(msg) {
+                    $(".city").text("未知");
+                    $('#whichCity', window.parent.document).val("未知");
+                    var city = "未知";
+                    hosList(city);
+                    getHosList(thisRegionCode);
+                }
+                function showErr(error) {
+                    var result;
+                    switch (error.code) {
+                        case error.PERMISSION_DENIED:
+                            result = "User denied the request for Geolocation.";
+                            break;
+                        case error.POSITION_UNAVAILABLE:
+                            result = "Location information is unavailable.";
+                            break;
+                        case error.TIMEOUT:
+                            result = "The request to get user location timed out.";
+                            break;
+                        case error.UNKNOWN_ERROR:
+                            result = "An unknown error occurred.";
+                            break;
+                    }
+                    var city = "未知";
+                    $(".city").text(city);
+                    $('#whichCity', window.parent.document).val(city);
+                    hosList(city);
+                    getHosList(localhostUrl,SERVER_URL,FILE_URL,regicode,thisRegionCode);
+                }
+            }
+            if(thisCity!=undefined){
+                $('.city').text(decodeURI(thisCity));
+                $('#whichCity',window.parent.document).val(decodeURI(thisCity));
+                hosList(decodeURI(thisCity));
+                getHosList(localhostUrl,SERVER_URL,FILE_URL,regicode,thisRegionCode);
+            }
+            //地址选择
+            $('.map').click(function(){
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_choseCity_page";
+            })
+            $('.menu').on('click','.main_option',function () {
+                var name=$(this).find('.content1').text();
+                var hospCode=$(this).find('#hospCode').val();
+                if($('#code', window.parent.document).val()==100){
+                    $('.buildFilesHospText', window.parent.document).text(name).css('color','#333');
+                    $('#buildFilesHospCode', window.parent.document).val(hospCode);
+                }else if($('#code', window.parent.document).val()==300){
+                    $('.afterMaterHospText', window.parent.document).text(name).css('color', '#333');
+                    $('#afterMaterHospCode', window.parent.document).val(hospCode);
+                }else if($('#code', window.parent.document).val()==200){//从快速认证进来的
+                    $('#choose_Hos', window.parent.document).text(name).css('color','#333');
+                    $('#choose_Hos_Code', window.parent.document).val(hospCode);
+                }else {
+                    $('.main',window.parent.document).find('.antenatalHospText').eq($('#code', window.parent.document).val()-1).text(name).css('color','#333');
+                    $('.main',window.parent.document).find('.antenatalHospCode').eq($('#code', window.parent.document).val()-1).val(hospCode);
+                }
+                $('.main', window.parent.document).show();
+                $('#iframe', window.parent.document).hide();
+            })
+        })
+        function fake_alert(text,element){
+            $("#background").show();
+            $("#fake_alert").show();
+            $("#msg").html(text);
+            $("#sure").click(function(){
+                $("#background").hide();
+                $("#fake_alert").hide();
+                canSubmit=true;
+            });
+            element&&$("html,body").animate({scrollTop:$(element).offset().top-75},500);
+        }
+        function hosList(city){
+            if(city=="未知"|| city=="所有市"){
+                thisRegionCode="000000"
+            }else{
+                for(var i=0;i<citys_data_arr.length;i++){
+                    if(city.substr(0,2)==citys_data_arr[i].text.substr(0,2)){
+                        $('.city').attr('data-code',citys_data_arr[i].value.substr(0,4));
+                        thisRegionCode=citys_data_arr[i].value.substr(0,4);
+                    }
+                }
+            }
+        }
+        function getHosList(localhostUrl,SERVER_URL,FILE_URL,regicode,thisRegionCode) {
+            $.ajax({
+                type:"post",
+                url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_chooseHos_data?{}',
+                dataType:'json',
+                async:false,
+                contentType:'application/json;charset=UTF-8',
+                before: function () {
+                    ShowDiv();
+                },
+                complete: function () {
+                    //隐藏加载提示
+                    HiddenDiv();
+                },
+                success:function(data){
+                    if(data.res==0){
+                        var msg=data.data;
+                        $("#data_table").setTemplateElement("Template-ListRows").processTemplate(msg);
+                        //图片现在的的路径找不到
+                        $('.main_option img').each(function(index){
+                            var href=SERVER_URL+FILE_URL+msg[index].image;
+                            $(this).attr('src',href);
+                        })
+                        if(regicode!=null&&regicode!=''){
+                            $('.main_option #regionCode').each(function(){
+                                $(this).val().substr(0,4)+'00'!=regicode&&$(this).parents('.main_option').hide();
+                            })
+                        }else {
+                            if(thisRegionCode!="000000"){
+                                //获取定位后只显示该城市下的医院
+                                $('.main_option').each(function(){
+                                    if($(this).find('#regionCode').val().substr(0,4)!==thisRegionCode){
+                                        $(this).hide();
+                                    }
+                                })
+                            }
+                        }
+                    }else{
+                        fake_alert("请求失败！请检查网络是否正常。");
+                    }
+                },
+                error:function () {
+                    fake_alert("请求失败！请检查网络是否正常。");
+                    return;
+                }
+            });
+        }
+        //显示加载数据
+        function ShowDiv() {
+            $("#loading").show();
+        }
+        //隐藏加载数据
+        function HiddenDiv() {
+            $("#loading").hide();
+        }
+    </script>
+</body>
+</html>

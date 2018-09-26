@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>条码明细</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="/web-bin/mobile/medical/patient/css/barcode_detail.css">
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/js/jquery.barcode.all.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+	<script type="text/javascript" src="/web-bin/mobile/medical/patient/js/barcode_detail.js"></script>
+  </head>
+  
+  <body>
+  	 
+  	<div id="top">
+  		<div id="top_in">
+  			<div>
+	  			<img alt="" src="/web-bin/mobile/medical/patient/images/white-left.png">
+	  			<p>检验申请单条形码</p>
+	  		</div>
+  		</div>
+  	</div>
+  	
+    <div id="main_head">
+    	<p id="p0"></p><span id="sp1"></span>
+    </div>
+    <div id="main_body">
+        <p style="display:none"><textarea id="Template-List3" rows="0" cols="0">
+   	        <div class="c4" id="">
+   				<div>
+   					<p class="item_name">检验项目：<span>{$T.itemName}</span></p>
+   				</div>
+   				<div class="barcode">
+   				    <p>检验单条形码</p>
+   					<!--<div class="bcTarget">{$T.barCode}</div>-->
+					<img class="bcTarget">
+   				</div>
+   			</div>
+   			<div class="c4" id="">
+   				<div>
+   					<p class="item_name">检验说明</p>
+   				</div>
+   				<div class="report">
+   					<p>采样时间：<span>{$T.samplingDate}</span></p>
+   					<p>采样地点：<span>{$T.samplingLocation}</span></p>
+   					<p>取单时间：<span>{$T.takeReportDate}</span></p>
+   					<p>取单地点：<span>{$T.takeReportLocation}</span></p>
+   					<p>申请日期：<span>{$T.applyDate}</span></p>
+   				</div>
+   			</div>
+	    </textarea></p>
+	    <div class="s1"></div>
+    </div>
+  </body>
+</html>
+

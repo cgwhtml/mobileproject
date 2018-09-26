@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>样式demo</title>
+    <link rel="stylesheet" type="text/css" href="common.css"/>
+    <link rel="stylesheet" type="text/css" href="../newChosen/chosenNew.css"/>
+    <script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../newChosen/chosen.jquery.js"></script>
+    <script type="text/javascript" src="../inputer/inputer.js?type=1.1"></script>
+    <script type="text/javascript" src="../laydate/laydate.js"></script>
+    <style>
+        p,h3{
+            margin: 10px 0;
+        }
+        .block-show{
+            background-color: #fff;margin: 10px;padding: 10px;
+        }
+        body{
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="block-show">
+    <h1>03 搜索框</h1>
+    <h3>使用方法</h3>
+    <h3>相邻两个input-search的搜索框之间间距为6px，第一个不会有左边距，不需另外添加样式</h3>
+    <p>width:100%</p>
+    <input type="text" class="input-search">
+    <p>width:120px</p>
+    <input type="text" class="input-search input-search-sm">
+    <input type="text" class="input-search input-search-sm">
+    <p>width:180px</p>
+    <input type="text" class="input-search input-search-md">
+    <input type="text" class="input-search input-search-md">
+    <h3>日期框，只需在原基础样式上，引入laydate-icon即可，日期插件用法不变</h3>
+    <input type="text" class="input-search input-search-md laydate-icon">
+    <h3>下拉框,引用新的css文件，chonsenNew.css，搜索框class 固定为chosen_for_search</h3>
+    <select class="chosen_for_search" data-placeholder="请选择">
+        <option value="">1</option>
+        <option value="">2</option>
+    </select>
+    <script>
+        $(".chosen_for_search").chosen({
+            disable_search_threshold:10,
+            allow_single_deselect:true,
+            search_contains:true,
+            no_results_text:"未找到此选项",
+            width:"100px"
+        });
+    </script>
+    <h3>inputer,js引用新的皮肤inputer.js?type=1.1</h3>
+    <input type="text" class="input inputer" name="" id="" t_placeholder="输入搜索条件">
+    <script>
+        $(".inputer").inputer({
+            css:{"width":"120px"},
+            callback:function() {
+            }
+        });
+    </script>
+</div>
+<div class="block-show">
+    <h1>05 按钮</h1>
+    <h3>说明</h3>
+    <h3>
+        所有按钮均分2字(btn-{类型}-sm)、4字(btn-{类型}-md)、4字以上(btn-{类型}) ,用法为同时引用.btn 和精确样式的class。<br>
+    </h3>
+    <h3>
+        类型：primary(基础样式)，default(此按钮)，icon(功能按钮)<br>
+    </h3>
+    <p>
+        .btn默认样式为主按钮4字以上样式
+        按钮默认高度为24px；若自定义高度，button和input的文字会自动居中，div和a标签需要自己添加样式设置为垂直居中，如设置line-height的高度(自定义高度-2px ps:2px为上下边框高度)
+    </p>
+    <h3>使用方法(以2字基础样式为例)，可根据自己的习惯使用标签样式</h3>
+    button标签:<button class="btn btn-primary-sm">搜索</button>
+    div标签:<div class="btn btn-primary-sm">搜索</div>
+    input标签:<input type="button" class="btn btn-primary-sm" value="搜索">
+    a标签:<a href="javascript:void(0)" class="btn btn-primary-sm">搜索</a>
+
+    <h3>详细样式(以下用button示例)</h3>
+    <p>第二个按钮均为hover样式，鼠标hover会自动实现Hover样式，或添加focus的class也可实现hover样式</p>
+    <p>主按钮：</p>
+    <button class="btn btn-primary-sm">搜索</button>
+    <button class="btn btn-primary-md focus">更多搜索</button>
+    <button class="btn ">4字以上按钮</button><!-- 或者 class="btn btn-primary"-->
+    <br>
+    <p>次按钮：</p>
+    <button class="btn btn-default-sm">取消</button>
+    <button class="btn btn-default-ms focus">取消取消</button>
+    <button class="btn btn-default">4字以上按钮</button>
+    <p>功能按钮：</p>
+    <button class="btn btn-icon-sm btn-add"><span class="icomoon icomoon-edit"></span> 编辑</button>
+    <button class="btn focus"><span class="icomoon icomoon-edit"></span> 4字以上按钮</button>
+    <p> 不可点击按钮：(不可点按钮有两种方式，1、添加disabled的class 2、添加disabled的属性，均可实现样式)</p>
+    <button class="btn btn-primary-sm" disabled="disabled">搜索</button>
+    <button class="btn btn-primary-md" disabled>更多搜索</button>
+    <button class="btn disabled">4字以上按钮</button>
+    <h3>按钮默认行内元素，需要块级显示，增加btn-block样式即可，且默认会有5px间距</h3>
+    <button class="btn btn-primary-sm btn-block">搜索</button>
+    <button class="btn btn-primary-md btn-block" >更多搜索</button>
+    <button class="btn btn-block">4字以上按钮</button>
+</div>
+<div class="block-show">
+    <h1>06 标题/列表</h1>
+    <h3>使用方法</h3>
+    <h3>若只需要样式只需引入.table-list即可</h3>
+    <h3>若要实现鼠标hover蓝色边框样式需加入.table-list-hover</h3>
+    <h3>表头必须放在thead内</h3>
+    <h3>.table-list-wrapper为左右下间距10px可按需引入</h3>
+    <p>hover事件通过js实现,已加在公用代码中</p>
+
+    <div style="background-color: #eee;padding: 10px;">
+        <div class="table-list-layout">
+            <div class="headbar-primary" >
+                标题名称
+            </div>
+            <div class="table-list-wrapper">
+                <table class="table-list table-list-hover">
+                    <thead>
+                    <tr>
+                        <td>表头必须</td>
+                        <td>放在</td>
+                        <td>thead标签内</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="tr-focus-prev-stay">
+                        <td>111</td>
+                        <td>222</td>
+                        <td>333</td>
+                    </tr>
+                    <tr class="tr-focus-stay">
+                        <td>111</td>
+                        <td>222</td>
+                        <td>333</td>
+                    </tr>
+                    <tr>
+                        <td>111</td>
+                        <td>222</td>
+                        <td>333</td>
+                    </tr>
+                    <tr>
+                        <td>111</td>
+                        <td>222</td>
+                        <td>333</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).on("mouseenter",".table-list-hover tbody tr",function () {
+            $(this).addClass("tr-focus");
+            $(this).prev().addClass("tr-focus-prev");
+        });
+        $(document).on("mouseleave",".table-list-hover tbody tr",function () {
+            $(this).removeClass("tr-focus");
+            $(this).prev().removeClass("tr-focus-prev");
+        });
+    </script>
+</div>
+<div class="block-show">
+    <h1>07 填写框</h1>
+    <h3>使用方法</h3>
+    <div>
+        <p>width:100%</p>
+        <input type="text" class="input ">
+        <p>width:100px</p>
+        <input type="text" class="input input-xs" placeholder="100px">
+        <p>width:180px</p>
+        <input type="text" class="input input-sm" placeholder="180px">
+        <p>width:400px</p>
+        <input type="text" class="input input-md">
+        <p>width:660px</p>
+        <input type="text" class="input input-lg">
+        <p>日期插件只需在相应的基础样式后，加laydate-icon即可，以下以400px为例</p>
+        <input  class="input input-md  laydate-icon" type="text">
+        <p>下拉框,引用新的css文件，chonsenNew.css</p>
+        <select class="chosen_select" data-placeholder="请选择">
+            <option value="">1</option>
+            <option value="">2</option>
+        </select>
+        <script>
+            $(".chosen_select").chosen({
+                disable_search_threshold:10,
+                allow_single_deselect:true,
+                search_contains:true,
+                no_results_text:"未找到此选项",
+                width:"100px"
+            });
+        </script>
+        <h3>特殊情况，含readonly ,disabled 的样式或属性，以下以md为例</h3>
+        <input type="text" class="input input-md" readonly value="readonly属性，不可编辑"> <br><br>
+        <input type="text" class="input input-md " disabled value="disabled属性，不可编辑"> <br><br>
+        <input type="text" class="input input-md disabled "  value="disabled样式，但是可编辑"><br><br>
+        <input type="text" class="input input-md readonly "  value="readonly样式，但是可编辑">
+    </div>
+</div>
+<div class="block-show">
+    <h1>展示框</h1>
+    <h3>展示型的输入框，可直接使用div，引用Input样式即可，以下input-xs 举例</h3>
+    <p>普通样式</p>
+    <div class="input input-sm" >普通样式</div>
+    <p>普通灰底样式</p>
+    <div class="input input-sm readonly" >readonly样式</div>
+    <p>搜索框样式</p>
+    <div class="input-search input-search-sm" >搜索框样式</div>
+    <p>搜索框灰底样式</p>
+    <div class="input-search input-search-sm readonly" >搜索框样式</div>
+    <br>
+    <div class="input-search input-search-sm disabled" >搜索框样式</div>
+</div>
+<div class="block-show">
+    <h1>链接</h1>
+    <h3>无论是图标还是a标签还是div，可点击链接需要变色的，可添加 .link 的样式</h3>
+    <div class="link" >div链接</div>
+    <a class="link" >a链接</a>
+    <div class="icomoon icomoon-plus link"></div>
+    <span class="link">文字链接</span>
+    <h1>字体颜色</h1>
+    <h3>以下为基础样式，不具体，直接附样式代码，按需引用</h3>
+    <p>
+        .color-primary { color: #4A90E2; } 蓝色 <br>
+        .color-warning { color: #ec8301; } 橙色 <br>
+        .color-success { color: #8BB949; } 绿色<br>
+        .color-danger { color: #D0021B; } 红色<br>
+        .color-purple { color: #9E7ED7; } 紫色<br>
+        .color-white { color: #fff; }  白色<br>
+    </p>
+    <h1>字体样式</h1>
+    <h3>以下为基础样式，不具体，直接附样式代码，按需引用</h3>
+    <p>
+        .text-left           { text-align: left; }<br>
+        .text-right          { text-align: right; }<br>
+        .text-center         { text-align: center; }<br>
+        .text-justify        { text-align: justify; }<br>
+        .text-nowrap         { white-space: nowrap; }<br>
+        .text-lowercase      { text-transform: lowercase; }<br>
+        .text-uppercase      { text-transform: uppercase; }<br>
+    </p>
+</div>
+<div class="block-show">
+    <h1>两列布局-主体内容不是iframe</h1>
+    <h3>使用方法(右侧固定，左侧自适应，高度由js控制)</h3>
+    <div style="background-color: #ebebeb;padding: 10px">
+        <div class="two-col-layout">
+            <div class="aside-right" style="height: 200px;background-color: #fff">
+                <div class="headbar-success">
+                    headbar-success为绿色
+                </div>
+                <div class="aside-body">
+                    具体内容，高度通过js控制，此处写死200px
+                </div>
+            </div>
+            <div class="main-left" style="background-color: #fff;height: 200px">
+                可嵌套页面，高度通过js控制,此处写死200px
+            </div>
+        </div>
+    </div>
+    <h3>使用方法(左侧固定，右侧自适应，高度由js控制)</h3>
+    <div style="background-color: #ebebeb;padding: 10px">
+        <div class="two-col-layout" >
+            <div class="aside-left" style="height: 200px;background-color: #fff">
+                <div class="headbar-primary">
+                    headbar-primary为蓝色
+                </div>
+                <div>
+                    具体内容，高度通过js控制，此处写死200px
+                </div>
+            </div>
+            <div class="main-right body-box-shadow" style="background-color: #fff;height: 200px">
+                <h3>区块阴影可使用body-box-shadow</h3>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="block-show">
+    <h1>两列布局-左侧主体内容是iframe</h1>
+    <h3>使用方法(右侧固定，左侧自适应，左侧内容是iframe,高度由js控制)</h3>
+    <div style="background-color: #ebebeb;padding: 10px">
+        <div class="two-col-layout">
+            <div class="aside-right" style="height: 200px;background-color: #fff">
+                <div class="headbar-success">
+                    headbar-success为绿色
+                </div>
+                <div class="aside-body">
+                    具体内容，高度通过js控制，此处写死200px
+                </div>
+            </div>
+            <div class="main-left-iframe" style="background-color: #fff;height: 200px">
+                <iframe id="mainFrame" width="100%" height="100%" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" src="demo2.html"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="block-show">
+    <h1>字体图标</h1>
+    <div>
+        <p>默认为内联对象，div,span,a,button等标签均可使用</p>
+        <div class="icon-font-primary">蓝</div>
+        <button class="icon-font-success">绿</button>
+        <a class="icon-font-warning">橙</a>
+        <span class="icon-font-danger">红</span>
+        <span class="icon-font-purple">紫</span>
+    </div>
+</div>
+<div class="block-show">
+    <h1>Tab切换页</h1>
+    <h3>tab-triangle</h3>
+    <div class="tab-triangle">
+        <ul>
+            <li class="focus">
+                <a>基本随访</a>
+                <div class="hover-triangle"></div>
+            </li>
+            <li>
+                <a>服药情况</a>
+                <div class="hover-triangle"></div>
+            </li>
+            <li>
+                <a>并发症</  a>
+                <div class="hover-triangle"></div>
+            </li>
+            <li>
+                <a>中医辩体</a>
+                <div class="hover-triangle"></div>
+            </li>
+            <li>
+                <a>健康教育</a>
+                <div class="hover-triangle"></div>
+            </li>
+        </ul>
+    </div>
+    <br>
+    <h3>tab滚动需引入相应js,会自动计算，若li的总长度大于屏幕宽度，会自动显示左右按钮</h3>
+    <div class="tab-triangle-scroll" >
+        <a class="icomoon icomoon-arrow-left icon_moveLf"  href="javascript:void(0)"  onclick="moveLeft()"></a>
+        <div id="scrollNav">
+            <ul>
+                <li class="focus">
+                    <a>0000</a>
+                    <div class="hover-triangle icomoon icomoon-triangle-down-flat"></div>
+                </li>
+                <li class="">
+                    <a>111111</a>
+                    <div class="hover-triangle icomoon icomoon-triangle-down-flat"></div>
+                </li>
+                <li class="">
+                    <a>222222</a>
+                    <div class="hover-triangle icomoon icomoon-triangle-down-flat"></div>
+                </li>
+                <li class="">
+                    <a>33333</a>
+                    <div class="hover-triangle icomoon icomoon-triangle-down-flat"></div>
+                </li>
+                <li class="">
+                    <a>444444</a>
+                    <div class="hover-triangle icomoon icomoon-triangle-down-flat"></div>
+                </li>
+                <li class="">
+                    <a>55555</a>
+                    <div class="hover-triangle icomoon icomoon-triangle-down-flat"></div>
+                </li>
+                <li class="">
+                    <a>666666</a>
+                    <div class="hover-triangle icomoon icomoon-triangle-down-flat"></div>
+                </li>
+                <li class="">
+                    <a>777777</a>
+                    <div class="hover-triangle icomoon icomoon-triangle-down-flat"></div>
+                </li>
+                <li class="">
+                    <a>888888</a>
+                    <div class="hover-triangle icomoon icomoon-triangle-down-flat"></div>
+                </li>
+                <li class="">
+                    <a>999999</a>
+                    <div class="hover-triangle icomoon icomoon-triangle-down-flat"></div>
+                </li>
+                <li>
+                    <a>0000</a>
+                    <div class="hover-triangle icomoon icomoon-triangle-down-flat"></div>
+                </li>
+                <li class="">
+                    <a>111111</a>
+                    <div class="hover-triangle icomoon icomoon-triangle-down-flat"></div>
+                </li>
+                <li class="">
+                    <a>222222</a>
+                    <div class="hover-triangle icomoon icomoon-triangle-down-flat"></div>
+                </li>
+                <li class="">
+                    <a>33333</a>
+                    <div class="hover-triangle icomoon icomoon-triangle-down-flat"></div>
+                </li>
+                <li class="">
+                    <a>444444</a>
+                    <div class="hover-triangle icomoon icomoon-triangle-down-flat"></div>
+                </li>
+                <li class="">
+                    <a>55555</a>
+                    <div class="hover-triangle icomoon icomoon-triangle-down-flat"></div>
+                </li>
+                <li>
+                    <a>0000</a>
+                    <div class="hover-triangle icomoon icomoon-triangle-down-flat"></div>
+                </li>
+                <li class="">
+                    <a>111111</a>
+                    <div class="hover-triangle icomoon icomoon-triangle-down-flat"></div>
+                </li>
+                <li class="">
+                    <a>222222</a>
+                    <div class="hover-triangle icomoon icomoon-triangle-down-flat"></div>
+                </li>
+                <li class="">
+                    <a>33333</a>
+                    <div class="hover-triangle icomoon icomoon-triangle-down-flat"></div>
+                </li>
+                <li class="">
+                    <a>444444</a>
+                    <div class="hover-triangle icomoon icomoon-triangle-down-flat"></div>
+                </li>
+                <li class="">
+                    <a>55555</a>
+                    <div class="hover-triangle icomoon icomoon-triangle-down-flat"></div>
+                </li>
+            </ul>
+        </div>
+        <a class="icomoon icomoon-arrow-right icon_moveRt" href="javascript:void(0)" onclick="moveRight()"></a>
+    </div>
+</div>
+<script>
+    var totalLi=0;//li总长度
+    var srollLength=$(window).width()*.8;//滚动距离
+    $(function () {
+        //此处因页面样式(body和展示区块各有10px内边距),固宽度减去40，实际可根据页面情况减去左右边距
+        $("#scrollNav").css("width",$(window).width()-40);
+        //若菜单详情通过ajax获取，totalLi长度计算放在成功的回掉函数内
+        for(var i=0;i<$("#scrollNav").find("li").length;i++){
+            totalLi+=$("#scrollNav").find("li").eq(i).width()+26;
+        }
+        if(totalLi < $(window).width()){
+            $(".icon_moveLf,.icon_moveRt").hide();
+        }else {
+            $(".icon_moveLf,.icon_moveRt").show();
+        }
+    });
+    function moveRight(){
+        var scrollLeft=document.getElementById("scrollNav").scrollLeft;
+        if(totalLi-scrollLeft>$(window).width()-srollLength){
+            document.getElementById("scrollNav").scrollLeft+=$(window).width()-srollLength;
+        }else if(totalLi-scrollLeft < $(window).width()-srollLength && totalLi-scrollLeft >0) {
+            document.getElementById("scrollNav").scrollLeft+=totalLi-scrollLeft;
+        }
+    }
+    function moveLeft(){
+        if(document.getElementById("scrollNav").scrollLeft>0){
+            document.getElementById("scrollNav").scrollLeft-=$(window).width()-srollLength;
+        }
+    }
+</script>
+
+<div class="block-show">
+    <h1>Tab切换页</h1>
+    <h3>tab-simple</h3>
+    <div class="tab-simple">
+        <ul>
+            <li class="focus">
+                <a>基本随访</a>
+            </li>
+            <li>
+                <a>服药情况</a>
+            </li>
+            <li>
+                <a>并发症</a>
+            </li>
+            <li>
+                <a>中医辩体</a>
+            </li>
+            <li>
+                <a>健康教育</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

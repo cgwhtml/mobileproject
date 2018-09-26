@@ -1,0 +1,397 @@
+.mainContent {
+    position: relative;
+    width: 1000px;
+    border-left: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    background-color: #FFFFFF;
+    margin: 0px auto;
+}
+.nav_border{
+	border-top:1px solid #DDDDDD;
+	border-bottom:1px solid #DDDDDD;
+}
+.basic_nav{
+	border-right:1px solid #DDDDDD;
+	width:50%;
+	margin-top:9px;
+	margin-bottom:9px;
+	height:102px;
+	float:left;
+}
+.modular_title{
+	border-bottom:2px solid #2788CD;
+	float:left;
+	padding-left:50px;
+	padding-bottom:2px;
+	padding-top:7px;
+	color:#2987CD;
+	position:relative;
+}
+.modular_title .fine_line{
+	position:absolute;
+	left:0;
+	bottom:2px;
+	width:30px;
+	border-bottom:1px solid #2788CD;
+}
+.basic_info table td{
+	line-height:20px;
+}
+.basic_info table td p:FIRST-CHILD{
+	margin-top:16px;
+}
+.fetal_info{
+	float:left;
+	margin-top:14px;
+	margin-bottom:9px;
+	margin-left:20px;
+	position:relative;
+	width:479px;
+}
+.fetal_info p:FIRST-CHILD {
+	line-height:20px;
+}
+.fetalImg_nav{
+	position:absolute;
+	top:7px;
+	right:30px;
+}
+.circle_back{
+	width:82px;
+	height:82px;
+    background:transparent url("/web-bin/resources/images/fetalImg.png") no-repeat scroll -7px -19px;
+    z-index:1;
+    position:absolute;
+    top:0;
+    right:0;
+}
+.ring{
+	width:76px;
+	height:76px;
+    background:transparent url("/web-bin/resources/images/ring.png") no-repeat scroll 0px 0px;
+    z-index:2;
+    position:absolute;
+    top:2px;
+    right:2px;
+}
+.playRing{
+	animation:ring 1.7s linear 0.1s normal infinite;
+	-webkit-animation:ring 1.7s linear 0.1s normal infinite;
+	-moz-animation:ring 1.7s linear 0.1s normal infinite;
+	-o-animation:ring 1.7s linear 0.1s normal infinite;
+	-ms-animation:ring 1.7s linear 0.1s normal infinite;
+}
+@keyframes ring
+{
+0% {transform: rotate(0deg);}
+100% {transform: rotate(360deg);}
+}
+@-webkit-keyframes ring
+{
+0% {transform: rotate(0deg);}
+100% {transform: rotate(360deg);}
+}
+@-moz-keyframes ring
+{
+0% {transform: rotate(0deg);}
+100% {transform: rotate(360deg);}
+}
+@-o-keyframes ring
+{
+0% {transform: rotate(0deg);}
+100% {transform: rotate(360deg);}
+}
+@-ms-keyframes ring
+{
+0% {transform: rotate(0deg);}
+100% {transform: rotate(360deg);}
+}
+.realTimeData{
+	position:absolute;
+	z-index:3;
+	color:#00A1D7;
+    top: 30px;
+    right: 27px;
+    text-align:center;
+    width:27px;
+}
+.realTimeData p:FIRST-CHILD {
+	font-size:15px;
+	font-weight:600;
+    font-family: "Arial";
+    line-height:10px;
+    letter-spacing:1px;
+}
+.unitImg{
+    width: 24px;
+    height: 12px;
+    background: transparent url("/web-bin/resources/images/fetalImg.png") no-repeat scroll -86px -111px;
+    z-index: 4;
+    position: absolute;
+    top: 13px;
+    right: 0;
+}
+/*****************������******************/
+.progressBar{
+	height:60px;
+    position:relative;
+    color:#01A0DA;
+}
+.progressBar div{
+    position: absolute;
+}
+.progressBar .progressNav{
+	width: 230px;
+	height:5px;
+	top:33px;
+	left:80px;
+}
+.progressBar .progressBac{
+    width: 100%;
+    height: 5px;
+    left:0;
+    top:0;
+    background:#006182;
+}
+.progressBar .speed{
+    width: 0px;
+    height: 5px;
+    left: 0;
+    background: #00A1D8;
+    top:0;
+}
+.timeNow{
+	top:26px;
+	left:42px;
+}
+.timeTotal{
+	top:26px;
+	left:320px;
+}
+.playBtn{
+	top:19px;
+	left:0px;
+}
+/*****************�����******************/
+.monitor_result{
+	width:496px;
+	border:1px solid #DDDDDD;
+	height:290px;
+	border-left:0;
+	float:left;
+}
+.score_table{
+	width:496px;
+	border:1px solid #DDDDDD;
+	height:290px;
+	border-right:0;
+	float:left;
+	margin-left:6px;
+}
+.result_info{
+	margin-left:10px;
+	margin-top:34px;
+}
+.result_info table td{
+	height:34px;
+}
+input[type='text']{
+	width:70px;
+	height:24px;
+	border:1px solid #DDDDDD;
+	line-height:24px;
+	margin-left:14px;
+	margin-right:10px;
+    text-indent: 6px;
+}
+.result_info textarea{
+	height:64px;
+	width:370px;
+	resize:none;
+	border:1px solid #DDDDDD;
+	margin-top:3px;
+	margin-bottom:3px;
+    text-indent: 2px;
+}
+.result_info span{
+	float:left;
+}
+.checked{background:url(/web-bin/resources/images/fetalImg.png) no-repeat scroll -38px -109px;width:15px;height:15px;background-repeat:no-repeat;float:left;margin-left:6px;margin-right:7px}
+.unchecked{background:url(/web-bin/resources/images/fetalImg.png) no-repeat scroll -18px -109px;width:15px;height:15px;background-repeat:no-repeat;float:left;margin-left:6px;margin-right:7px}
+/*****************���ֱ�******************/
+input[readonly='readonly']{
+	height: 20px;
+    margin-left: 0;
+    width: 80px;
+    border: 0 !important;
+    border-bottom: 1px solid #DDDDDD;
+}
+.score_info{
+	margin-top:44px;
+	margin-left:10px;
+}
+.score_info table td{
+	height:30px;
+	border:1px solid #DDD;
+	text-align:center;
+}
+/*****************����ͼ******************/
+.chart_item .panel-head ul{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    float: left;
+    text-align: center;
+    border-bottom: 1px solid #ededed;
+    padding: 0 20px;
+}
+.panel-head ul li{
+    float: left;
+    margin-right: 50px;
+}
+.panel-head ul li img {
+    vertical-align: middle;
+    margin-top:-3px;
+}
+.chart{
+	background-color:#FFFFFF;
+    padding-right:20px;
+    overflow:hidden;
+}
+.contentChart{
+    width: 1200px;
+    height: 210px;
+    margin-top: 20px;
+}
+.oyLabel{
+    width: 25px;
+    height: 210px;
+    float: left;
+    margin-top: 20px;
+    margin-left: 8px;
+}
+.oxLabel{
+    width: 1200px;
+    height: 25px;
+    margin-left: 41px;
+}
+.uterusYLabel {
+    width: 25px;
+    height: 100px;
+    float:left;
+    margin-top: 0px;
+    margin-left: 8px;
+}
+.uterusChart {
+    width: 1200px;
+    height: 100px;
+    margin-top: 0px;
+}
+.content_table {
+    background-color: #FFFFFF;
+    border: 1px solid #DFDFDF;
+    border-top: 0;
+    border-bottom:0;
+}
+.content_table table tr {
+	height:30px;
+}
+.content_table table td {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.content_table table td a:hover{
+	text-decoration:underline;
+}
+/*****************˵��******************/
+.state{
+	margin-left: 10px;
+    margin-top: 20px;
+    line-height: 20px;
+}
+/*****************��ť******************/
+.btn_nav{
+	width:100%;
+	margin-top:28px;
+}
+.cancel{
+    height: 26px;
+    float: left;
+    font-size:14px;
+}
+.generate{
+    height: 26px;
+    float: left;
+    margin-left: 10px;
+    font-size:14px;
+}
+.button {
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	width: 118px;
+	height:28px;
+	line-height:28px;
+	-webkit-border-radius: 2px; 
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
+.button:active {
+	position: relative;
+	top: 1px;
+}
+.gray {
+	color:#979797;
+	border: solid 1px #D0D0D0;
+	background: #EAEAEA;
+	background: -webkit-gradient(linear, left top, left bottom, from(#EAEAEA), to(#EAEAEA));
+	background: -moz-linear-gradient(top,  #EAEAEA,  #EAEAEA);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#EAEAEA', endColorstr='#EAEAEA');
+}
+.gray:hover {
+	background: #D0D0D0;
+	background: -webkit-gradient(linear, left top, left bottom, from(#D0D0D0), to(#D0D0D0));
+	background: -moz-linear-gradient(top,  #D0D0D0,  #D0D0D0);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#D0D0D0', endColorstr='#D0D0D0');
+}
+.gray:active {
+	color:#979797;
+	background: -webkit-gradient(linear, left top, left bottom, from(#D0D0D0), to(#D0D0D0));
+	background: -moz-linear-gradient(top,  #D0D0D0,  #D0D0D0);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#D0D0D0', endColorstr='#D0D0D0');
+}
+.green {
+	color: #fff;
+	border: solid 1px #3cbe73;
+	background: #57CA87;
+	background: -webkit-gradient(linear, left top, left bottom, from(#57CA87), to(#57CA87));
+	background: -moz-linear-gradient(top,  #57CA87,  #57CA87);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#56ca87', endColorstr='#57CA87');
+}
+.green:hover {
+	background: #3cbe73;
+	background: -webkit-gradient(linear, left top, left bottom, from(#3cbe73), to(#3cbe73));
+	background: -moz-linear-gradient(top,  #3cbe73,  #3cbe73);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#3cbe73', endColorstr='#3cbe73');
+}
+.green:active {
+	color: #fff;
+	background: -webkit-gradient(linear, left top, left bottom, from(#3cbe73), to(#3cbe73));
+	background: -moz-linear-gradient(top,  #3cbe73,  #3cbe73);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#3cbe73', endColorstr='#3cbe73');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

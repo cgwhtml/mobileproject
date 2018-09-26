@@ -1,0 +1,12 @@
+html {
+    min-width:840px;
+}
+.mainContent{
+    padding-right:14px;
+}
+.patient_list{
+    background-color:#FFFFFF;
+}
+.content_table table {
+    table-layout:fixed;
+}

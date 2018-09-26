@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>个人信息</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/basic.css">
+    <link rel="stylesheet" href="/web-bin/resources/weui/weui.min.css">
+    <link rel="stylesheet" href="/web-bin/resources/weui/jquery-weui.css">
+    <link rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/user/userInfo.css">
+    <script src="/web-bin/resources/rem/rem.js"></script>
+</head>
+<body>
+<div class="main">
+    <div class="user_input">
+        <div class="name"><label>姓名</label><i class="user_arrow"></i><span id="name"></span></div>
+        <div class="sex"><label>性别</label><i class="user_arrow"></i><span id="sex"></span></div>
+        <div class="card"><label>身份证</label><i class="user_arrow"></i><span id="card"></span></div>
+    </div>
+    <div class="user_input">
+        <div class="memberManage"><label>成员管理</label><i class="user_arrow"></i></div>
+        <div class="QRcode"><label>我的二维码</label><i class="user_arrow"></i><div id="QRcode"><img src="" alt="二维码"></div></div>
+    </div>
+    <div class="user_input">
+        <!--<div class="hospName"><label>医院名称</label><span id="hospName"></span></div>-->
+        <div class="phone"><label>医院预留手机号</label><span id="phone"></span></div>
+    </div>
+    <div class="user_input hospCard_box"></div>
+    <textarea id="hospCard_temp" style="display: none;">
+        {#foreach $T as Row}
+        <div class="hospCard"><label>{$T.Row.cardTypeTxt}</label><span>{$T.Row.hospCard}</span></div>
+        {#/for}
+    </textarea>
+    <div class="footer">添加就诊卡号</div>
+    <div class="exit">退出登录</div>
+    <div class="QRcode_box">
+        <div class="QRcode_inner">
+            <div class="QRcode_img_box">
+                <div class="QRcode_img"><img src="" alt=""></div>
+                <p>医生扫描二维码<br/>更好的管理患者</p>
+            </div>
+            <div class="QRcode_close"></div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/zepto/zepto.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/weui/jquery-weui.js"></script>
+<script type="text/javascript" src="/web-bin/resources/weui/fastclick.js"></script>
+<!--解决ios下click的300ms的延迟，需引入fastclick-->
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+<script type="text/javascript" src="/web-bin/weChat/weChatPublic/js/user/userInfo.js"></script>
+</html>

@@ -1,0 +1,119 @@
+*{margin:0;padding:0;outline:none}
+img{border:0}
+ul{list-style: none;}
+a{text-decoration: none;font-family: "Microsoft YaHei","Î¢ÈíÑÅºÚ";color:#3B3B3B;}
+body{font-family: "Microsoft YaHei","Î¢ÈíÑÅºÚ";font-size:14px;background-color:#FFFFFF;color:#3B3B3B;width:100%;}
+.wrapper{
+	min-height: 100%;
+}
+.mainContent{
+	position: relative;
+}
+.chart_item{
+	overflow-x:hidden;
+}
+.chart_item .panel-head ul{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    float: left;
+    text-align: center;
+    border-bottom: 1px solid #ededed;
+}
+.panel-head ul li{
+    float: left;
+    width:50%;
+}
+.panel-head ul li img {
+    vertical-align: middle;
+    margin-top:-3px;
+}
+.chart{
+	background-color:#FFFFFF;
+	border: 1px solid #DFDFDF;
+    border-top: 0;
+    padding-right:20px;
+    padding-top:60px;
+}
+.contentChart{
+    width: 1200px;
+    height: 210px;
+    margin-top: 10px;
+}
+.oyLabel{
+    width: 25px;
+    height: 210px;
+    float: left;
+    margin-top: 9px;
+    margin-left: 8px;
+}
+.oxLabel{
+    width: 1200px;
+    height: 25px;
+    margin-left: 42px;
+}
+.uterusYLabel {
+    width: 25px;
+    height: 100px;
+    float:left;
+    margin-top: -10px;
+    margin-left: 8px;
+}
+.uterusChart {
+    width: 1200px;
+    height: 100px;
+    margin-top: 0px;
+}
+.progressBar{
+	background-color:#E5E0E0;
+	margin-left:10px;
+	margin-right:10px;
+	box-sizing:border-box;
+	height:50px;
+    border-radius:4px;
+    position:relative;
+}
+.progressBar div{
+    position: absolute;
+}
+.progressBar .progressNav{
+	width: 60%;
+	height:4px;
+	top:23px;
+	left:14%;
+}
+.progressBar .progressBac{
+    width: 100%;
+    height: 4px;
+    left:0;
+    top:0;
+    background:#B5B5B5;
+}
+.progressBar .drag{
+    width: 14px;
+    height: 14px;
+    left: 0;
+    top: -5px;
+    background:#FFFFFF;
+    border-radius: 8px;
+    box-shadow: #666 0 0 3px;
+}
+.progressBar .speed{
+    width: 0px;
+    height: 4px;
+    left: 0;
+    background: #00A1D9;
+    top:0;
+}
+.timeNow{
+	top:16px;
+	left:10px;
+}
+.timeTotal{
+	top:16px;
+	right:50px;
+}
+.playBtn{
+	top:9px;
+	right:10px;
+}

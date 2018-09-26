@@ -1,0 +1,110 @@
+.viewer_container{
+	position:fixed;
+	right:0;
+	top:0;
+	overflow:hidden;
+	width:100%;
+	height:100%;
+	z-index:999;
+}
+.viewer_container .viewer_canvas{
+	position:absolute;
+	z-index:101;
+}
+.viewer_container .viewer_canvas img{
+	position:absolute;
+	cursor:move;
+}
+.viewer_container .viewer_canvas .rotate90{
+	filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+	transform:rotate(90deg);
+	-ms-transform:rotate(90deg); 	/* IE 9 */
+	-moz-transform:rotate(90deg); 	/* Firefox */
+	-webkit-transform:rotate(90deg); /* Safari 和 Chrome */
+	-o-transform:rotate(90deg); 	/* Opera */
+}
+.viewer_container .viewer_canvas .rotate180{
+	filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+	transform:rotate(180deg);
+	-ms-transform:rotate(180deg); 	/* IE 9 */
+	-moz-transform:rotate(180deg); 	/* Firefox */
+	-webkit-transform:rotate(180deg); /* Safari 和 Chrome */
+	-o-transform:rotate(180deg); 	/* Opera */
+}
+.viewer_container .viewer_canvas .rotate270{
+	filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+	transform:rotate(270deg);
+	-ms-transform:rotate(270deg); 	/* IE 9 */
+	-moz-transform:rotate(270deg); 	/* Firefox */
+	-webkit-transform:rotate(270deg); /* Safari 和 Chrome */
+	-o-transform:rotate(270deg); 	/* Opera */
+}
+.viewer_container .viewer_canvas .rotate360{
+	filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=4);
+	transform:rotate(360deg);
+	-ms-transform:rotate(360deg); 	/* IE 9 */
+	-moz-transform:rotate(360deg); 	/* Firefox */
+	-webkit-transform:rotate(360deg); /* Safari 和 Chrome */
+	-o-transform:rotate(360deg); 	/* Opera */
+}
+.viewer_container .viewer_footer .viewer_toolbar{
+	background-color:#000;
+	width:188px;
+	height:30px;
+	position:absolute;
+	bottom:20px;
+	margin-left:50%;
+	left:-94px;
+	border-radius:6px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    z-index:102;
+}
+.viewer_container .viewer_footer .viewer_toolbar li{
+	float:left;
+	cursor:pointer;
+	margin-right:20px;
+	margin-top:4px;
+	width: 22px;
+    height: 22px;
+}
+.viewer_container .viewer_footer .viewer_toolbar .viewer_zoom_in{
+	background: transparent url(./viewer.png) no-repeat scroll -18px -8px;
+}
+.viewer_container .viewer_footer .viewer_toolbar .viewer_zoom_out{
+	background: transparent url(./viewer.png) no-repeat scroll -51px -9px;
+}
+.viewer_container .viewer_footer .viewer_toolbar .viewer_rotate_right{
+	background: transparent url(./viewer.png) no-repeat scroll -89px -9px;
+}
+.viewer_container .viewer_footer .viewer_toolbar .viewer_delete{
+	background: transparent url(./viewer.png) no-repeat scroll -126px -9px;
+}
+.viewer_container .viewer_overlay{
+	background-color:#000;
+	opacity:0.6;
+	filter:alpha(opacity=60);
+	z-index:100;
+	width:100%;
+	height:100%;
+}
+.viewer_container .viewer_tooltip{
+    font-size: 12px;
+    line-height: 20px;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -25px;
+    text-align: center;
+    color: #fff;
+    border-radius: 10px;
+    background-color: #000000;
+    opacity:0;
+	filter:alpha(opacity=0);
+	z-index:103;
+	position:relative;
+}
+
+

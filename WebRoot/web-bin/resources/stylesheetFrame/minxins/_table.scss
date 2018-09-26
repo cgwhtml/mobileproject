@@ -1,0 +1,61 @@
+@charset "UTF-8";
+/*表格列表*/
+.table-list-wrapper{
+  padding: 0 $padding-block-horizontal $padding-base-vertical $padding-block-horizontal;
+}
+.table-list{
+  word-break: break-all;
+  tr{
+    height: $list-height;
+    //border: $list-boder-size solid transparent;
+    border-bottom: $list-boder-size solid $list-boder-color ;
+    box-shadow: 0 $list-boder-size 0 0 $list-boder-color;
+  }
+
+  thead tr{
+    background-color: $list-head-background;
+    border-bottom: none;
+  }
+  tbody tr{
+        &.focus {
+          box-sizing: border-box;
+          border: $list-boder-size solid $list-border-hover;
+          box-shadow: 0 $list-boder-size 4px 0 $list-border-hover;
+          background-color: $list-background-hover;
+        }
+  }
+  td {
+    padding-left:  $list-padding-horizontal;
+    &:first-child{
+      padding-left:  15px;
+    }
+  }
+}
+/*列表表格hover样式*/
+.table-list-hover{
+  tr{
+    border-left: $list-boder-size solid transparent;;
+    border-right: $list-boder-size solid transparent;;
+  }
+  tbody tr{
+    &.tr-focus,
+    &.tr-focus-stay{
+      box-sizing: border-box;
+      border:$list-boder-size solid $list-border-hover;
+      border-top:0 ;
+      box-shadow: 0 $list-boder-size 4px 0 $list-border-hover;
+      background-color: $list-background-hover;
+    }
+    &:first-child{
+      border-top:$list-boder-size solid $list-boder-color ;
+      &.tr-focus,
+      &.tr-focus-stay{
+        border-top:$list-boder-size solid $list-border-hover ;
+      }
+    }
+    &.tr-focus-prev,
+    &.tr-focus-prev-stay{
+      border-bottom:$list-boder-size solid $list-border-hover;
+    }
+  }
+}

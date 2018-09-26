@@ -1,0 +1,99 @@
+#wrapper{
+    box-sizing: border-box;
+}
+.pay_head{
+    height: 130px;
+    background-color: #fff;
+    padding: 17px 15px 15px 15px;
+    box-sizing: border-box;
+}
+.pay_name{
+    font-size: 20px;
+    color: #333333;
+    font-weight: bold;
+}
+#person_detail{
+    font-size: 14px;
+    color: #999999;
+}
+#payList{
+    padding: 0 10px 10px;
+}
+#payList li{
+    width:100%;
+    height:80px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.04);
+    border-radius: 4px;
+    overflow: hidden;
+    padding:15px;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+.pay_left{
+    width:80%;
+    height: 100%;
+    float: left;
+}
+.pay_left div:nth-child(1){
+    font-size: 17px;
+    font-weight: bold;
+    height:50%;
+}
+.pay_left div:nth-child(2){
+    font-size: 13px;
+    height:50%;
+    line-height: 25px
+}
+.pay_right{
+    width:20%;
+    height: 100%;
+    float: left;
+    line-height: 50px;
+    font-size: 17px;
+    color:red;
+}
+#payFeeBox{
+    width:100%;
+    height:65px;
+    background-color: #ffffff;
+    z-index: 99;
+    position: fixed;
+    bottom: 0;
+    left:0;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    display:none;
+}
+#payFee{
+    width:100%;
+    height:100%;
+    background: #3C9EFA;
+    border-radius: 4px;
+    color:#ffffff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 45px;
+}
+#payDefeatBox{
+    width:100%;
+    height:65px;
+    background-color: #ffffff;
+    z-index: 99;
+    position: fixed;
+    bottom: 0;
+    left:0;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    display:none;
+}
+#payDefeat{
+    width:100%;
+    height:100%;
+    background: red;
+    border-radius: 4px;
+    color:#ffffff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 45px;
+}

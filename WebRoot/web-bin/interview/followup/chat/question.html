@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/web-bin/interview/followup/chat/css/basic.css">
+    <link rel="stylesheet" href="/web-bin/interview/followup/chat/css/question.css">
+    <link href="/web-bin/resources/mypagination/js/myPagination/page.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="input_box">
+        <input type="text" t_placeholder="查找宣传问卷" class="s_input query_question"/>
+    </div>
+    <p style="display:none">
+        <textarea id="template_question" rows="0" cols="0">
+            {#foreach $T as Row}
+            <li data-role="0">
+                <div class="questionPng"></div>
+                <div class="question_name substr">
+                    {#if $T.Row.formTitle}
+                    <span>{$T.Row.formTitle}</span>
+                    {#else}
+                    <span>{$T.Row.title}</span>
+                    {#/if}
+                </div>
+                <input type="hidden" class="question_id" value="{$T.Row.id}">
+                <div class="spot"></div>
+            </li>
+            {#/for}
+        </textarea>
+    </p>
+    <ul class="question_box"></ul>
+    <div class="send_box">
+        <button class="send blue_highlight">发送</button>
+    </div>
+<script src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+<script src="/web-bin/resources/config/config.js"></script>
+<script src="/web-bin/resources/inputer/inputer.js"></script>
+<script src="/web-bin/resources/artdialog/artDialog.source.js?skin=white"></script>
+<script src="/web-bin/resources/artdialog/iframeTools.source.js"></script>
+<script src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/mypagination/js/myPagination/jquery.myPagination6.0.js"></script>
+<script src="/web-bin/interview/followup/chat/js/question.js"></script>
+</body>
+</html>

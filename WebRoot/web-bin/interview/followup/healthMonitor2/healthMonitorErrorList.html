@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<title>未处理异常</title>
+	<link type="text/css" rel="stylesheet" href="/web-bin/resources/stylesheetFrame/common.css"/>
+	<link type="text/css" rel="stylesheet" href="/web-bin/resources/chosen/chosenNew.css"/>
+	<link rel="stylesheet" type="text/css" href="/web-bin/resources/mypagination/js/myPagination/page.css"/>
+	<link rel="stylesheet" type="text/css" href="/web-bin/resources/mypagination/js/msgbox/msgbox.css"/>
+<body>
+<div class="wrapper" style="padding-right: 20px;padding-left: 10px">
+	<div class="content">
+		<div class="search_nav" style="padding-bottom: 10px;">
+            <input type="text" class="input-search input-search-sm laydate-icon" id="beginDate">~<input type="text" class="input-search input-search-sm laydate-icon" style="margin-left: 0" id="endDate">
+			<select name="registerHistoryReqDTO.jsonDeptCode" id="healthType" class="chosen_for_search queryCondition" data-placeholder="请选择">
+                <option value="">全部项目</option>
+                <option value="1">胎心</option>
+                <option value="2">血压</option>
+                <option value="3">血糖</option>
+                <option value="4">体温</option>
+                <option value="5">心率</option>
+                <option value="6">体重</option>
+			</select>
+			<input type="text" class="input-search input-search-md queryCondition" t_placeholder="输入姓名查询" id="patName" style="width: 140px"/>
+			<button class="btn btn-primary-sm" type="button" id="btn_search">搜索</button>
+		</div>
+		<div class="table-list-layout body-box-shadow">
+			<div class="headbar-primary">未处理异常</div>
+			<p style="display:none"><textarea id="Template-ListRows" rows="0" cols="0">
+                 <div class="table-list-wrapper">
+                <table class="table-list table-list-hover">
+                    <thead>
+                    <tr>
+                        <td>姓名</td>
+                        <td>监测项目</td>
+                        <td>体征值</td>
+                        <td>体征单位</td>
+                        <td>异常状态</td>
+                        <td>监测时间</td>
+                        <td>操作</td>
+                    </tr>
+                    </thead>
+                    {#foreach $T as Row}
+                    <tr>
+                        <td class="patName text-substr" style="max-width: 80px" title="{$T.Row.name}">{$T.Row.name}</td>
+                        <td>
+                            {#if $T.Row.healthType==1}
+                                胎心
+                            {#elseif $T.Row.healthType==2}
+                                血压
+                            {#elseif $T.Row.healthType==3}
+                                血糖
+                            {#elseif $T.Row.healthType==4}
+                                体温
+                            {#elseif $T.Row.healthType==5}
+                                心率
+                            {#elseif $T.Row.healthType==6}
+                                体重
+                            {#elseif $T.Row.healthType==7}
+                                运动
+                            {#/if}
+                        </td>
+                        <td>{#if $T.Row.healthType =='1'}——{#else}{$T.Row.healthValue}{#/if}</td>
+                        <td>{#if $T.Row.healthType =='1'}——{#else}{$T.Row.healthUnit}{#/if}</td>
+                        <td>
+                            {#if $T.Row.healthType =='1'}——
+                                {#elseif $T.Row.healthType =='2'}
+                                    {#if $T.Row.healthStatusDoc =='10'}
+                                    <div><span style="color:red">偏低/偏低</span></div>
+                                    {#elseif $T.Row.healthStatusDoc =='11'}
+                                    <div><span style="color:red">偏低</span>/正常</div>
+                                    {#elseif $T.Row.healthStatusDoc =='12'}
+                                    <div><span style="color:red">偏低/偏高</span></div>
+                                    {#elseif $T.Row.healthStatusDoc =='13'}
+                                    <div>正常/<span style="color:red">偏低</span></div>
+                                    {#elseif $T.Row.healthStatusDoc =='14'}
+                                    <div>正常/正常</div>
+                                    {#elseif $T.Row.healthStatusDoc =='15'}
+                                    <div>正常/<span style="color:red">偏高</span></div>
+                                    {#elseif $T.Row.healthStatusDoc =='16'}
+                                    <div><span style="color:red">偏高/偏低</span></div>
+                                    {#elseif $T.Row.healthStatusDoc =='17'}
+                                    <div><span style="color:red">偏高</span>/正常</div>
+                                    {#elseif $T.Row.healthStatusDoc =='18'}
+                                    <div><span style="color:red">偏高/偏高</span></div>
+                                    {#else}
+                                    <div>正常/正常</div>
+                                    {#/if}
+                                {#elseif $T.Row.healthType =='6'}
+                                    {#if $T.Row.healthStatusDoc =='-2'}
+                                    <div><span style="color:red">偏瘦</span></div>
+                                    {#elseif $T.Row.healthStatusDoc =='2'}
+                                    <div><span style="color:red">偏胖</span></div>
+                                    {#elseif $T.Row.healthStatusDoc =='3'}
+                                    <div><span style="color:red">肥胖</span></div>
+                                    {#else}
+                                    <div>正常</div>
+                                    {#/if}
+                                {#else}
+                                    {#if $T.Row.healthStatusDoc =='-1'}
+                                    <div><span style="color:red">偏低</span></div>
+                                    {#elseif $T.Row.healthStatusDoc =='1'}
+                                    <div><span style="color:red">偏高</span></div>
+                                    {#else}
+                                    <div>正常</div>
+                                    {#/if}
+                            {#/if}
+                        </td>
+                        <td>{$T.Row.measuringTime.substring(0,16)}</td>
+                        <td>
+                            <a href="javascript:void(0)" class="link" onclick="toErrorHandle('{$T.Row.healthId}')">处理</a>
+                            <a href="javascript:void(0)" class="link" onclick="toPatientArchives('{$T.Row.name}','{$T.Row.idCard}','{$T.Row.phone}','{$T.Row.healthType}')" style="margin-left:10px">查看</a>
+                        </td>
+                    </tr>
+                    {#/for}
+                </table>
+            </div>
+            </textarea></p>
+			<div id="data_table"></div>
+			<div id="page"></div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/laydate/laydate.js"></script>
+<script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/chosen/chosen.jquery.js"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/artDialog.source.js?skin=white"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/iframeTools.source.js"></script>
+<script type="text/javascript" src="/web-bin/resources/mypagination/js/myPagination/jquery.myPagination6.0.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/mypagination/js/msgbox/msgbox.js"></script>
+<script type="text/javascript" src="/web-bin/interview/followup/healthMonitor2/js/healthMonitorErrorList.js"></script>
+</body>
+</html>

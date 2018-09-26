@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>阅读</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+    	.r_b_before10 .purple_content_title{
+		    text-align:center;
+		}
+		.r_b_before10 .content_table{
+			border-bottom:3px solid #9E88C0 !important;
+		}
+		.r_b_before10 .content_table td{
+			border-left:1px solid #CCBBE8;
+			border-right:1px solid #CCBBE8;
+		}
+		.r_b_before10 .content_table tr:FIRST-CHILD{
+			text-align:center;
+			color:#fff;
+		}
+		.r_b_before10 .content_table tr td:FIRST-CHILD{
+			text-align:center;
+			border-left:1px solid transparent;
+		}
+		.r_b_before10 .content_table tr td:last-child{
+			border-right:1px solid transparent;
+		}
+		.r_b_before10 .content_table tr:FIRST-CHILD td:FIRST-CHILD{
+			font-size:0.16rem;
+			height:0.4rem;
+		}
+		.r_b_before10 .tem_div{
+			position:relative;
+			min-height:0.29rem;
+			display: none;
+		}
+		.r_b_before10 .tem_font{
+			font-size:0.24rem;
+			padding-left:0.18rem;
+			position:absolute;
+		}
+		.r_b_before10 .myCanvas{
+			position:absolute;
+			left:0;
+			top:0;
+		}
+		/* 媒体查询 */
+		@media (min-height:451px) and (max-height:500px) and (-webkit-min-device-pixel-ratio:1){
+			.r_b_before10 .mc_content_main .content_font1{line-height: 0.29rem !important;}
+		}
+		@media (min-height:501px) and (max-height:550px) and (-webkit-min-device-pixel-ratio:1){
+			.r_b_before10 .mc_content_main .content_font1{line-height: 0.29rem !important;}
+		}
+		@media (min-height:551px) and (max-height:600px) and (-webkit-min-device-pixel-ratio:1){
+			.r_b_before10 .mc_content_main .content_font1{line-height: 0.33rem !important;}
+		}
+		@media (min-height:601px) and (max-height:650px) and (-webkit-min-device-pixel-ratio:1){
+			.r_b_before10 .mc_content_main .content_font1{line-height: 0.4rem !important;}
+		}
+		@media (min-height:901px) and (max-height:1000px) and (-webkit-min-device-pixel-ratio:2){
+			.r_b_before10 .mc_content_main .content_font1{line-height: 0.31rem !important;}
+		}
+		@media (min-height:1001px) and (max-height:1100px) and (-webkit-min-device-pixel-ratio:2){
+			.r_b_before10 .mc_content_main .content_font1{line-height: 0.33rem !important;}
+		}
+		@media (min-height:1101px) and (max-height:1200px) and (-webkit-min-device-pixel-ratio:2){
+			.r_b_before10 .mc_content_main .content_font1{line-height: 0.33rem !important;}
+		}
+		@media (min-height:1201px) and (max-height:1300px) and (-webkit-min-device-pixel-ratio:2){
+			.r_b_before10 .mc_content_main .content_font1{line-height: 0.33rem !important;}
+		}
+		@media (min-height:1301px) and (-webkit-min-device-pixel-ratio:2){
+			.r_b_before10 .mc_content_main .content_font1{line-height: 0.4rem !important;}
+		}
+		@media (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 2) {/* ipad竖屏 */
+			.r_b_before10{font-size:0.38rem !important;}
+			.r_b_before10 .mc_content_main .content_font1{line-height: 0.33rem !important;}
+		}
+    </style>
+</head>
+<body>
+    <div class="r_b_before10">
+	    <div class="gradient_top gradient_purple_top"></div>
+	    <div class="mc_content_main">
+	    	<p class="purple_content_title">备孕期月经周期与基础体温自测记录表</p>
+	    	<table cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;table-layout:fixed;" class="content_table content_font1">
+	    		<tr class="purple_bg_color3">
+	    			<td id="td1">
+	    				<div class="relative">
+		    				<div style="text-align:right;line-height:0.2rem">月份</div>
+		    				<div style="text-align:left;line-height:0.2rem">日期</div>
+		    				<canvas id="myCanvas" class="myCanvas"></canvas>
+	    				</div>
+	    			</td>
+	    			<td>1</td>
+	    			<td>2</td>
+	    			<td>3</td>
+	    			<td>4</td>
+	    			<td>5</td>
+	    			<td>6</td>
+	    			<td>7</td>
+	    			<td>8</td>
+	    			<td>9</td>
+	    			<td>10</td>
+	    			<td>11</td>
+	    			<td>12</td>
+	    		</tr>
+	    	</table>
+	    	<div style="margin-top:0.06rem">
+	    		<span>备注：</span>
+				<span class="t_icon_1"></span>
+				<span>月经开始</span>
+				<span class="t_icon_2"></span>
+				<span>月经结束</span>
+				<span class="t_icon_3"></span>
+				<span>当日同房</span>
+	    	</div>
+	    </div>
+	    <div class="gradient_bottom gradient_purple_bottom"></div>
+    </div>
+	<script>
+  		var colors=["#fff","yellow_bg_color1",'#fff',"purple_bg_color4"];
+  		for(var i=0;i<31;i++){
+  			$(".r_b_before10 .content_table").append("<tr class='content_font1 "+colors[i%4]+"'><td>"+(i+1)+"</td><td></td><td></td><td><div class='tem_div'><span class='t_icon_33'></span><span class='tem_font'>37.2</span></div></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>");
+  		}
+ 	</script>
+    <script type="text/javascript">
+  		var height=$(".r_b_before10 #td1").outerHeight();
+  		var width=$(".r_b_before10 #td1").width();
+  		var c=document.getElementById("myCanvas");
+		var cxt=c.getContext("2d");
+		cxt.moveTo(0,0);
+		cxt.lineTo(width,height);
+		cxt.strokeStyle="#ffffff";
+		cxt.stroke();
+    </script>
+</body>
+</html>

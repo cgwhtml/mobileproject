@@ -1,0 +1,50 @@
+.wrapper{
+    height:100%;
+}
+.check_head{
+    height: 50px;
+    line-height: 50px;
+    background-color: #fff;
+    font-size: 17px;
+    padding-left: 15px;
+    box-sizing: border-box;
+}
+.detail_box{
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+.video_report{
+    border-radius: 3px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.04);
+    padding:0 10px 10px 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: #fff;
+    margin-top: 10px;
+}
+.report_head{
+    height:40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 14px;
+}
+.report_head img{
+    width:18px;
+    height:18px;
+    margin-right: 10px;
+}
+.video_detail,.check_detail{
+    color: #999999;
+}
+#picUrl{
+    position:relative;
+    display: none;
+}
+/*灰色箭头*/
+.gray_arrow{
+    position: absolute;
+    top:50%;
+    right:20px;
+    margin-top:-7px;
+}

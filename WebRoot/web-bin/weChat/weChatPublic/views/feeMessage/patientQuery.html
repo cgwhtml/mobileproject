@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>就诊查询</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/weui/weui.min.css">
+    <link rel="stylesheet" href="/web-bin/resources/weui/jquery-weui.css">
+    <link rel="stylesheet" href="/web-bin/resources/css/basicMobile.css">
+    <link rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/feeMessage/patientQuery.css">
+</head>
+<body>
+<div id="noDataBox">
+    <div id="none">
+        <img src="/web-bin/resources/images/nodata2x.png">
+        <p>暂无数据</p>
+    </div>
+</div>
+<div class="wrapper">
+    <div class="basic_msg_title">
+        <div class="img_box">
+            <div class="head_img"></div>
+            <div class="name substr"></div>
+        </div>
+        <ul class="patient_msg">
+            <li>
+                性别：<span class="sexCode"></span>
+            </li>
+            <li>
+                病案号：<span class="patIndexNo"></span>
+            </li>
+            <li>
+                手机号码：<span class="mobileNo"></span>
+            </li>
+        </ul>
+    </div>
+    <div class="msg_wrapper2">
+        <ul>
+            <li id="checkMsg">
+                <div class="sm_icon sm_icon4"></div>
+                <span>检查报告</span>
+                <div class="gray_arrow"></div>
+            </li>
+            <li id="testMsg">
+                <div class="sm_icon sm_icon5"></div>
+                <span>检验报告</span>
+                <div class="gray_arrow"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="msg_wrapper">
+        <ul>
+          <!--  <li id="diagnoseMsg">
+                <div class="sm_icon sm_icon1"></div>
+                <span>诊断信息</span>
+                <div class="gray_arrow"></div>
+            </li>-->
+            <li id="feeVisit">
+                <div class="sm_icon sm_icon2"></div>
+                <span>门诊费用</span>
+                <div class="gray_arrow"></div>
+            </li>
+            <li id="feeHosp">
+                <div class="sm_icon sm_icon2"></div>
+                <span>住院费用</span>
+                <div class="gray_arrow"></div>
+            </li>
+            <li id="medicMsg">
+                <div class="sm_icon sm_icon3"></div>
+                <span>手术信息</span>
+                <div class="gray_arrow"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="foot">
+        <div class="query_box">更多医疗信息</div>
+    </div>
+</div>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/weui/jquery-weui.js"></script>
+<script type="text/javascript" src="/web-bin/resources/weui/fastclick.js"></script>
+<!--解决ios下click的300ms的延迟，需引入fastclick-->
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+<script type="text/javascript" src="/web-bin/weChat/weChatPublic/js/feeMessage/patientQuery.js"></script>
+</body>
+</html>

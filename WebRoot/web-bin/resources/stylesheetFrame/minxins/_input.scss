@@ -1,0 +1,89 @@
+@charset "UTF-8";
+/*填写框函数*/
+@mixin editarea($height,$border-radius){
+  background-color: transparent;
+  height: $height;
+  border: $input-border-size solid $input-border-color;
+  border-radius: $border-radius;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: $input-padding-inner-horizontal;
+  padding-right: $input-padding-inner-horizontal;
+  line-height: $input-line-height;
+  padding-top:  floor(($input-height - $input-border-size * 2 - $input-line-height) / 2);
+  padding-bottom:  floor(($input-height - $input-border-size * 2 - $input-line-height) / 2);
+
+  &:focus,
+  &.focus,&:hover  {
+    border-color: $input-border-hover-color;
+  }
+  &.disabled, &[disabled],
+  &.readonly, &[readonly]{
+    background-color: $input-bg-disabled;
+    color: $input-color-disbled;
+    &:focus,
+    &.focus,&:hover  {
+      border-color: $input-border-color;
+    }
+  }
+
+  /*placeholder*/
+  &::-webkit-input-placeholder {
+    color: $text-tip-color;
+  }
+  &:-moz-placeholder{
+    color:$text-tip-color;
+  }
+  &::-moz-placeholder {
+    color: $text-tip-color;
+  }
+  &:-ms-input-placeholder {
+    color:$text-tip-color;
+  }
+}
+/*填写框基础样式*/
+.input{
+  @include editarea($input-height,$input-border-radius);
+}
+/*搜索框基础样式*/
+.input-search{
+  @include editarea($input-height,$input-search-border-radius);
+}
+.input-search + .input-search{
+  margin-left: 6px;
+}
+
+/*a标签或div使用填写框样式*/
+a.input,div.input,
+a.input-search,div.input-search,
+div.textarea-base{
+  &:focus,
+  &.focus,&:hover  {
+    border-color: $input-border-color;
+  }
+}
+div.input{
+  min-height: $input-height;
+  height: auto;
+  word-break: break-all;
+}
+
+/*input框大小函数*/
+@each $size in xs sm  md lg {
+  .input-#{$size} {
+    width: map-get($input-width, #{$size}-width)
+  }
+}
+/*搜索框大小函数*/
+@each $size in  sm  md  {
+  .input-search-#{$size} {
+    width: map-get($input-search-width, #{$size}-width)
+  }
+}
+/*textarea基础样式*/
+.textarea-base{
+  @include editarea($textarea-height,$input-border-radius);
+  width: 400px;
+  height: 60px;
+  resize: none;
+}

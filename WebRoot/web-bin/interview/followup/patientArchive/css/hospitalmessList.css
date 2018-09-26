@@ -1,0 +1,96 @@
+.follow_document{
+	position:relative;
+}
+.document_left {
+	width: 250px;
+	background-color: #fff;
+	border-right: 1px solid #D8D8D8;
+	border-bottom: 1px solid #D8D8D8;
+	box-sizing: border-box;
+	float: left;
+	overflow: hidden;
+}
+.documenet_leftbottom{
+	height:100%;
+	position:relative;
+}
+.document_line{
+	width:1px;
+	background-color:#D8D8D8; 
+    position:fixed;
+    top:0;
+    left:30px;
+    z-index:0;
+}
+.document_checkbox{
+	padding: 10px 0 10px 10px;
+	cursor: pointer;
+}
+.document_checkbox:hover {
+	background:#EFF7FF;
+	border-right:4px solid #2D9AEE;
+}
+.document_checkbox_checked {
+	background:#EFF7FF;
+	border-right:4px solid #2D9AEE;
+	padding: 10px 0 10px 10px;
+	cursor: pointer;
+}
+.icon_back{
+	width: 34px;
+	height: 34px;
+	background-position: -199px -152px;
+	position: absolute;
+	left: 14px;
+	z-index: 20;
+}
+.icon_back:hover {
+	background-position: -199px -195px;
+}
+.icon_back_checked {
+	width: 34px;
+	height: 34px;
+	background-position: -199px -195px;
+	position: absolute;
+	left: 14px;
+	z-index: 20;
+}
+.check_logo{
+	width:33px;
+	height:33px;
+	border-radius:100%;
+}
+.check_inhospital{
+	background-position:-234px -196px;
+}
+.check_menzhen{
+	background-position: -266px -196px;
+}
+.check_check{
+	background-position:-297px -196px;
+}
+.check_self{
+	background-position:-330px -196px;
+}
+.check_duanline{
+	width: 10px;
+	height: 1px;
+	background: #D8D8D8;
+	position: absolute;
+	left: 33px;
+	top: 17px;
+}
+.check_contain{
+	height:100%;
+	margin-left:55px;
+}
+.check_time{
+    height:15px;
+    color:#3B3B3B;
+}
+.check_text{
+	width:180px;
+    height:15px;
+    color:#3B3B3B;
+    margin-top:5px;
+}

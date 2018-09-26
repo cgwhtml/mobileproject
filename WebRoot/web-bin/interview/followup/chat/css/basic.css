@@ -1,0 +1,203 @@
+/*基础样式*/
+*{margin:0;padding:0;outline:none}
+img{border:0}
+ul{list-style: none;}
+a{text-decoration: none;font-family: "Microsoft YaHei","微软雅黑";color:#3B3B3B;}
+input[type="text"],input[type="password"]{font-family: "Microsoft YaHei","微软雅黑";font-size:12px;color:#3B3B3B;border:1px solid #D8D8D8 !important;padding: 3px 5px 3px 5px;box-sizing: border-box;height: 24px;}
+input[disabled="disabled"]{background-color: #FFFFFF;}
+textarea{overflow:auto;resize:none;font-family: "Microsoft YaHei","微软雅黑";color:#3B3B3B;border:1px solid #D8D8D8 !important;box-sizing: border-box;padding:2px 5px 2px 5px;font-size: 12px;}
+body{font-size: 12px;font-family: "Microsoft YaHei","微软雅黑";color:#3B3B3B;overflow: hidden;background-color: #F6F7FB;}
+button{font-family: "Microsoft YaHei","微软雅黑";font-size:12px;border:none;color:#FFFFFF;}
+/* 浮动样式 */
+.pull_left{float: left !important;}
+.pull_right{float: right !important;}
+/* 操作按钮样式--高亮 *//*flat_-高度扁的*//*low_-浅色的*/
+.basic_buttons{padding: 8px 5px 3px 8px;text-align:right;}
+.blue_highlight,.gray_highlight,.green_highlight,.low_blue_highlight,.low_gray_highlight,.red_highlight{width: 90px;cursor: pointer;margin-left: 10px;border-radius: 3px;height: 30px;line-height: 30px;color:#FFFFFF;text-align:center;}
+.flat_blue_highlight{width: 64px;cursor: pointer;margin-left: 10px;border-radius: 3px;height: 22px;line-height: 22px;color:#FFFFFF;text-align:center;margin-top:1px}
+.flat_gray_highlight{width: 64px;cursor: pointer;margin-left: 10px;border-radius: 3px;height: 22px;line-height: 22px;color:#FFFFFF;text-align:center;margin-top:1px}
+.white_highlight{width: 90px;cursor: pointer;margin-left: 10px;border-radius: 3px;height: 22px;line-height: 20px;background-color: #FFFFFF;color:#00A2F4;text-align:center;border:1px solid #00A2F4;box-sizing: border-box;}
+.blue_highlight,.flat_blue_highlight{background-color: #00A2F4 !important;}
+.blue_highlight:hover,.flat_blue_highlight:hover{background-color: #2b84c9 !important;}
+.gray_highlight,.flat_gray_highlight{background-color: #B5B5B5 !important;}
+.gray_highlight:hover{background-color: #878787 !important;}
+.low_gray_highlight{background-color: #E3E8EC !important;color:#3B3B3B;border:1px solid #696969;box-sizing: border-box;line-height:28px;}
+.low_gray_highlight:hover{background-color: #00A2F4 !important;border:0px;color:#FFFFFF;line-height:30px;}
+.green_highlight{background-color:#64AF31;}
+.green_highlight:hover{background-color:#5e9131 !important;}
+.low_blue_highlight{background-color:#6AB7F2;}
+.low_blue_highlight:hover{background-color:#00A2F4 !important;}
+.white_highlight:hover{background-color:#EEEEEE !important;}
+.red_highlight{background-color: #FE7474; !important;}
+.red_highlight:hover{background-color: #dd6758; !important;}
+/* 表格样式 */
+.bg_change_table{border-collapse: collapse;}
+.bg_change_table tr{border: 1px solid #E1E1E1;height:29px;color:#686868;}
+.bg_change_table tr:FIRST-CHILD{background-color:#FFFFFF !important;}
+.bg_change_table tr td{padding-left:6px;}
+.bg_change_table .bg_class_odd{background-color:#FFFFFF;}
+.bg_change_table .bg_class_even{background-color:#F8F8F8;}
+.bg_change_table .bg_class_odd:hover,.bg_change_table .bg_class_even:hover{background-color:#EEF7FF;}
+/* 页面信息标题样式 */
+.p_head_icon1{width: 45px;height: 30px;position: absolute;right: -35px;}
+.p_head_icon2{width: 4px;height: 4px;position: absolute;left: 0px;bottom: -4px;}
+.p_head_title1,.p_head_title2{height: 30px;position: relative;top: 10px;left: -4px;color: #FFFFFF;line-height: 30px;font-size: 14px;display:inline-block;}
+/**绿色标题**/
+.p_head_title1{background-color: #64AF31;}
+.p_head_title1 .p_head_icon1{background-position:-19px -664px;}
+.p_head_title1 .p_head_icon2{background-position:-24px -721px;}
+.p_head_title1 p,.p_head_title2 p{position:relative;left:14px;padding-right:10px;}
+/**蓝色标题**/
+.p_head_title2{background-color: #00A2F4;}
+.p_head_title2 .p_head_icon1{background-position:-59px -664px;}
+.p_head_title2 .p_head_icon2{background-position:-64px -721px;}
+/* 小模块标题样式 */
+.content_title{height: 35px;border: 1px solid #E1E1E1;border-bottom:0;background-color:#E2E8EC;position: relative;width: 100%;box-sizing: border-box;}
+.content_title .bTitle_text{font-size: 14px;float:left;margin-top:8px;margin-left:10px;}
+.content_title .oper_box{float:right;margin-top:5px;margin-right:10px;}
+/* a标签字体颜色 */
+.a_color1{color:#00A1F6;}
+.a_color1:hover{color:#f86f00;}
+/* 按钮背景颜色 */
+.btn_bg1{background-color:#00A2F4;/*蓝色*/}
+.btn_bg1:hover{background-color: #2b84c9 !important;}
+.btn_bg2{background-color:#64AF31;/*绿色*/}
+.btn_bg2:hover{background-color:#5e9131 !important;}
+.btn_bg3{background-color:#4E9713;/*深绿色*/}
+.btn_bg3:hover{background-color:#497e18 !important;}
+.btn_bg4{background-color:#bbccd6;/*灰色*/}
+.btn_bg4:hover{background-color:#b5c5d1;}
+/* 其余样式 */
+.border_radius3{border-radius:3px;}
+.substr {white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.must{color:#FF0000;font-weight: bold;padding-left:4px;position:relative;top:2px;}
+/****************************************************图标的所有样式******************************************************/
+/* 公用图标集 */
+.design_icon{background-image:url(../images/designIcon.png);background-repeat:no-repeat;}
+/* 选择选择按钮样式 */
+/* 单选多选 */
+.r_unchecked{background-position:-183px -411px;width: 12px;height: 12px;}
+.r_checked{background-position:-142px -411px;width: 12px;height: 12px;}
+.sc_unchecked{background-position:-103px -442px;width:15px;height:14px;}
+.sc_checked{width:15px;height:14px;background-position:-67px -442px;}
+.sc_checked_gray {width:15px;height:14px;background-position: -24px -533px;}
+.sc_unchecked_gray {width:15px;height:14px;background-position: -50px -533px;}
+/* 添加删除 */
+.creat_white_medium {background-position: -447px -580px;width: 16px;height: 16px;}
+.creat_white_small {background-position: -528px -581px;width: 14px;height: 14px;}
+.creat_white_tiny{background-position: -572px -582px;width: 14px;height: 12px;}
+.delete_white_big {background-position: -246px -619px;width: 15px;height: 15px;}
+.delete_white_medium {background-position: -287px -620px;width: 14px;height: 14px;}
+.delete_red_medium {background-position: -367px -620px;width:14px;height:14px;}
+.delete_white_small{background-position: -449px -621px;width:12px;height:11px;}
+.delete_red_circle{background-position: -508px -157px;width:20px;height:20px;}
+.delete_blue_small{background-position: -408px -621px;width:12px;height:11px;}
+.delete_blue_big{background-position: -326px -619px;width:16px;height:16px;}
+/* 上锁 */
+.unlocked_gray {background-position: -454px -701px;width:12px;height:12px;}
+.locked_red {background-position: -332px -701px;width:12px;height:12px;}
+.unlocked_blue {background-position: -371px -701px;width:12px;height:12px;}
+.locked_blue {background-position: -249px -701px;width:12px;height:12px;}
+.unlocked_white {background-position: -413px -701px;width:12px;height:12px;}
+.locked_white {background-position: -291px -701px;width:12px;height:12px;}
+.unlocked_blue_big {background-position: -206px -411px;width:15px;height:16px;}
+.locked_blue_big {background-position: -206px -437px;width:12px;height:16px;}
+/* 播放 */
+.play_blue {background-position: -68px -574px;width:20px;height:21px;}
+.stop_blue {background-position: -24px -574px;width:20px;height:21px;}
+/* 导入 */
+.loadinperson_white {background-position: -24px -619px;width: 16px;height: 16px;}
+.loadin_white {background-position: -68px -618px;width: 17px;height: 16px;}
+/* 模拟树结构显示隐藏 */
+.hide_blue {background-position: -157px -579px;height: 12px;width: 13px;}
+.show_blue {background-position: -114px -579px;height: 12px;width: 13px;}
+/*投诉表扬右侧栏*/
+.item_type_complaint,.item_type_praise{width:92px;height:25px;}
+.item_type_complaint{background-position:-804px -26px;}
+.item_type_praise{background-position:-804px -83px;}
+/*知识库-右侧列表操作背景图*/
+.bar_blue_left{background-position: -375px -122px;width: 60px;height: 25px;}
+.bar_orange_left{background-position: -819px -55px;width: 60px;height: 25px;}
+/*提醒*/
+.remind_blue{background-position: -343px -488px;width: 59px;height: 47px;}
+/*操作步骤箭头*/
+.step_arrow_right{background-position: -556px -91px;width: 9px;height: 24px;}
+/* pen */
+.pen_blue_big {background-position: -287px -661px;width: 14px;height: 16px;}
+.pen_blue_small{background-position: -370px -664px;width:10px;height: 11px;}
+.pen_green_big {background-position: -247px -661px;width: 14px;height: 16px;}
+.pen_white_big {background-position: -328px -661px;width: 14px;height: 16px;}
+.pen_white_small {background-position: -450px -664px;width: 10px;height: 11px;}
+.pen_green_circle{background-position: -508px -125px;width:20px;height:20px;}
+/*打钩*/
+.tick_white_big{background-position: -108px -532px;width:20px;height:16px;}
+.circle_tice_white{background-position: -669px -145px;width:14px;height:14px;}
+/*进度条*/
+.progress_green_circle{background-position: -399px -87px;width:16px;height:16px;}
+.progress_green_circle_big{background-position: -555px -212px;width:20px;height:20px;}
+.progress_pink_circle{background-position: -447px -87px;width:16px;height:16px;}
+.progress_gray_circle{background-position: -500px -87px;width:16px;height:16px;}
+.progress_gray_circle_small{background-position: -583px -144px;width:10px;height:10px;}
+.progress_white_circle_small{background-position: -583px -129px;width:10px;height:10px;}
+.progress_blue_circle_small{background-position: -583px -159px;width:10px;height:10px;}
+/*半圆*/
+.progress_left_green_radius{background-position: -454px -121px;width:5px;height:10px;}
+.left_blue_radius{background-position: -445px -170px;width:12px;height:24px;}
+.right_blue_radius{background-position: -457px -170px;width:12px;height:24px;}
+/*随访主题图标*/
+.theme_blue_big{background-position: -542px -10px;width:61px;height:54px;}
+.theme_blue_small{background-position: -595px -88px;width:34px;height:30px;}
+/*表单主题图标*/
+.form_blue_icon{background-position: -274px -488px;width:59px;height:47px;}
+/* 是否认证 */
+.authorized_blue_small {background-position: -152px -621px;width:10px;height:12px;}
+.unauthorized_blue_small {background-position: -116px -621px;width:10px;height:12px;}
+/*问号*/
+.question_blue{background-position: -541px -127px;width:17px;height:17px;}
+/*三角形箭头图标*/
+.arrow_gray_right{background-position: -73px -410px;width:6px;height:12px}
+.arrow_gray_bottom{background-position: -104px -413px;width:12px;height:6px}
+.arrow_blue_right{background-position: -107px -347px;width:6px;height:12px}
+.arrow_blue_bottom{background-position: -70px -382px;width:12px;height:6px}
+/*拆分*/
+.split_icon{background-position: -259px -466px;width:15px;height:14px}
+/*纸飞机*/
+.paperPlane_green {background-position: -587px -185px;width:14px;height:14px}
+.paperPlane_white{background-position: -614px -185px;width:14px;height:14px}/* 发送 */
+/*手机图标*/
+.phone_blue_small{background-position: -672px -185px;width:10px;height:14px}
+.phone_gray_small{background-position: -728px -185px;width:10px;height:14px}
+.icon_phone_green{background-position:-727px -228px;height:18px;width: 11px;}/*绿色手机图标*/
+.mobile_white_big {background-position: -376px -461px;width: 11px;height: 18px;}/* 手机 */
+/* 电话 */
+.phone_white_oblique {background-position: -348px -461px;width: 17px;height: 18px;}
+.phone_white_horizontal {background-position: -314px -468px;width: 21px;height: 8px;}
+.icon_tel_green{background-position:-612px -229px;width: 17px;height:17px;}/*绿色电话图标*/
+/* 短信 */
+.icon_email_green{background-position:-667px -230px;width: 19px;height:14px;}/*绿色短信图标*/
+.message_white {background-position: -399px -463px;width: 18px;height: 14px;}
+/* excel导入导出 */
+.export_blue{background-position: -778px -183px;width: 21px;height: 15px;}
+.import_blue{background-position: -610px -145px;width: 21px;height: 15px;}
+/* 眼睛 */
+.eye_blue {background-position: -159px -469px;width: 21px;height: 12px;}
+.eye_green {background-position: -190px -469px;width: 21px;height: 12px;}
+.eye_orange {background-position: -223px -469px;width: 21px;height: 12px;}
+/*下载*/
+.download_white{background-position: -68px -618px;width: 18px;height:19px;}
+/* 关闭 */
+.close_gray_big {background-position: -211px -336px;width: 14px;height: 14px;}
+/*结案*/
+.finish_green{background-position: -476px -124px;width: 27px;height: 22px;}
+/*时钟*/
+.clock_blue{background-position: -99px -469px;width: 12px;height: 12px;}
+/*分享*/
+.share_blue{background-position: -67px -469px;width: 9px;height: 11px;}
+/*升级*/
+.upgrade_white{background-position: -138px -469px;width: 10px;height: 12px;}
+/* 其他 */
+.poshytip_white {background-position: -484px -424px;width: 220px;height: 55px;}
+.filter_white {background-position: -726px -145px;width: 13px;height: 14px;}
+.return_green {background-position: -563px -185px;width:16px;height:14px}
+/*绿色标签尾部*/
+.greenTab_left{background-position: -109px -664px;width:18px;height:33px;}

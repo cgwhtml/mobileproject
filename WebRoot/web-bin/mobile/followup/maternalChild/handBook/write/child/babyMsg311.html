@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>宝宝基本信息</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/area/LArea.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_002.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_003.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/icheck/skins/all.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+    <style>
+        .area_current1,
+        .area_btn{
+            color: #EC9DD6;
+        }
+    </style>
+</head>
+<body>
+    <form action="" id="myForm" name="myForm">
+        <div class="parent_msg">
+            <div class="main_option">
+                <span>儿童姓名</span><span class="must">*</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="name" name="name">
+            </div>
+            <div class="main_option sex">
+                <span>性别</span><span class="must">*</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="sex" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>男</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="sex" value="2"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>女</span>
+                    </label>
+                </div>
+            </div>
+            <div class="main_option">
+                <span>出生日期</span><span class="must">*</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="birthTime" name="birthTime">
+            </div>
+            <div class="main_option">
+                <span>胎次</span><span class="must">*</span>
+                <input type="tel" placeholder="请填写" class="input_msg" id="parity" name="parity">
+            </div>
+            <div class="main_option">
+                <span>出生医学证明号</span><span class="must">*</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="birthCertificate" name="birthCertificate">
+            </div>
+            <div class="main_option">
+                <span>身份证号</span><span class="must">*</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="idCard" name="idCard">
+            </div>
+            <div class="main_option">
+                <span>户口所在地</span><span class="must">*</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <span class="main_option_status" id="registeredResidenceText">请选择</span>
+                <input type="hidden" id="registeredResidenceProvince" name="registeredResidenceProvince">
+                <input type="hidden" id="registeredResidenceCity" name="registeredResidenceCity">
+                <input type="hidden" id="registeredResidenceCountry" name="registeredResidenceCountry">
+                <input type="hidden" id="registeredResidenceCode" name="registeredResidenceCode">
+            </div>
+        </div>
+    </form>
+    <div class="page_btns">
+        <div class="pink_btn save">保存</div>
+    </div>
+    <div id="window"  style="display:none" class="window">
+        <div>
+            <div id="window_in" class="window_in"></div>
+            <div id="check" class="check">确定</div>
+        </div>
+    </div>
+    <div id="background" style="display: none"></div>
+    <div id="fake_alert"  style="display:none">
+        <div id="fake_alert_in">
+            <div id="msg"></div>
+            <div id="sure">确定</div>
+        </div>
+    </div>
+    <input type="hidden" id="data_id">
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/area/LAreaData2.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/area/LArea.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_002.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_004.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_003.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_005.js"></script>
+    <script>
+        $(function(){
+            var localhostUrl=window.location.origin;
+            var query=getRequest();
+            var id=query.id;
+            var healthBookId=query.healthBookId;
+            var reg = new RegExp("[\\u4E00-\\u9FFF]+","g");//验证汉字
+            var currYear = (new Date()).getFullYear();
+            var opt={};
+            var cansubmit=true;
+            opt.date = {preset : 'date'};
+            opt.datetime = {preset : 'datetime'};
+            opt.time = {preset : 'time'};
+            opt.default2 = {
+                theme: 'android-ics light', //皮肤样式
+                display: 'modal', //显示方式
+                mode: 'scroller', //日期选择模式
+                dateFormat: 'yy-mm-dd',
+                lang: 'zh',
+                showNow: true,
+                nowText: "今天",
+                startYear: currYear - 2, //开始年份
+                endYear: currYear + 10 //结束年份
+            };
+            $("#birthTime").mobiscroll($.extend(opt['date'], opt['default2']));
+            //户口所在地
+            var area1 = new LArea();
+            area1.init({
+                'trigger': '#registeredResidenceText',
+                'keys': {
+                    id: 'value',
+                    name: 'text'
+                },
+                'fontClass':"area_current1",
+                'type': 2,
+                'data': [provs_data, citys_data, dists_data],
+                'callBack':function(result){
+                    var Residence=result.text;
+                    var ResidenceArr = Residence.split(",");
+                    var provinceCode = ResidenceArr[0];
+                    var cityCode = ResidenceArr[1];
+                    var countyCode = ResidenceArr[2];
+                    $("#registeredResidenceProvince").val(provinceCode);
+                    $("#registeredResidenceCity").val(cityCode);
+                    $("#registeredResidenceCountry").val(countyCode);
+                    Residence=Residence.replace(/,/g," ");
+                    $("#registeredResidenceText").text(Residence).css('color','#333');
+                    $('#registeredResidenceCode').val(result.provinceCode+result.cityCode+result.countyCode);
+                }
+            });
+            $(document).on("change","input[type='radio']",function(){
+                $("input[type='radio']").each(function() {
+                    $(this).is(":checked")?$(this).next().removeClass('pink_r_uncheck').addClass('pink_r_check'):$(this).next().removeClass('pink_r_check').addClass('pink_r_uncheck');
+                });
+            });
+            if(id!=''&& id!=null){
+                $.ajax({
+                    type:"post",
+                    url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_simplyBabyBasicMsg_data?healthBookId='+healthBookId+'&id='+id,
+                    dataType:'json',
+                    async:false,
+                    contentType:'application/json;charset=UTF-8',
+                    success:function(data){
+                        console.log(data);
+                        if(data.res==0){
+                            var msg=data.data;
+                            $('#data_id').val(msg.id);
+                            if(msg!=null){
+                                for(var  o in msg){
+                                    $("#"+o).val(msg[o]);
+                                }
+                                $(".sex input[value="+ msg.sex +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                                $('#registeredResidenceText').text(msg.registeredResidenceProvince+" "+msg.registeredResidenceCity+" "+msg.registeredResidenceCountry).css('color','#333');
+                            }
+                        }else{
+                            fake_alert("请求失败！请检查网络是否正常。");
+                        }
+                    },
+                    error:function () {
+                        fake_alert("请求失败！请检查网络是否正常。");
+                        return;
+                    }
+                });
+            }
+            //保存
+            $('.save').click(function(){
+                var name=$('#name').val();
+                if(name==''){
+                    fake_alert("儿童姓名是必填","#name");
+                    return false;
+                }
+                var sex=$('input[name="sex"]:checked ').val();
+                if(sex==null){
+                    fake_alert("性别是必填","#name");
+                    return false;
+                }
+                var birthTime=$('#birthTime').val();
+                if(birthTime==''){
+                    fake_alert("出生日期是必填","#birthTime");
+                    return false;
+                }
+                var parity=$('#parity').val();
+                if(parity==''){
+                    fake_alert("胎次是必填","#parity");
+                    return false;
+                }
+                if(!IsNumberValidateFun(parity)){
+                    fake_alert("胎次必须是整数","#parity");
+                    return false;
+                }
+                var birthCertificate=$('#birthCertificate').val();
+                if(birthCertificate==''){
+                    fake_alert("出生医学证明是必填","#birthCertificate");
+                    return false;
+                }
+                if(reg.test(birthCertificate)){
+                    fake_alert("请输入正确的出生医学证明","#birthCertificate");
+                    return false;
+                }
+                var idCard = $("#idCard").val();
+                if($.trim(idCard)==''){
+                    fake_alert("身份证号必填","#idCard");
+                    return false;
+                }
+                if (!IdCardValidate(idCard)) {
+                    fake_alert("请输入正确格式的身份证号","#idCard");
+                    return false;
+                }
+                var registeredResidenceCode = $("#registeredResidenceCode").val();
+                if($.trim(registeredResidenceCode)==''){
+                    fake_alert("户口所在地必填","#registeredResidenceCode");
+                    return false;
+                }
+                var JsonObj=$("#myForm").serializeObject();
+                JsonObj.healthBookId=healthBookId;
+                JsonObj.id=id;
+                console.log(JsonObj);
+                var data_id=$("#data_id").val();
+                if(cansubmit){
+                    cansubmit=false;
+                    if(data_id!=null && data_id!=''){
+                        $.ajax({
+                            type:"post",
+                            url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/update_babyBasicMsg_data',
+                            data:JsonObj,
+                            contentType:'application/json;charset=UTF-8',
+                            success:function(data){
+                                console.log(data);
+                                if(data.res==0){
+                                    fake_alert("保存成功");
+                                    setTimeout(function(){
+                                        window.history.go(-1);
+//                                    window.location=localhostUrl+":"+port+"/web-bin/m/nosen/followup/maternalChild/handBook/to_baby_page?healthBookId="+healthBookId;
+                                    },500)
+                                }else{
+                                    fake_alert("保存失败！请检查网络是否正常。");
+                                    cansubmit=true;
+                                }
+                            },
+                            error:function () {
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                cansubmit=true;
+                                return;
+                            }
+                        });
+                    }else{
+                        $.ajax({
+                            type:"post",
+                            url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/submit_babyBasicMsg_data',
+                            data:JsonObj,
+                            dataType:'json',
+                            contentType:'application/json;charset=UTF-8',
+                            success:function(data){
+                                console.log(data);
+                                if(data.res==0){
+                                    fake_alert("保存成功");
+                                    setTimeout(function(){
+                                        window.history.go(-1);
+//                                    window.location=localhostUrl+":"+port+"/web-bin/m/nosen/followup/maternalChild/handBook/to_baby_page?healthBookId="+healthBookId;
+                                    },500)
+                                }else{
+                                    fake_alert("保存失败！请检查网络是否正常。");
+                                }
+                            },
+                            error:function () {
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                return;
+                            }
+                        });
+                    }
+                }
+
+            })
+            function fake_alert(text,element){
+                $("#background").show();
+                $("#fake_alert").show();
+                $("#msg").html(text);
+                $("#sure").click(function(){
+                    $("#background").hide();
+                    $("#fake_alert").hide();
+                });
+                element&&$("html,body").animate({scrollTop:$(element).offset().top-75},500);
+            }
+        })
+    </script>
+</body>
+</html>

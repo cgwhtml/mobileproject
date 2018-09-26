@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>阅读</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<style type="text/css">
+		.r_b_basic .mc_content_main{
+			padding-top: 0.7rem;
+		}
+		.r_b_basic .mc_content_main .pink_content_title{
+			text-align:center;
+			padding-top:0.6rem !important;
+		}
+		.r_b_basic .mc_content_main input[type="text"]{
+			width:100%;
+		}
+		.r_b_basic .content_table{
+			width:100%;
+		}
+		.r_b_basic .content_table tr{
+			text-align:center;
+		}
+		.r_b_basic .content_table tr td:after{
+			content: "";
+		    width: 100%;
+		    display:inline-block;
+		}
+		.r_b_basic .content_table tr td:FIRST-CHILD{
+			text-align-last: justify;
+			text-align:justify;
+		}
+		.r_b_basic .content_table tr td:nth-child(2){
+			padding-left:0.1rem;
+		}
+		.r_b_basic .content_table .birth_date{
+			text-align:left;
+		}
+		.r_b_basic .content_table .birth_date input[type="text"]:nth-child(1){
+			width:1.7rem;
+		}
+		.r_b_basic .content_table .birth_date input[type="text"]:nth-child(3),
+		.r_b_basic .content_table .birth_date input[type="text"]:nth-child(5){
+			width:0.9rem;
+		}
+		.r_b_basic .content_table .birth_no{
+		    width: 100%;
+		    padding-left: 2.35rem;
+		    box-sizing: border-box;
+		}
+		.r_b_basic .content_table .pink_cut_line{
+			width:calc(100% + 0.2rem);
+			width:-webkit-calc(100% + 0.2rem);
+			width:-moz-calc(100% + 0.2rem);
+			width:-ms-calc(100% + 0.2rem);
+			width:-o-calc(100% + 0.2rem);
+			position:relative;
+			left:-0.1rem;
+		    margin-top: 0.2rem;
+		    margin-bottom: 0.1rem;
+		}
+		@media (min-height:1301px) and (-webkit-min-device-pixel-ratio:2){
+			.r_b_basic .mc_content_main .content_font1{line-height: 0.64rem !important;}
+			.r_b_basic .mc_content_main .content_font1.line_half{line-height: 0.32rem !important;}
+			.r_b_basic .mc_content_main .pink_cut_line{height: 4px;background-size: 8px 4px;}
+		}
+		@media (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 2) {/* ipad竖屏 */
+			.r_b_basic .content_table tr td:FIRST-CHILD {
+				width:2.0rem !important;
+			}
+			.r_b_basic .content_table .birth_no{
+			    padding-left: 2.8rem;
+			}
+			.r_b_basic .content_table .birth_date input[type="text"]:nth-child(1){
+				width:3.60rem;
+			}
+			.r_b_basic .content_table .birth_date input[type="text"]:nth-child(3),
+			.r_b_basic .content_table .birth_date input[type="text"]:nth-child(5){
+				width:1.8rem;
+			}
+		}
+		@media (device-height:568px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone5 */
+			.r_b_basic .content_table .birth_date input[type="text"]:nth-child(1){
+				width:1.8rem;
+			}
+			.r_b_basic .content_table .birth_date input[type="text"]:nth-child(3),
+			.r_b_basic .content_table .birth_date input[type="text"]:nth-child(5){
+				width:0.8rem;
+			}
+			.r_b_basic .content_table .birth_no{
+			    padding-left: 2.5rem;
+			}
+		}
+		@media (min-height:1001px) and (max-height:1100px) and (-webkit-min-device-pixel-ratio:2){
+			.r_b_basic .content_table .birth_date input[type="text"]:nth-child(1){
+				width: 1.5rem;
+			}
+			.r_b_basic .mc_content_main .birth_card{
+				width: 98% !important;
+			}
+			.r_b_basic .mc_content_main .address_title{
+				width: 2rem !important;
+			}
+		}
+	</style>
+</head>
+<body>
+    <div class="r_b_basic">
+	    <div class="mc_content_main">
+	    	<p class="pink_content_title">基本信息</p>
+			<div id="r_b_basic_data_table">
+				<table cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;" class="content_table content_font1 line_half">
+					<!-- 母亲信息 -->
+					<tr>
+						<td style="width: 1.75rem;">母亲姓名</td>
+						<td>
+							<input type="text" class="border_bottom substr" disabled="disabled"/>
+						</td>
+						<td style="width: 1.0rem;">年龄</td>
+						<td style="width:1.35rem">
+							<input type="text" class="border_bottom" disabled="disabled"/>
+						</td>
+					</tr>
+					<tr>
+						<td>职业</td>
+						<td>
+							<input type="text" class="border_bottom substr" disabled="disabled"/>
+						</td>
+						<td>民族</td>
+						<td>
+							<input type="text" class="border_bottom" disabled="disabled"/>
+						</td>
+					</tr>
+					<tr>
+						<td>身份证号</td>
+						<td colspan="3">
+							<input type="text" class="border_bottom" disabled="disabled"/>
+						</td>
+					</tr>
+					<tr>
+						<td>户口所在地</td>
+						<td colspan="3">
+							<input type="text" class="border_bottom" disabled="disabled"/>
+						</td>
+					</tr>
+					<tr>
+						<td>工作单位</td>
+						<td colspan="3">
+							<input type="text" class="border_bottom" disabled="disabled"/>
+						</td>
+					</tr>
+					<tr>
+						<td>家庭住址</td>
+						<td colspan="3">
+							<input type="text" class="border_bottom" disabled="disabled"/>
+						</td>
+					</tr>
+					<tr>
+						<td>联系电话</td>
+						<td colspan="3">
+							<input type="text" class="border_bottom" disabled="disabled"/>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4">
+							<div class="pink_cut_line"></div>
+						</td>
+					</tr>
+					<!-- 父亲信息 -->
+					<tr>
+						<td>父亲姓名</td>
+						<td>
+							<input type="text" class="border_bottom substr" disabled="disabled"/>
+						</td>
+						<td>年龄</td>
+						<td>
+							<input type="text" class="border_bottom" disabled="disabled"/>
+						</td>
+					</tr>
+					<tr>
+						<td>职业</td>
+						<td>
+							<input type="text" class="border_bottom substr" disabled="disabled"/>
+						</td>
+						<td>民族</td>
+						<td>
+							<input type="text" class="border_bottom" disabled="disabled"/>
+						</td>
+					</tr>
+					<tr>
+						<td>身份证号</td>
+						<td colspan="3">
+							<input type="text" class="border_bottom" disabled="disabled"/>
+						</td>
+					</tr>
+					<tr>
+						<td>工作单位</td>
+						<td colspan="3">
+							<input type="text" class="border_bottom" disabled="disabled"/>
+						</td>
+					</tr>
+					<tr>
+						<td>联系电话</td>
+						<td colspan="3">
+							<input type="text" class="border_bottom" disabled="disabled"/>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<p style="display:none"><textarea id="r_b_basic_template" rows="0" cols="0">
+				<table cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;" class="content_table content_font1 line_half">
+					<!-- 母亲信息 -->
+					<tr>
+						<td style="width: 1.75rem;">母亲姓名</td>
+						<td>
+							<input type="text" class="border_bottom substr" disabled="disabled" value="{$T.motherName}"/>
+						</td>
+						<td style="width: 1.0rem;">年龄</td>
+						<td style="width:1.35rem">
+							<input type="text" class="border_bottom" disabled="disabled" value="{$T.motherAge}"/>
+						</td>
+					</tr>
+					<tr>
+						<td>职业</td>
+						<td>
+							<input type="text" class="border_bottom substr" disabled="disabled" value="{$T.motherProfession}"/>
+						</td>
+						<td>民族</td>
+						<td>
+							<input type="text" class="border_bottom" disabled="disabled" value="{$T.motherNation}"/>
+						</td>
+					</tr>
+					<tr>
+						<td>身份证号</td>
+						<td colspan="3">
+							<input type="text" class="border_bottom" disabled="disabled" value="{$T.motherIdCard}"/>
+						</td>
+					</tr>
+					<tr>
+						<td>户口所在地</td>
+						<td colspan="3">
+							<input type="text" class="border_bottom" disabled="disabled" value="{$T.motherResidenceProvince+$T.motherResidenceCity+$T.motherResidenceCountry}"/>
+						</td>
+					</tr>
+					<tr>
+						<td>工作单位</td>
+						<td colspan="3">
+							<input type="text" class="border_bottom" disabled="disabled" value="{$T.motherCompany}"/>
+						</td>
+					</tr>
+					<tr>
+						<td>家庭住址</td>
+						<td colspan="3">
+							<input type="text" class="border_bottom" disabled="disabled" value="{$T.motherAddressProvince+$T.motherAddressCity+$T.motherAddressCountry+$T.motherAddressDetail}"/>
+						</td>
+					</tr>
+					<tr>
+						<td>联系电话</td>
+						<td colspan="3">
+							<input type="text" class="border_bottom" disabled="disabled" value="{$T.motherPhone}"/>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4">
+							<div class="pink_cut_line"></div>
+						</td>
+					</tr>
+					<!-- 父亲信息 -->
+					<tr>
+						<td>父亲姓名</td>
+						<td>
+							<input type="text" class="border_bottom substr" disabled="disabled" value="{$T.fatherName}"/>
+						</td>
+						<td>年龄</td>
+						<td>
+							<input type="text" class="border_bottom" disabled="disabled" value="{$T.fatherAge}"/>
+						</td>
+					</tr>
+					<tr>
+						<td>职业</td>
+						<td>
+							<input type="text" class="border_bottom substr" disabled="disabled" value="{$T.fatherProfession}"/>
+						</td>
+						<td>民族</td>
+						<td>
+							<input type="text" class="border_bottom" disabled="disabled" value="{$T.fatherNation}"/>
+						</td>
+					</tr>
+					<tr>
+						<td>身份证号</td>
+						<td colspan="3">
+							<input type="text" class="border_bottom" disabled="disabled" value="{$T.fatherIdCard}"/>
+						</td>
+					</tr>
+					<tr>
+						<td>工作单位</td>
+						<td colspan="3">
+							<input type="text" class="border_bottom" disabled="disabled" value="{$T.fatherCompany}"/>
+						</td>
+					</tr>
+					<tr class="add_child">
+						<td>联系电话</td>
+						<td colspan="3">
+							<input type="text" class="border_bottom" disabled="disabled" value="{$T.fatherPhone}"/>
+						</td>
+					</tr>
+					{#foreach $T.babyInfoList as Row}
+					<tr>
+						<td colspan="4">
+							<div class="pink_cut_line"></div>
+						</td>
+					</tr>
+					<!-- 儿童信息 -->
+					<tr>
+						<td>儿童姓名</td>
+						<td>
+							<input type="text" class="border_bottom substr" disabled="disabled" value="{$T.Row.name}"/>
+						</td>
+						<td>性别</td>
+						<td>
+							<input type="text" class="border_bottom child_sex" disabled="disabled" value="{$T.Row.sex}"/>
+						</td>
+					</tr>
+					<tr>
+						<td>出生日期</td>
+						<td class="birth_date">
+							<input type="text" class="border_bottom" disabled="disabled" value="{$T.Row.birthTime.substr(0,4)}"/>
+							<span>年</span>
+							<input type="text" class="border_bottom" disabled="disabled" value="{$T.Row.birthTime.substr(5,2)}"/>
+							<span>月</span>
+							<input type="text" class="border_bottom" disabled="disabled" value="{$T.Row.birthTime.substr(8,2)}"/>
+							<span>日</span>
+						</td>
+						<td>胎次</td>
+						<td>
+							<input type="text" class="border_bottom" disabled="disabled" value="{$T.Row.parity}"/>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4">
+							<span class="pull_left" style="position:relative;top:0.08rem">出生医学证明号</span>
+							<div class="birth_no"><input type="text" class="border_bottom birth_card" disabled="disabled" value="{$T.Row.birthCertificate}"/></div>
+						</td>
+					</tr>
+					<tr>
+						<td>身份证号</td>
+						<td colspan="3">
+							<input type="text" class="border_bottom" disabled="disabled" value="{$T.Row.idCard}"/>
+						</td>
+					</tr>
+					<tr>
+						<td class="address_title">户口所在地</td>
+						<td colspan="3">
+							<input type="text" class="border_bottom address" disabled="disabled" value="{$T.Row.registeredResidenceProvince+$T.Row.registeredResidenceCity+$T.Row.registeredResidenceCountry}"/>
+						</td>
+					</tr>
+					{#/for}
+				</table>
+			</textarea></p>
+	    </div>
+    </div>
+	<script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+	<script>
+        $(function(){
+            change();//计算滚动条
+            // 高度宽度再计算
+            $(window).resize(function(){
+                change();
+            });
+            // 滚动条
+            $(".r_b_basic").niceScroll({
+                railpadding: { top:0, right: 0, left: 0, bottom:0 },
+                cursorwidth:0
+            });
+            var $html='<tr>'+
+            	'<td colspan="4">'+
+                '<div class="pink_cut_line"></div>'+
+                '</td>'+
+                '</tr>'+
+                '<tr>'+
+                '<td>儿童姓名</td>'+
+                '<td>'+
+                '<input type="text" class="border_bottom substr" disabled="disabled"/>'+
+                '</td>'+
+                '<td>性别</td>'+
+                '<td>'+
+                '<input type="text" class="border_bottom child_sex" disabled="disabled"/>'+
+                '</td>'+
+                '</tr>'+
+                '<tr>'+
+                '<td>出生日期</td>'+
+                '<td class="birth_date">'+
+                '<input type="text" class="border_bottom" disabled="disabled"/>'+
+                '<span>年</span>'+
+           		'<input type="text" class="border_bottom" disabled="disabled"/>'+
+                '<span>月</span>'+
+                '<input type="text" class="border_bottom" disabled="disabled"/>'+
+                '<span>日</span>'+
+                '</td>'+
+                '<td>胎次</td>'+
+                '<td>'+
+                '<input type="text" class="border_bottom" disabled="disabled"/>'+
+                '</td>'+
+                '</tr>'+
+                '<tr>'+
+                '<td colspan="4">'+
+                '<span class="pull_left" style="position:relative;top:0.08rem">出生医学证明号</span>'+
+                '<div class="birth_no"><input type="text" class="border_bottom birth_card" disabled="disabled"/></div>'+
+                '</td>'+
+                '</tr>'+
+                '<tr>'+
+                '<td>身份证号</td>'+
+                '<td colspan="3">'+
+                '<input type="text" class="border_bottom" disabled="disabled"/>'+
+                '</td>'+
+                '</tr>'+
+                '<tr>'+
+                '<td class="address_title">户口所在地</td>'+
+                '<td colspan="3">'+
+                '<input type="text" class="border_bottom address" disabled="disabled"/>'+
+                '</td>'+
+                '</tr>';
+            if(healthBookId!=''&&typeof(healthBookId)!="undefined"&&healthBookId!="undefined") {
+                $.ajax({
+                    type: "post",
+                    url: localhostUrl + '/web-bin/m/nosen/followup/maternalChild/handBook/query_basicInfo_data?healthBookId=' + healthBookId,
+                    dataType: 'json',
+                    success: function (data) {
+                        $(".r_b_basic #r_b_basic_data_table").setTemplateElement("r_b_basic_template").processTemplate(data.data);
+                        $(".r_b_basic .child_sex").each(function(){
+                            $(this).val()==1&&$(this).val('男');
+                            $(this).val()==2&&$(this).val('女');
+						})
+                        if(data.data.babyInfoList.length==0){
+                            $('.r_b_basic .add_child').after($html);
+						}
+                    }
+                });
+            }
+        })
+        function change(){
+            $('.r_b_basic').height($(window).height());
+        }
+	</script>
+</body>
+</html>

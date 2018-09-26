@@ -1,0 +1,52 @@
+html {
+	min-width:350px;
+	min-height:400px;
+}
+body {
+	background-color:#fff;
+}
+.content {
+	margin:25px auto;
+	width: 300px;
+}
+.content_text {
+	display:inline-block;
+	line-height:34px;
+}
+.content_input {
+	width:180px;
+}
+.content>div {
+	position:relative;
+}
+.catalogs {
+	line-height:22px;
+	float: left;
+	margin-left: 3px;
+	margin-top: 4px;
+}
+.ztree{
+	padding: 5px 5px 5px 0px !important;
+}
+.hide_ex {
+	height:20px;
+	width:20px;
+	background-position: -157px -573px;
+	float:left;
+}
+.show_ex {
+	height:20px;
+	width:20px;
+	background-position: -114px -573px;
+	float:left;
+}
+.data_div {
+	padding-left:12px;
+}
+.catalogWarp {
+	padding-left:32px;
+}
+.submit {
+	margin:70px auto;
+	margin-bottom: 20px;
+}

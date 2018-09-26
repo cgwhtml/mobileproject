@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>心电</title>
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/css/fonts.css"/>
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mypagination/js/myPagination/page.css"/>
+    <link type="text/css" rel="stylesheet" href="/web-bin/interview/followup/healthMonitor/css/healthMonitor.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="mainContent T1" id="mainContent">
+        <div class="select_qt">
+            <div class="select_nav">
+                <input class="add-input laydate-icon" type="text" id="beginDate"/>
+                <span>至</span>
+                <input class="add-input laydate-icon" type="text" id="endDate"/>
+                <div class="flat_blue_highlight search" id="chartQusery">搜&nbsp;索</div>
+            </div>
+        </div>
+        <div>
+            <div class="content_title" style="margin-top:10px">
+                <div class="bTitle_text T4">表格数据</div>
+            </div>
+            <div class="content_table" style="padding-bottom:20px">
+                <!-- JTemplate模板 -->
+                <p style="display:none"><textarea id="Template-ListRows" rows="0" cols="0">
+	                     <table cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%">
+	                     	<tr>
+	                            <td>监测日期</td>
+	                            <td>监测时长</td>
+	                            <td>总心搏数</td>
+                                <td>平均心率</td>
+                                <td>室性早搏总心搏数</td>
+                                <td>房性早搏总心搏数</td>
+	                            <td>操作</td>
+	                        </tr>
+	                        {#foreach $T as Row}
+                        	<tr>
+	                            <td>{($T.Row.measuringTime).substring(0,16)}</td>
+								<td>{formatTime($T.Row.instruction.recordLength)}</td>
+	                            <td>{($T.Row.instruction).totalBeats}</td>
+                                <td>{($T.Row.instruction).averHR}</td>
+                                <td>{($T.Row.instruction).vEBeats}</td>
+                                <td>{($T.Row.instruction).sVEBeats}</td>
+                              	<td><a href="javascript:void(0)" class="a_color1" onclick="showReport('{$T.Row.resourceId}')">查看报告</a></td>
+	                        </tr>
+	                        {#/for}
+	                     </table>
+                     </textarea></p>
+                <div id="dataTable"></div>
+            </div>
+            <div class="bottom-page">
+                <div id="page" style="border:1px solid #DFDFDF;margin-bottom:10px;padding-bottom:8px;padding-top:6px;border-top:0"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/artDialog.source.js?skin=white"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/iframeTools.source.js"></script>
+<script type="text/javascript" src="/web-bin/resources/laydate/laydate.js"></script>
+<script type="text/javascript" src="/web-bin/resources/mypagination/js/myPagination/jquery.myPagination6.0.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/interview/followup/healthMonitor2/js/electrocardio.js"></script>
+<script>
+    window.onload=function(){
+        change();
+    };
+    $(window).resize(function(){
+        change();
+    });
+    function change(){
+        $("html").height($(window).height());
+        $("#mainContent").width($(window).width()-22);
+    }
+    //时间秒转时:秒格式
+    function formatTime(second) {
+        return [ parseInt(second / 60) , second % 60].join(":").replace(/\b(\d)\b/g, "0$1");
+    }
+    $(function(){
+        //滚动条
+        $("html").height($(window).height());
+        $("html").niceScroll({
+            railpadding: { top:0, right: 2, left: 0, bottom:0 },
+            horizrailenabled:false//掩藏水平滚动条
+        });
+    });
+</script>

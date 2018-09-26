@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>胎心</title>
+	<meta charset="utf-8">
+	<link type="text/css" rel="stylesheet" href="/web-bin/resources/css/fonts.css"/>
+	<link type="text/css" rel="stylesheet" href="/web-bin/resources/mypagination/js/myPagination/page.css"/>
+	<link type="text/css" rel="stylesheet" href="/web-bin/interview/followup/healthMonitor/css/healthMonitor.css">
+	<script type="text/javascript" src="/web-bin/resources/js/swfobject.js"></script>
+	<!--[if IE]>
+	<script type="text/javascript">
+            var swfVersionStr = "11.1.0";
+            var xiSwfUrlStr = "playerProductInstall.swf";
+            var flashvars = {};
+            var params = {};
+            params.quality = "high";
+            params.bgcolor = "#ffffff";
+            params.allowscriptaccess = "sameDomain";
+            params.allowfullscreen = "true";
+            params.wmode="transparent";//设置flash层级比html低
+            var attributes = {};
+            attributes.id = "print";
+            attributes.name = "print";
+            attributes.align = "middle";
+            swfobject.embedSWF(
+                "/web-bin/interview/followup/healthMonitor/print.swf", "flashContent",
+                "100%", "100%", 
+                swfVersionStr, xiSwfUrlStr, 
+                flashvars, params, attributes);
+			swfobject.createCSS("#flashContent", "display:block;text-align:left;");
+    </script>
+    <![endif]-->
+    <style type="text/css">
+    		.print_class{
+	 	height:425px;
+	 	position: relative;
+	 	top:-25px;
+	 	
+	}
+	.report_class{
+	 position: absolute;
+	 right: 100px;
+	 top: 150px;
+	 display: none;
+	}
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+	    <div class="mainContent T1" id="mainContent">
+		    <div class="select_qt">
+			  	  <div class="select_nav">
+	              	 <input class="add-input laydate-icon" type="text" id="beginDate"/>
+	              	 <span>至</span>
+	              	 <input class="add-input laydate-icon" type="text" id="endDate"/>
+	              	 <div class="flat_blue_highlight search" id="chartQusery">搜&nbsp;索</div>
+	              </div>
+	              <div class="flat_blue_highlight setUp" id="frequency" style="display:none">设置胎心监测服务次数</div>
+            </div>
+		    <div class="chart_item">
+			  	 <div class="content_title">
+                     <div class="bTitle_text">图表数据</div>
+                 </div>
+                 <div class="panel-head" style="display:none">
+                 	 <ul>
+                 	 	<li class="measuringTime">监测日期：--</li>
+                 	 	<li class="measuringLong">监测时长：--:--</li>
+                 	 	<li class="week">孕周：--</li>
+                 	 
+                 	 	<li><img value="" class="play" src="/web-bin/resources/images/9.png" title="播放" width="33px" height="33px"></li>
+                 	 	<li class="timeNow">00:00</li>
+	                    <li class="valueNow" style="width:54px">--</li>
+	                    <li style="display:none"><div class="flat_blue_highlight report" healthId="" hospCode="" style="margin-top:14px">查看报告</div></li>
+                 	 </ul>
+                 </div>
+           
+                 <div class="chart" id="chart" style="height:400px;"><!-- id和class不可以变 -->
+				 <div id="baseinfo" style="display:none">
+					 <div id="loading" style="position:absolute;left:49%;top:39%"></div>
+					 <input type="hidden" class="music" value=""/>
+	                 <canvas class="oyLabel"></canvas>
+	                 <div style="margin-left:40px;overflow:hidden">
+	                 	<canvas class="contentChart"></canvas>
+	                 </div>
+	                 <div style="overflow-x:hidden">
+	                     <canvas class="oxLabel"></canvas>
+	                 </div>
+	                 <canvas class="uterusYLabel"></canvas>
+	                 <div style="margin-left:40px;overflow:hidden">
+	                	 <canvas class="uterusChart"></canvas>
+	                 </div>
+	                 </div> 
+	     		     <div id="flash_nav" style="display:none;" >
+			       		<div class="report_class"><div class="flat_blue_highlight report" healthId="" hospCode="" style="margin-top:-58px">查看报告</div></div>
+			  		    <div class="print_class" >
+	   					 	<div id="flashContent">
+								<p>
+						            To view this page ensure that Adobe Flash Player version 
+						            11.1.0 or greater is installed. 
+						        </p>
+	     		  			</div>	   	
+	     	   				<noscript>
+	            				<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100%" height="100%" id="print">
+	                						<param name="movie" value="print.swf" />
+	                						<param name="quality" value="high" />
+	                						<param name="bgcolor" value="#ffffff" />
+	                						<param name="allowScriptAccess" value="sameDomain" />
+	                						<param name="allowFullScreen" value="true" />
+	                				 	<!--[if !IE]>-->
+	                			 		<object type="application/x-shockwave-flash" data="print.swf" width="100%" height="100%" id="print">
+	                    					<param name="quality" value="high" />
+	                    					<param name="bgcolor" value="#ffffff" />
+	                    					<param name="allowScriptAccess" value="sameDomain" />
+	                    					<param name="allowFullScreen" value="true" />
+	                			  		<!--<![endif]-->
+	               				 		<!--[if !IE]>-->
+	              	 	 				</object>
+	               	   			 		<!--<![endif]-->
+	          				 	</object>
+		  	  			 	</noscript>
+	      				</div>
+      				</div>            
+	             </div>
+	           
+			</div>
+			<div>
+				 <div class="content_title" style="margin-top:10px">
+                     <div class="bTitle_text">胎心历史数据</div>
+                 </div>
+                 <div class="content_table" style="padding-bottom:20px">
+                     <!-- JTemplate模板 -->
+					 <p style="display:none"><textarea id="Template-ListRows" rows="0" cols="0">
+	                     <table cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%">
+	                     	<tr>
+	                            <td>监测日期</td>
+	                            <td>监测时长</td>
+	                            <td>孕周</td>
+	                            <td>平均胎心率</td>
+	                            <td>胎动数</td>
+	                            <td style="text-align:center;">操作</td>
+	                        </tr>
+	                        {#foreach $T as Row}
+                        	<tr id="{$T.Row.healthId}">
+	                            <td style="display:none">
+	                            	<input type="hidden" class="data" value="{$T.Row.healthValue}"/>
+	                            	<input type="hidden" class="fetalMoveData" value="{($T.Row.instruction).split('/')[1]}">
+	             	    			<input type="hidden" class="uterusData" value="{($T.Row.instruction).split('/')[4]}">
+	                            	<input type="hidden" id="measuringTime" value="{$T.Row.measuringTime}"/>
+	                            	<input type="hidden" id="measuringLong" value="{($T.Row.instruction).split('/')[2]}"/>
+	                            </td>
+	                            <td>{($T.Row.measuringTime).substring(0,16)}</td>
+	                            <td>{($T.Row.instruction).split("/")[2]}</td>
+	                             <td>{($T.Row.instruction).split("/")[3]}</td>
+                              	<td>{($T.Row.instruction).split("/")[0]}次/分</td>
+                              	<td>
+                              		{#if ($T.Row.instruction).split("/")[1]=='[]'}0
+                              		{#else}{($T.Row.instruction).split("/")[1].split(",").length}
+                              		{#/if}
+                              	</td>
+	                            <td style="text-align:center;">
+	                            	<a href="javascript:void(0)" class="a_color1 switch" value="{$T.Row.healthId}" resourceId="{$T.Row.resourceId}" week="{($T.Row.instruction).split('/')[3]}">查看曲线</a>
+	                            	{#if $T.Row.reportStatus==1}
+									<a href="javascript:void(0)" class="a_color1" style="margin-left:14px" onclick="showHandle('{$T.Row.healthId}')">查看处理</a>
+                              		{#/if}
+	                            </td>
+	                        </tr>
+	                        {#/for}
+	                     </table>
+                     </textarea></p>
+                     <div id="dataTable"></div>
+                 </div>
+                 <div class="bottom-page">
+				     <div id="page" style="border:1px solid #DFDFDF;margin-bottom:10px;padding-bottom:8px;padding-top:6px;border-top:0"></div>
+			     </div>
+			</div>
+	    </div>
+    </div>
+</body>    
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/artDialog.source.js?skin=white"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/iframeTools.source.js"></script>
+<script type="text/javascript" src="/web-bin/resources/laydate/laydate.js"></script>
+<script type="text/javascript" src="/web-bin/resources/mypagination/js/myPagination/jquery.myPagination6.0.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/js/html2canvas.js"></script>
+	<!--[if !IE]>-->
+<script type="text/javascript" src="/web-bin/interview/followup/healthMonitor/js/h_chart.js"></script>
+<script type="text/javascript" src="/web-bin/interview/followup/healthMonitor/js/h_report.js"></script>
+	<!--<![endif]-->
+<script type="text/javascript" src="/web-bin/interview/followup/healthMonitor/js/h_health.js"></script>
+<script type="text/javascript" src="/web-bin/interview/followup/healthMonitor/js/fetalHeart.js"></script>
+
+<script>
+    window.onload=function(){
+	   change();
+	};
+    $(window).resize(function(){
+	   change();
+	});
+	function change(){
+	   $("html").height($(window).height());
+	   $("#mainContent").width($(window).width()-22);
+	}
+	$(function(){
+	   //滚动条
+	   $("html").height($(window).height());
+	   $("html").niceScroll({
+	       railpadding: { top:0, right: 2, left: 0, bottom:0 },
+           horizrailenabled:false//掩藏水平滚动条
+       });
+	});
+</script>

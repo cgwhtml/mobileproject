@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>母子健康手册</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+    <link rel="stylesheet" href="/web-bin/resources/swiper/swiper-3.4.2.min.css">
+    <style>
+        body{
+            padding-bottom: 3.097rem;
+            padding-top: 0 !important;
+        }
+        .main_content_top{
+            background-image:linear-gradient(155deg,#5fbdee,#cbadf8 30%,#ec99d5 50%);
+            width: 100%;
+            height: 5.293rem;
+        }
+        /**自定义左边按钮**/
+        .swiper-button-prev{
+            background-image:url("/web-bin/mobile/followup/maternalChild/handBook/images/pinkArrowleftBig.png");
+            background-size: 0.35rem 0.55rem;
+            position: absolute;
+            left: 0.213rem;
+            margin-top: -1.1rem;
+        }
+        /**自定义右边按钮**/
+        .swiper-button-next{
+            background-image:url("/web-bin/mobile/followup/maternalChild/handBook/images/pinkArrowRightBig.png");
+            background-size: 0.35rem 0.55rem;
+            position: absolute;
+            right: 0.213rem;
+            margin-top: -1.1rem;
+        }
+        /**轮播图样式1**/
+        .swiper_icon{
+            padding-left:4.273rem;
+            padding-top: 2.2rem;;
+            font-family: "Microsoft YaHei", "微软雅黑";
+            color:white;
+        }
+        .swiper_icon div{
+            font-size: 0.453rem;
+            margin-top:0.413rem;
+        }
+        .swiper_icon>img{
+            width: 1.453rem;
+        }
+        .main_content{
+            margin-top: 0.213rem;
+            background-color: #fff;
+            border-top: 1px solid #EFEFEF;
+        }
+        .page_title{
+            margin: 3.8rem 0.6rem 0;
+        }
+        .page_title>p{
+            text-align: center;
+            font-size: 0.32rem;
+        }
+        .page_btns{
+            margin-top: 3.97rem;
+        }
+        .pink_btn{
+            margin: 30px auto 0;
+        }
+        .pregnant_msg,
+        .baby_msg,
+        .baby_time{
+            margin-top: 0.213rem;
+        }
+        .pregnant_msg,
+        .baby_msg{
+            margin-bottom: 0.213rem;
+        }
+        /*底部菜单栏*/
+        .bottom_nav{
+            width:100%;
+            height:1.31rem;
+            background-color: #F2F2F2;
+            border-top:1px solid #CCCCCC;
+            position: fixed;
+            bottom: 0;
+        }
+        .read_btn{
+            background-image:url("/web-bin/mobile/followup/maternalChild/handBook/images/pinkRead.png");
+            background-size: 0.813rem 0.653rem;
+            width: 2.013rem;
+            height: 0.653rem;
+            position: absolute;
+            top: 0.29rem;
+            right: -0.24rem;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .menu_btn{
+            background-image:url("/web-bin/mobile/followup/maternalChild/handBook/images/pinkMenu.png");
+            background-size: 0.733rem 0.533rem;
+            width: 1.733rem;
+            height: 0.833rem;
+            position: absolute;
+            top: 0.2rem;
+            left: -0.09rem;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .swiper-button-prev,
+        .swiper-button-next{
+            width: 1.5rem;
+            height: 2.55rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="swiper-container main_content_top">
+        <div class="swiper-wrapper">
+            <!--首个轮播图-->
+            <div class="swiper-slide swiper-no-swiping">
+                <!--轮播图具体内容-->
+                <div class="swiper_icon">
+                    <img src="/web-bin/mobile/followup/maternalChild/handBook/images/pinkHeartCircle.png" class="no1"/>
+                    <div>孕前篇</div>
+                </div>
+            </div>
+            <!--第二个轮播图-->
+            <div class="swiper-slide swiper-no-swiping">
+                <!--轮播图具体内容-->
+                <div class="swiper_icon">
+                    <img src="/web-bin/mobile/followup/maternalChild/handBook/images/pinkMotherCircle.png" class="no2"/>
+                    <div>孕产期篇</div>
+                </div>
+            </div>
+            <!--第三个轮播图-->
+            <div class="swiper-slide swiper-no-swiping">
+                <!--轮播图具体内容-->
+                <div class="swiper_icon">
+                    <img src="/web-bin/mobile/followup/maternalChild/handBook/images/child.png" class="no3"/>
+                    <div>儿童篇</div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+    <div>
+        <div class="main_content">
+            <div class="main_option before_mater_msg before_mater_basic">
+                <span>基本情况</span>
+                <div class="pink_pen pink_pen_position"></div>
+                <span class="main_option_status">未填写</span>
+            </div>
+            <!--&lt;!&ndash;第一版不做，暂时隐藏&ndash;&gt;-->
+            <div class="main_option to_parentSelfRecord_page">
+                <span>备孕爸妈自我记录</span>
+                <div class="pink_pen pink_pen_position"></div>
+                <span class="main_option_status">未填写</span>
+            </div>
+            <div class="main_option to_beforeMaterEugenincsTest_page">
+                <span>孕前优生健康检查记录</span>
+                <div class="pink_pen pink_pen_position"></div>
+            </div>
+            <!--&lt;!&ndash;页面还没画&ndash;&gt;-->
+            <!--<div class="main_option">-->
+                <!--<span>备孕期月经周期与基础体温自测记录</span>-->
+                <!--<div class="pink_pen pink_pen_position"></div>-->
+            <!--</div>-->
+        </div>
+        <div class="pregnant">
+            <div class="page_title">
+                <p>恭喜您怀孕了！为了您和宝宝的健康，赶快前往填写孕期健康记录吧！</p>
+            </div>
+            <div class="page_btns">
+                <div class="pink_btn has_pregnant">我怀孕了</div>
+            </div>
+        </div>
+        <div class="pregnant_msg"  style="display: none">
+            <div class="main_option to_sweet_time">
+                <span>甜蜜时刻</span>
+                <div class="pink_pen pink_pen_position"></div>
+                <span class="main_option_status sweetTimePercent">未填写</span>
+            </div>
+            <div class="main_option mother_basic_msg">
+                <span>准妈妈基本情况</span>
+                <div class="pink_pen pink_pen_position"></div>
+                <span class="main_option_status pregnancyWomenInfoPercent">未填写</span>
+            </div>
+            <div class="main_option to_weightSelfTest_page">
+                <span>孕期体重自测</span>
+                <div class="pink_pen pink_pen_position"></div>
+            </div>
+            <div class="main_option to_quickening_page">
+                <span>胎动记录</span>
+                <div class="pink_pen pink_pen_position"></div>
+            </div>
+            <div class="main_option to_classRecord_page">
+                <span>孕妇学校听课记录</span>
+                <div class="pink_pen pink_pen_position"></div>
+            </div>
+            <div class="baby_time">
+                <div class="main_option oneThreeSelfReord">
+                    <span>孕1~3月自我记录</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                    <span class="main_option_status pregnantOneThreeMonthRecordPercent">未填写</span>
+                </div>
+                <div class="main_option to_oneThreePregnantHealthRecord_page">
+                    <span>孕1~3月健康检查记录</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                </div>
+                <div class="main_option to_fourSevenSelfRecord_page">
+                    <span>孕4~7月自我记录</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                    <span class="main_option_status pregnantfourSevenMonthRecordPercent">未填写</span>
+                </div>
+                <div class="main_option to_fourTenHealthRecord_page">
+                    <span>孕4~10月健康检查记录</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                </div>
+                <div class="main_option to_eightTenSelfRecord_page">
+                    <span>孕8~10月自我记录</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                    <span class="main_option_status pregnantEightTenMonthRecordPercent">未填写</span>
+                </div>
+                <div class="main_option to_deliverSelfRecord_page">
+                    <span>分娩情况自我记录</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                    <span class="main_option_status deliveryConditionRecordPercent">未填写</span>
+                </div>
+                <div class="main_option to_deliverDoctorRecord_page">
+                    <span>分娩情况医生记录</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                </div>
+                <div class="main_option to_materSelfRecord_page">
+                    <span>产褥期情况自我记录</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                    <span class="main_option_status puerperiumConditionRecordPercent">未填写</span>
+                </div>
+                <div class="main_option to_afterMaterDoctorRecord_page">
+                    <span>产后访视医生记录表</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                </div>
+                <div class="main_option to_afterMaterFortyTwoDoctorTest_page">
+                    <span>产后42天医生检查表</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                </div>
+            </div>
+        </div>
+        <div class="new_baby">
+            <div class="page_title">
+                <p>恭喜您家又添新成员，赶快前往填写宝宝信息吧！</p>
+            </div>
+            <div class="page_btns">
+                <div class="pink_btn to_baby_page">宝宝出生了</div>
+            </div>
+        </div>
+        <div class="baby_msg" style="display: none">
+            <div>
+                <div class="main_option to_baby_page">
+                    <span>宝宝基本信息</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                </div>
+                <!--注释内容为第一版不做内容-->
+                <div class="main_option to_babyBirthRecord_page">
+                    <span>宝宝出生记录</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                </div>
+            </div>
+            <div class="baby_time">
+                <div class="main_option main_option_first">
+                    <span>0~1岁婴儿期</span>
+                    <div class="pink_arrow_bottom pink_pen_position"></div>
+                </div>
+                <div class="main_option to_hasTeethRecord_page">
+                    <span>宝宝出牙日期记录</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                </div>
+                <div class="main_option to_babyBrand_page">
+                    <span>宝宝印记</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                </div>
+                <div class="main_option to_homeTree_page">
+                    <span>家庭树</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                </div>
+                <div class="main_option to_newBabyRecord_page">
+                    <span>新生儿早期育儿记录</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                </div>
+                <div class="main_option to_newBabyHealthRecord_page">
+                    <span>新生儿早期健康检查记录</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                </div>
+                <div class="main_option to_oneMonthRecord_page">
+                    <span>1个月记录</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                </div>
+                <div class="main_option to_threeMonthRecord_page">
+                    <span>3个月记录</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                </div>
+                <div class="main_option to_sixMonthRecord_page">
+                    <span>6个月记录</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                </div>
+                <div class="main_option to_eightMonthRecord_page">
+                    <span>8个月记录</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                </div>
+            </div>
+            <div class="baby_time">
+                <div class="main_option main_option_first">
+                    <span>1~3岁幼儿期</span>
+                    <div class="pink_arrow_bottom pink_pen_position"></div>
+                </div>
+                <div class="main_option to_oneYearRecord_page">
+                    <span>1岁记录</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                </div>
+                <div class="main_option to_oneYearSixMonthRecord_page">
+                    <span>1岁6个月记录</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                </div>
+                <div class="main_option to_twoYearRecord_page">
+                    <span>2岁记录</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                </div>
+                <div class="main_option to_twoYearSixMonthRecord_page">
+                    <span>2岁6个月记录</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                </div>
+            </div>
+            <div class="baby_time">
+                <div class="main_option main_option_first">
+                    <span>3~6岁学龄前期</span>
+                    <div class="pink_arrow_bottom pink_pen_position"></div>
+                </div>
+                <div class="main_option to_threeYearRecord_page">
+                    <span>3岁记录</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                </div>
+                <div class="main_option to_fourYearRecord_page">
+                    <span>4岁记录</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                </div>
+                <div class="main_option to_fiveYearRecord_page">
+                    <span>5岁记录</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                </div>
+                <div class="main_option to_sixYearRecord_page">
+                    <span>6岁记录</span>
+                    <div class="pink_pen pink_pen_position"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom_nav">
+        <div class="menu_btn"></div>
+        <div class="read_btn" id="read_btn"></div>
+    </div>
+    <input type="hidden" id="babyInfoFlag">
+    <input type="hidden" id="lastMenstrualTimeFlag">
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/js/fastclick.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/swiper/swiper-3.4.2.jquery.min.js"></script>
+    <script>
+        function setupWebViewJavascriptBridge(callback) {
+            if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+            if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+            window.WVJBCallbacks = [callback];
+            var WVJBIframe = document.createElement('iframe');
+            WVJBIframe.style.display = 'none';
+            WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+            document.documentElement.appendChild(WVJBIframe);
+            setTimeout(function() { document.documentElement.removeChild(WVJBIframe);}, 0);
+        }
+        setupWebViewJavascriptBridge(function(bridge) {
+            document.getElementById('read_btn').onclick = function (e) {
+                bridge.callHandler('operAppTitle', {'isHide': '0'}, function(response) {});
+            };
+        });
+        function connectWebViewJavascriptBridge(callback) {
+            if (window.WebViewJavascriptBridge) {
+                callback(WebViewJavascriptBridge);
+            } else {
+                document.addEventListener(
+                    'WebViewJavascriptBridgeReady'
+                    , function() {
+                        callback(WebViewJavascriptBridge);
+                    },
+                    false
+                );
+            }
+        }
+        if(!queryMobileTypeIsIos()) {
+            connectWebViewJavascriptBridge(function (bridge) {
+                bridge.init(function (message, responseCallback) {
+                    var data = {
+                        'Javascript Responds': '测试中文!'
+                    };
+                    responseCallback(data);
+                });
+            });
+            document.getElementById('read_btn').onclick = function (e) {
+                window.WebViewJavascriptBridge.callHandler('operAppTitle', {'isHide': '0'}, function (response) {});
+            };
+        }
+        var mySwiper;
+        function mySwiperfn(sfn){
+            mySwiper = new Swiper ('.swiper-container', {
+                direction: 'horizontal',
+                loop: true,
+                // 如果需要前进后退按钮
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+                onSlideChangeStart: function(swiper){
+                    sfn(swiper);
+                }
+            })
+        }
+        $(function(){
+            FastClick.attach(document.body);//消除点击延迟
+            var localhostUrl=window.location.origin;
+            var query=getRequest();
+            var routeType=document.cookie.split("routeType=")[1]&&document.cookie.split("routeType=")[1].split(";")[0];
+            var healthBookId=query.healthBookId;
+            var isApp=query.isApp;
+            var hugId=query.hugId;
+            var hospCode=query.hospCode
+            var userStatusCode=query.userStatusCode;
+            var no1='/web-bin/mobile/followup/maternalChild/handBook/images/pinkHeartCircle.png';//孕前
+            var no2='/web-bin/mobile/followup/maternalChild/handBook/images/pinkMotherCircle.png';//孕产
+            var no3='/web-bin/mobile/followup/maternalChild/handBook/images/child.png';//儿童
+            //默认儿童篇的列表折起来
+//            $('.main_option_first').siblings().hide();
+            $('.main_option_first').click(function(){
+                if($(this).find('.pink_pen_position').hasClass('pink_arrow_right')){
+                    $(this).siblings().show();
+                    $(this).find('.pink_pen_position').removeClass('pink_arrow_right').addClass('pink_arrow_bottom');
+                }else{
+                    $(this).siblings().hide();
+                    $(this).find('.pink_pen_position').removeClass('pink_arrow_bottom').addClass('pink_arrow_right');
+                }
+            })
+            window.addEventListener('pageshow', function () {
+                routeType=document.cookie.split("routeType=")[1]&&document.cookie.split("routeType=")[1].split(";")[0];
+                $.ajax({
+                    type: "GET",
+                    url: localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/query_maternityStatus_data?healthBookId="+healthBookId+"&userStatusCode="+userStatusCode+"&ram="+Math.random(),
+                    success: function(data){
+                        if(data.res==0){
+                            $('#lastMenstrualTimeFlag').val(data.data.lastMenstrualTimeFlag);
+                            $('#babyInfoFlag').val(data.data.babyInfoFlag);
+                             if(routeType==1){
+                                mySwiperfn(function(swiper){
+                                    beforeMater(swiper);
+                                });
+                                return false;
+                             }else if(routeType==2){
+                                 mySwiperfn(function(swiper){
+                                     afterMater(swiper);
+                                 });
+                                 return false;
+                             }else if(routeType==3){
+                                 mySwiperfn(function(swiper){
+                                     children(swiper);
+                                 });
+                                 return false;
+                             }
+                            if($('#lastMenstrualTimeFlag').val()=='true' &&  $('#babyInfoFlag').val()!='true'){
+                                $('.no1').attr('src',no2).next().text('孕产期篇');
+                                $('.no2').attr('src',no3).next().text('儿童篇');
+                                $('.no3').attr('src',no1).next().text('孕前篇');
+                                $('.pregnant_msg').show().siblings().hide();
+                                mySwiperfn(function(swiper){
+                                    if(swiper.realIndex==0){
+                                        //这个是第一个，你就把第二个div隐藏
+                                        $('.pregnant_msg').show().siblings().hide();
+                                    }else if(swiper.realIndex==1){
+                                        $('.new_baby').show().siblings().hide();
+                                    }else if(swiper.realIndex==2){
+                                        $('.main_content').show().siblings().hide();
+                                    }
+                                });
+                                materPrecent();
+                            }else if ($('#babyInfoFlag').val()=='true'){
+                                $('.no1').attr('src',no3).next().text('儿童篇');
+                                $('.no2').attr('src',no1).next().text('孕前篇');
+                                $('.no3').attr('src',no2).next().text('孕产期篇');
+                                $('.baby_msg').show().siblings().hide();
+                                mySwiperfn(function(swiper){
+                                    if(swiper.realIndex==0){
+                                        //这个是第一个，你就把第二个div隐藏
+                                        $('.baby_msg').show().siblings().hide();
+                                    }else if(swiper.realIndex==1){
+                                        $('.main_content').show().siblings().hide();
+                                    }else if(swiper.realIndex==2){
+                                        if($('#lastMenstrualTimeFlag').val()=='true'){
+                                            $('.pregnant_msg').show().siblings().hide();
+                                        }else {
+                                            $('.pregnant').show().siblings().hide();
+                                        }
+                                    }
+                                });
+                                materPrecent();
+                            }
+                        }
+                    },
+                    error:function(){
+                            return;
+                    }
+                });
+                //初始化孕前篇轮播切换
+                mySwiperfn(function(swiper){
+                    if(swiper.realIndex==0){
+                        //这个是第一个，你就把第二个div隐藏
+                        $('.main_content').show().siblings().hide();
+                    }else if(swiper.realIndex==1){
+                        $('.pregnant').show().siblings().hide();
+                    }else if(swiper.realIndex==2){
+                        $('.new_baby').show().siblings().hide();
+                    }
+                });
+                //底部菜单栏操作
+                $(".read_btn").click(function(){
+                    window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_readWrap_page?healthBookId="+healthBookId+"&isApp="+isApp;
+                });
+                $(".menu_btn").click(function(){
+                    window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_menu_page?healthBookId="+healthBookId+"&isApp="+isApp;
+                });
+                //孕前篇
+                $.ajax({//显示百分比
+                    type: "GET",
+                    url: localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/query_beforeMaterPercent_data?healthBookId="+healthBookId+"&ram="+Math.random(),
+                    success: function(data){
+                        var basicPercent=data.data.parentBasicInfoPercent;
+                        $('.before_mater_msg .main_option_status').text(toPercent(basicPercent));
+                        var parentBasicRecordPercent=data.data.parentBasicRecordPercent;
+                        $('.to_parentSelfRecord_page .main_option_status').text(toPercent(parentBasicRecordPercent));
+                    },
+                    error:function(){
+                        return;
+                    }
+                });
+            });
+            //基本情况+孕4-10月健康检查和产后42天需要授权定位医院，所以加isApp这个参数来判断走哪种定位方式
+            //孕前篇-基本情况
+            $('.before_mater_basic').click(function(){
+                document.cookie="routeType=1";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_pBasicInfo_page?healthBookId="+healthBookId+"&hugId="+hugId+"&routeType="+routeType+"&isApp="+isApp;
+            })
+            //备孕爸妈自我记录
+            $('.to_parentSelfRecord_page').click(function(){
+                document.cookie="routeType=1";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_parentSelfRecord_page?healthBookId="+healthBookId+"&hugId="+hugId;
+            })
+            //孕前优生检查记录
+            $('.to_beforeMaterEugenincsTest_page').click(function(){
+                document.cookie="routeType=1";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_beforeMaterEugenincsTest_page?healthBookId="+healthBookId+"&hugId="+hugId;
+            })
+            //孕产篇
+            //进入甜蜜时刻
+            $('.to_sweet_time').click(function(){
+                document.cookie="routeType=2";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_sweetTime_page?healthBookId="+healthBookId;
+            })
+            //进入准妈妈基本情况
+            $('.mother_basic_msg').click(function () {
+                document.cookie="routeType=2";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_matherMsg_page?healthBookId="+healthBookId;
+            })
+            //孕期体重自测
+            $('.to_weightSelfTest_page').click(function(){
+                document.cookie="routeType=2";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_weightSelfTest_page?healthBookId="+healthBookId;
+            })
+            //胎动记录
+            $('.to_quickening_page').click(function(){
+                document.cookie="routeType=2";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_quickening_page?healthBookId="+healthBookId;
+            })
+            //听课记录
+            $('.to_classRecord_page').click(function(){
+                document.cookie="routeType=2";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_classRecord_page?healthBookId="+healthBookId;
+            })
+            //点击我怀孕了进入孕1~3月自我记录  &&  进入孕1~3月自我记录
+            $('.has_pregnant,.oneThreeSelfReord').click(function () {
+                document.cookie="routeType=2";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_oneThreePregnantRecord_page?healthBookId="+healthBookId;
+            })
+            //孕1~3月健康检查记录
+            $('.to_oneThreePregnantHealthRecord_page').click(function(){
+                document.cookie="routeType=2";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_oneThreePregnantHealthRecord_page?healthBookId="+healthBookId;
+            })
+            //孕4~7月自我记录
+            $('.to_fourSevenSelfRecord_page').click(function(){
+                document.cookie="routeType=2";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_fourSevenSelfRecord_page?healthBookId="+healthBookId;
+            })
+            //孕4~10月健康检查记录
+            $('.to_fourTenHealthRecord_page').click(function(){
+                document.cookie="routeType=2";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_fourTenHealthRecord_page?healthBookId="+healthBookId+"&hugId="+hugId+"&isApp="+isApp;
+            })
+            //孕8~10月自我记录
+            $('.to_eightTenSelfRecord_page').click(function(){
+                document.cookie="routeType=2";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_eightTenSelfRecord_page?healthBookId="+healthBookId;
+            })
+            //分娩情况自我记录
+            $('.to_deliverSelfRecord_page').click(function(){
+                document.cookie="routeType=2";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_deliverSelfRecord_page?healthBookId="+healthBookId;
+            })
+            //分娩情况医生记录
+            $('.to_deliverDoctorRecord_page').click(function(){
+                document.cookie="routeType=2";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_deliverDoctorRecord_page?healthBookId="+healthBookId;
+            })
+            //产褥期情况自我记录
+            $('.to_materSelfRecord_page').click(function(){
+                document.cookie="routeType=2";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_materSelfRecord_page?healthBookId="+healthBookId;
+            })
+            //产后访视医生记录
+            $('.to_afterMaterDoctorRecord_page').click(function(){
+                document.cookie="routeType=2";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_afterMaterDoctorRecord_page?healthBookId="+healthBookId;
+            })
+            //产后42天医生检查
+            $('.to_afterMaterFortyTwoDoctorTest_page').click(function(){
+                document.cookie="routeType=2";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_afterMaterFortyTwoDoctorTest_page?healthBookId="+healthBookId+"&hugId="+hugId+"&isApp="+isApp;
+            })
+            //儿童篇
+            //宝宝基本信息
+            $('.to_baby_page').click(function(){
+                document.cookie="routeType=3";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_baby_page?healthBookId="+healthBookId;
+            })
+            //宝宝出生记录
+            $('.to_babyBirthRecord_page').click(function(){
+                document.cookie="routeType=3";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_babyBirthRecord_page?healthBookId="+healthBookId;
+            })
+            //宝宝出牙日期记录
+            $('.to_hasTeethRecord_page').click(function(){
+                document.cookie="routeType=3";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_hasTeethRecord_page?healthBookId="+healthBookId;
+            })
+            //宝宝印记
+            $('.to_babyBrand_page').click(function(){
+                document.cookie="routeType=3";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_babyBrand_page?healthBookId="+healthBookId+'&type=1';
+            })
+            //家庭树
+            $('.to_homeTree_page').click(function(){
+                document.cookie="routeType=3";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_homeTree_page?healthBookId="+healthBookId;
+            })
+            //新生儿早期育儿记录
+            $('.to_newBabyRecord_page').click(function(){
+                document.cookie="routeType=3";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_babyBrand_page?healthBookId="+healthBookId+'&type=2';
+            })
+            //新生儿早期健康检查记录
+            $('.to_newBabyHealthRecord_page').click(function(){
+                document.cookie="routeType=3";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_newBabyHealthRecord_page?healthBookId="+healthBookId;
+            })
+            //一个月记录
+            $('.to_oneMonthRecord_page').click(function(){
+                document.cookie="routeType=3";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_babyBrand_page?healthBookId="+healthBookId+'&type=3';
+            })
+            //三个月记录
+            $('.to_threeMonthRecord_page').click(function(){
+                document.cookie="routeType=3";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_babyBrand_page?healthBookId="+healthBookId+'&type=4';
+            })
+            //六个月记录
+            $('.to_sixMonthRecord_page').click(function(){
+                document.cookie="routeType=3";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_babyBrand_page?healthBookId="+healthBookId+'&type=5';
+            })
+            //八个月记录
+            $('.to_eightMonthRecord_page').click(function(){
+                document.cookie="routeType=3";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_babyBrand_page?healthBookId="+healthBookId+'&type=6';
+            })
+            //一岁记录
+            $('.to_oneYearRecord_page').click(function(){
+                document.cookie="routeType=3";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_babyBrand_page?healthBookId="+healthBookId+'&type=7';
+            })
+            //一岁六个月记录
+            $('.to_oneYearSixMonthRecord_page').click(function(){
+                document.cookie="routeType=3";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_babyBrand_page?healthBookId="+healthBookId+'&type=8';
+            })
+            //两岁记录
+            $('.to_twoYearRecord_page').click(function(){
+                document.cookie="routeType=3";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_babyBrand_page?healthBookId="+healthBookId+'&type=9';
+            })
+            //两岁六个月记录
+            $('.to_twoYearSixMonthRecord_page').click(function(){
+                document.cookie="routeType=3";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_babyBrand_page?healthBookId="+healthBookId+'&type=10';
+            })
+            //三岁记录
+            $('.to_threeYearRecord_page').click(function(){
+                document.cookie="routeType=3";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_babyBrand_page?healthBookId="+healthBookId+'&type=11';
+            })
+            //四岁记录
+            $('.to_fourYearRecord_page').click(function(){
+                document.cookie="routeType=3";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_babyBrand_page?healthBookId="+healthBookId+'&type=12';
+            })
+            //五岁记录
+            $('.to_fiveYearRecord_page').click(function(){
+                document.cookie="routeType=3";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_babyBrand_page?healthBookId="+healthBookId+'&type=13';
+            })
+            //六岁记录
+            $('.to_sixYearRecord_page').click(function(){
+                document.cookie="routeType=3";
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_babyBrand_page?healthBookId="+healthBookId+'&type=14';
+            })
+            //孕前篇信息保存，返回展示方法
+            function beforeMater(swiper){
+                $('.no1').attr('src',no1).next().text('孕前篇');
+                $('.no2').attr('src',no2).next().text('孕产期篇');
+                $('.no3').attr('src',no3).next().text('儿童篇');
+                if(swiper.realIndex==0){
+                    //这个是第一个，你就把第二个div隐藏
+                    $('.main_content').show().siblings().hide();
+                }else if(swiper.realIndex==1){
+                    if($('#lastMenstrualTimeFlag').val()=='true'){
+                        $('.pregnant_msg').show().siblings().hide();
+                        materPrecent();
+                    }else if($('#lastMenstrualTimeFlag').val()!='true'){
+                        $('.pregnant').show().siblings().hide();
+                    }
+                }else if(swiper.realIndex==2){
+                    $('.new_baby').show().siblings().hide();
+                    if($('#babyInfoFlag').val()=='true'){
+                        $('.baby_msg').show().siblings().hide();
+                    }
+                }
+            }
+            //孕产篇信息保存，返回展示方法
+            function afterMater(swiper){
+                $('.no1').attr('src',no2).next().text('孕产期篇');
+                $('.no2').attr('src',no3).next().text('儿童篇');
+                $('.no3').attr('src',no1).next().text('孕前篇');
+                $('.pregnant_msg').show().siblings().hide();
+                if(swiper.realIndex==0){
+                    //这个是第一个，你就把第二个div隐藏
+                    $('.pregnant_msg').show().siblings().hide();
+                    if($('#lastMenstrualTimeFlag').val()=='false'){
+                        $('.pregnant').show().siblings().hide();
+                    }
+                }else if(swiper.realIndex==1){
+                    $('.new_baby').show().siblings().hide();
+                    if($('#babyInfoFlag').val()=='true'){
+                        $('.baby_msg').show().siblings().hide();
+                    }
+                }else if(swiper.realIndex==2){
+                    $('.main_content').show().siblings().hide();
+                }
+                materPrecent();
+            }
+            //儿童篇信息保存，返回展示方法
+            function children(swiper){
+                if($('#babyInfoFlag').val()=='true'){
+                    $('.no1').attr('src',no3).next().text('儿童篇');
+                    $('.no2').attr('src',no1).next().text('孕前篇');
+                    $('.no3').attr('src',no2).next().text('孕产期篇');
+                    $('.baby_msg').show().siblings().hide();
+                    if(swiper.realIndex==0){
+                        //这个是第一个，你就把第二个div隐藏
+                        $('.baby_msg').show().siblings().hide();
+                    }else if(swiper.realIndex==1){
+                        $('.main_content').show().siblings().hide();
+                    }else if(swiper.realIndex==2){
+                        if($('#lastMenstrualTimeFlag').val()=='true'){
+                            $('.pregnant_msg').show().siblings().hide();
+                        }else {
+                            $('.pregnant').show().siblings().hide();
+                        }
+                    }
+                    materPrecent();
+                }else {
+                    $('.no1').attr('src',no3).next().text('儿童篇');
+                    $('.no2').attr('src',no1).next().text('孕前篇');
+                    $('.no3').attr('src',no2).next().text('孕产期篇');
+                    $('.baby_msg').show().siblings().hide();
+                    if(swiper.realIndex==0){
+                        //这个是第一个，你就把第二个div隐藏
+                        $('.new_baby').show().siblings().hide();
+                    }else if(swiper.realIndex==1){
+                        $('.main_content').show().siblings().hide();
+                    }else if(swiper.realIndex==2){
+                        if($('#lastMenstrualTimeFlag').val()=='true'){
+                            $('.pregnant_msg').show().siblings().hide();
+                        }else {
+                            $('.pregnant').show().siblings().hide();
+                        }
+                    }
+                    materPrecent();
+                }
+            }
+            //小数转换成百分比，四舍五入
+            function toPercent(data){
+                var strData = parseFloat(data)*100;
+                strData=Math.round(strData);
+                var ret = strData.toString()+"%";
+                return ret;
+            }
+            //孕产百分比
+            function materPrecent(){
+                $.ajax({//显示百分比
+                    type: "GET",
+                    url: localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/query_maternityPercent_data?healthBookId="+healthBookId,
+                    success: function(data){
+                        var sweetTimePercent=data.data.sweetTimePercent;//甜蜜时刻百分比
+                        var pregnancyWomenInfoPercent=data.data.pregnancyWomenInfoPercent;//准妈妈基本情况百分比
+                        var pregnantOneThreeMonthRecordPercent=data.data.pregnantOneThreeMonthRecordPercent;//孕1~3月自我记录百分比
+                        var pregnantfourSevenMonthRecordPercent=data.data.pregnantfourSevenMonthRecordPercent;//孕4~7月自我记录百分比
+                        var deliveryConditionRecordPercent=data.data.deliveryConditionRecordPercent;//分娩情况百分比
+                        var puerperiumConditionRecordPercent=data.data.puerperiumConditionRecordPercent;//产褥期自我记录情况百分比
+                        var pregnantEightTenMonthRecordPercent=data.data.pregnantEightTenMonthRecordPercent;//孕8~10月自我记录百分比
+                        $('.sweetTimePercent').text(toPercent(sweetTimePercent));
+                        $('.pregnancyWomenInfoPercent').text(toPercent(pregnancyWomenInfoPercent));
+                        $('.pregnantOneThreeMonthRecordPercent').text(toPercent(pregnantOneThreeMonthRecordPercent));
+                        $('.pregnantfourSevenMonthRecordPercent').text(toPercent(pregnantfourSevenMonthRecordPercent));
+                        $('.deliveryConditionRecordPercent').text(toPercent(deliveryConditionRecordPercent));
+                        $('.puerperiumConditionRecordPercent').text(toPercent(puerperiumConditionRecordPercent));
+                        $('.pregnantEightTenMonthRecordPercent').text(toPercent(pregnantEightTenMonthRecordPercent));
+                    },
+                    error:function(){
+                        return;
+                    }
+                });
+            }
+        })
+    </script>
+</body>
+</html>

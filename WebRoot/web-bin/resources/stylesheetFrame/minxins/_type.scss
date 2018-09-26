@@ -1,0 +1,63 @@
+@charset "UTF-8";
+/*图标背景色*/
+@for $i from 1 through length($icon-primary-color) {
+  .icon-primary-bg-#{$i} {
+    background-color: nth($icon-primary-color, $i);
+    &:focus,
+    &.focus, &:hover {
+      background-color: $icon-primary-hover-color;
+    }
+  }
+  .icon-primary-text-#{$i}{
+    line-height: $input-line-height;
+    color: nth($icon-primary-color, $i);
+
+    &:focus,
+    &.focus,&:hover  {
+      color: $icon-primary-hover-color;
+      .icon-primary-bg-#{$i} {
+        background-color: $icon-primary-hover-color;
+      }
+    }
+  }
+}
+/*字体或字体图标颜色*/
+.color-primary{  color: $brand-primary;  }
+.color-warning{ color: $brand-warning; }
+.color-success{ color: $brand-success; }
+.color-danger{ color: $brand-danger; }
+.color-purple {color: $brand-purple;}
+.color-white {color: #fff;}
+
+/*字体样式*/
+.text-left           { text-align: left; }
+.text-right          { text-align: right; }
+.text-center         { text-align: center; }
+.text-justify        { text-align: justify; }
+.text-nowrap         { white-space: nowrap; }
+
+.text-lowercase      { text-transform: lowercase; }
+.text-uppercase      { text-transform: uppercase; }
+.text-capitalize     { text-transform: capitalize; }
+
+/*字体截取*/
+.text-substr,.substr {white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+
+/*区块阴影*/
+.body-box-shadow{
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14);
+}
+/*链接样式*/
+.link{
+  color: $link-color;
+  cursor: pointer;
+  &:focus,
+  &.focus,&:hover  {
+    color: $link-hover-color;
+  }
+}
+
+/*鼠标样式*/
+.pointer {
+  cursor: pointer;
+}

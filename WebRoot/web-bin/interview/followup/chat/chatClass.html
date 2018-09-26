@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>医患沟通</title>
+    <link rel="stylesheet" href="/web-bin/interview/followup/chat/css/basic.css">
+	<link rel="stylesheet" href="/web-bin/interview/followup/chat/css/doctorPatient.css">
+	<link rel="stylesheet" href="/web-bin/interview/followup/chat/css/doctorDoc.css">
+</head>
+<body>
+<div class="wrapper">
+	<div class="login_back">
+		<div class="big_box">
+			<div class="logo"></div>
+			<div class="login_box">
+				<img src="/web-bin/interview/followup/chat/images/triggle.png"  alt="" class="triggle">
+				<input type="text" name="username" onfocus="this.type='text'" id="account" autocomplete="off">
+				<img src="/web-bin/interview/followup/chat/images/user.png"  alt="" class="user_img">
+				<img src="/web-bin/interview/followup/chat/images/password.png"  alt="" class="pass_img">
+				<input type="password" id="password">
+				<div class="rememberMeBox"></div>
+				<div class="form-submit">
+					<input type="submit" class="sign-in" value="登&nbsp;录" >
+				</div>
+			</div>
+		</div>
+	</div>
+    <!--聊天区-->
+	<div class="chat_box">
+		 <iframe id="mainFrame" width="100%" height="100%" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" src=""></iframe>
+	</div>
+    <!--患者列表-->
+	<div class="friend_list">
+		<div class="friend_in">
+		    <div class="chat_class_box">
+		    	<ul class="chat_class">
+		    		<li class="doctor_patient">医患聊天
+		    			<div class="msg_patient_spot"></div>
+		    		</li>
+		    		<li class="doctor_doc">同行聊天
+		    			<div class="msg_doctor_spot"></div>
+		    		</li>
+		    	</ul>
+		    </div> 
+		    <div class="doctor_contain"></div>    
+		</div>
+	</div>
+</div>
+<script src="/web-bin/resources/jquery/jquery-1.11.3.min.js"></script>
+<script src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+<script src="/web-bin/interview/followup/chat/js/ytx/ytx-web-im-min-new.js"></script>
+<script src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script src="/web-bin/resources/inputer/inputer.js"></script>
+<script src="/web-bin/resources/config/config.js"></script>
+<script src="/web-bin/resources/artdialog/artDialog.source.js?skin=white"></script>
+<script src="/web-bin/resources/artdialog/iframeTools.source.js"></script>
+<script src="/web-bin/interview/followup/chat/js/chat.js"></script>
+</body>
+</html>

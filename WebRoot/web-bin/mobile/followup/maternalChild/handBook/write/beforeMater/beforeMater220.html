@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>准妈妈基本情况</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/icheck/skins/all.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_002.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_003.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+    <style>
+        input[type="text"]{
+            min-width: 4.2rem;
+        }
+        .icheckbox_square-blue, .iradio_square-blue{
+            background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/pink@2x.png);
+            -webkit-background-size: 240px 24px;
+            background-size: 240px 24px;
+        }
+    </style>
+</head>
+<body>
+    <form action="" id="myForm" name="myForm">
+        <div class="parent_msg">
+            <div class="main_option">
+                <div class="option_title">准妈妈工作情况</div>
+            </div>
+            <div class="main_option">
+                <span>职业</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <span class="main_option_status" id="professionText">请选择</span>
+                <input type="hidden" name="profession" id="profession">
+            </div>
+            <div class="main_option workEnvironment">
+                <span>工作环境</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="workEnvironment" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>安静</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="workEnvironment" value="2"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>一般</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="workEnvironment" value="3"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>嘈杂</span>
+                    </label>
+                </div>
+            </div>
+            <div class="main_option">
+                <span>上、下班交通工具</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="vehicle" name="vehicle">
+            </div>
+            <div class="main_option">
+                <span>上班单程时间(h)</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="tripTime" name="tripTime">
+            </div>
+            <div class="main_option">
+                <span>怀孕后工作变更情况</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="pregnantProfessionalChange" name="pregnantProfessionalChange">
+            </div>
+            <div class="main_option homeEnvironment">
+                <span>家庭环境</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="homeEnvironment" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>安静</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="homeEnvironment" value="2"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>一般</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="homeEnvironment" value="3"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>嘈杂</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="parent_msg">
+            <div class="main_option">
+                <div class="option_title">准妈妈医疗建档情况</div>
+            </div>
+            <div class="main_option">
+                <span>建册单位(或保健医生)电话</span>
+                <input type="tel" placeholder="请填写" class="input_msg" id="doctorPhone" name="doctorPhone">
+            </div>
+            <div class="main_option">
+                <span>建册时间</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg createBookTime" id="createBookTime" name="createBookTime" style="margin-right: 0.3rem">
+            </div>
+            <div class="main_option">
+                <span>计划分娩医院</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="planDeliveryHospital" name="planDeliveryHospital">
+            </div>
+            <div class="main_option">
+                <span>产后计划休养地址</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="puerperalRestAddress" name="puerperalRestAddress">
+            </div>
+            <div class="main_option">
+                <span>产后访视单位电话</span>
+                <input type="tel" placeholder="请填写" class="input_msg" id="puerperalVisitPhone" name="puerperalVisitPhone">
+            </div>
+            <div class="main_option">
+                <span>孕妇医疗保障类型</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <span class="main_option_status" id="pregnantMedicalSecurityText">请选择</span>
+                <input type="hidden" name="pregnantMedicalSecurity" id="pregnantMedicalSecurity">
+            </div>
+            <div class="main_option">
+                <span>心情记录</span>
+                <textarea class="textarea_msg" id="preparePregnancyFeel" name="preparePregnancyFeel"></textarea>
+            </div>
+        </div>
+    </form>
+    <div id="window"  style="display:none" class="window">
+        <div>
+            <div id="window_in" class="window_in"></div>
+            <div id="check" class="check">确定</div>
+        </div>
+    </div>
+    <div id="background" style="display: none"></div>
+    <div id="fake_alert"  style="display:none">
+        <div id="fake_alert_in">
+            <div id="msg"></div>
+            <div id="sure">确定</div>
+        </div>
+    </div>
+    <div class="page_btns">
+        <div class="pink_btn save">保存</div>
+    </div>
+    <input type="hidden" id="data_id">
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/icheck/icheck.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_002.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_004.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_003.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_005.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/js/dialogData.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(document).on("change","input[type='radio']",function(){
+                $("input[type='radio']").each(function() {
+                    $(this).is(":checked")?$(this).next().removeClass('pink_r_uncheck').addClass('pink_r_check'):$(this).next().removeClass('pink_r_check').addClass('pink_r_uncheck');
+                });
+            });
+            var localhostUrl=window.location.origin;
+            var query=getRequest();
+            var healthBookId=query.healthBookId;
+            var regu = "^[0-9]+\.?[0-9]*$";//验证数字和小数
+            var re = new RegExp(regu);
+            var cansubmit=true;
+            $(".window_in").niceScroll({
+                railpadding: { top:0, right: 0, left: 0, bottom:0 },
+                cursorborder:"",
+                cursoropacitymin: 0.3,
+                cursoropacitymax: 0.3,
+                cursorcolor:"#000000",
+                zindex: "99",
+                cursorwidth: "3px",
+                touchbehavior:true
+            });
+            $.ajax({
+                type:"post",
+                url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_mather_data?healthBookId='+healthBookId,
+                dataType:'json',
+                async:false,
+                contentType:'application/json;charset=UTF-8',
+                success:function(data){
+                    console.log(data);
+                    if(data.res==0){
+                        var msg=data.data;
+                        $('#data_id').val(msg&&msg.id);
+                        if(msg!=null){
+                            ($.trim(msg.profession) == "")?($('#professionText').text("请选择")):($('#professionText').text(msg.profession).css('color','#333'));
+                            ($.trim(msg.pregnantMedicalSecurity) == "")?($('#pregnantMedicalSecurityText').text("请选择")):($('#pregnantMedicalSecurityText').text(msg.pregnantMedicalSecurity).css('color','#333'));
+//                            msg.pregnantMedicalSecurity!=""&&$('#pregnantMedicalSecurityText').text(msg.pregnantMedicalSecurity).css('color','#333');
+                            $(".workEnvironment input[value="+ msg.workEnvironment +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                            $(".homeEnvironment input[value="+ msg.homeEnvironment +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                            for(var o in msg){
+                                $("#"+o).val(msg[o]);
+                            }
+                        }
+                    }else{
+                        fake_alert("请求失败！请检查网络是否正常。");
+                    }
+                },
+                error:function () {
+                    fake_alert("请求失败！请检查网络是否正常。");
+                    return;
+                }
+            });
+            //选择职业
+            $("#professionText").click(function(){
+                $("#window_in").html(jobData);
+                initChecked($(this));
+            });
+            //孕妇医疗保障类型
+            $("#pregnantMedicalSecurityText").click(function(){
+                $("#window_in").html(pregnantInsurance);
+                initChecked($(this));
+            });
+            //建册日期
+            $(".createBookTime").mobiscroll($.extend(opt['date'], opt['default1']));
+            //弹框选择
+            $("#check").click(function(){
+                var obj=$("#check").data("checkObj");
+                var val="",
+                    text="";
+                if($('input:radio').length>0){
+                    val=$('input:radio[name="radio"]:checked').val();
+                    text=$('input:radio[name="radio"]:checked').parent().next().text();
+                }else{
+                    $('input:checkbox[name="checkbox"]:checked').each(function(){
+                        val+=","+$(this).val();
+                        text+=","+$(this).parent().next().text();
+                    });
+                    val=val.substr(1);
+                    text=text.substr(1);
+                }
+                if(text==""){
+                    text=$("#check").data("checkText");
+                }else{
+                    obj.text(text).css('color','#333');
+                }
+                obj.next().val(val);
+                $("#background").hide();
+                $("#window").hide();
+            });
+            //保存
+            $('.save').click(function(){
+                var tripTime = $("#tripTime").val();
+                if(tripTime!=''&& !re.test(tripTime)){
+                    fake_alert("上班单程时间必须是数字","#tripTime");
+                    return false;
+                }
+                var doctorPhone = $("#doctorPhone").val();
+                var mobile = /^1[3|5|8]\d{9}$/ , phone = /^0\d{2,3}-?\d{7,8}$/;
+                if(doctorPhone!=''&&!(mobile.test(doctorPhone) || phone.test(doctorPhone))){
+                    fake_alert("请输入正确格式的建册单位(或保健医生)电话","#doctorPhone");
+                    return false;
+                }
+                var puerperalVisitPhone = $("#puerperalVisitPhone").val();
+                var mobile = /^1[3|5|8]\d{9}$/ , phone = /^0\d{2,3}-?\d{7,8}$/;
+                if(puerperalVisitPhone!=''&&!(mobile.test(puerperalVisitPhone) || phone.test(puerperalVisitPhone))){
+                    fake_alert("请输入正确格式的产后访视单位电话","#puerperalVisitPhone");
+                    return false;
+                }
+
+                var JsonObj=$("#myForm").serializeObject();
+                JsonObj.tripTime==''?JsonObj.tripTime=null:JsonObj.tripTime=parseFloat(JsonObj.tripTime);
+                JsonObj.healthBookId=healthBookId;
+                console.log(JsonObj);
+                var data_id=$("#data_id").val();
+                if(cansubmit){
+                    cansubmit=false;
+                    if(data_id!=null && data_id!=''){//!data_id
+                        $.ajax({
+                            type:"post",
+                            url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/update_mather_data',
+                            data:JsonObj,
+                            contentType:'application/json;charset=UTF-8',
+                            success:function(data){
+                                if(data.res==0){
+                                    fake_alert("保存成功");
+                                    setTimeout(function(){
+                                        window.history.go(-1);
+//                                    window.location=localhostUrl+":"+port+"/web-bin/m/nosen/followup/maternalChild/handBook/to_beforeMater_page?healthBookId="+healthBookId;
+                                    },500)
+                                }else{
+                                    fake_alert("保存失败！请检查网络是否正常。");
+                                    cansubmit=true;
+                                }
+                            },
+                            error:function () {
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                cansubmit=true;
+                                return;
+                            }
+                        });
+                    }else{
+                        $.ajax({
+                            type:"post",
+                            url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/submit_mather_data',
+                            data:JsonObj,
+                            dataType:'json',
+                            contentType:'application/json;charset=UTF-8',
+                            success:function(data){
+                                if(data.res==0){
+                                    fake_alert("保存成功");
+                                    setTimeout(function(){
+                                        window.history.go(-1);
+//                                    window.location=localhostUrl+":"+port+"/web-bin/m/nosen/followup/maternalChild/handBook/to_beforeMater_page?healthBookId="+healthBookId;
+                                    },500)
+                                }else{
+                                    fake_alert("保存失败！请检查是否正常。");
+                                }
+                            },
+                            error:function () {
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                return;
+                            }
+                        });
+                    }
+                }
+            })
+        })
+        var currYear = (new Date()).getFullYear();
+        var opt={};
+        opt.date = {preset : 'date'};
+        opt.datetime = {preset : 'datetime'};
+        opt.time = {preset : 'time'};
+        opt.default1 = {
+            theme: 'android-ics light', //皮肤样式
+            display: 'modal', //显示方式
+            mode: 'scroller', //日期选择模式
+            dateFormat: 'yy-mm-dd',
+            lang: 'zh',
+            showNow: true,
+            nowText: "今天",
+            startYear: currYear - 50, //开始年份
+            endYear: currYear +10 //结束年份
+        };
+        //打开弹框初始化选择
+        function initChecked(a){
+            $("#check").data("checkObj",a);
+            $("#check").data("checkText",a.text());
+            if($('input:radio').length>0){
+                $("#window_in").find("input[name='radio'][value='" + a.next().val() + "']").attr("checked",true);
+            }else{
+                var str=a.next().val().split(",");
+                for(var i=0;i<str.length;i++){
+                    $('#window_in input:checkbox[name="checkbox"][value='+str[i]+']').attr("checked",true);
+                }
+            }
+            $(".window input").iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%'
+            });
+            $("#background").show();
+            $("#window").show();
+        }
+        function fake_alert(text,element){
+            $("#background").show();
+            $("#fake_alert").show();
+            $("#msg").html(text);
+            $("#sure").click(function(){
+                $("#background").hide();
+                $("#fake_alert").hide();
+            });
+            element&&$("html,body").animate({scrollTop:$(element).offset().top-75},500);
+        }
+    </script>
+</body>
+</html>

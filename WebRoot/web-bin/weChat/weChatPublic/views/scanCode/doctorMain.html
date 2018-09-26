@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>医生主页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/weui/weui.min.css">
+    <link rel="stylesheet" href="/web-bin/resources/weui/jquery-weui.css">
+    <link rel="stylesheet" href="/web-bin/resources/css/basicMobile.css">
+    <link rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/sanCode/doctorMain.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="doc_top">
+        <div class="doc_header"></div>
+        <ul class="doc_msg">
+            <li>
+                <strong id="docName"></strong>
+                <span id="docTitle"></span>
+            </li>
+            <li>
+                <div class="deptName substr"></div>
+                <div class="line" style="display:none">|</div>
+                <div class="hosp substr"></div>
+            </li>
+            <li>
+                <div class="follow_heart"></div>
+                <span class="fans">0</span>人
+            </li>
+        </ul>
+    </div>
+    <div class="doc_introduction_box">
+        <div class="introduction_head">
+            <div class="introduction_img"></div>
+            <span>医生简介</span>
+        </div>
+        <div class="doc_introduction"></div>
+    </div>
+    <div class="select_group">选择分组</div>
+    <ul class="group_box">
+       <!-- <li>
+            <div class="select_prev"></div>
+            <div>糖尿病患者管理分组1群</div>
+        </li>
+        <li>
+            <div class="select_prev selecting"></div>
+            <div>糖尿病患者管理分组1群</div>
+        </li>
+        <li>
+            <div class="selectno"></div>
+            <div>糖尿病患者管理分组1群</div>
+        </li>
+        <li>
+            <div class="select_prev selecting"></div>
+            <div>糖尿病患者管理分组1群</div>
+        </li>-->
+    </ul>
+    <div class="main_foot">
+        <div class="add_manage">加入管理计划</div>
+    </div>
+</div>
+<p style="display:none">
+    <textarea id="template_groupList" rows="0" cols="0">
+        {#foreach $T as Row}
+            <li>
+                <input type="hidden" class="groupId" value="{$T.Row.groupId}">
+                {#if $T.Row.isCollect==1}
+                <div class="selectno"></div>
+                {#else}
+                <div class="select_prev"></div>
+                {#/if}
+                <div>{$T.Row.groupName}</div>
+            </li>
+        {#/for}
+</textarea>
+</p>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/weui/jquery-weui.js"></script>
+<script type="text/javascript" src="/web-bin/resources/weui/fastclick.js"></script>
+<!--解决ios下click的300ms的延迟，需引入fastclick-->
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+<script src="/web-bin/weChat/weChatPublic/js/myMedic/jweixin-1.2.0.js"></script>
+<script type="text/javascript" src="/web-bin/weChat/weChatPublic/js/sanCode/doctorMain.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+html,body{
+	background-color: #fff;
+}
+.wrapper{
+	width:228px;
+	height:90px;
+	position: absolute;
+	left:0;
+	top:0;
+	right:0;
+	bottom:0;
+	margin:auto;
+}
+.btn_box{
+	margin-top: 28px;
+}
+.revise_input{
+	color:#000;
+}
+.revise_input input{
+	width:170px;
+	height:24px;
+}

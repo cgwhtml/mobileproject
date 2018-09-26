@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>阅读</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <style>
+        .r_c_42{
+            position: relative;
+        }
+        .r_c_42 .blue_content_title{
+            text-align: center;
+        }
+        .r_c_42 .check_time{
+            width: 7.1rem;
+            margin: 0 auto;
+        }
+        .r_c_42 .blue_cut_line{
+            margin-top: 0.253rem;
+            margin-bottom: 0.373rem;
+        }
+        .r_c_42 .sc_checked,
+        .r_c_42 .sc_unchecked{
+            background-size: 0.28rem 0.28rem;
+            width: 0.28rem;
+            height: 0.28rem;
+        }
+        .r_c_42 .unusual_detail{
+            background-color: #eee;
+            height: 0.813rem;
+        }
+        .r_c_42 .unusual_detail>span{
+            font-size: 0.24rem;
+            padding-left: 0.2rem;
+        }
+        .r_c_42 .unusual_detail_textarea{
+            width: 7.5rem;
+            height: 0.55rem;
+            float: right;
+            margin-right: 0.2rem;
+            margin-top: 0.08rem;
+            color: #333;
+            background-color: #eee;
+        }
+        .r_c_42 .c_basic_info{
+            margin-top: 0.266rem;
+        }
+        .r_c_42 .check_office{
+            width: 100%;
+            margin: 0.6rem auto 0;
+        }
+        @media (min-height:501px) and (max-height:550px) and (-webkit-min-device-pixel-ratio:1){
+            .r_c_42 .mc_content_main .content_font1{line-height: 0.42rem !important;}
+        }
+        @media (min-height:551px) and (max-height:600px) and (-webkit-min-device-pixel-ratio:1){
+            .r_c_42 .mc_content_main .content_font1{line-height: 0.46rem !important;}
+            .r_c_42 .note_box .content_font1{line-height: 0.58rem !important; height: 0.55rem !important;box-sizing: border-box !important;}
+        }
+        @media (min-height:601px) and (max-height:650px) and (-webkit-min-device-pixel-ratio:1){
+            .r_c_42 .mc_content_main .content_font1{line-height: 0.53rem !important;}
+            .r_c_42 .sc_checked,
+            .r_c_42 .sc_unchecked{background-size: 0.3rem 0.3rem;background-repeat: no-repeat;display:inline-block;width:0.32rem;height:0.32rem;}
+        }
+    </style>
+</head>
+<body>
+    <div class="r_c_42">
+        <div class="gradient_top gradient_blue_top"></div>
+        <div class="mc_content_main test">
+            <p class="blue_content_title">3岁健康检查记录</p>
+            <div class="content">
+                <div class="content_font1 check_time font_size_22">
+                    <span>检查日期：</span>
+                    <input type="text" class="border_bottom" disabled="disabled" style="width:0.893rem"/>
+                    <span>年</span>
+                    <input type="text" class="border_bottom" disabled="disabled" style="width:0.53rem"/>
+                    <span>月</span>
+                    <input type="text" class="border_bottom" disabled="disabled" style="width:0.53rem"/>
+                    <span>日</span>
+                    <input type="text" class="border_bottom" disabled="disabled" style="width:0.53rem"/>
+                    <span>岁</span>
+                    <input type="text" class="border_bottom" disabled="disabled" style="width:0.53rem"/>
+                    <span>个月</span>
+                </div>
+            </div>
+            <div class="blue_cut_line"></div>
+            <div class="content">
+                <div class="content_font1 font_size_22">
+                    <span>体重：</span>
+                    <input type="text" class="border_bottom" disabled="disabled" style="width:0.93rem"/>
+                    <span> kg</span>
+                    <span style="padding-left: 0.6rem">身高：</span>
+                    <input type="text" class="border_bottom" disabled="disabled" style="width:0.93rem"/>
+                    <span>cm</span>
+                </div>
+                <div class="content_font1 font_size_22">
+                    <span>血红蛋白：</span>
+                    <input type="text" class="border_bottom" disabled="disabled" style="width:0.93rem"/>
+                    <span> g/L</span>
+                    <span>龋齿：</span>
+                    <span class="sc_unchecked"></span>
+                    <span style="padding-right:2em">无</span>
+                    <span class="sc_unchecked"></span>
+                    <span>有（</span>
+                    <input type="text" class="border_bottom" disabled="disabled" style="width:0.93rem"/>
+                    <span>）颗</span>
+                </div>
+                <div class="content_font1 font_size_22">
+                    <span>检查结果：</span>
+                    <span class="sc_unchecked"></span>
+                    <span style="padding-right:2em">未见异常</span>
+                    <span class="sc_unchecked"></span>
+                    <span>异常</span>
+                </div>
+                <div class="content_font1 unusual_detail">
+                    <span>异常描述：</span>
+                    <div class="unusual_detail_textarea font_size_18"></div>
+                </div>
+                <div class="content_font1 font_size_22">
+                    <span>转诊：</span>
+                    <span class="sc_unchecked"></span>
+                    <span style="padding-right:2em">无</span>
+                    <span class="sc_unchecked"></span>
+                    <span>有</span>
+                </div>
+                <div class="blue_cut_line"></div>
+            </div>
+            <div class="c_basic_info">
+                <div class="note_box green_bg_color2">
+                    <div>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                    </div>
+                    <div style="position:absolute;top:0.04rem" class="font_size_22">
+                        <span>需要关注事情：</span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="note_box green_bg_color2">
+                    <div>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                    </div>
+                    <div style="position:absolute;top:0.04rem" class="font_size_22">
+                        <span>下次检查时间：</span>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="content_font1 check_office font_size_22">
+                    <span>检查单位：</span>
+                    <input type="text" class="border_bottom" disabled="disabled" style="width:4.52rem"/>
+                    <span>检查者：</span>
+                    <input type="text" class="border_bottom" disabled="disabled" style="width:1.6rem"/>
+                </div>
+            </div>
+        </div>
+        <p style="display:none"><textarea id="Template-ListRows_r_c_42" rows="0" cols="0">
+        {#foreach $T as msg}
+        <div class="mc_content_main">
+            <p class="blue_content_title">3岁健康检查记录</p>
+            <div class="content">
+                <div class="content_font1 check_time font_size_22">
+                    <span>检查日期：</span>
+                    <input type="text" class="border_bottom" value="{($T.msg.checkTime).substring(0,4)}" disabled="disabled" style="width:0.893rem"/>
+                    <span>年</span>
+                    <input type="text" class="border_bottom" value="{($T.msg.checkTime).substr(5,2)}" disabled="disabled" style="width:0.53rem"/>
+                    <span>月</span>
+                    <input type="text" class="border_bottom" value="{($T.msg.checkTime).substr(8,2)}" disabled="disabled" style="width:0.53rem"/>
+                    <span>日</span>
+                    <input type="text" class="border_bottom" value="{$T.msg.checkYearFromBirth}" disabled="disabled" style="width:0.53rem"/>
+                    <span>岁</span>
+                    <input type="text" class="border_bottom" value="{$T.msg.checkMonthFromBirth}" disabled="disabled" style="width:0.53rem"/>
+                    <span>个月</span>
+                </div>
+            </div>
+            <div class="blue_cut_line"></div>
+            <div class="content">
+                <div class="content_font1 font_size_22">
+                    <span>体重：</span>
+                    <input type="text" class="border_bottom" value="{$T.msg.weight}" disabled="disabled" style="width:0.93rem"/>
+                    <span> kg</span>
+                    <span style="padding-left: 0.6rem">身高：</span>
+                    <input type="text" class="border_bottom" value="{$T.msg.height}" disabled="disabled" style="width:0.93rem"/>
+                    <span>cm</span>
+                </div>
+                <div class="content_font1 font_size_22">
+                    <span>血红蛋白：</span>
+                    <input type="text" class="border_bottom" value="{$T.msg.hemoglobin}" disabled="disabled" style="width:0.93rem"/>
+                    <span> g/L</span>
+                    <span>龋齿：</span>
+                    {#if $T.msg.dentalCariesFlag==true}
+                    <span class="sc_checked"></span>
+                    {#else}
+                    <span class="sc_unchecked"></span>
+                    {#/if}
+                    <span style="padding-right:2em">无</span>
+                    {#if $T.msg.dentalCariesFlag==false}
+                    <span class="sc_checked"></span>
+                    {#else}
+                    <span class="sc_unchecked"></span>
+                    {#/if}
+                    <span>有（</span>
+                    <input type="text" class="border_bottom" value="{$T.msg.dentalCariesNums}" disabled="disabled" style="width:0.93rem"/>
+                    <span>）颗</span>
+                </div>
+                <div class="content_font1 font_size_22">
+                    <span>检查结果：</span>
+                    {#if $T.msg.checkResultFlag==true}
+                    <span class="sc_checked"></span>
+                    {#else}
+                    <span class="sc_unchecked"></span>
+                    {#/if}
+                    <span style="padding-right:2em">未见异常</span>
+                    {#if $T.msg.checkResultFlag==false}
+                    <span class="sc_checked"></span>
+                    {#else}
+                    <span class="sc_unchecked"></span>
+                    {#/if}
+                    <span>异常</span>
+                </div>
+                <div class="content_font1 unusual_detail">
+                    <span>异常描述：</span>
+                    <div class="unusual_detail_textarea font_size_18">
+                        <p class="abnormalDescription unusual_detail_textarea_content">{$T.msg.abnormalDescription}</p>
+                    </div>
+                </div>
+                <div class="content_font1 font_size_22">
+                    <span>转诊：</span>
+                    {#if $T.msg.referralFlag==false}
+                    <span class="sc_checked"></span>
+                    {#else}
+                    <span class="sc_unchecked"></span>
+                    {#/if}
+                    <span style="padding-right:2em">无</span>
+                    {#if $T.msg.referralFlag==true}
+                    <span class="sc_checked"></span>
+                    {#else}
+                    <span class="sc_unchecked"></span>
+                    {#/if}
+                    <span>有</span>
+                </div>
+                <div class="blue_cut_line"></div>
+            </div>
+            <div class="c_basic_info">
+                <div class="note_box green_bg_color2">
+                    <div>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                    </div>
+                    <div style="position:absolute;top:0.04rem" class="font_size_22">
+                        <p class="content_font1 attentionThing">需要关注事情：{$T.msg.attentionThing}</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="note_box green_bg_color2">
+                    <div>
+                        <p class="border_bottom_dashed_green content_font1">&nbsp;</p>
+                    </div>
+                    <div style="position:absolute;top:0.04rem" class="font_size_22">
+                        <span>下次检查时间：</span>{$T.msg.nextCheckTime}
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="content_font1 check_office font_size_22">
+                    <span>检查单位：</span>
+                    <input type="text" class="border_bottom" value="{$T.msg.checkUnit}" disabled="disabled" style="width:4.52rem"/>
+                    <span>检查者：</span>
+                    <input type="text" class="border_bottom" value="{$T.msg.checker}" disabled="disabled" style="width:1.6rem"/>
+                </div>
+            </div>
+        </div>
+        {#/for}
+        </textarea></p>
+        <div id="data_table"></div>
+        <div class="gradient_bottom gradient_blue_bottom"></div>
+    </div>
+    <script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+    <script>
+        $(function(){
+            change();//计算滚动条
+            // 高度宽度再计算
+            $(window).resize(function(){
+                change();
+            });
+            // 滚动条
+            $(".r_c_42").niceScroll({
+                railpadding: { top:0, right: 0, left: 0, bottom:0 },
+                cursorwidth:0
+            });
+            if(healthBookId!=''&&typeof(healthBookId)!="undefined"&&healthBookId!="undefined") {
+                $.ajax({
+                    type: "post",
+                    url: localhostUrl + '/web-bin/m/nosen/followup/maternalChild/handBook/query_readThreeYearRecord_data?healthBookId=' + healthBookId,
+                    dataType: 'json',
+                    success: function (data) {
+                        var msg = data.data;
+                        if(msg!=null&&msg.length!=0){
+                            $('.r_c_42 .test').hide();
+                            $(".r_c_42 #data_table").setTemplateElement("Template-ListRows_r_c_42").processTemplate(msg);
+                            if(msg.length>1){
+                                $('.r_c_42 .gradient_bottom').css('position', 'relative');
+                            }
+                            $('.r_c_42 .abnormalDescription').each(function(){
+                                $(this).text().length>58&&$(this).text($(this).text().substring(0,58)+'...');
+                            })
+                            $('.r_c_42 .attentionThing').each(function(){
+                                $(this).text().length>340&&$(this).text($(this).text().substring(0,340)+'...');
+                            })
+                        }
+                    }
+                });
+            }
+        })
+        function change(){
+            $('.r_c_42').height($(window).height());
+        }
+    </script>
+</body>
+</html>

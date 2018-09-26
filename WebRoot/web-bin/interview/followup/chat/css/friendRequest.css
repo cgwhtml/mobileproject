@@ -1,0 +1,47 @@
+html,body{
+	height:100%;
+	background-color: #fff;
+}
+.wrapper{
+	width:100%;
+	height:100%;
+	box-sizing: border-box;
+	padding:10px 15px 15px 10px;
+	background-color: #fff;
+}
+.new_friend{
+	height:100%;
+}
+.new_friend li{
+	height:54px;
+	border-bottom: 1px solid #DBDBDB;
+	line-height: 54px;
+	font-size: 14px;
+	overflow: hidden;
+}
+.new_head{
+	width:38px;
+	height:38px;
+	float:left;
+	margin:8px 20px 8px 0;
+	background-color: #ccc;
+	border-radius: 50%;
+	background-position: -414px -516px;
+}
+.new_head img{
+	width:38px;
+	height:38px;
+	border-radius: 50%;
+}
+.new_friend li span {
+	margin-left:60px
+}
+.btn_box{
+	box-sizing: border-box;
+	padding-left: 14px;
+	float:right;
+}
+.btn_box button{
+	cursor: default;
+	user-select: none;
+}

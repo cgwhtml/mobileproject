@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>意见反馈</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/weui/weui.min.css">
+    <link rel="stylesheet" href="/web-bin/resources/weui/jquery-weui.css">
+    <link rel="stylesheet" href="/web-bin/resources/css/basicMobile.css">
+    <link rel="stylesheet" href="/web-bin/resources/mobileSelect/mobileSelect.css">
+    <link rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/feedBack/feedBack.css">
+</head>
+<body>
+    <div class="head">
+        <span>反馈类型</span>
+        <div id="selectBox">
+            <span id="select">请选择反馈类型</span>
+            <div class="gray_arrow"></div>
+        </div>
+    </div>
+    <div class="wraper">
+        <div class="describe_text">请描述具体问题</div>
+        <textarea  id="describe_box" cols="30" rows="10"></textarea>
+        <div class="describe_text">您的手机号码</div>
+        <input type="number" id="phone">
+        <div id="submit">提交</div>
+    </div>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/weui/jquery-weui.js"></script>
+<script type="text/javascript" src="/web-bin/resources/mobileSelect/mobileSelect.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/weui/fastclick.js"></script>
+<!--解决ios下click的300ms的延迟，需引入fastclick-->
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+<script type="text/javascript" src="/web-bin/weChat/weChatPublic/js/feedBack/feedBack.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>好友请求</title>
+	<link rel="stylesheet" href="/web-bin/interview/followup/chat/css/basic.css">
+	<link rel="stylesheet" href="/web-bin/interview/followup/chat/css/friendRequest.css">
+</head>
+<body>
+	<div class="wrapper">
+	<p style="display:none">
+		<textarea id="template_friendRequest" rows="0" cols="0">
+				{#foreach $T as Row}
+					<li>
+						<div class="new_head design_icon"></div>
+						{$T.Row.name}
+							{#if $T.Row.applyStatus==0}
+								<div class="btn_box">
+									<button class="flat_gray_highlight">拒绝</button>
+									<button class="flat_blue_highlight">同意</button>
+								</div>	
+						    {#elseif $T.Row.applyStatus==2}
+								<span>已拒绝</span>
+							{#elseif $T.Row.applyStatus==1}
+								<span>已同意</span>
+							{#/if}
+							<input type="hidden" value="{$T.Row.applyId}" class="applyId"/>	
+					</li>					
+				{#/for}	
+		</textarea>
+	</p>
+	<ul class="new_friend"></ul> 	
+	</div>
+<script src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+<script src="/web-bin/resources/config/config.js"></script>
+<script src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script src="/web-bin/resources/artdialog/artDialog.source.js?skin=white"></script>
+<script src="/web-bin/resources/artdialog/iframeTools.source.js"></script>
+<script src="/web-bin/interview/followup/chat/js/friendRequest.js"></script>
+</body>
+</html>

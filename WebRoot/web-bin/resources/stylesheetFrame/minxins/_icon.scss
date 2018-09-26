@@ -1,0 +1,138 @@
+@charset "UTF-8";
+/*图标背景色*/
+@for $i from 1 through length($icon-primary-color) {
+  .icon-primary-bg-#{$i} {
+    background-color: nth($icon-primary-color, $i);
+    &:focus,
+    &.focus, &:hover {
+      background-color: $icon-primary-hover-color;
+    }
+  }
+  .icon-primary-text-#{$i}{
+    line-height: $input-line-height;
+    color: nth($icon-primary-color, $i);
+
+    &:focus,
+    &.focus,&:hover  {
+      color: $icon-primary-hover-color;
+      .icon-primary-bg-#{$i} {
+        background-color: $icon-primary-hover-color;
+      }
+    }
+  }
+}
+/*单图标函数*/
+@mixin icon-single-position($url,$x,$y,$w,$h){
+  background-image:url($url);
+  background-repeat:no-repeat;
+  background-position:$x $y;
+  width: $w;
+  height: $h;
+  display: inline-block;
+  cursor: pointer;
+}
+/*多图标函数*/
+@mixin icon-variant($name,$url,$map){
+  .icon-#{$name} {
+    background-image:url($url);
+    background-repeat:no-repeat;
+    display: inline-block;
+    cursor: pointer;
+
+    @for $i from 1 through length($map) {
+      $obj: nth($map, $i);
+      &.icon-#{$name}-#{map-get($obj, type)}-#{map-get($obj, size)}{
+        background-position:map-get($obj, x) map-get($obj, y);
+        @if(map-get($obj, size)=="sm"){
+          width: $icon-size-sm;
+          height: $icon-size-sm;
+        }@else if(map-get($obj, size)=="md"){
+          width: $icon-size-md;
+          height: $icon-size-md;
+        }
+        @if(map-get($obj, hover-type)!=""){
+          &:focus,
+          &.focus, &:hover {
+            @extend .icon-#{$name}-#{map-get($obj, hover-type)}
+          }
+        }
+      }
+    }
+  }
+}
+
+/*检查*/
+.icon-check{
+  @include icon-single-position("images/check.png",0,0,20px,24px)
+}
+/*租赁*/
+.icon-lease{
+  @include icon-single-position("images/lease.png",0,0,24px,22px)
+}
+/*监测*/
+.icon-monitor{
+  @include icon-single-position("images/monitor.png",0,0,24px,23px)
+}
+/*检验*/
+.icon-suvey{
+  @include icon-single-position("images/suvey.png",0,0,20px,24px)
+}
+/*编辑*/
+$edit-map:(
+        (type:"blue",size:"sm",x:-30px,y:-2px,hover-type:""),
+        (type:"grey",size:"sm",x:-2px,y:-2px,hover-type:""),
+        (type:"black",size:"sm",x:-16px,y:-2px,hover-type:""),
+        (type:"white",size:"sm",x:-15px,y:-2px,hover-type:""),
+        (type:"blue",size:"md",x:-2px,y:-14px,hover-type:"")
+);
+@include icon-variant("edit","images/edit.png",$edit-map);
+/*删除*/
+$delete-map:(
+        (type:"grey",size:"sm",x:-28px,y:-2px,hover-type:""),
+        (type:"black",size:"sm",x:-2px,y:-2px,hover-type:""),
+        (type:"blue",size:"sm",x:-15px,y:-2px,hover-type:""),
+        (type:"blue",size:"md",x:-2px,y:-14px,hover-type:"")
+);
+@include icon-variant("delete","images/delete.png",$delete-map);
+/*增加*/
+$add-map:(
+        (type:"blue",size:"sm",x:-2px,y:-4px,hover-type:"white-sm"),
+        (type:"white",size:"sm",x:-32px,y:-4px,hover-type:""),
+        (type:"blue",size:"md",x:-14px,y:-2px,hover-type:"")
+);
+@include icon-variant("add","images/add.png",$add-map);
+
+
+/*文字图标*/
+@mixin icon-font($color){
+  background: transparent;
+  border: 1px solid $color;
+  border-radius: 2px;
+  //width: 20px;
+  height: 20px;
+  padding-left: 4px;
+  padding-right: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: center;
+}
+.icon-font-primary{
+  color:$brand-primary ;
+  @include icon-font($brand-primary);
+}
+.icon-font-warning{
+  color: $brand-warning;
+  @include icon-font($brand-warning);
+}
+.icon-font-success{
+  color: $brand-success;
+  @include icon-font($brand-success);
+}
+.icon-font-danger{
+  color: $brand-danger;
+  @include icon-font($brand-danger);
+}
+.icon-font-purple{
+  color: $brand-purple;
+  @include icon-font($brand-purple);
+}

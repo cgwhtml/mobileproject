@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>产褥期情况自我记录</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_002.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_003.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/icheck/skins/all.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+    <style>
+        .main_option_in{
+            line-height: 0.54rem;
+        }
+        .main_option_in>span{
+            font-size: 0.266rem;
+        }
+        .main_option_tip{
+            line-height: 0.54rem;
+        }
+        input[type="number"], input[type="tel"], input[type="text"], input[type="password"]{
+            width: 3.2rem !important;
+        }
+        label{
+            margin-left: 0.35rem;
+        }
+        .contraceptionWay{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form action="" id="myForm" name="myForm">
+        <div class="parent_msg">
+            <div class="main_option feedingWay check_only">
+                <span>喂养方式</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="feedingWay" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>母乳喂养</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="feedingWay" value="2"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>人工喂养</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="feedingWay" value="3"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>混合喂养</span>
+                    </label>
+                </div>
+            </div>
+            <div class="main_option">
+                <span>首次产后哺乳时间（小时）</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="firstPostpartumLactating" name="firstPostpartumLactating">
+            </div>
+            <div class="main_option">
+                <span>产后阴道流血持续天数（天）</span>
+                <input type="tel" placeholder="请填写" class="input_msg" id="postpartumVaginaPersistBlooding" name="postpartumVaginaPersistBlooding">
+            </div>
+            <div class="main_option check_only postpartumVisitConditionFlag">
+                <span>产后访视情况</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="postpartumVisitConditionFlag" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>正常</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="postpartumVisitConditionFlag" value="0"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>异常</span>
+                    </label>
+                </div>
+                <div class="main_option_in">
+                    <span>具体描述</span>
+                    <textarea class="textarea_msg" id="postpartumVisitConditionContent" name="postpartumVisitConditionContent"></textarea>
+                </div>
+            </div>
+            <div class="main_option check_only postpartumFortyTwoCheckResultFlag">
+                <span>产后42天检查结果</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="postpartumFortyTwoCheckResultFlag" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>正常</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="postpartumFortyTwoCheckResultFlag" value="0"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>异常</span>
+                    </label>
+                </div>
+                <div class="main_option_in">
+                    <span>具体描述</span>
+                    <textarea class="textarea_msg" id="postpartumFortytwoCheckContent" name="postpartumFortytwoCheckContent"></textarea>
+                </div>
+            </div>
+            <div class="main_option">
+                <span>产后42天体重（kg）</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="postpartumFortytwoWeight" name="postpartumFortytwoWeight">
+            </div>
+            <div class="main_option check_only menstrualRecoverFlag">
+                <span>月经是否恢复</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="menstrualRecoverFlag" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position hasChecked"></div>
+                        <span>已恢复</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="menstrualRecoverFlag" value="0"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>未恢复</span>
+                    </label>
+                </div>
+            </div>
+            <div class="main_option menstrualRecoverTime" style="display: none">
+                <span>恢复日期</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="menstrualRecoverTime" name="menstrualRecoverTime">
+            </div>
+            <div class="main_option check_only postpartumContraceptionFlag">
+                <span>产后有无避孕</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="postpartumContraceptionFlag" value="0"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>无</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="postpartumContraceptionFlag" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>有</span>
+                    </label>
+                </div>
+            </div>
+            <div class="main_option check_muti contraceptionWay">
+                <span>产后有无避孕（可多选）</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="checkbox"  name="contraceptionWay" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>避孕套</span>
+                    </label>
+                    <label>
+                        <input type="checkbox"  name="contraceptionWay" value="2"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>宫内节孕器</span>
+                    </label>
+                    <label>
+                        <input type="checkbox"  name="contraceptionWay" value="3"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>避孕药</span>
+                    </label>
+                    <label>
+                        <input type="checkbox"  name="contraceptionWay" value="4"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>皮下埋植</span>
+                    </label>
+                </div>
+            </div>
+            <div class="main_option check_only postpartumOtherConditionFlag">
+                <span>产后其他情况</span>
+                <div class="pull_right option_radio">
+                    <label>
+                        <input type="radio" name="postpartumOtherConditionFlag" value="0"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>无</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="postpartumOtherConditionFlag" value="1"/>
+                        <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                        <span>有</span>
+                    </label>
+                </div>
+                <div class="main_option_in">
+                    <span>具体描述</span>
+                    <textarea class="textarea_msg" id="postpartumOtherConditionContent" name="postpartumOtherConditionContent"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="parent_msg symptom">
+            <div class="main_option main_option_tip">
+                <span>在这段时期您如果出现以下任何症状， 请记录下第一次出现的时间，并及时去医院就诊！</span>
+            </div>
+            <div class="main_option check_only">
+                <span>腹痛</span>
+                <label>
+                    <input type="checkbox"  name="bellyacheFlag" id="bellyacheFlag" value="1"/>
+                    <div class="c_check gray_c_uncheck"></div>
+                </label>
+            </div>
+            <div class="main_option" style="display: none">
+                <span>出现时间</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="bellyacheTime" name="bellyacheTime">
+            </div>
+            <div class="main_option check_only">
+                <span>发热</span>
+                <label>
+                    <input type="checkbox"  name="feverFlag" id="feverFlag" value="1"/>
+                    <div class="c_check gray_c_uncheck"></div>
+                </label>
+            </div>
+            <div class="main_option" style="display: none">
+                <span>出现时间</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="feverTime" name="feverTime">
+            </div>
+            <div class="main_option check_only">
+                <span>阴道分泌物发臭</span>
+                <label>
+                    <input type="checkbox"  name="vaginaStinkFlag" id="vaginaStinkFlag" value="1"/>
+                    <div class="c_check gray_c_uncheck"></div>
+                </label>
+            </div>
+            <div class="main_option" style="display: none">
+                <span>出现时间</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="vaginaStinkTime" name="vaginaStinkTime">
+            </div>
+            <div class="main_option check_only">
+                <span>乳房红肿疼痛</span>
+                <label>
+                    <input type="checkbox"  name="breastPainFlag" id="breastPainFlag" value="1"/>
+                    <div class="c_check gray_c_uncheck"></div>
+                </label>
+            </div>
+            <div class="main_option" style="display: none">
+                <span>出现时间</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="breastPainTime" name="breastPainTime">
+            </div>
+            <div class="main_option check_only">
+                <span>伤口愈合不良、疼痛、感染</span>
+                <label>
+                    <input type="checkbox"  name="woundHealFlag" id="woundHealFlag" value="1"/>
+                    <div class="c_check gray_c_uncheck"></div>
+                </label>
+            </div>
+            <div class="main_option" style="display: none">
+                <span>出现时间</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="woundHealTime" name="woundHealTime">
+            </div>
+            <div class="main_option check_only">
+                <span>情绪低落、易哭泣</span>
+                <label>
+                    <input type="checkbox"  name="moodDownFlag" id="moodDownFlag" value="1"/>
+                    <div class="c_check gray_c_uncheck"></div>
+                </label>
+            </div>
+            <div class="main_option" style="display: none">
+                <span>出现时间</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="moodDownTime" name="moodDownTime">
+            </div>
+        </div>
+        <div class="parent_msg">
+            <div class="main_option">
+                <span>请您将需要咨询医生的问题列在下面</span>
+                <textarea class="textarea_msg" id="consultDoctorQuestion" name="consultDoctorQuestion"></textarea>
+            </div>
+            <div class="main_option">
+                <span>医生建议</span>
+                <textarea class="textarea_msg" id="doctorAdvice" name="doctorAdvice"></textarea>
+            </div>
+        </div>
+        <div class="parent_msg">
+            <div class="main_option">
+                <span>新妈妈及爸爸的育儿心得</span>
+                <textarea class="textarea_msg" id="parentingTips" name="parentingTips"></textarea>
+            </div>
+        </div>
+    </form>
+    <div class="page_btns">
+        <div class="pink_btn save">保存</div>
+    </div>
+    <div id="window"  style="display:none" class="window">
+        <div>
+            <div id="window_in" class="window_in"></div>
+            <div id="check" class="check">确定</div>
+        </div>
+    </div>
+    <div id="background" style="display: none"></div>
+    <div id="fake_alert"  style="display:none">
+        <div id="fake_alert_in">
+            <div id="msg"></div>
+            <div id="sure">确定</div>
+        </div>
+    </div>
+    <input type="hidden" id="data_id">
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_002.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_004.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_003.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_005.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/js/dialogData.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/icheck/icheck.js"></script>
+    <script>
+        $(function(){
+            var localhostUrl=window.location.origin;
+            var query=getRequest();
+            var healthBookId=query.healthBookId;
+            var myReg = /^\d+(\.\d+)?$/;
+            var currYear = (new Date()).getFullYear();
+            var opt={};
+            var cansubmit=true;
+            opt.date = {preset : 'date'};
+            opt.datetime = {preset : 'datetime'};
+            opt.time = {preset : 'time'};
+            opt.default2 = {
+                theme: 'android-ics light', //皮肤样式
+                display: 'modal', //显示方式
+                mode: 'scroller', //日期选择模式
+                dateFormat: 'yy-mm-dd',
+                lang: 'zh',
+                showNow: true,
+                nowText: "今天",
+                startYear: currYear - 2, //开始年份
+                endYear: currYear + 10 //结束年份
+            };
+            $(document).on("change","input[type='radio']",function(){
+                $("input[type='radio']").each(function() {
+                    $(this).is(":checked")?$(this).next().removeClass('pink_r_uncheck').addClass('pink_r_check'):$(this).next().removeClass('pink_r_check').addClass('pink_r_uncheck');
+                });
+                $('.hasChecked').hasClass('pink_r_check')?$('.menstrualRecoverTime').show():$('.menstrualRecoverTime').hide()&&$('#menstrualRecoverTime').val('');
+                $('input[name="postpartumContraceptionFlag"]:checked').val()==1?$('.contraceptionWay').show():$('.contraceptionWay').hide()&&$('input[name="contraceptionWay"]').each(function(){$(this).removeProp('checked')&&$(this).next().removeClass('pink_r_check').addClass('pink_r_uncheck')});
+            });
+            $(".check_only input[type='checkbox']").change(function(){
+                $(this).is(":checked")?$(this).next('div').toggleClass('pink_c_check').toggleClass('gray_c_uncheck'):$(this).next('div').toggleClass('gray_c_uncheck').toggleClass('pink_c_check');
+                $(this).is(':checked')?$(this).parents('.main_option').next('.main_option').show():$(this).parents('.main_option').next('.main_option').hide()&&$(this).parents('.main_option').next('.main_option').find("input[type='text']").val('');
+            })
+            $(".check_muti input[type='checkbox']").change(function(){
+                $(this).is(":checked")?$(this).next('div').toggleClass('pink_r_uncheck').toggleClass('pink_r_check'):$(this).next('div').toggleClass('pink_r_uncheck').toggleClass('pink_r_check');
+            })
+            $("#menstrualRecoverTime,#bellyacheTime,#feverTime,#vaginaStinkTime,#breastPainTime,#woundHealTime,#moodDownTime").mobiscroll($.extend(opt['date'], opt['default2']));
+            $.ajax({
+                type:"post",
+                url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_materSelfRecord_data?healthBookId='+healthBookId,
+                dataType:'json',
+                async:false,
+                contentType:'application/json;charset=UTF-8',
+                success:function(data){
+                    if(data.res==0){
+                        var msg=data.data;
+                        $('#data_id').val(msg&&msg.id);
+                        if(msg!=null){
+                            for(var o in msg){
+                                $("#"+o).val(msg[o]);
+                            }
+                            if(msg.contraceptionWay!=null){
+                                var arr=msg.contraceptionWay.split(';');
+                                for(var i=0;i<arr.length;i++){
+                                    $('input[name="contraceptionWay"]').each(function () {
+                                        $(this).val()==arr[i]&&$(this).attr('checked',true).next().toggleClass('pink_r_uncheck').toggleClass('pink_r_check');
+                                    })
+                                }
+                            }
+                            $(".feedingWay input[value="+ msg.feedingWay +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                            msg.postpartumVisitConditionFlag!=null&&$(".postpartumVisitConditionFlag input[value="+ boolToNumber(msg.postpartumVisitConditionFlag) +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                            msg.postpartumFortytwoCheckResultFlag!=null&&$(".postpartumFortyTwoCheckResultFlag input[value="+ boolToNumber(msg.postpartumFortytwoCheckResultFlag) +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                            msg.menstrualRecoverFlag!=null&&$(".menstrualRecoverFlag input[value="+ boolToNumber(msg.menstrualRecoverFlag) +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                            msg.postpartumContraceptionFlag!=null&&$(".postpartumContraceptionFlag input[value="+ boolToNumber(msg.postpartumContraceptionFlag) +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                            msg.postpartumOtherConditionFlag!=null&&$(".postpartumOtherConditionFlag input[value="+ boolToNumber(msg.postpartumOtherConditionFlag) +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                            msg.bellyacheFlag==true?$('#bellyacheFlag').attr('checked',true).next().removeClass('gray_c_uncheck').addClass('pink_c_check').parents('.main_option').next().show():false;
+                            msg.feverFlag==true?$('#feverFlag').attr('checked',true).next().removeClass('gray_c_uncheck').addClass('pink_c_check').parents('.main_option').next().show():false;
+                            msg.vaginaStinkFlag==true?$('#vaginaStinkFlag').attr('checked',true).next().removeClass('gray_c_uncheck').addClass('pink_c_check').parents('.main_option').next().show():false;
+                            msg.breastPainFlag==true?$('#breastPainFlag').attr('checked',true).next().removeClass('gray_c_uncheck').addClass('pink_c_check').parents('.main_option').next().show():false;
+                            msg.woundHealFlag==true?$('#woundHealFlag').attr('checked',true).next().removeClass('gray_c_uncheck').addClass('pink_c_check').parents('.main_option').next().show():false;
+                            msg.moodDownFlag==true?$('#moodDownFlag').attr('checked',true).next().removeClass('gray_c_uncheck').addClass('pink_c_check').parents('.main_option').next().show():false;
+                            $('.hasChecked').hasClass('pink_r_check')&&$('.menstrualRecoverTime').show();
+                            msg.postpartumContraceptionFlag==1&&$('.contraceptionWay').show();
+                        }
+                    }else{
+                        fake_alert("请求失败！请检查网络是否正常。");
+                    }
+                },
+                error:function () {
+                    fake_alert("请求失败！请检查网络是否正常。");
+                    return;
+                }
+            });
+            //保存
+            $('.save').click(function(){
+                var firstPostpartumLactating=$('#firstPostpartumLactating').val();
+                if(!IsNumberValidateFun(firstPostpartumLactating)){
+                    fake_alert("产后哺乳时间必须是整数","#firstPostpartumLactating");
+                    return false;
+                }
+                var postpartumVaginaPersistBlooding=$('#postpartumVaginaPersistBlooding').val();
+                if(!IsNumberValidateFun(postpartumVaginaPersistBlooding)){
+                    fake_alert("产后持续流血天数必须是整数","#postpartumVaginaPersistBlooding");
+                    return false;
+                }
+                var postpartumFortytwoWeight=$('#postpartumFortytwoWeight').val();
+                if(postpartumFortytwoWeight!=''&&!myReg.test(postpartumFortytwoWeight)){
+                    fake_alert("产后42天体重必须是数字","#postpartumFortytwoWeight");
+                    return false;
+                }
+                var JsonObj=$("#myForm").serializeObject();
+                JsonObj.healthBookId=healthBookId;
+                if(JsonObj.contraceptionWay!=null){
+                   if(JsonObj.contraceptionWay.length>1){
+                       var a=JsonObj.contraceptionWay.join(';');
+                       JsonObj.contraceptionWay=a;
+                   }
+                }
+                if(JsonObj.postpartumContraceptionFlag==0){
+                    JsonObj.contraceptionWay=null;
+                }
+                var data_id=$("#data_id").val();
+                if(cansubmit){
+                    cansubmit=false;
+                    if(data_id!=null && data_id!=''){
+                        $.ajax({
+                            type:"post",
+                            url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/update_materSelfRecord_data',
+                            data:JsonObj,
+                            contentType:'application/json;charset=UTF-8',
+                            success:function(data){
+                                if(data.res==0){
+                                    fake_alert("保存成功");
+                                    setTimeout(function(){
+                                        window.history.go(-1);
+//                                    window.location=localhostUrl+":"+port+"/web-bin/m/nosen/followup/maternalChild/handBook/to_beforeMater_page?healthBookId="+healthBookId;
+                                    },500)
+                                }else{
+                                    fake_alert("保存失败！请检查网络是否正常。");
+                                    cansubmit=true;
+                                }
+                            },
+                            error:function () {
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                cansubmit=true;
+                                return;
+                            }
+                        });
+                    }else{
+                        $.ajax({
+                            type:"post",
+                            url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/submit_materSelfRecord_data',
+                            data:JsonObj,
+                            dataType:'json',
+                            contentType:'application/json;charset=UTF-8',
+                            success:function(data){
+                                if(data.res==0){
+                                    fake_alert("保存成功");
+                                    setTimeout(function(){
+                                        window.history.go(-1);
+//                                    window.location=localhostUrl+":"+port+"/web-bin/m/nosen/followup/maternalChild/handBook/to_beforeMater_page?healthBookId="+healthBookId;
+                                    },500)
+                                }else{
+                                    fake_alert("保存失败！请检查网络是否正常。");
+                                    cansubmit=true;
+                                }
+                            },
+                            error:function () {
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                cansubmit=true;
+                                return;
+                            }
+                        });
+                    }
+                }
+            })
+            function fake_alert(text,element){
+                $("#background").show();
+                $("#fake_alert").show();
+                $("#msg").html(text);
+                $("#sure").click(function(){
+                    $("#background").hide();
+                    $("#fake_alert").hide();
+                });
+                element&&$("html,body").animate({scrollTop:$(element).offset().top-75},500);
+            }
+        })
+    </script>
+</body>
+</html>

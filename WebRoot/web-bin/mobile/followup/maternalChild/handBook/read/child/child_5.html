@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>阅读</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <style>
+        .r_c_5{
+            background-color: #B5E3FE;
+            padding: 0.5rem 0.2rem;
+            box-sizing: border-box;
+            height: 100%;
+            position: relative;
+        }
+        .r_c_5 .content_main{
+            position: relative;
+        }
+        .r_c_5 .content_main>p{
+            margin-top: 0.46rem;
+            margin-bottom: 0.2rem;
+        }
+        .r_c_5 .img_content{
+            width: 8.8rem;
+            height: 6rem;
+            border: 1px dashed #509DCB;
+            margin: 0 auto;
+            padding: 0.293rem;
+            box-sizing: border-box;
+        }
+        .r_c_5 .img_content>img{
+            width: 8.2rem;
+            height: 5.4rem;
+            display: none;
+        }
+        @media (min-height:451px) and (max-height:500px) and (-webkit-min-device-pixel-ratio:1){
+            .r_c_5 .img_content{height: 4.8rem;}
+            .r_c_5 .foot_big,
+            .r_c_5 .hand_big{
+                top: 3.5rem;
+            }
+        }
+        @media (min-height:501px) and (max-height:550px) and (-webkit-min-device-pixel-ratio:1){
+            .r_c_5 .img_content{height: 5.8rem;}
+        }
+        @media (min-height:901px) and (max-height:1000px) and (-webkit-min-device-pixel-ratio:2){
+            .r_c_5 .img_content{height: 5.5rem;}
+            .r_c_5 .foot_big,
+            .r_c_5 .hand_big{
+                top: 4rem;
+            }
+        }
+        @media (min-height:1101px) and (max-height:1200px) and (-webkit-min-device-pixel-ratio:2){
+            .r_c_5 .img_content{height: 5.5rem;}
+            .r_c_5 .foot_big,
+            .r_c_5 .hand_big{
+                top: 4rem;
+            }
+        }
+        @media (min-height:1301px) and (max-height:1400px) and (-webkit-min-device-pixel-ratio:2){
+            .r_c_5 .content_main>p{
+                margin-top: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="r_c_5">
+        <div class="mc_content_main test">
+            <div class="content_main">
+                <p>宝贝小手印</p>
+                <div class="hand_small"></div>
+                <div class="img_content"></div>
+                <i class="hand_big"></i>
+            </div>
+            <div class="content_main">
+                <p>宝贝小脚印</p>
+                <div class="foot_small"></div>
+                <div class="img_content"></div>
+                <i class="foot_big"></i>
+            </div>
+        </div>
+        <p style="display:none"><textarea id="Template-ListRows_r_c_5" rows="0" cols="0">
+        {#foreach $T as msg}
+        <div class="mc_content_main">
+            <div class="content_main">
+                <p>宝贝小手印</p>
+                <div class="hand_small"></div>
+                <div class="img_content">
+                    <img src="" id="babyHandprintPictureUrl" alt="">
+                </div>
+                <i class="hand_big"></i>
+            </div>
+            <div class="content_main">
+                <p>宝贝小脚印</p>
+                <div class="foot_small"></div>
+                <div class="img_content">
+                    <img src="" id="babyFootprintPictureUrl" alt="">
+                </div>
+                <i class="foot_big"></i>
+            </div>
+        </div>
+        {#/for}
+        </textarea></p>
+        <div id="data_table"></div>
+    </div>
+    <script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+    <script>
+        $(function(){
+            change();//计算滚动条
+            // 高度宽度再计算
+            $(window).resize(function(){
+                change();
+            });
+            // 滚动条
+            $(".r_c_5").niceScroll({
+                railpadding: { top:0, right: 0, left: 0, bottom:0 },
+                cursorwidth:0
+            });
+            if(healthBookId!=''&&typeof(healthBookId)!="undefined"&&healthBookId!="undefined") {
+                var SERVER_URL=window.HUGPAGE_CONFIG.SERVER_URL;//读取图片服务器路径
+                var FILE_URL=window.HUGPAGE_CONFIG.FILE_URL;//读取图片文件路径
+                $.ajax({
+                    type: "post",
+                    url: localhostUrl + '/web-bin/m/nosen/followup/maternalChild/handBook/query_readBabyBrand_data?healthBookId=' + healthBookId,
+                    dataType: 'json',
+                    success: function (data) {
+                        var msg = data.data;
+                        if(msg!=null&&msg.length!=0){
+                            $('.r_c_5 .test').hide();
+                            $(".r_c_5 #data_table").setTemplateElement("Template-ListRows_r_c_5").processTemplate(msg);
+                            if(msg.length>1){
+                                $('.r_c_5 .gradient_bottom').css('position', 'relative');
+                                $('.r_c_5 .mc_content_main').css('padding-bottom', '1.2rem');
+                            }
+                            $('.r_c_5 .mc_content_main:not(:eq(0))').each(function(){
+                                var index = $(".r_c_5 .mc_content_main:not(:eq(0))").index(this);
+                                $(this).addClass('page'+index);
+                                for(var o in msg[index]){
+//                                    var babyHandprintPictureUrlHref=SERVER_URL+FILE_URL+msg[index].babyHandprintPictureUrl;
+//                                    msg[index].babyHandprintPictureUrl!=null&&$('.page'+index+' #babyHandprintPictureUrl').attr('src',babyHandprintPictureUrlHref);
+//                                    $('.hand_big').hide();
+//                                    var babyFootprintPictureUrlHref=SERVER_URL+FILE_URL+msg[index].babyFootprintPictureUrl;
+//                                    msg[index].babyFootprintPictureUrl!=null&&$('.page'+index+' #babyFootprintPictureUrl').attr('src',babyFootprintPictureUrlHref);
+//                                    $('.foot_big').hide();
+                                    o!=null&&msg[index][o]!=''&&$('.page'+index+' #'+o).attr('src',SERVER_URL+FILE_URL+msg[index][o]).show();
+                                    o!=null&&msg[index][o]!=''&&$('.page'+index+' #'+o).parent().next().hide();
+                                }
+                            })
+                        }
+                    }
+                });
+            }
+        })
+        function change(){
+            $('.r_c_5').height($(window).height());
+        }
+    </script>
+</body>
+</html>

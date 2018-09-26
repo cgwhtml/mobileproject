@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>胎心处理列表</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/css/fonts.css"/>
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/css/title.css"/>
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mypagination/js/myPagination/page.css"/>
+    <link type="text/css" rel="stylesheet" href="/web-bin/interview/followup/healthMonitor/css/fetalHeartHandleList.css"/>
+</head>
+<body> 
+    <div class="wrapper">
+         <div class="mainContent T1" id="mainContent">
+              <div class="dataList">
+             	<div class="type_title" style="background:#E0F2FE;margin-bottom:0">
+	            	<ul class="title_nav">
+	                	<li class="title_item"><a href="javascript:showUnfinish();" id="unfinish" class="current">待处理胎心</a></li>
+	                   	<li class="title_item" style="border-right:0"><a href="javascript:showFinish();" id="finish">已处理胎心</a></li>
+	            	</ul>
+	         	</div>
+	         	<div style="height:4px;border-left:1px solid #DDDDDD;border-right:1px solid #DDDDDD;"></div>
+                <div class="content_table">
+                	<!-- JTemplate模板 -->
+					<p style="display:none"><textarea id="Template-ListRows" rows="0" cols="0">
+						<table cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;width:100%">
+							<tr class="content-tr">
+								<td>姓名</td>
+                            	<td>年龄</td>
+                            	<td>手机号</td>
+                            	<td>监测时间</td>
+                            	<td>上传时间</td>
+                            	<td>操作</td>
+							</tr>
+							{#foreach $T as Row}
+							<tr class="content-tr">
+								<td>{$T.Row.name}</td>
+								<td>{$T.Row.age}</td>
+								<td>{$T.Row.phone}</td>
+                            	<td>{$T.Row.measuringTime.substring(0,16)}</td>
+                            	<td>{$T.Row.uploadTime.substring(0,16)}</td>
+                            	<td>
+                            		{#if $T.Row.dataStatus =='1'}
+                            		<a href="javascript:void(0)" class="a_color1" onclick="toFetalHeartHandle('{$T.Row.healthId}','{$T.Row.phone}','{$T.Row.hospCode}')">处理</a>
+                            		{#elseif $T.Row.dataStatus =='2'}
+                            		<a href="javascript:void(0)" class="a_color1" onclick="toCheckReport('{$T.Row.healthId}','{$T.Row.hospCode}')">查看</a>
+                            		{#/if}
+                            	</td>
+							</tr>
+							{#/for}
+						</table>
+					</textarea></p>
+					<div id="dataTable"></div>
+                </div>
+                <div class="bottom-page">
+				    <div id="page" style="margin-bottom:10px;padding-bottom:8px;padding-top:10px;border-top:0"></div>
+			    </div>
+             </div>
+         </div>
+    </div>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/mypagination/js/myPagination/jquery.myPagination6.0.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/artDialog.source.js?skin=white"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/iframeTools.source.js"></script>
+<script type="text/javascript" src="/web-bin/interview/followup/healthMonitor/js/fetalHeartHandleList.js"></script>
+<script type="text/javascript">
+    window.onload=function(){
+	   change();
+	};
+    $(window).resize(function(){
+	   change();
+	});
+	function change(){
+	   $("html").height($(window).height());
+	   $(".dataList").width($(window).width()-20);
+	}
+	$(function(){
+	   //滚动条
+	   $("html").height($(window).height());
+	   $("html").niceScroll({
+	       railpadding: { top:0, right: 0, left: 0, bottom:0 },
+           cursorborder:"",
+           cursoropacitymin: 0.2,
+           cursoropacitymax: 0.2,
+           cursorcolor:"#000000",
+           zindex: "99",
+           cursorwidth: "9px",
+           horizrailenabled:false//掩藏水平滚动条
+       });
+	});
+</script>
+</body>
+</html>

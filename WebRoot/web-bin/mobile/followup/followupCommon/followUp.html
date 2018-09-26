@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>蓝牛随访</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name = "format-detection" content = "telephone=no">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/followupCommon/css/basic.css"/>
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/followupCommon/css/followUp.css?20171012"/>
+</head>
+<body>
+<div class="main">
+    <div id="container">
+        <div id="followup">
+            <div class="top">
+                <div id="wait">待处理随访</div>
+                <div class="finish">已完成随访</div>
+            </div>
+            <div class="main_body">
+                <input type="hidden" id="hospCode" value="">
+                <p style="display:none"><textarea id="Template-followUp" rows="0" cols="0">
+                {#foreach $T as Row}
+                    {#if $T.Row.revisitResult==0}
+                        <div class="item" data-role="0">
+                            <input type="hidden" class="revisitResult" value="{$T.Row.revisitResult}">
+                            <input type="hidden" value="{$T.Row.id}" class="form_id">
+                            <input type="hidden" value="{$T.Row.empiId}" class="empiId">
+                            <div class="base_info">
+                                <input type="hidden" class="inHosNo" value="{$T.Row.inHosNo}">
+                                <input type="hidden" class="visitCardNo" value="{$T.Row.visitCardNo}">
+                                <input type="hidden" class="mobileNo" value="{$T.Row.mobileNo}">
+                                <span class="per_img"><img src="{$T.Row.src}" alt="头像"></span>
+                                <span class="name">{$T.Row.patName}</span>
+                                <span class="sex">{$T.Row.sexName}</span>
+                                <span class="age">{$T.Row.age}岁</span>
+                                <span class="design_icon right_arrow"></span>
+                            </div>
+                            <div class="subject">
+                                <div class="flag">
+                                    <input type="hidden" value="{$T.Row.planId}" class="planId">
+                                    <span class="sub_tit">{$T.Row.planName}</span>
+                                    <span class="date">{$T.Row.plantimeStr}</span>
+                                </div>
+                                <div class="list">
+                                    <div class="list_form">{$T.Row.formTitle}</div>
+                                </div>
+                                <div class="followup_button">随访</div>
+                            </div>
+                        </div>
+                    {#else}
+                     <div class="item" data-role="1">
+                         <input type="hidden" class="revisitResult" value="{$T.Row.revisitResult}">
+                        <input type="hidden" value="{$T.Row.id}" class="form_id">
+                        <input type="hidden" value="{$T.Row.empiId}" class="empiId">
+                        <input type="hidden" value="{$T.Row.handlingOpinion}" class="handlingOpinion">
+                        <!--<input type="hidden" value="{$T.Row.returnVisitTime}" class="returnVisitTime">-->
+                        <div class="base_info">
+                            <input type="hidden" class="inHosNo" value="{$T.Row.inHosNo}">
+                            <input type="hidden" class="visitCardNo" value="{$T.Row.visitCardNo}">
+                            <span class="per_img"><img src="{$T.Row.src}" alt="头像"></span>
+                            <span class="name">{$T.Row.patName}</span>
+                            <span class="sex">{$T.Row.sexName}</span>
+                            <span class="age">{$T.Row.age}岁</span>
+                            <span class="design_icon right_arrow"></span>
+                        </div>
+                        <div class="subject">
+                            <div>
+                                <input type="hidden" value="{$T.Row.planId}" class="planId">
+                                <span class="sub_tit">{$T.Row.planName}</span>
+                                <span class="date">{$T.Row.plantimeStr}</span>
+                            </div>
+                            <div class="list">
+                                <div class="list_form">{$T.Row.formTitle}</div>
+                            </div>
+                            <div class="check_button">查看</div>
+                        </div>
+                    </div>
+                    {#/if}
+                {#/for}
+            </textarea></p>
+                <div class="wait_followup"></div>
+            </div>
+        </div>
+    </div>
+    <div id="educationBox">
+        <!-- 置顶搜索框 -->
+        <div class="search_box">
+            <div class="search" >
+                <input type="text" placeholder="搜索" class="searchInput">
+                <div class="search_img"><img src="/web-bin/mobile/repository/drug/images/search.png"/></div>
+            </div>
+        </div>
+        <!-- 取消-->
+        <button class="cancle">取消</button>
+        <!-- 搜索结果 -->
+        <div class="search_res">
+            <div class="input_mes substr">在列表中搜索“<span></span>”</div>
+            <div class="null_mes">没有匹配结果</div>
+            <!-- 搜索结果列表隐藏域 -->
+            <div class="search_body">
+                <p style="display:none">
+            <textarea id="template_searchList" rows="0" cols="0">
+                {#foreach $T as Row}
+                    <div class="item">
+                        <input type="hidden" class="inhospNo" value="{$T.Row.inhospNo}">
+                        <input type="hidden" class="phone" value="{$T.Row.mobileNo}">
+                        <input type="hidden" class="inhospSerialNo" value="{$T.Row.inhospSerialNo}">
+                        <input type="hidden" class="patIndexNo" value="{$T.Row.patIndexNo}">
+                        <input type="hidden" class="mobileNo" value="{$T.Row.mobileNo}">
+                        <input type="hidden" class="idCard" value="{$T.Row.idNumber}">
+                        <input type="hidden" class="deptCode" value="{$T.Row.deptCode}">
+                        <input type="hidden" class="deptName" value="{$T.Row.deptName}">
+                        <input type="hidden" class="wardCode" value="{$T.Row.wardCode}">
+                        <input type="hidden" class="wardName" value="{$T.Row.wardName}">
+                        <input type="hidden" class="visitCardNo" value="{$T.Row.visitCardNo}">
+                        <input type="hidden" class="patName" value="{$T.Row.patName}">
+                        <input type="hidden" class="admitDate" value="{$T.Row.admitDate.substring(0,10)}">
+                        <div class="design_icon head"></div>
+                        <div class="bed">{$T.Row.bedNo}</div>
+                        <div class="info">
+                <p>{$T.Row.patName}</p>
+                <p><span>{$T.Row.wardName}</span>&nbsp;&nbsp;<span>{$T.Row.admitDate.substring(0,10)}入院</span></p>
+            </div>
+            <div class="design_icon right_arrow"></div>
+        </div>
+        {/for}
+        </textarea></p>
+        <div class="searchList_result"></div>
+            </div>
+        </div>
+        <div class="swiper-container">
+            <div class="main_body">
+                <p style="display:none">
+                    <textarea id="Template-Education" rows="0" cols="0">
+                        {#foreach $T as Row}
+                            <div class="item">
+                                <input type="hidden" class="inhospNo" value="{$T.Row.inhospNo}">
+                                <input type="hidden" class="phone" value="{$T.Row.mobileNo}">
+                                <input type="hidden" class="inhospSerialNo" value="{$T.Row.inhospSerialNo}">
+                                <input type="hidden" class="patIndexNo" value="{$T.Row.patIndexNo}">
+                                <input type="hidden" class="mobileNo" value="{$T.Row.mobileNo}">
+                                <input type="hidden" class="idCard" value="{$T.Row.idNumber}">
+                                <input type="hidden" class="deptCode" value="{$T.Row.deptCode}">
+                                <input type="hidden" class="deptName" value="{$T.Row.deptName}">
+                                <input type="hidden" class="wardCode" value="{$T.Row.wardCode}">
+                                <input type="hidden" class="wardName" value="{$T.Row.wardName}">
+                                <input type="hidden" class="visitCardNo" value="{$T.Row.visitCardNo}">
+                                <input type="hidden" class="patName" value="{$T.Row.patName}">
+                                <input type="hidden" class="admitDate" value="{$T.Row.admitDate.substring(0,10)}">
+                                <div class="design_icon head"></div>
+                                <div class="bed">{$T.Row.bedNo}</div>
+                                <div class="info">
+                                <p class="patName">{$T.Row.patName}</p>
+                                <p><span class="wardName">{$T.Row.wardName}</span>&nbsp;&nbsp;<span><i class="admitDate" style="font-style: normal;">{$T.Row.admitDate.substring(0,10)}</i>入院</span></p>
+                            </div>
+                            <div class="design_icon right_arrow"></div>
+                        </div>
+                        {#/for}
+                    </textarea>
+                </p>
+                <div class="pat" style="overflow-y: auto;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="bottom_btn followup_btn active tel">
+            <span class="bottom_icon"></span>
+            <span>随访</span>
+        </div>
+        <div class="bottom_btn education_btn">
+            <span class="bottom_icon"></span>
+            <span>宣教</span>
+        </div>
+    </div>
+    </div>
+</body>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.js"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/artDialog.source.js?skin=white"></script>
+<script type="text/javascript" src="/web-bin/mobile/followup/followupCommon/js/opt.js"></script>
+</html>

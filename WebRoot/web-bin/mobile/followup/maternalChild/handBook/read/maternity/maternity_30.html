@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>阅读</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+		.r_m_maternity30{
+			position: relative;
+		}
+		.r_m_maternity30 .pink_content_title{
+			text-align:center;
+		}
+		.r_m_maternity30 .table_box{
+			padding-top:0.24rem;
+		}
+		.r_m_maternity30 .table_box .content_table tr{
+			height:0.613rem;
+			color: #333;
+			font-size: 0.24rem;
+		}
+		.r_m_maternity30 .table_box .content_table tr td{
+			border-left:1px solid #444;
+			text-align:center;
+			padding: 0.05rem;
+		}
+		.r_m_maternity30 .table_box .content_table tr:first-child{
+			background-color: #D986C2;
+			color: #fff !important;
+		}
+		.r_m_maternity30 .table_box .content_table tr td:first-child{
+			border-left: 1px solid transparent;
+		}
+		.r_m_maternity30 .table_box .content_table tr:not(:first-child):nth-child(odd){
+			background-color: #FFE5F8;
+		}
+		@media (min-height:901px) and (-webkit-min-device-pixel-ratio:2){
+			.r_m_maternity30 .table_box .content_table tr td{
+				border-left:0.5px solid #444;
+			}
+			.r_m_maternity30 .table_box .content_table tr td:first-child{
+				border-left: 1px solid transparent;
+			}
+		}
+    </style>
+</head>
+<body>
+    <div class="r_m_maternity r_m_maternity30">
+	    <div class="gradient_top gradient_pink_top"></div>
+	    <div class="mc_content_main">
+		    <p class="pink_content_title">孕妇学校听课记录</p>
+			<p class="content_font1 text_indent">孕期保健知识可在医院的孕妇学校获得，孕期怎么吃、分娩有什么技巧，平时运动注意什么……孕妈妈也需要及时“充电”，请您把孕期的每次听课内容记录在下面吧。</p>
+			<div class="table_box">
+				<table cellspacing="1" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;" class="content_table test">
+					<tr>
+						<td style="width: 1.49rem">听课日期</td>
+						<td style="width:2.04rem;">科目</td>
+						<td style="width:3.84rem;">主要内容</td>
+						<td>备注</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+				<p style="display:none"><textarea id="Template-ListRows3" rows="0" cols="0">
+		    	<table cellspacing="1" cellpadding="0" border="0" style="width:100%;margin-bottom:0.4rem;border-collapse:collapse;" class="content_table">
+			    	<tr>
+		    			<td style="width: 1.49rem">听课日期</td>
+		    			<td style="width:2.04rem;">科目</td>
+		    			<td style="width:3.84rem;">主要内容</td>
+		    			<td>备注</td>
+		    		</tr>
+					{#foreach $T as msg}
+					<tr>
+						<td>{$T.msg.attendClassTime}</td>
+						<td>{$T.msg.topic}</td>
+						<td class="content">{$T.msg.content}</td>
+						<td class="remark">{$T.msg.remark}</td>
+					</tr>
+					{#/for}
+		    	</table>
+				</textarea></p>
+				<div id="data_table"></div>
+		    </div>
+	    </div>
+	    <div class="gradient_bottom gradient_pink_bottom"></div>
+		<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+		<script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+		<script>
+            $(function(){
+                change();//计算滚动条
+                // 高度宽度再计算
+                $(window).resize(function(){
+                    change();
+                });
+                // 滚动条
+                $(".r_m_maternity30").niceScroll({
+                    railpadding: { top:0, right: 0, left: 0, bottom:0 },
+                    cursorwidth:0
+                });
+                if(healthBookId!=''&&typeof(healthBookId)!="undefined"&&healthBookId!="undefined") {
+                    $.ajax({
+                        type: "post",
+                        url: localhostUrl + '/web-bin/m/nosen/followup/maternalChild/handBook/query_classRecord_data?healthBookId=' + healthBookId+'&model=2',
+                        dataType: 'json',
+                        success: function (data) {
+                            var msg = data.data;
+                            if(msg!=null&&msg.length!=0){
+                                $('.r_m_maternity30 .test').hide();
+                                $(".r_m_maternity30 #data_table").setTemplateElement("Template-ListRows3").processTemplate(msg);
+                                $('.r_m_maternity30 .remark').each(function(){
+                                    if($(this).text().length>20){
+                                        var remark=$(this).text().substring(0,14)+"...";
+                                        $(this).text(remark);
+									}
+								})
+                                $('.r_m_maternity30 .content').each(function(){
+                                    if($(this).text().length>30){
+                                        var content=$(this).text().substring(0,29)+"...";
+                                        $(this).text(content);
+                                    }
+                                })
+                                if(msg.length>15){
+                                    $('.r_m_maternity30 .gradient_bottom').css('position', 'relative');
+                                }
+                            }
+                        }
+                    });
+                }
+            });
+            function change(){
+                $('.r_m_maternity30').height($(window).height());
+            }
+		</script>
+    </div>
+</body>
+</html>

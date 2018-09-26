@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>阅读</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<style type="text/css">
+		.r_m_maternity35 .pink_content_title{
+			text-align:center;
+		}
+		.r_m_maternity35 .table_box{
+			padding-left:0.4rem;
+			padding-right:0.4rem;
+		}
+		.r_m_maternity35 .table_box .content_table tr{
+			height:0.67rem;
+			font-size: 0.293rem;
+		}
+		.r_m_maternity35 .table_box .content_table td{
+			border:1px solid #444;
+			text-align:center;
+			background-color: #FFF3FD;
+		}
+		.r_m_maternity35 .tip{
+			font-size: 0.186rem;
+			color: #FF2E2E;
+		}
+		@media (min-height:901px) and (-webkit-min-device-pixel-ratio:2){
+			.r_m_maternity35 .table_box .content_table{
+				border: 0.5px solid #444;
+			}
+			.r_m_maternity35 .table_box .content_table tr td {
+				border: 0.5px solid #444;
+			}
+		}
+    </style>
+</head>
+<body>
+    <div class="r_m_maternity r_m_maternity35">
+	    <div class="gradient_top gradient_pink_top"></div>
+	    <div class="mc_content_main">
+		    <p class="pink_content_title">产后访视医生记录表</p>
+		    <div class="table_box">
+		    	<table cellspacing="1" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;" class="content_table">
+			    	<tr>
+		    			<td style="width: 1.88rem">检查日期</td>
+		    			<td colspan="2">
+							<span id="visitTime"></span>
+						</td>
+		    		</tr>
+					<tr>
+						<td>产后天数</td>
+						<td colspan="3">
+							<span id="postpartumDay"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>体温(℃)</td>
+						<td colspan="2">
+							<span id="temperature"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>血压(mmHg)</td>
+						<td colspan="2">
+							<span id="systolicPressure"></span>/ <span id="diastolicPressure"></span>
+						</td>
+					</tr>
+					<tr>
+						<td rowspan="3">乳房</td>
+						<td>乳汁</td>
+						<td class="milk">
+							<span class="sc_unchecked item1"></span>
+							<span style="margin-right: 0.66rem">多</span>
+							<span class="sc_unchecked item2"></span>
+							<span>少</span>
+						</td>
+					</tr>
+			    	<tr>
+						<td>红肿</td>
+						<td class="breastInflamedFlag">
+							<span class="sc_unchecked item1"></span>
+							<span style="margin-right: 0.66rem">有</span>
+							<span class="sc_unchecked item0"></span>
+							<span>无</span>
+						</td>
+		    		</tr>
+					<tr>
+						<td>乳头皲裂</td>
+						<td class="breastCrackedFlag">
+							<span class="sc_unchecked item1"></span>
+							<span style="margin-right: 0.66rem">有</span>
+							<span class="sc_unchecked item0"></span>
+							<span>无</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 1.88rem">宫底高度</td>
+						<td colspan="2">
+							<span id="uterusFundusHeight"></span>
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 1.88rem">伤口愈合</td>
+						<td colspan="2" class="woundHeal">
+							<span class="sc_unchecked item1"></span>
+							<span style="margin-right: 0.66rem">好</span>
+							<span class="sc_unchecked item2"></span>
+							<span>差</span>
+						</td>
+					</tr>
+					<tr>
+						<td rowspan="2">乳房</td>
+						<td>色、量</td>
+						<td>
+							<span id="lochiaColorAmount"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>异味</td>
+						<td class="lochiaAbnormalSmellFlag">
+							<span class="sc_unchecked item1"></span>
+							<span style="margin-right: 0.66rem">有</span>
+							<span class="sc_unchecked item0"></span>
+							<span>无</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 1.88rem">其他</td>
+						<td colspan="2">
+							<span id="otherContent"></span>
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 1.88rem">指导及治疗</td>
+						<td colspan="2">
+							<span id="adviceCure"></span>
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 1.88rem">预约时间</td>
+						<td colspan="2">
+							<span id="appointmentTime"></span>
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 1.88rem">检查者</td>
+						<td colspan="2">
+							<span id="checker"></span>
+						</td>
+					</tr>
+		    	</table>
+				<p class="tip">*其他： 指妊娠期、 产褥期的合并症及并发症。</p>
+		    </div>
+	    </div>
+	    <div class="gradient_bottom gradient_pink_bottom"></div>
+    </div>
+	<script>
+        $(function(){
+            if(healthBookId!=''&&typeof(healthBookId)!="undefined"&&healthBookId!="undefined") {
+                $.ajax({
+                    type: "post",
+                    url: localhostUrl + '/web-bin/m/nosen/followup/maternalChild/handBook/query_afterMaterDoctorRecord_data?healthBookId=' + healthBookId,
+                    dataType: 'json',
+                    success: function (data) {
+                        var msg = data.data;
+                        if (msg) {
+                            for (o in msg) {
+                                $(".r_m_maternity35 #" + o).text(msg[o]);
+                            }
+                            var milk=msg.milk;
+                            milk&&$('.r_m_maternity35 .milk .item' + milk).removeClass('sc_unchecked').addClass('sc_checked');
+                            var breastInflamedFlag=boolToNumber(msg.breastInflamedFlag);
+                            breastInflamedFlag!=null&&$('.r_m_maternity35 .breastInflamedFlag .item' + breastInflamedFlag).removeClass('sc_unchecked').addClass('sc_checked');
+                            var breastCrackedFlag=boolToNumber(msg.breastCrackedFlag);
+                            breastCrackedFlag!=null&&$('.r_m_maternity35 .breastCrackedFlag .item' + breastCrackedFlag).removeClass('sc_unchecked').addClass('sc_checked');
+                            var lochiaAbnormalSmellFlag=boolToNumber(msg.lochiaAbnormalSmellFlag);
+                            lochiaAbnormalSmellFlag!=null&&$('.r_m_maternity35 .lochiaAbnormalSmellFlag .item' + lochiaAbnormalSmellFlag).removeClass('sc_unchecked').addClass('sc_checked');
+                            var woundHeal=msg.woundHeal;
+                            woundHeal&&$('.r_m_maternity35 .woundHeal .item' + woundHeal).removeClass('sc_unchecked').addClass('sc_checked');
+
+                        }
+                    }
+                });
+            }
+            //布尔类型转数字
+            function boolToNumber(a){
+                a==true?a=1:a=0;
+                return a;
+            }
+        })
+	</script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>确定预约</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/basic.css">
+    <link rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/appointConfirm/appointConfirm.css">
+</head>
+<body>
+<div class="main">
+    <div class="patient_info">
+        <div class="info_title">就诊人信息</div>
+        <ul>
+            <input type="hidden" id="id" value="">
+            <li><label for="userName">就诊人</label><span class="memberSelect">选择成员</span><p id="userName"></p></li>
+            <li><label for="userPhone">手机号码</label><p id="userPhone"></p></li>
+            <li><label for="userCard">身份证号</label><p id="userCard"></p></li>
+            <li class="hospCard_span">
+                <label>就诊卡号</label>
+                <p id="hospCard">
+                    <i id="hospCard_num"></i>
+                    <input type="hidden" id="hospCard_id" value="">
+                    <a class="card_select">选择就诊卡</a>
+                </p>
+            </li>
+        </ul>
+    </div>
+    <div class="appoint_info">
+        <div class="info_title">预约信息</div>
+        <ul>
+            <li><label>预约医院</label><p id="hospName"></p></li>
+            <li><label>预约科室</label><p id="deptName"></p></li>
+            <li><label>预约医生</label><p id="staffName"></p></li>
+            <li><label>预约时间</label><p><span id="schDate"></span> <span id="dayStr"></span><span id="expectStime"></span> <span id="takeIndex"></span>号</p></li>
+            <li><label>挂号费</label><p><span id="regFee"></span>元</p></li>
+        </ul>
+    </div>
+    <div class="appoint_btn">立即预约</div>
+    <div class="success">
+        <div class="success_box">
+            <div class="success_inner">
+                <div class="success_tips"><i class="success_icon"></i><span>预约成功!</span></div>
+                <div class="success_rules">
+                    <p>1.请及时去医院取号，以防过号。</p>
+                    <p>2.实名制预约，就诊人信息不符将无法取号。</p>
+                    <p>3.预约成功后请您持就诊卡去挂号窗口取号；如果没有就诊卡，可持身份证到挂号窗口办卡取号。</p>
+                </div>
+                <div class="skip_btn">我知道了</div>
+            </div>
+        </div>
+    </div>
+    <div class="error">
+        <div class="error_box">
+            <div class="error_inner">
+                <div class="error_tips"><span>提示</span></div>
+            </div>
+            <div class="error_content"><i class="error_icon"></i><span></span></div>
+            <div class="error_close">确定</div>
+        </div>
+    </div>
+    <!--<div class="hospCard_box">-->
+        <!--<div class="hospCard_box_header"><i class="hosp_header_close">完成</i></div>-->
+        <!--<div class="hospCard_box_content"></div>-->
+        <!--<textarea id="hospCard_box_temp" style="display: none;">-->
+            <!--<ul>-->
+            <!--{#foreach $T as Row}-->
+                <!--<li><label>就诊卡号:</label><span>{$T.Row.hospCard}</span><input type="hidden" class="hospCard_id" value="{$T.Row.id}"></li>-->
+            <!--{#/for}-->
+            <!--</ul>-->
+        <!--</textarea>-->
+    <!--</div>-->
+</div>
+<div class="myAppoint">
+    <h2 class="myAppoint_header">共预约挂号<b></b>次</h2>
+    <div class="myAppoint_content"></div>
+    <textarea id="appoint_span_temp" style="display: none;">
+        {#foreach $T as Row}
+        <div class="appoint_span">
+            <input type="hidden" class="hospCode" value="{$T.Row.hospCode}">
+            <input type="hidden" class="regId" value="{$T.Row.regId}">
+            <input type="hidden" class="regStatus" value="{$T.Row.regStatus}">
+            <div class="span_header">
+                <p><span class="header_txt canceled">已取消</span><span class="header_txt visited">已就诊</span><span class="header_txt booking">距离就诊还有<i><b class="remainDays">{$T.Row.remainDays}</b>天</i></span><br/><span class="header_tips">您已超过预约取消时间，无法取消预约。</span></p>
+                <div class="cancel_appoint">取消预约</div>
+            </div>
+            <div class="span_middle">
+                <div class="span_img"></div>
+                <div class="span_content">
+                    <p>
+                    <h2><span>{$T.Row.deptName}</span><b>{$T.Row.staffName}</b></h2>
+                    <span>{$T.Row.hospName}</span><br/><span>预约序号  <b>{$T.Row.takeIndex}号</b></span><br/><span>挂号费（医院到付）  <i>￥:{$T.Row.regFee}元</i></span>
+                    </p>
+                </div>
+            </div>
+            <div class="span_footer">
+                <p><label>就诊人</label><span>{$T.Row.patName}</span></p>
+                <p><label>就诊时间</label><span>{$T.Row.schDate} <input type="hidden" class="dayType" value="{$T.Row.dayType}"><i class="dayStr"></i> {$T.Row.expectStime}</span></p>
+            </div>
+        </div>
+        {#/for}
+    </textarea>
+
+    <div class="cancel">
+        <div class="cancel_box">
+            <div class="cancel_inner">
+                <div class="cancel_tips"><span>是否取消本次预约</span></div>
+            </div>
+            <div class="cancel_content"><span>预约取消之后将无法恢复，需重新进行预约，您确定取消预约吗？</span></div>
+            <div class="cancel_close"><span class="cancel_cancel">取消</span><span class="cancel_submit">确定</span></div>
+        </div>
+    </div>
+    <div class="error">
+        <div class="error_box">
+            <div class="error_inner">
+                <div class="error_tips"><span>提示</span></div>
+            </div>
+            <div class="error_content">
+                <div class="error_con_inner">
+                    <i class="error_icon"></i><span></span>
+                </div>
+            </div>
+            <div class="error_close">确定</div>
+        </div>
+    </div>
+    <div class="cancel_success">
+        <div class="error_box">
+            <div class="error_inner">
+                <div class="error_tips"><span>提示</span></div>
+            </div>
+            <div class="error_content">
+                <div class="error_con_inner">
+                    <i class="success_icon"></i><span>取消成功</span>
+                </div>
+            </div>
+            <div class="error_close">确定</div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/zepto/zepto.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script src="/web-bin/resources/rem/rem.js"></script>
+<script type="text/javascript" src="/web-bin/weChat/weChatPublic/js/appointConfirm/appointConfirm.js"></script>
+</html>

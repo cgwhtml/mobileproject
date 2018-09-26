@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在院随访</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name = "format-detection" content = "telephone=no">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/healthCare/css/basic.css"/>
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/healthCare/css/followUp.css?20171012"/>
+</head>
+<body>
+<div class="main">
+    <div id="educationBox">
+        <!-- 置顶搜索框 -->
+        <div class="search_box">
+            <div class="search_input_css" >
+                <div class="css_search">搜索</div>
+                <div class="search_sm_img"></div>
+            </div>
+        </div>
+        <!-- 搜索结果 -->
+        <div class="search_res">
+            <div class="search_box">
+                <div class="search_input" >
+                    <input type="text" placeholder="按患者姓名搜索" class="searchInput">
+                    <div class="search_sm_img"></div>
+                </div>
+                <div class="cancle">取消</div>
+                <div class="search_follow">搜索</div>
+            </div>
+            <!-- 搜索结果列表隐藏域 -->
+            <div class="search_body">
+        <div class="searchList_result"></div>
+    </div>
+</div>
+<div class="swiper-container">
+    <div class="main_body">
+        <div id="main_content"></div>
+    </div>
+    <!--<div class="design_icon right_arrow"></div>-->
+</div>
+        <p style="display:none">
+            <textarea id="template_searchList" rows="0" cols="0">
+                {#foreach $T as Row}
+                    <div class="item" data-role="{$T.Row.wardCode}">
+                        <input type="hidden" class="inhospNo" value="{$T.Row.inhospNo}">
+                        <input type="hidden" class="phone" value="{$T.Row.mobileNo}">
+                        <input type="hidden" class="inhospSerialNo" value="{$T.Row.inhospSerialNo}">
+                        <input type="hidden" class="patIndexNo" value="{$T.Row.patIndexNo}">
+                        <input type="hidden" class="mobileNo" value="{$T.Row.mobileNo}">
+                        <input type="hidden" class="idCard" value="{$T.Row.idNumber}">
+                        <input type="hidden" class="deptCode" value="{$T.Row.deptCode}">
+                        <input type="hidden" class="deptName" value="{$T.Row.deptName}">
+                        <input type="hidden" class="wardCode" value="{$T.Row.wardCode}">
+                        <input type="hidden" class="wardName" value="{$T.Row.wardName}">
+                        <input type="hidden" class="visitCardNo" value="{$T.Row.visitCardNo}">
+                        <input type="hidden" class="patName" value="{$T.Row.patName}">
+                        <input type="hidden" class="admitDate" value="{$T.Row.admitDate.substring(0,10)}">
+                        <input type="hidden" class="sexName" value="{$T.Row.sexName}">
+                        <div class="head"></div>
+                        <div class="info">
+                            <h4>
+                                 <span  class="beds">{$T.Row.bedNo}</span><span class="patName">{$T.Row.patName}</span>
+                                 <span class="sex">{$T.Row.sexName}</span>
+                            </h4>
+                            <p>
+                                <span>{$T.Row.wardName}</span>&nbsp;&nbsp;
+                                <span>{$T.Row.admitDate.substring(0,10)}&nbsp;&nbsp; 入院</span>
+                            </p>
+                        </div>
+    <!--<div class="design_icon right_arrow"></div>-->
+                    </div>
+                {/for}
+            </textarea></p>
+</div>
+</div>
+</div>
+</div>
+</body>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.js"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/artDialog.source.js?skin=white"></script>
+<script type="text/javascript" src="/web-bin/resources/weui/fastclick.js"></script>
+<!--解决ios下click的300ms的延迟，需引入fastclick-->
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+<script type="text/javascript" src="/web-bin/mobile/followup/healthCare/js/hosFollowup.js"></script>
+</html>
+
+

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>孕产妇自助建档页面</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/icheck/skins/all.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_002.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_003.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/area/LArea.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/system/css/maternityFiling.css">
+  </head>
+  
+  <body>
+    <div id="main">
+    	<!-- title -->
+    	<div id="main_head">
+    		<div class="menu_item menu_item_current" id="item1">
+    			<div class="img1"></div>
+    			<p>基本信息</p>
+    		</div>
+    		<div class="menu_item" id="item2">
+    			<div class="img2"></div>
+    			<p>本次孕情</p>
+    		</div>
+    		<div class="menu_item" id="item3">
+    			<div class="img3"></div>
+    			<p>孕前信息</p>
+    		</div>
+    		<div class="menu_item" id="item4">
+    			<div class="img4"></div>
+    			<p>孕产史</p>
+    		</div>
+    		<div class="menu_item" id="item5">
+    			<div class="img5"></div>
+    			<p>病史信息</p>
+    		</div>
+    	</div>
+    	<form id="myForm" name="myForm" action="" method="post">
+    	<input type="hidden" name="hospCode" id="hospCode">
+    	<div id="main_body">
+    		<!-- 基本信息 -->
+    		<div class="c1" id="content1">
+    			<div class="c2">
+    				<p>基本信息</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>姓名</span>
+    					<span>*</span>
+    					<input placeholder="填写孕产妇姓名" class="input" name="patName" id="patName">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>身份证号</span>
+    					<span>*</span>
+    					<input placeholder="填写孕产妇身份证号" class="input" name="patIdcard" id="patIdcard">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>联系电话</span>
+    					<span>*</span>
+    					<input placeholder="填写孕产妇手机号码" type="tel" class="input" name="patMobile" id="patMobile">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>职业</span>
+    					<span>*</span>
+    					<span class="like_input" id="check_mJob">请选择职业</span>
+    					<input type="hidden" name="careerCode" id="career">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>民族</span>
+    					<span>*</span>
+    					<span class="like_input" id="check_mNation">请选择民族</span>
+    					<input type="hidden" name="nationCode" id="nation">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>文化程度</span>
+    					<span>*</span>
+    					<span class="like_input" id="check_education">请选择文化程度</span>
+    					<input type="hidden" name="educationCode" id="education">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>婚姻状况</span>
+    					<span>*</span>
+    					<span class="like_input" id="check_marriage">请选择婚姻状况</span>
+    					<input type="hidden" name="maritalStatusCode" id="maritalStatus">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>工作单位</span>
+    					<span>*</span>
+    					<input placeholder="点击输入" class="input" name="workUnit" id="workUnit">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>户口所在地</span>
+    					<span>*</span>
+    					<span class="like_input" id="householdCode">请选择</span>
+    					<input type="hidden" name="householdCode" id="householdCodeValue">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p style="height:102px">
+    					<span>家庭地址</span>
+    					<span>*</span>
+    					<span class="like_input" id="areaCode">请选择</span>
+    					<input type="hidden" name="areaCode" id="areaCodeValue">
+    					<textarea placeholder="请输入家庭住址详细信息  如（XXX街道XXX小区）" name="addressDetail" id="addressDetail"></textarea>
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>丈夫姓名</span>
+    					<input placeholder="填写丈夫姓名" class="input" name="contacts" id="contacts">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>丈夫年龄</span>
+    					<input placeholder="填写丈夫年龄" type="tel" class="input" name="husbandAge" id="husbandAge">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>丈夫职业</span>
+    					<span></span>
+    					<span class="like_input" id="check_hJob">请选择职业</span>
+    					<input type="hidden" name="husbandCareerCode" id="husbandCareerName">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>丈夫民族</span>
+    					<span></span>
+    					<span class="like_input" id="check_hNation">请选择民族</span>
+    					<input type="hidden" name="husbandNationCode" id="husbandNationName">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>丈夫电话</span>
+    					<input placeholder="填写丈夫手机号码" type="tel" class="input" name="contactsMobile" id="contactsMobile">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>丈夫身份证号</span>
+    					<input placeholder="填写丈夫身份证号" class="input" name="husbandIdcard" id="husbandIdcard">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>丈夫工作单位</span>
+    					<input placeholder="点击输入" type="text" class="input" name="husbandWorkUnit" id="husbandWorkUnit">
+    				</p>
+    			</div>
+    		</div>
+    		<!-- 本次孕情 -->
+    		<div class="c1" id="content2">
+    			<div class="c2">
+    				<p>本次孕情</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>末次月经日期</span>
+    					<span>*</span>
+    					<input placeholder="请选择日期" class="input" id="lastMenstruationDate" name="lastMenstruationDate">
+    				</p>
+    			</div>
+    			<!--<div class="c3">
+    				<p>
+    					<span>预产期</span>
+    					<input placeholder="请选择日期" class="input"  id="expectedDate" name="expectedDate">
+    				</p>
+    			</div>-->
+    			<div class="c3">
+    				<p>
+    					<span>本次怀孕方式</span>
+    					<span></span>
+    					<span class="like_input" id="check_thisPregWayName">请选择</span>
+    					<input type="hidden" name="thisPregWayCode" id="thisPregWayName">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>胎动孕周</span>
+    					<input placeholder="点击输入" type="tel" class="input" id="babyMoveWeeks" name="babyMoveWeeks">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>早孕反应</span>
+    					<span></span>
+    					<span class="like_input" id="check_earlyPregReactionName">请选择</span>
+    					<input type="hidden" name="earlyPregReactionCode" id="earlyPregReactionName">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>早孕反应孕周</span>
+    					<input placeholder="点击输入" type="tel" class="input" id="earlyPregReactionWeeks" name="earlyPregReactionWeeks">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>一般症状</span>
+    					<span></span>
+    					<span class="like_input" id="check_generalSymptomsName">请选择</span>
+    					<input type="hidden" name="generalSymptomsName" id="generalSymptomsName">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>发病情况</span>
+    					<span></span>
+    					<span class="like_input" id="check_onsetStatusName">请选择</span>
+    					<input type="hidden" name="onsetStatusName" id="onsetStatusName">
+    				</p>
+    			</div>
+    		</div>
+    		<!-- 孕前信息 -->
+    		<div class="c1" id="content3">
+    			<div class="c2">
+    				<p>孕前信息</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>ABO血型</span>
+    					<span></span>
+    					<span class="like_input" id="check_abo">请选择ABO血型</span>
+    					<input type="hidden" name="abcBloodCode" id="abcBloodName">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>Rh血型</span>
+    					<span></span>
+    					<span class="like_input" id="check_rh">请选择Rh血型</span>
+    					<input type="hidden" name="rhBloodCode" id="rhBloodName">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>孕次</span>
+    					<span></span>
+    					<input placeholder="点击输入" type="tel" class="input" id="pregnancyTimes" name="pregnancyTimes" value="1">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>产次</span>
+    					<span></span>
+    					<input placeholder="点击输入" type="tel" class="input" id="bornTimes" name="bornTimes" value="0">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>初潮年龄（岁）</span>
+    					<span></span>
+    					<input placeholder="点击输入" type="tel" class="input" id="menarcheAge" name="menarcheAge" value="14">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>月经周期（天）</span>
+    					<span></span>
+    					<input placeholder="点击输入" type="tel" class="input" id="menstrualCycle" name="menstrualCycle" value="28">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>经期（天）</span>
+    					<span></span>
+    					<input placeholder="点击输入" type="tel" class="input" id="menstruationDays" name="menstruationDays" value="7">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>月经量</span>
+    					<span></span>
+    					<span class="like_input" id="check_menstruationLevelName">请选择月经量</span>
+    					<input type="hidden" name="menstruationLevelCode" id="menstruationLevelName">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>痛经</span>
+    					<span></span>
+    					<span class="like_input" id="check_dysmenorrheaLevelName">请选择痛经程度</span>
+    					<input type="hidden" name="dysmenorrheaLevelCode" id="dysmenorrheaLevelName">
+    				</p>
+    			</div>
+    		</div>
+    		<!-- 孕产史 -->
+    		<div class="c1" id="content4">
+    			<div class="c2" style="padding-right:0;">
+    				<p>孕产史</p>
+    				<input type="button" value="新增" class="add_maternity" id="add_maternity" style="margin-top:0;">
+    			</div>
+    			<div class="childItem">
+	    			<div class="c3">
+	    				<p>
+	    					<span>生产年月</span>
+	    					<input placeholder="请选择日期" class="input birthDate">
+	    				</p>
+	    			</div>
+	    			<div class="c3">
+	    				<p>
+	    					<span>孕产状况</span>
+	    					<span></span>
+	    					<span class="like_input maternityStatus" onclick="">请选择孕产状况</span>
+	    					<input type="hidden" class="maternityStatusValue">
+	    				</p>
+	    			</div>
+	    			<div class="c3">
+	    				<p>
+	    					<span>小孩性别</span>
+	    					<span></span>
+	    					<span class="like_input childSex" onclick="">请选择小孩性别</span>
+	    					<input type="hidden" class="childSexValue">
+	    				</p>
+	    			</div>
+	    			<div class="c3">
+	    				<p>
+	    					<span>备注</span>
+	    					<input placeholder="点击输入" class="input remarkValue">
+	    				</p>
+	    			</div>
+                    <div class="delete_maternity_history delete_maternity" onclick="">
+                        <div>删除</div>
+                    </div>
+    			</div>
+    		</div>
+    		<!-- 病史信息 -->
+    		<div class="c1" id="content5">
+    			<div class="c2">
+    				<p>病史信息</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>个人病史</span>
+    					<span></span>
+    					<span class="like_input" id="check_patientIllnessHisName" style="width:40%;">请选择个人病史</span>
+    					<input type="hidden" name="patientIllnessHisName" id="patientIllnessHisName">
+    					<input type="button" value="描述" class="button">
+    					<input type="hidden" name="patientIllnessHisDescription" id="patientIllnessHisDescription">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>孕妇家族病史</span>
+    					<span></span>
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p class="indent">
+    					<span>父亲</span>
+    					<span></span>
+    					<span class="like_input" id="check_fatherIllnessHisName" style="width:40%;">请选择父亲病史</span>
+    					<input type="hidden" name="fatherIllnessHisName" id="fatherIllnessHisName">
+    					<input type="button" value="描述" class="button">
+    					<input type="hidden" name="fatherIllnessHisDescription" id="fatherIllnessHisDescription">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p class="indent">
+    					<span>母亲</span>
+    					<span></span>
+    					<span class="like_input" id="check_motherIllnessHisName" style="width:40%;">请选择母亲病史</span>
+    					<input type="hidden" name="motherIllnessHisName" id="motherIllnessHisName">
+    					<input type="button" value="描述" class="button">
+    					<input type="hidden" name="motherIllnessHisDescription" id="motherIllnessHisDescription">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>丈夫病史</span>
+    					<span></span>
+    					<span class="like_input" id="check_husbandIllnessName" style="width:40%;">请选择丈夫病史</span>
+    					<input type="hidden" name="husbandIllnessName" id="husbandIllnessName">
+    					<input type="button" value="描述" class="button">
+    					<input type="hidden" name="husbandIllnessDescription" id="husbandIllnessDescription">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>丈夫家族病史</span>
+    					<span></span>
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p class="indent">
+    					<span>父亲</span>
+    					<span></span>
+    					<span class="like_input" id="check_husbandFatherIllnessHisName" style="width:40%;">请选择父亲病史</span>
+    					<input type="hidden" name="husbandFatherIllnessHisName" id="husbandFatherIllnessHisName">
+    					<input type="button" value="描述" class="button">
+    					<input type="hidden" name="husbandFatherIllnessHisDescription" id="husbandFatherIllnessHisDescription">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p class="indent">
+    					<span>母亲</span>
+    					<span></span>
+    					<span class="like_input" id="check_husbandMontherIllnessHisName" style="width:40%;">请选择母亲病史</span>
+    					<input type="hidden" name="husbandMontherIllnessHisName" id="husbandMontherIllnessHisName">
+    					<input type="button" value="描述" class="button">
+    					<input type="hidden" name="husbandMontherIllnessHisDescription" id="husbandMontherIllnessHisDescription">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>备注</span>
+    					<span></span>
+    					<input placeholder="点击输入" class="input" id="remark" name="remark">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>产妇手术史</span>
+    					<span></span>
+    					<input placeholder="点击输入" class="input" id="surgeryHisDescription" name="surgeryHisDescription">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>毒物接触史</span>
+    					<span></span>
+    					<input placeholder="点击输入" class="input" id="poisonTouchHis" name="poisonTouchHis">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>过敏史</span>
+    					<span></span>
+    					<span class="like_input" id="check_allergyHisName" style="width:40%;">请选择过敏史</span>
+    					<input type="hidden" name="allergyHisName" id="allergyHisName">
+    					<input type="button" value="描述" class="button">
+    					<input type="hidden" name="allergyHisDescription" id="allergyHisDescription">
+    				</p>
+    			</div>
+    			<div class="c3">
+    				<p>
+    					<span>妊娠并发史</span>
+    					<span></span>
+    					<span class="like_input" id="check_pregComplicatedHisName" style="width:40%;">请选择妊娠并发史</span>
+    					<input type="hidden" name="pregComplicatedHisName" id="pregComplicatedHisName">
+    					<input type="button" value="描述" class="button">
+    					<input type="hidden" name="pregComplicatedHisDescription" id="pregComplicatedHisDescription">
+    				</p>
+    			</div>
+    		</div>
+    	</div>
+    	</form>
+    	<div id="window"  style="display:none" class="window">
+    		<div>
+    			<div id="window_in" class="window_in"></div>
+	    		<div id="check" class="check">确定</div>
+    		</div>
+	    </div>
+    	<div id="submit" onclick="checkForm()">
+    		<p>提交</p>
+    	</div>
+    </div>
+    
+    <div id="background"></div>
+    <div id="loading">
+    	<img alt="" src="/resources/images/loading_1.gif">
+    	<p>加载中</p>
+    </div>
+   
+    
+    <div id="textarea"  style="display:none">
+    	<div id="textarea_head">现病史描述</div>
+    	<div id="textarea_body">
+    		<textarea>点击输入描述内容</textarea>
+    	</div>
+    	<div id="submit2">保存</div>
+    </div>
+    <div id="fake_alert"  style="display:none">
+    	<div id="fake_alert_in">
+    		<div id="msg"></div>
+    		<div id="sure">确定</div>
+    	</div>
+    </div>
+    
+  </body>
+  <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+  <script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+  <script type="text/javascript" src="/web-bin/resources/icheck/icheck.js"></script>
+  <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_002.js"></script>
+  <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_004.js"></script>
+  <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll.js"></script>
+  <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_003.js"></script>
+  <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_005.js"></script>
+  <script type="text/javascript" src="/web-bin/resources/area/LAreaData2.js"></script>
+  <script type="text/javascript" src="/web-bin/resources/area/LArea.js"></script>
+  <script type="text/javascript" src="/web-bin/resources/js/dialogData.js"></script>
+  <script type="text/javascript" src="/web-bin/mobile/followup/maternalChild/system/js/maternityFiling.js"></script>
+  <script type="text/javascript">
+  	var currYear = (new Date()).getFullYear();
+	var opt={};
+	opt.date = {preset : 'date'};
+	opt.datetime = {preset : 'datetime'};
+	opt.time = {preset : 'time'};
+	opt.default1 = {
+		theme: 'android-ics light', //皮肤样式
+        display: 'modal', //显示方式
+        mode: 'scroller', //日期选择模式
+		dateFormat: 'yyyy-mm-dd',
+		lang: 'zh',
+		showNow: true,
+		nowText: "今天",
+        startYear: currYear - 50, //开始年份
+        endYear: currYear + 10 //结束年份
+	};
+	opt.default2 = {
+		theme: 'android-ics light', //皮肤样式
+        display: 'modal', //显示方式
+        mode: 'scroller', //日期选择模式
+		dateFormat: 'yyyy-mm-dd',
+		lang: 'zh',
+		showNow: true,
+		nowText: "今天",
+        startYear: currYear - 50, //开始年份
+        endYear: currYear + 10 //结束年份
+	};
+  	window.onload=function(){
+  		$("#background").hide();
+  		$("#loading").hide();
+  	};
+  	$(function(){
+  	    $("#lastMenstruationDate").mobiscroll($.extend(opt['date'], opt['default2']));
+	  	$("#expectedDate").mobiscroll($.extend(opt['date'], opt['default2']));
+	  	$(".birthDate").mobiscroll($.extend(opt['date'], opt['default1']));
+	    $(".window_in").niceScroll({
+	       railpadding: { top:0, right: 0, left: 0, bottom:0 },
+              cursorborder:"",
+              cursoropacitymin: 0.3,
+              cursoropacitymax: 0.3,
+              cursorcolor:"#000000",
+              zindex: "99",
+              cursorwidth: "3px",
+              touchbehavior:true
+        });
+		$("#textarea_body").css("height",$("#textarea").height()-150);
+		$(".indent").find(".like_input").css("left",($(".indent").width()+15)*0.4-15);
+  	});
+  </script>
+</html>

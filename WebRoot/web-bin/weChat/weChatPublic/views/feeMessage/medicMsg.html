@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手术信息</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/weui/weui.min.css">
+    <link rel="stylesheet" href="/web-bin/resources/weui/jquery-weui.css">
+    <link rel="stylesheet" href="/web-bin/resources/css/basicMobile.css">
+    <link rel="stylesheet" href="/web-bin/weChat/weChatPublic/css/feeMessage/medicMsg.css">
+</head>
+<body>
+    <div class="wrapper">
+        <ul id="medicList">
+            <!--<li>
+                <div class="status_box">
+                    <div class="status2">已完成</div>
+                </div>
+                <div class="medic_msg">
+                    <h3>
+                        人体切割术
+                    </h3>
+                    <div>
+                        主刀医生：李时珍的徒弟
+                    </div>
+                    <div>
+                        手术时间：2018-58-25
+                    </div>
+                </div>
+            </li>-->
+        </ul>
+    </div>
+    <p style="display:none">
+        <textarea id="template_medicList" rows="0" cols="0">
+            {#foreach $T as Row}
+            <li>
+                <input type="hidden" value="{$T.Row.surgeryOperName}" class="surgeryOperName">
+                <input type="hidden" value="{$T.Row.surgeryDrName}" class="surgeryDrName">
+                <input type="hidden" value="{$T.Row.surgeryBeginDate}" class="surgeryBeginDate">
+                <input type="hidden" value="{$T.Row.surgeryNo}" class="surgeryNo">
+                <input type="hidden" value="{$T.Row.anesDrName}" class="anesDrName">
+                <input type="hidden" value="{$T.Row.surgeryLevelName}" class="surgeryLevelName">
+                <input type="hidden" value="{$T.Row.woundHealingLevelName}" class="woundHealingLevelName">
+                <div class="status_box">
+                    {#if $T.Row.surgeryEndDate}
+                    <div class="status2">已完成</div>
+                    {#else}
+                    <div class="status1">进行中</div>
+                    {#/if}
+                </div>
+                <div class="medic_msg">
+                    <h3 class="substr">
+                        {$T.Row.surgeryOperName}
+                    </h3>
+                    <div class="substr">
+                        主刀医生：{$T.Row.surgeryDrName}
+                    </div>
+                    <div class="substr">
+                        手术时间：{$T.Row.surgeryBeginDate}
+                    </div>
+                </div>
+            </li>
+            {#/for}
+        </textarea>
+    </p>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/weui/jquery-weui.js"></script>
+<script type="text/javascript" src="/web-bin/resources/weui/fastclick.js"></script>
+<!--解决ios下click的300ms的延迟，需引入fastclick-->
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+<script type="text/javascript" src="/web-bin/weChat/weChatPublic/js/feeMessage/medicMsg.js"></script>
+</body>
+</html>

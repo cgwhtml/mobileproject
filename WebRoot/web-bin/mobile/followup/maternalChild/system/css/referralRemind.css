@@ -1,0 +1,35 @@
+body{
+    background: #fff;
+    font-size: 16px;
+}
+.noFound{
+	background-color: red;
+    color: #FFFFFF;
+    padding: 10px 0 10px 0;
+    text-indent: 10px;
+}
+.remind_view{
+    padding:0 6px 0 6px;
+}
+.gray_background{
+    background-color: #EAEDEE;
+    padding: 9px 10pt;
+    text-align: left;
+    min-height:20px;
+}
+.table td{
+    border-bottom: 1pt solid #EAEDEE;
+    padding: 14px 12px;
+    text-align: right;
+}
+.table tr td:FIRST-CHILD{
+    text-align: left;
+}
+.table_head td{
+    border-bottom: 0;
+    padding-bottom:0;
+}
+.innerTable td,.innerTable td{
+    padding: 0;
+    text-align: left;
+}

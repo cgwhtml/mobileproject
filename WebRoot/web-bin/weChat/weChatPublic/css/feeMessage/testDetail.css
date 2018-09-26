@@ -1,0 +1,21 @@
+.wrapper{
+    height:100%;
+}
+.check_head{
+    height: 50px;
+    line-height: 50px;
+    background-color: #fff;
+    font-size: 17px;
+    padding-left: 15px;
+    box-sizing: border-box;
+}
+.detail_box{
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+.text_table{
+    margin-top: 10px;
+    border-radius: 3px;
+    box-shadow: 0 2px 1px 0 rgba(0,0,0,0.04);
+    overflow: hidden;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宣教详情</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name = "format-detection" content = "telephone=no">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/healthCare/css/basic.css"/>
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/healthCare/css/educationDetail.css"/>
+    <script src="/web-bin/resources/rem/rem.js"></script>
+</head>
+<body>
+    <div class="main">
+        <div id="allAndOne">只看自己</div>
+        <div class="header">
+            <div class="header_icon">
+                <!--<div class="icon_txt"><span class="bed"></span>床</div>-->
+            </div>
+            <div class="header_info">
+                <h4>
+                    <span class="icon_txt"><span class="bed"></span>床</span>
+                    <span class="patName"></span>
+                </h4>
+                <p><span class="wardName"></span><span class="admitDate"></span>入院</p>
+            </div>
+            <div class="right_arrow"></div>
+        </div>
+        <div class="content">
+            <div class="line-box">
+                <div class="list_big_box">
+                    <div class="pat"></div>
+                </div>
+                <div id="end"></div>
+            </div>
+        </div>
+        <div class="footer_box">
+            <div class="footer">发送更多宣教</div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.js"></script>
+<script type="text/javascript" src="/web-bin/resources/weui/fastclick.js"></script>
+<!--解决ios下click的300ms的延迟，需引入fastclick-->
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+<script type="text/javascript" src="/web-bin/mobile/followup/healthCare/js/educationDetail.js"></script>
+</html>

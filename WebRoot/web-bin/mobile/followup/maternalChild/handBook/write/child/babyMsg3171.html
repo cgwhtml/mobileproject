@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>四岁记录</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_002.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_003.css">
+    <link rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+    <style>
+        .input_msg{
+            min-width: 2.5rem !important;
+            width: 2.5rem !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <div class="rearing_record">
+            <span class="mother bottom_line">育儿记录</span>
+        </div>
+        <div class="inspect_record">
+            <span class="father">检查记录</span>
+        </div>
+    </div>
+    <div id="mother_msg">
+        <form action="" id="mother_content" name="myForm" method="post">
+            <div class="parent_msg">
+                <div class="main_option kindergartenFlag">
+                    <span>入幼儿园了吗？</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="kindergartenFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>未入</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="kindergartenFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>已入</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option useScissorFlag">
+                    <span>能使用儿童剪刀剪东西吗？</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="useScissorFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>能</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="useScissorFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>否</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option wcAloneFlag">
+                    <span>能独立上厕所吗？</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="wcAloneFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>能</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="wcAloneFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>否</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option tellSimpleStoryFlag">
+                    <span>能讲简单的小故事吗？</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="tellSimpleStoryFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>能</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="tellSimpleStoryFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>否</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option">
+                    <span>每天看电子视频产品的时间（h）</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="electronicVideoTime" name="electronicVideoTime">
+                </div>
+                <div class="main_option">
+                    <span>每天户外活动的时间（h）</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="outdoorActivitiesTime" name="outdoorActivitiesTime">
+                </div>
+                <div class="main_option sayAdjectiveSentenceFlag">
+                    <span>会说带形容词的句子吗？</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="sayAdjectiveSentenceFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>会</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="sayAdjectiveSentenceFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>否</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option requiredWaitRotateFlag">
+                    <span>能按要求等待或轮流吗？</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="requiredWaitRotateFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>能</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="requiredWaitRotateFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>否</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option dressAloneFlag">
+                    <span>会独立穿衣吗？</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="dressAloneFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>会</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="dressAloneFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>否</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option standAloneFlag">
+                    <span>会单脚站立吗？</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="standAloneFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>会</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="standAloneFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>否</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option main_option_tip">
+                    <p>在育儿方面美好的体验、担心的事情、患过的疾病，希望保留的记录感想等，请随意记录。</p>
+                </div>
+                <div class="main_option">
+                    <textarea class="textarea_msg" id="recordFeel" name="recordFeel"></textarea>
+                </div>
+                <div class="main_option">
+                    <span>四岁生日寄语</span>
+                    <textarea class="textarea_msg" id="fourYearOldMessage" name="fourYearOldMessage"></textarea>
+                </div>
+            </div>
+        </form>
+        <div class="page_btns">
+            <button class="pink_btn next_btn" onclick="">保存</button>
+        </div>
+    </div>
+    <div id="father_msg">
+        <form action="" id="father_content" name="myForm">
+            <div class="parent_msg">
+                <div class="main_option">
+                    <span>检查日期</span>
+                    <div class="pink_arrow_right pink_arrow_right_position"></div>
+                    <input type="text" placeholder="请选择" class="input_msg" id="checkTime" name="checkTime">
+                </div>
+                <div class="main_option">
+                    <span>体重（kg）</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="weight" name="weight">
+                </div>
+                <div class="main_option">
+                    <span>身高（cm）</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="height" name="height">
+                </div>
+                <div class="main_option">
+                    <span>血红蛋白（g/L）</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="hemoglobin" name="hemoglobin">
+                </div>
+                <div class="main_option">
+                    <span>左眼视力（度）</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="leftEyeVision" name="leftEyeVision">
+                </div>
+                <div class="main_option">
+                    <span>右眼视力（度）</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="rightEyeVision" name="rightEyeVision">
+                </div>
+                <div class="main_option checkResultFlag">
+                    <span>检查结果</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="checkResultFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>未见异常</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="checkResultFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>异常</span>
+                        </label>
+                    </div>
+                    <textarea class="textarea_msg" placeholder="异常描述..." id="abnormalDescription" name="abnormalDescription" style="display: none"></textarea>
+                </div>
+                <div class="main_option referralFlag">
+                    <span>有无转诊</span>
+                    <div class="pull_right option_radio">
+                        <label>
+                            <input type="radio" name="referralFlag" value="1"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>有</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="referralFlag" value="0"/>
+                            <div class="pink_r_uncheck pink_r_uncheck_position"></div>
+                            <span>无</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="main_option">
+                    <span>需要关注的事情</span>
+                    <textarea class="textarea_msg" id="attentionThing" name="attentionThing"></textarea>
+                </div>
+                <div class="main_option">
+                    <span>下次检查日期</span>
+                    <div class="pink_arrow_right pink_arrow_right_position"></div>
+                    <input type="text" placeholder="请选择" class="input_msg" id="nextCheckTime" name="nextCheckTime">
+                </div>
+                <div class="main_option">
+                    <span>检查单位</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="checkUnit" name="checkUnit">
+                </div>
+                <div class="main_option">
+                    <span>检查者</span>
+                    <input type="text" placeholder="请填写" class="input_msg" id="checker" name="checker">
+                </div>
+            </div>
+        </form>
+        <div class="page_btns">
+            <button class="pink_btn save_btn">保存</button>
+        </div>
+    </div>
+    <div id="window"  style="display:none" class="window">
+        <div>
+            <div id="window_in" class="window_in"></div>
+            <div id="check" class="check">确定</div>
+        </div>
+    </div>
+    <div id="background" style="display: none"></div>
+    <div id="fake_alert"  style="display:none">
+        <div id="fake_alert_in">
+            <div id="msg"></div>
+            <div id="sure">确定</div>
+        </div>
+    </div>
+    <input type="hidden" id="data_id">
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_002.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_004.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_003.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_005.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var localhostUrl=window.location.origin;
+            var query = getRequest(true);
+            var healthBookId = $.trim(query.healthBookId);
+            var babyId = query.babyId;
+            var currYear = (new Date()).getFullYear();
+            var opt={};
+            opt.date = {preset : 'date'};
+            opt.datetime = {preset : 'datetime'};
+            opt.time = {preset : 'time'};
+            opt.default2 = {
+                theme: 'android-ics light', //皮肤样式
+                display: 'modal', //显示方式
+                mode: 'scroller', //日期选择模式
+                dateFormat: 'yy-mm-dd',
+                lang: 'zh',
+                showNow: true,
+                nowText: "今天",
+                startYear: currYear - 2, //开始年份
+                endYear: currYear + 3 //结束年份
+            };
+            document.getElementById("fake_alert").addEventListener("touchmove", function (event) {
+                event.preventDefault();
+            }, false);
+            $(document).on("change","input[type='radio']",function(){
+                $("input[type='radio']").each(function() {
+                    $(this).is(":checked")?$(this).next().removeClass('pink_r_uncheck').addClass('pink_r_check'):$(this).next().removeClass('pink_r_check').addClass('pink_r_uncheck');
+                });
+            });
+            //检查结果
+            $('input[name="checkResultFlag"]').change(function(){
+                $(this).val()==0?$('#abnormalDescription').show():$('#abnormalDescription').hide()&&$('#abnormalDescription').val('');
+            })
+            $("#nextCheckTime,#checkTime").mobiscroll($.extend(opt['date'], opt['default2']));
+            //检查记录
+            $('.inspect_record').click(function () {
+                $(this).find('.father').addClass('bottom_line');
+                $(this).prev().find('.mother').removeClass('bottom_line');
+                $('#mother_msg').hide();
+                $('#father_msg').show();
+            })
+            //育儿记录
+            $('.rearing_record').click(function () {
+                $(this).find('.mother').addClass('bottom_line');
+                $(this).next().find('.father').removeClass('bottom_line');
+                $('#mother_msg').show();
+                $('#father_msg').hide();
+            })
+            //回显
+            $.ajax({
+                type:"post",
+                url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_fourYearRecord_data?babyId='+babyId,
+                dataType:'json',
+                contentType:'application/json;charset=UTF-8',
+                success:function(data){
+                    console.log(data);
+                    if(data.res==0){
+                        var msg=data.data;
+                        $('#data_id').val(msg&&msg.id);
+                        for(var o in msg){
+                            $("#"+o).val(msg[o]);
+                            o!=null&&$("."+o+" input[value="+ boolToNumber(msg[o]) +"]").attr("checked",true).next().removeClass('pink_r_uncheck').addClass('pink_r_check');
+                            msg.checkResultFlag!=null&&msg.checkResultFlag==false&&$('#abnormalDescription').show();
+                        }
+                    }else{
+                        alert('请求失败');
+                    }
+                },
+                error:function () {
+                    alert('请求失败');
+                    return;
+                }
+            });
+            //育儿记录保存
+            $('.next_btn').click(function(){
+                if(nextBtnCheckForm()==false){
+                    return false;
+                }
+                var JsonObj=$("#mother_content").serializeObject();
+                JsonObj.healthBookId=healthBookId;
+                JsonObj.babyId=babyId;
+                JsonObj.model=1;
+                JsonObj.id=$("#data_id").val();
+                submitAjax(JsonObj,this);
+            })
+            //检查记录保存
+            $('.save_btn').click(function(){
+                if(checkFoem()==false){
+                    return false;
+                }
+                var JsonObj=$("#father_content").serializeObject();
+                JsonObj.healthBookId=healthBookId;
+                JsonObj.babyId=babyId;
+                JsonObj.model=2;
+                JsonObj.id=$("#data_id").val();
+                submitAjax(JsonObj,this);
+            })
+        })
+        function nextBtnCheckForm(){
+            var regu = "^[0-9]+\.?[0-9]*$";//验证数字和小数
+            var re = new RegExp(regu);
+            var electronicVideoTime = $("#electronicVideoTime").val();
+            if(electronicVideoTime!=''&&!re.test(electronicVideoTime)){
+                fake_alert("每天看电子视频产品的时间（h）必须是数字","#electronicVideoTime");
+                return false;
+            }
+            if(/.*[\u4e00-\u9fa5]+.*$/.test(electronicVideoTime)){
+                fake_alert("每天看电子视频产品的时间（h）必须是数字","#electronicVideoTime");
+                return false;
+            }
+            var outdoorActivitiesTime = $("#outdoorActivitiesTime").val();
+            if(outdoorActivitiesTime!=''&&!re.test(outdoorActivitiesTime)){
+                fake_alert("每天户外活动的时间（h）必须是数字","#outdoorActivitiesTime");
+                return false;
+            }
+            if(/.*[\u4e00-\u9fa5]+.*$/.test(outdoorActivitiesTime)){
+                fake_alert("每天户外活动的时间（h）必须是数字","#outdoorActivitiesTime");
+                return false;
+            }
+        }
+        function checkFoem(){
+            var regu = "^[0-9]+\.?[0-9]*$";//验证数字和小数
+            var re = new RegExp(regu);
+            var weight = $("#weight").val();
+            if(weight!=''&&!re.test(weight)){
+                fake_alert("体重必须是数字","#weight");
+                return false;
+            }
+            if(/.*[\u4e00-\u9fa5]+.*$/.test(weight)){
+                fake_alert("体重必须是数字","#weight");
+                return false;
+            }
+            var height = $("#height").val();
+            if(height!=''&&!re.test(height)){
+                fake_alert("身高必须是数字","#height");
+                return false;
+            }
+            if(/.*[\u4e00-\u9fa5]+.*$/.test(height)){
+                fake_alert("身高必须是数字","#height");
+                return false;
+            }
+            var hemoglobin = $("#hemoglobin").val();
+            if(hemoglobin!=''&&!re.test(hemoglobin)){
+                fake_alert("血红蛋白必须是数字","#hemoglobin");
+                return false;
+            }
+            if(/.*[\u4e00-\u9fa5]+.*$/.test(hemoglobin)){
+                fake_alert("血红蛋白必须是数字","#hemoglobin");
+                return false;
+            }
+            var leftEyeVision = $("#leftEyeVision").val();
+            if(leftEyeVision!=''&&!re.test(leftEyeVision)){
+                fake_alert("左眼视力（度）必须是数字","#leftEyeVision");
+                return false;
+            }
+            if(/.*[\u4e00-\u9fa5]+.*$/.test(leftEyeVision)){
+                fake_alert("左眼视力（度）必须是数字","#leftEyeVision");
+                return false;
+            }
+            var rightEyeVision = $("#rightEyeVision").val();
+            if(rightEyeVision!=''&&!re.test(rightEyeVision)){
+                fake_alert("右眼视力（度）必须是数字","#rightEyeVision");
+                return false;
+            }
+            if(/.*[\u4e00-\u9fa5]+.*$/.test(rightEyeVision)){
+                fake_alert("右眼视力（度）必须是数字","#rightEyeVision");
+                return false;
+            }
+        }
+        function submitAjax(JsonObj,object){
+            console.log(JsonObj);
+            $(object).attr('disabled',true);
+            var localhostUrl=window.location.origin;
+            $.ajax({
+                type:"post",
+                url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/submit_fourYearRecord_data',
+                data:JsonObj,
+                contentType:'application/json;charset=UTF-8',
+                success:function(data){
+                    console.log(data);
+                    if(data.res==0){
+                        fake_alert("保存成功");
+                        setTimeout(function(){
+                            window.history.go(-1);
+                        },500)
+                    }else{
+                        fake_alert("保存失败！请检查网络是否正常。");
+                        $(object).attr('disabled',false);
+                    }
+                },
+                error:function () {
+                    fake_alert("保存失败！请检查网络是否正常。");
+                    $(object).attr('disabled',false);
+                    return;
+                }
+            });
+        }
+        function fake_alert(text,element){
+            $("#background").show();
+            $("#fake_alert").show();
+            $("#msg").html(text);
+            $("#sure").click(function(){
+                $("#background").hide();
+                $("#fake_alert").hide();
+            });
+            element&&$("html,body").animate({scrollTop:$(element).offset().top-75},500);
+        }
+    </script>
+</body>
+</html>

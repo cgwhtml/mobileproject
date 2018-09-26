@@ -1,0 +1,75 @@
+.main {
+	padding-left:4px;
+}
+.iframe {
+	float:left;
+	margin-right:10px;
+}
+.rightList {
+	width:200px;
+	background-color:#fff;
+	border-radius:6px;
+	display:inline-block;
+}
+.list_top {
+	height:36px;
+	line-height:36px;
+	font-size:14px;
+	background-color:#C9DEBD;
+	border-radius:6px 6px 0px 0px;
+}
+.index,.name {
+	cursor: pointer;
+}
+.chosen {
+	background-color:#EEF7FF;
+}
+.list_table tr:hover {
+	background-color:#EEF7FF;
+}
+.list_top p {
+	display:inline-block;
+	margin-left:10px;
+}
+.table_head:hover {
+	background-color:#F6F6F6 !important;
+}
+.list_body {
+	padding:0px 10px;
+}
+.list_search {
+	height:34px;
+	padding-top:10px;
+}
+.list_content {
+	position: relative;
+}
+.list_table {
+	width:100%;
+	line-height:28px;
+	border-collapse:collapse;
+	font-size:12px;
+}
+.table_head {
+	height:30px;
+	background-color:#F6F6F6;
+}
+.list_table td {
+	border-bottom:1px #DBDBDB solid;
+	padding-left:5px;
+}
+.roleList_img1,.roleList_img2 {
+	width:24px;
+	height:24px;
+	border-radius:4px;
+	float:right;
+	margin-top:6px;
+	margin-right:6px;
+	cursor: pointer;
+}
+.roleList_img2 {
+	margin-right:10px;
+}
+.roleList_img4 {
+    cursor: pointer;
+}

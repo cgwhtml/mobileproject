@@ -1,0 +1,172 @@
+html,body,ul,li,div,a,img,input,p{margin:0;padding:0;}
+img{border:0}
+ul{list-style: none;}
+a{text-decoration: none;}
+
+.ui-loader-default{ display:none}
+.ui-mobile-viewport{ border:none;}
+.ui-page {padding: 0; margin: 0; outline: 0}
+
+#main {
+	margin:0 6px 0px 6px;
+	font-family:"Microsoft YaHei","微软雅黑",Arial,Simsun,Helvetica,sans-serif;
+	font-size:15px;
+	
+	color:#333333;
+}
+.c1 {
+	border-bottom:1px solid #F0F0F0;
+	position:relative;
+	padding:15px 12px;
+	
+}
+.img1 {
+	width:25px;
+	position:absolute;
+	top:50%;
+	left:12px;
+	margin-top:-12px;
+}
+span {
+	display:inline-block;
+	margin-left:32px;
+	margin-right:30px;
+}
+.c2 {
+	display:inline-block;
+	position:absolute;
+	right:12px;
+	top:50%;
+	margin-top:-11px;
+	margin-left:10px;
+}
+
+#for_bottom{
+	height:50px;
+	background-color:#fff;
+}
+#bottom{
+	position:fixed;
+	bottom:0px;
+	width:100%;
+	background-color:white;
+	padding-top:0px;
+	
+}
+.submit{
+	background-color:#00A1D8;
+	text-align:center;
+	width:90%;
+	height:50px;
+	color:#FFFFFF;
+    border-radius: 4px;
+    line-height:50px;
+    margin:10px auto;
+}
+
+#end {
+	text-align:center;
+	margin-top:15px;
+	color:#888;
+	font-size:12px;
+}
+
+.loading {
+	height:70px;
+	background-color:#fff;
+}
+#loading {
+	display:block;
+	margin:15px auto;
+	width:22px;
+	
+}
+
+
+#background {
+	position:fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	background-color:#000;
+	opacity:0.2;
+	z-index:100;
+	display:none;
+}
+#send {
+	position:fixed;
+	top:70%;
+	width:100%;
+	height:22px;
+	z-index:200;
+	display:none;
+}
+#send img {
+	display:block;
+	margin:0px auto;
+	width:22px;
+}
+	
+
+
+
+
+
+
+
+/****************************自定义弹出框************************/
+.alert_box,.confirm_box{
+	background-color:#FFFFFF;
+	width:auto;
+	height:auto;
+	z-index:9999;
+	position:fixed;
+    border-radius: 10px;
+     user-select: none;
+    -moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+.alert_content,.confirm_content{
+	text-align:center;
+	font-size:14px;
+	padding:20px 60px;
+}
+.alert_footer{
+	border-top: solid 1px #DADEE5;
+    text-align: center;
+    padding: 10px 0px;
+    border-radius: 0 0 10px 10px;
+   	color:#0166FF;
+}
+.confirm_footer{
+	border-top: solid 1px #DADEE5;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+   	color:#0166FF;
+}
+.cancel_btn{
+	float:left;
+	width:50%;
+	padding: 10px 0px;
+	border-right: 1px solid #DADEE5;
+    box-sizing: border-box;
+}
+.ok_btn{
+	float:left;
+	padding: 10px 0px;
+	width:50%;
+	font-weight:600;
+}
+.show_btn{
+	border:1px solid #DDDDDD;
+	padding:3px 0;
+	color:#0082F0;
+	border-radius:2px;
+	width:90px;
+	text-align:center;
+	margin:0 auto;
+}
+
+

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>孕4~10月健康检查记录</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_002.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mobiscroll/css/mobiscroll_003.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/icheck/skins/all.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+    <style>
+        .can_delete{
+            padding-right: 0.96rem;
+            background-color: #fff;
+            position: relative;
+        }
+        .add_option{
+            text-align: center;
+        }
+        .add_option img{
+            width: 0.56rem;
+            position: relative;
+            top: 0.15rem;
+            right: 0.15rem;
+        }
+        .gestation{
+            background-color: #fff;
+        }
+        .icheckbox_square-blue, .iradio_square-blue{
+            background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/pink@2x.png);
+            -webkit-background-size: 240px 24px;
+            background-size: 240px 24px;
+        }
+    </style>
+</head>
+<body>
+    <form action="" id="myForm" name="myForm">
+        <div class="parent_msg">
+            <div class="main_option">
+                <span>检查日期</span><span class="must">*</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="checkTime" name="checkTime">
+            </div>
+            <div class="main_option">
+                <span>孕周</span>
+                <input type="tel" class="input_msg gestation" id="gestationText" disabled>
+                <input type="hidden" id="gestation" name="gestation">
+            </div>
+            <div class="main_option">
+                <span>收缩压（mmhg)</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="systolicPressure" name="systolicPressure">
+            </div>
+            <div class="main_option">
+                <span>舒张压（mmhg)</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="diastolicPressure" name="diastolicPressure">
+            </div>
+            <div class="main_option">
+                <span>体重（kg）</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="weight" name="weight">
+            </div>
+            <div class="main_option">
+                <span>宫高（cm）</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="fundalHeight" name="fundalHeight">
+            </div>
+            <div class="main_option">
+                <span>尿蛋白（g/L）</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <span class="main_option_status albuminuria_js" id="albuminuriaText">请选择</span>
+                <input type="hidden" name="albuminuria" id="albuminuria">
+            </div>
+            <div class="main_option">
+                <span>血红蛋白（g/L）</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="hemoglobin" name="hemoglobin">
+            </div>
+            <div class="add">
+                <div class="can_delete">
+                    <div class="icon_delete icon_delete_js icon_delete_position"></div>
+                    <div class="main_option">
+                        <span>胎位</span>
+                        <div class="pink_arrow_right pink_arrow_right_position"></div>
+                        <span class="main_option_status fetusPosition_js" id="fetusPositionText">请选择</span>
+                        <input type="hidden" name="fetusPosition" id="fetusPosition">
+                    </div>
+                    <div class="main_option">
+                        <span>胎心音（bpm）</span>
+                        <input type="tel" placeholder="50b~250b(整数)" class="input_msg" id="fetalHeartSound" name="fetalHeartSound">
+                    </div>
+                </div>
+            </div>
+            <div class="add_option add_option_js">
+                <div class="main_option">
+                    <div class="pink_add_circle"></div>
+                    <span>新增胎位/胎心音</span>
+                </div>
+            </div>
+            <div class="main_option">
+                <span>高危因素</span>
+                <textarea class="textarea_msg" id="riskFactor" name="riskFactor"></textarea>
+            </div>
+            <div class="main_option">
+                <span>处理及建议</span>
+                <textarea class="textarea_msg" id="processAdvice" name="processAdvice"></textarea>
+            </div>
+        </div>
+        <div class="parent_msg">
+            <div class="main_option">
+                <span>预约日期</span>
+                <div class="pink_arrow_right pink_arrow_right_position"></div>
+                <input type="text" placeholder="请选择" class="input_msg" id="appointmentTime" name="appointmentTime">
+            </div>
+            <div class="main_option">
+                <span>检查者</span>
+                <input type="text" placeholder="请填写" class="input_msg" id="checker" name="checker">
+            </div>
+        </div>
+    </form>
+    <div class="page_btns">
+        <div class="pink_btn save">保存</div>
+    </div>
+    <div id="window"  style="display:none" class="window">
+        <div>
+            <div id="window_in" class="window_in"></div>
+            <div id="check" class="check">确定</div>
+        </div>
+    </div>
+    <div id="background" style="display: none"></div>
+    <div id="fake_alert"  style="display:none">
+        <div id="fake_alert_in">
+            <div id="msg"></div>
+            <div id="sure">确定</div>
+        </div>
+    </div>
+    <input type="hidden" id="data_id">
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_002.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_004.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_003.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/mobiscroll/js/mobiscroll_005.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/js/dialogData.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/icheck/icheck.js"></script>
+    <script>
+        $(function(){
+            var localhostUrl=window.location.origin;
+            var query=getRequest();
+            var id=query.id;
+            var healthBookId=query.healthBookId;
+            var currYear = (new Date()).getFullYear();
+            var myReg = /^\d+(\.\d+)?$/;
+            var opt={};
+            var cansubmit=true;
+            $(".window_in").niceScroll({
+                railpadding: { top:0, right: 0, left: 0, bottom:0 },
+                cursorborder:"",
+                cursoropacitymin: 0.3,
+                cursoropacitymax: 0.3,
+                cursorcolor:"#000000",
+                zindex: "99",
+                cursorwidth: "3px",
+                touchbehavior:true
+            });
+            opt.date = {preset : 'date'};
+            opt.datetime = {preset : 'datetime'};
+            opt.time = {preset : 'time'};
+            opt.default2 = {
+                theme: 'android-ics light', //皮肤样式
+                display: 'modal', //显示方式
+                mode: 'scroller', //日期选择模式
+                dateFormat: 'yy-mm-dd',
+                lang: 'zh',
+                showNow: true,
+                nowText: "今天",
+                startYear: currYear - 50, //开始年份
+                endYear: currYear + 10 //结束年份
+            };
+            $("#checkTime").mobiscroll($.extend(opt['date'], opt['default2']));
+            $("#appointmentTime").mobiscroll($.extend(opt['date'], opt['default2']));
+            $('#checkTime').change(function(){
+                var checkTime=$('#checkTime').val();
+                $.ajax({
+                    type:"post",
+                    url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_pregnancyWeek_data?healthBookId='+healthBookId+'&checkTime='+checkTime,
+                    dataType:'json',
+                    contentType:'application/json;charset=UTF-8',
+                    success:function(data){
+                        if(data.res==0){
+                            $('#gestation,#gestationText').val(data.data);
+                        }else{
+                            fake_alert("请求失败！请检查网络是否正常。");
+                        }
+                    },
+                    error:function () {
+                        fake_alert("请求失败！请检查网络是否正常。");
+                        return;
+                    }
+                });
+            })
+            //选择尿蛋白
+            $('#myForm').on('click','.albuminuria_js',function(){
+                $("#window_in").html(ureterData);
+                initChecked($(this));
+            })
+            //胎位
+            $('.add').on('click','.fetusPosition_js',function(){
+                $("#window_in").html(fetusPositionData);
+                initChecked($(this));
+            })
+            //新增胎位，胎心音
+            $('#myForm').on('click','.add_option_js',function(){
+                $('#myForm .can_delete').length>0?$(".can_delete:last-child").after($html): $('#myForm').find('.add').append($html);
+            })
+            //删除胎位，胎心音
+            $('#myForm').on('click','.icon_delete_js ',function(){
+                $(this).parents('.can_delete').remove();
+            })
+            if(data_id!=''&& data_id!=null){
+                $.ajax({
+                    type:"post",
+                    url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_simplyFourTenHealthRecord_data?healthBookId='+healthBookId+'&id='+id,
+                    dataType:'json',
+                    async:false,
+                    contentType:'application/json;charset=UTF-8',
+                    success:function(data){
+                        console.log(data);
+                        if(data.res==0){
+                            var msg=data.data;
+                            //尿蛋白授权取过来的数据是没有无的，取到“-”相当于无
+                            (msg.albuminuria=="-") && (msg.albuminuria="无");
+                            //胎位授权过来的只有英文，与本地的匹配后在进行回显
+                            if(msg.fetalHeartFetusPosition!=null&&msg.fetalHeartFetusPosition.length>1){
+                                $.each(msg.fetalHeartFetusPosition,function(key,value){
+                                    if(msg.fetalHeartFetusPosition[key].fetusPosition.length<5){
+                                        msg.fetalHeartFetusPosition[key].fetusPosition=fetusPositionDataCode[msg.fetalHeartFetusPosition[key].fetusPosition];
+                                    }
+                                })
+                            }else{
+                                if(msg.fetalHeartFetusPosition!=null&&msg.fetalHeartFetusPosition.length!=0&&msg.fetalHeartFetusPosition[0].fetusPosition!=undefined&&msg.fetalHeartFetusPosition[0].fetusPosition.length<5){
+                                    msg.fetalHeartFetusPosition[0].fetusPosition=fetusPositionDataCode[msg.fetalHeartFetusPosition[0].fetusPosition]
+                                }
+                            }
+                            if(msg!=null&&JSON.stringify(msg)!="{}"){
+                                $('#data_id').val(msg.id);
+                                for(var  o in msg){
+                                    $("#"+o).val(msg[o]);
+                                }
+                            }
+                            $('#gestation,#gestationText').val(msg.gestation);
+                            $('#albuminuria').val()!=''&&$('#albuminuriaText').text($('#albuminuria').val()).css('color','#333');
+                            if(msg.fetalHeartFetusPosition!=null&&msg.fetalHeartFetusPosition.length==1){
+                                msg.fetalHeartFetusPosition[0].fetalHeartSound!=''&& msg.fetalHeartFetusPosition[0].fetalHeartSound!=null&&$('#fetalHeartSound').val(msg.fetalHeartFetusPosition[0].fetalHeartSound);
+                                msg.fetalHeartFetusPosition[0].fetusPosition!=''&&$('#fetusPositionText').text(msg.fetalHeartFetusPosition[0].fetusPosition).css('color','#333')&&$('#fetusPosition').val(msg.fetalHeartFetusPosition[0].fetusPosition);
+                            }else if(msg.fetalHeartFetusPosition!=null&&msg.fetalHeartFetusPosition.length>1){
+                                var $htmlData="";
+                                for(var i=0;i<msg.fetalHeartFetusPosition.length;i++){
+                                    $htmlData+='<div class="can_delete">'+
+                                        '<div class="icon_delete icon_delete_js icon_delete_position"></div>'+
+                                        '<div class="main_option">'+
+                                        '<span>胎位</span>'+
+                                        '<div class="pink_arrow_right pink_arrow_right_position"></div>'+
+                                        '<span class="main_option_status fetusPosition_js" id="fetusPositionText" style="color:#333">'+
+                                        (msg.fetalHeartFetusPosition[i].fetusPosition!=undefined?msg.fetalHeartFetusPosition[i].fetusPosition:"")+
+                                        '</span>'+
+                                        '<input type="hidden" name="fetusPosition" id="fetusPosition" value="'+  msg.fetalHeartFetusPosition[i].fetusPosition+'">'+
+                                        '</div>'+
+                                        '<div class="main_option">'+
+                                        '<span>胎心音（bpm）</span>'+
+                                        '<input type="text" placeholder="50b~250b(整数)" class="input_msg" id="fetalHeartSound" name="fetalHeartSound" value="'+(msg.fetalHeartFetusPosition[i].fetalHeartSound!=null?msg.fetalHeartFetusPosition[i].fetalHeartSound:"")+'">'+
+                                        '</div>'+
+                                        '</div>';
+                                }
+                                $('.add').html($htmlData);
+                            }
+                            if(msg.datasourceFrom!=null&&msg.datasourceFrom!="手动添加"){
+                                //医院授权后的禁用操作
+                                $(".save").remove();
+                                $('#myForm .add_option').removeClass('add_option_js');
+                                $('#myForm .icon_delete').removeClass('icon_delete_js');
+                                $('input').attr('disabled',true);
+                                $('#albuminuriaText').removeClass('albuminuria_js');
+                                $('#myForm #fetusPositionText').removeClass('fetusPosition_js');
+                                $('textarea').attr('disabled',true);
+                                $('.parent_msg:last-child').css('margin-bottom','0.4rem');
+                            }
+                        }else{
+                            fake_alert("请求失败！请检查网络是否正常。");
+                        }
+                    },
+                    error:function () {
+                        fake_alert("请求失败！请检查网络是否正常。");
+                        return;
+                    }
+                });
+            }
+            //保存
+            $('.save').click(function(){
+                var checkTime=$('#checkTime').val();
+                if(checkTime==''){
+                    fake_alert("检查日期必填","#checkTime");
+                    return false;
+                }
+                var systolicPressure=$('#systolicPressure').val();
+                if(!IsNumberValidateFun(systolicPressure)){
+                    fake_alert("收缩压必须是整数","#systolicPressure");
+                    return false;
+                }
+                var diastolicPressure=$('#diastolicPressure').val();
+                if(!IsNumberValidateFun(diastolicPressure)){
+                    fake_alert("舒张压必须是整数","#diastolicPressure");
+                    return false;
+                }
+                var weight=$('#weight').val();
+                if(weight!=''&&!myReg.test(weight)){
+                    fake_alert("体重必须是数字","#weight");
+                    return false;
+                }
+                var fundalHeight=$('#fundalHeight').val();
+                if(fundalHeight!=''&&!myReg.test(fundalHeight)){
+                    fake_alert("宫高必须是数字","#fundalHeight");
+                    return false;
+                }
+                var hemoglobin=$('#hemoglobin').val();
+                if(hemoglobin!=''&&!myReg.test(hemoglobin)){
+                    fake_alert("血红蛋白必须是数字","#hemoglobin");
+                    return false;
+                }
+                var fetalHeartSound=$('#fetalHeartSound').val();
+                if(fetalHeartSound!=null&&fetalHeartSound!=""&&!IsNumberValidateFun(fetalHeartSound)){
+                    fake_alert("胎心音必须是整数","#fetalHeartSound");
+                    return false;
+                }
+                if(fetalHeartSound!=""&&fetalHeartSound<50||fetalHeartSound>250){
+                    fake_alert("胎心音范围为50~250","#fetalHeartSound");
+                    return false;
+                }
+                var JsonObj=$("#myForm").serializeObject();
+                var fetalHeartFetusPositionList=[];
+                $(".can_delete").each(function(b){
+                    var fetusPosition=$.trim($(this).find("#fetusPosition").val());
+                    var fetalHeartSound=$(this).find("#fetalHeartSound").val();
+                    if(fetusPosition !="" || fetalHeartSound !=""){
+                        b={
+                            "fetusPosition":fetusPosition,
+                            "fetalHeartSound":fetalHeartSound
+                        };
+                        fetalHeartFetusPositionList.push(b);
+                    }
+                });
+                JsonObj.fetalHeartFetusPosition=JSON.stringify(fetalHeartFetusPositionList);
+                JsonObj.healthBookId=healthBookId;
+                JsonObj.id=id;
+                console.log(JsonObj);
+                var data_id=$("#data_id").val();
+                if(cansubmit){
+                    cansubmit=false;
+                    if(id!=null&&id!=''){
+                        $.ajax({
+                            type:"post",
+                            url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/update_simplyFourTenHealthRecord_data',
+                            data:JsonObj,
+                            contentType:'application/json;charset=UTF-8',
+                            success:function(data){
+                                if(data.res==0){
+                                    fake_alert("保存成功");
+                                    setTimeout(function(){
+                                        //window.location=localhostUrl+":"+port+"/web-bin/m/nosen/followup/maternalChild/handBook/to_fourTenHealthRecord_page?healthBookId="+healthBookId;
+                                        window.history.go(-1);
+                                    },500)
+                                }else{
+                                    fake_alert("保存失败！请检查网络是否正常。");
+                                    cansubmit=true;
+                                }
+                            },
+                            error:function () {
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                cansubmit=true;
+                                return;
+                            }
+                        });
+                    }else{
+                        $.ajax({
+                            type:"post",
+                            url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/submit_simplyFourTenHealthRecord_data',
+                            data:JsonObj,
+                            dataType:'json',
+                            contentType:'application/json;charset=UTF-8',
+                            success:function(data){
+                                console.log(data);
+                                if(data.res==0){
+                                    fake_alert("保存成功");
+                                    cansubmit=false;
+                                    setTimeout(function(){
+                                        //window.location=localhostUrl+":"+port+"/web-bin/m/nosen/followup/maternalChild/handBook/to_fourTenHealthRecord_page?healthBookId="+healthBookId;
+                                        window.history.go(-1);
+                                    },500)
+                                }else{
+                                    fake_alert("保存失败！请检查网络是否正常。");
+                                    cansubmit=true;
+                                }
+                            },
+                            error:function () {
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                cansubmit=true;
+                                return;
+                            }
+                        });
+                    }
+                }
+            })
+            //弹框选择
+            $("#check").click(function(){
+                var obj=$("#check").data("checkObj");
+                var val="",
+                    text="";
+                if($('input:radio').length>0){
+                    val=$('input:radio[name="radio"]:checked').val();
+                    text=$('input:radio[name="radio"]:checked').parent().next().text();
+                }else{
+                    $('input:checkbox[name="checkbox"]:checked').each(function(){
+                        val+=","+$(this).val();
+                        text+=","+$(this).parent().next().text();
+                    });
+                    val=val.substr(1);
+                    text=text.substr(1);
+                }
+                if(text==""){
+                    text=$("#check").data("checkText");
+                }
+                obj.text(text).css('color','#333');
+                obj.next().val(val);
+                $("#background").hide();
+                $("#window").hide();
+            });
+            //打开弹框初始化选择
+            function initChecked(a){
+                $("#check").data("checkObj",a);
+                $("#check").data("checkText",a.text());
+                if($('input:radio').length>0){
+                    $("#window_in").find("input[name='radio'][value='" + a.next().val() + "']").attr("checked",true);
+                }else{
+                    var str=a.next().val().split(",");
+                    for(var i=0;i<str.length;i++){
+                        $('#window_in input:checkbox[name="checkbox"][value='+str[i]+']').attr("checked",true);
+                    }
+                }
+                $(".window input").iCheck({
+                    checkboxClass: 'icheckbox_square-blue',
+                    radioClass: 'iradio_square-blue',
+                    increaseArea: '20%'
+                });
+                $("#background").show();
+                $("#window").show();
+            }
+            function fake_alert(text,element){
+                $("#background").show();
+                $("#fake_alert").show();
+                $("#msg").html(text);
+                $("#sure").click(function(){
+                    $("#background").hide();
+                    $("#fake_alert").hide();
+                });
+                element&&$("html,body").animate({scrollTop:$(element).offset().top-75},500);
+            }
+            var $html='<div class="can_delete">'+
+                '<div class="icon_delete icon_delete_js icon_delete_position"></div>'+
+                '<div class="main_option">'+
+                '<span>胎位</span>'+
+                '<div class="pink_arrow_right pink_arrow_right_position"></div>'+
+                '<span class="main_option_status fetusPosition_js" id="fetusPositionText">请选择</span>'+
+                '<input type="hidden" name="fetusPosition" id="fetusPosition">'+
+                '</div>'+
+                '<div class="main_option">'+
+                '<span>胎心音（bpm）</span>'+
+                 '<input type="text" placeholder="50b~250b(整数)" class="input_msg" id="fetalHeartSound" name="fetalHeartSound">'+
+                '</div>'+
+                '</div>';
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,669 @@
+/* ����ģ�� */
+.r_b_index .mc_content_bg{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/indexBg.png);
+    background-size: 10rem 10.4133rem;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    bottom: 0.2rem;
+    background-position: 100% 100%;
+}
+.r_b_index .index_title{
+	background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/indexTitle.png);
+    background-size: 7.1067rem 1.1333rem;
+    background-repeat: no-repeat;
+    height: 1.1333rem;
+    width: 7.1067rem;
+    position:absolute;
+    top:2.0rem;
+    left:50%;
+    margin-left:-3.5rem;
+}
+/* ��ǰƪ */
+.r_b_before0 .mc_content_bg{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/b_0_icon1.png);
+    background-size: 5.013rem 11.546rem;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-position: 0 0;
+}
+.r_b_before3 .mc_content_bg{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/b_3_icon1.png);
+    background-size: 4.69rem 3.36rem;
+    background-repeat: no-repeat;
+    height: 3.36rem;
+    width: 100%;
+    background-position: 100% 100%;
+}
+.r_b_before4 .mc_content_bg{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/b_4_icon1.png);
+    background-size: 5.7rem 4.09rem;
+    background-repeat: no-repeat;
+    height: 4.19rem;
+    width: 100%;
+    background-position: 100% 100%;
+}
+.r_b_before8 .mc_content_bg{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/b_8_icon1.png);
+    background-size: 9.2rem 8.36rem;
+    background-repeat: no-repeat;
+    height: 8.36rem;
+    width: 100%;
+    background-position: 50% 50%;
+}
+.r_b_before10 .t_icon_1{
+	background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/b_10_icon1.png);
+	background-size: 0.21rem 0.3rem;
+	background-repeat: no-repeat;
+	display:inline-block;
+	width:0.21rem;
+	height:0.36rem;
+	vertical-align: middle;
+}
+.r_b_before10 .t_icon_11{
+	background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/b_10_icon1.png);
+	background-size: 0.16rem 0.18rem;
+	background-repeat: no-repeat;
+	display:inline-block;
+	width:0.16rem;
+	height:0.18rem;
+	vertical-align: middle;
+	position:absolute;
+}
+.r_b_before10 .t_icon_2{
+	background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/b_10_icon2.png);
+	background-size: 0.33rem 0.34rem;
+	background-repeat: no-repeat;
+	display:inline-block;
+	width:0.33rem;
+	height:0.38rem;
+	vertical-align: middle;
+}
+.r_b_before10 .t_icon_22{
+	background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/b_10_icon2.png);
+	background-size: 0.18rem 0.2rem;
+	background-repeat: no-repeat;
+	display:inline-block;
+	width:0.18rem;
+	height:0.2rem;
+	vertical-align: middle;
+	position:absolute;
+}
+.r_b_before10 .t_icon_3{
+	background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/b_10_icon3.png);
+	background-size: 0.32rem 0.26rem;
+	background-repeat: no-repeat;
+	display:inline-block;
+	width:0.32rem;
+	height:0.28rem;
+	vertical-align: middle;
+}
+.r_b_before10 .t_icon_33{
+	background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/b_10_icon3.png);
+	background-size: 0.2rem 0.16rem;
+	background-repeat: no-repeat;
+	display:inline-block;
+	width:0.2rem;
+	height:0.16rem;
+	vertical-align: middle;
+	position:absolute;
+}
+/* �в�ƪ */
+.r_m_maternity .sub_module_bg{
+	background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/m_4_icon1.png);
+    background-size: 8.533rem 4rem;
+    background-repeat: no-repeat;
+    height: 4rem;
+    width: 100%;
+    background-position: 50% 50%;
+}
+.r_m_maternity0 .mc_content_bg{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/m_0_icon1.png);
+    background-size: 5.013rem 11.546rem;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-position: 0 0;
+}
+.r_m_maternity6 .mc_content_bg{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/m_6_icon.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 13.85rem;
+    width: 8.53rem;
+    background-position: 100% 100%;
+}
+.r_m_maternity7 .mc_content_bg{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/m_7_icon1.png);
+    background-size: 8.85rem 12.28rem;
+    background-repeat: no-repeat;
+    height: 12.28rem;
+    width: 100%;
+    background-position: 100% 100%;
+    margin-top:0.15rem;
+}
+.r_m_maternity8 .m_8_icon1{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/m_8_icon1.png);
+    background-size: 9.2rem 8.12rem;
+    background-repeat: no-repeat;
+    height: 8.12rem;
+    width: 100%;
+    background-position: 100% 100%;
+    margin: 0.5rem auto 0;
+}
+.r_m_maternity8 .mc_content_bg{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/m_8_icon.png);
+    background-size: 8.25rem 3.97rem;
+    background-repeat: no-repeat;
+    height: 3.97rem;
+    width: 8.25rem;
+    background-position: 100% 100%;
+    margin: 0.3rem auto 0;
+}
+.r_m_maternity9 .mc_content_bg{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/m_9_icon1.png);
+    background-size: 4.69rem 3.36rem;
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    float: right;
+    width: 4.69rem;
+    height: 3.36rem;
+}
+.r_m_maternity10 .mc_content_bg{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/m_10_icon1.png);
+    background-size: 4.69rem 3.36rem;
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    float: right;
+    width: 4.69rem;
+    height: 3.36rem;
+}
+.r_m_maternity11 .mc_content_bg{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/m_11_icon1.png);
+    background-size: 8.62rem 6.22rem;
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    width: 100%;
+    height: 6.22rem;
+}
+.r_m_maternity12 .mc_content_bg{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/m_12_icon1.png);
+    background-size: 8.74rem 10.4rem;
+    background-repeat: no-repeat;
+    height: 10.4rem;
+    width: 100%;
+    background-position: 50% 50%;
+    margin-top:0.3rem;
+}
+.r_m_maternity13 .mc_content_bg{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/m_13_icon1.png);
+    background-size: 5.13rem 5.58rem;
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    float: right;
+    width: 5.13rem;
+    height: 5.58rem;
+    margin-top:-0.5rem;
+}
+.r_m_maternity14 .sub_module_bg{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/m_4_icon1.png);
+    background-size: 8.533rem 4rem;
+    background-repeat: no-repeat;
+    height: 4rem;
+    width: 100%;
+    background-position: 50% 50%;
+}
+.r_m_maternity26 .m_26_icon{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/m_26_icon.png);
+    background-size: 8.78rem 5.26rem;
+    background-repeat: no-repeat;
+    height: 5.26rem;
+    width: 8.78rem;
+    background-position: 100% 100%;
+    margin: 1rem auto 0;
+}
+.r_m_maternity26 .m_26_icon1{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/m_26_icon1.png);
+    background-size: 8.78rem 5.26rem;
+    background-repeat: no-repeat;
+    height: 5.26rem;
+    width: 8.78rem;
+    background-position: 100% 100%;
+    margin: 1rem auto 0;
+}
+.r_m_maternity27 .m_27_icon{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/m_27_icon.png);
+    background-size: 8.78rem 5.26rem;
+    background-repeat: no-repeat;
+    height: 5.26rem;
+    width: 8.78rem;
+    background-position: 100% 100%;
+    margin: 2.186rem auto 0;
+}
+.r_m_maternity27 .m_27_icon1{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/m_27_icon1.png);
+    background-size: 8.78rem 5.26rem;
+    background-repeat: no-repeat;
+    height: 5.26rem;
+    width: 8.78rem;
+    background-position: 100% 100%;
+    margin: 1rem auto 0;
+}
+.r_m_maternity28 .m_28_icon{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/m_28_icon.png);
+    background-size: 9.22rem 5.64rem;
+    background-repeat: no-repeat;
+    height: 5.64rem;
+    width: 9.22rem;
+    background-position: 100% 100%;
+    margin: 0.3rem auto 0;
+}
+.r_m_maternity31 .mc_content_bg{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/m_31_icon.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 7.84rem;
+    width: 9.2rem;
+    background-position: 100% 100%;
+}
+/*��ͯƪ*/
+.r_c_0 .mc_content_bg{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_index_icon.png);
+    background-size: 5.013rem 11.546rem;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-position: 0 0;
+}
+.r_c_2 .child_bg{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_2_icon.png);
+    background-size: 100% 11rem;
+    height: 11rem;
+    width: 100%;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+}
+.r_c_3 .child_bg{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/childAgeIcon.png);
+    background-size: 8.29rem 3.73rem;
+    height: 3.73rem;
+    width: 100%;
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+}
+.r_c_5 .hand_small{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_5HandSmall_icon.png);
+    background-size: 0.68rem 0.6rem;
+    height: 0.6rem;
+    width: 0.68rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -0.15rem;
+    left: 2rem;
+}
+.r_c_5 .hand_big{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_5HandBig_icon.png);
+    background-size: 1.226rem 1.786rem;
+    height: 1.786rem;
+    width: 1.226rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 4.4rem;
+    right: 0.6rem;
+}
+.r_c_5 .foot_small{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_5FootSmall_icon.png);
+    background-size: 0.68rem 0.6rem;
+    height: 0.6rem;
+    width: 0.68rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -0.15rem;
+    left: 2rem;
+}
+.r_c_5 .foot_big{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_5FootBig_icon.png);
+    background-size: 1.226rem 1.786rem;
+    height: 1.786rem;
+    width: 1.226rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 4.4rem;
+    right: 0.6rem;
+}
+.r_c_6 .home_tree{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_6_icon.png);
+    background-size: 8.346rem 9.466rem;
+    height: 9.466rem;
+    width: 8.346rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 3.17rem;
+    left: 0.2rem;
+    z-index: 60;
+}
+.r_c_6 .home_img{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_6_icon1.png);
+    background-size: 1.6rem 1.6rem;
+    height: 1.6rem;
+    width: 1.6rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 20;
+}
+.r_c_6 .icon_2{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_6_icon2.png);
+    background-size: 0.066rem 0.386rem;
+    height: 0.386rem;
+    width: 0.066rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    float: left;
+    margin-left: 1.08rem;
+}
+.r_c_6 .icon_3{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_6_icon3.png);
+    background-size: 2.173rem 1.86rem;
+    height: 1.86rem;
+    width: 2.173rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    float: left;
+    margin-top: 0.133rem;
+}
+.r_c_6 .icon_4{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_6_icon4.png);
+    background-size: 2.173rem 1.86rem;
+    height: 1.86rem;
+    width: 2.173rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    float: left;
+    margin-top: 0.133rem;
+}
+.r_c_6 .leaf_two{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_6_icon5.png);
+    background-size: 0.733rem 0.773rem;
+    height: 0.773rem;
+    width: 0.733rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: -0.7rem;
+    top: 1.7rem;
+}
+.r_c_6 .leaf_three{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_6_icon6.png);
+    background-size: 0.746rem 1.1rem;
+    height: 1.1rem;
+    width: 0.746rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: -0.5rem;
+    top: 0.4rem;
+}
+.r_c_6 .leaf_baby{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_6_icon7.png);
+    background-size: 2.173rem 1.04rem;
+    height: 1.04rem;
+    width: 2.173rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.4rem;
+    left: 0rem;
+    z-index: 21;
+}
+.r_c_8 .tip_img{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_8_icon.png);
+    background-size: 4.693rem 3.36rem;
+    height: 3.36rem;
+    width: 4.693rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    float: right;
+}
+.r_c_9 .content_img{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_9_icon.png);
+    background-size: 14rem 6.933rem;
+    height: 6.93rem;
+    width: 14rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    float: right;
+    transform:rotate(90deg) translate(3rem,-2rem) ;
+    -ms-transform:rotate(90deg) translate(3rem,-2rem) ; 	/* IE 9 */
+    -moz-transform:rotate(90deg) translate(3rem,-2rem) ; 	/* Firefox */
+    -webkit-transform:rotate(90deg) translate(3rem,-2rem)  ; /* Safari �� Chrome */
+    -o-transform:rotate(90deg) translate(3rem,-2rem);
+}
+.r_c_10 .content_img{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_10_icon.png);
+    background-size: 14rem 6.933rem;
+    height: 6.93rem;
+    width: 14rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    float: right;
+    transform:rotate(90deg) translate(3rem,-2rem) ;
+    -ms-transform:rotate(90deg) translate(3rem,-2rem) ; 	/* IE 9 */
+    -moz-transform:rotate(90deg) translate(3rem,-2rem) ; 	/* Firefox */
+    -webkit-transform:rotate(90deg) translate(3rem,-2rem)  ; /* Safari �� Chrome */
+    -o-transform:rotate(90deg) translate(3rem,-2rem);
+}
+.r_c_12 .content_img{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_12_icon.png);
+    background-size: 14rem 6.933rem;
+    height: 6.93rem;
+    width: 14rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    float: right;
+    transform:rotate(90deg) translate(3rem,-2rem) ;
+    -ms-transform:rotate(90deg) translate(3rem,-2rem) ; 	/* IE 9 */
+    -moz-transform:rotate(90deg) translate(3rem,-2rem) ; 	/* Firefox */
+    -webkit-transform:rotate(90deg) translate(3rem,-2rem)  ; /* Safari �� Chrome */
+    -o-transform:rotate(90deg) translate(3rem,-2rem);
+}
+.r_c_13 .content_img{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_13_icon.png);
+    background-size: 14rem 6.933rem;
+    height: 6.93rem;
+    width: 14rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    float: right;
+    transform:rotate(90deg) translate(3rem,-2rem) ;
+    -ms-transform:rotate(90deg) translate(3rem,-2rem) ; 	/* IE 9 */
+    -moz-transform:rotate(90deg) translate(3rem,-2rem) ; 	/* Firefox */
+    -webkit-transform:rotate(90deg) translate(3rem,-2rem)  ; /* Safari �� Chrome */
+    -o-transform:rotate(90deg) translate(3rem,-2rem);
+}
+.r_c_13 .c_bird_icon{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_18_icon.png);
+    background-size: 0.6rem 0.84rem;
+    height: 0.84rem;
+    width: 0.6rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    transform:rotate(90deg) translate(9.5rem,0) ;
+    -ms-transform:rotate(90deg) translate(9.5rem,0) ; 	/* IE 9 */
+    -moz-transform:rotate(90deg) translate(9.5rem,0) ; 	/* Firefox */
+    -webkit-transform:rotate(90deg) translate(9.5rem,0)  ; /* Safari �� Chrome */
+    -o-transform:rotate(90deg) translate(9.5rem,0);
+}
+.r_c_13 .c_13_icon{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_13_icon1.png);
+    background-size: 1.61rem 2.09rem;
+    height: 2.09rem;
+    width: 1.61rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    transform:rotate(90deg) translate(0.5rem,0) ;
+    -ms-transform:rotate(90deg) translate(0.5rem,0) ; 	/* IE 9 */
+    -moz-transform:rotate(90deg) translate(0.5rem,0) ; 	/* Firefox */
+    -webkit-transform:rotate(90deg) translate(0.5rem,0)  ; /* Safari �� Chrome */
+    -o-transform:rotate(90deg) translate(0.5rem,0);
+}
+.r_c_14 .c_14_icon{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_14_icon.png);
+    background-size: 8.4rem 9.746rem;
+    height: 9.746rem;
+    width: 8.4rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    float: right;
+    margin-top: 0.666rem;
+    margin-right: 0.4rem;
+}
+.r_c_15 .c_15_icon{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_15_icon.png);
+    background-size: 9.173rem 10.5rem;
+    height: 10.5rem;
+    width: 9.173rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    float: right;
+    margin-top: 0.666rem;
+}
+.r_c_17 .c_17_icon{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_17_icon.png);
+    background-size: 4.386rem 3rem;
+    height: 3rem;
+    width: 100%;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    float: right;
+    margin-right: 2.5rem;
+    margin-top: 1rem;
+}
+.r_c_28 .c_28_icon{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_28_icon.png);
+    background-size: 3.88rem 4.92rem;
+    height: 4.92rem;
+    width: 3.88rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.92rem;
+    left: 2.7rem;
+}
+.r_c_29 .child_bg{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/childAgeIcon.png);
+    background-size: 8.29rem 3.73rem;
+    height: 3.73rem;
+    width: 100%;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    margin-left: -0.45rem;
+}
+.r_c_30 .c_30_icon{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_30_icon.png);
+    background-size: 5.45rem 4.64rem;
+    height: 4.64rem;
+    width: 100%;
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+    margin-top: 1rem;
+}
+.r_c_39 .child_bg{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/childAgeIcon.png);
+    background-size: 8.29rem 3.73rem;
+    height: 3.73rem;
+    width: 100%;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    margin-left: -0.45rem;
+}
+.r_c_40 .c_40_icon{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_40_icon.png);
+    background-size: 3.08rem 3.76rem;
+    height: 3.76rem;
+    width: 3.08rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    float: right;
+    margin-top: 1.5rem;
+}
+.r_c_49 .c_49_icon_boy{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_49_icon_boy.png);
+    background-size: 100% 12.02rem;
+    height: 12.02rem;
+    width: 100%;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    margin-top: 0.8rem;
+}
+.r_c_50 .c_49_icon_boy{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/c_50_icon_girl.png);
+    background-size: 100% 12.02rem;
+    height: 12.02rem;
+    width: 100%;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    margin-top: 0.8rem;
+}
+/*Ԥ������ƪ*/
+.r_p_index .mc_content_bg{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/p_index_icon.png);
+    background-size: 5.013rem 11.546rem;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-position: 0 0;
+}
+.r_p_3 .p_3_icon{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/p_3_icon.png);
+    background-size: 9.213rem 9.44rem;
+    height: 9.44rem;
+    width: 9.213rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    margin-top: 0.373rem;
+}
+.r_p_4 .p_4_icon{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/p_4_icon.png);
+    background-size: 9.213rem 9.69rem;
+    height: 9.69rem;
+    width: 9.213rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    margin-top: 0.373rem;
+}
+.r_p_4 .p_4_icon1{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/p_4_icon1.png);
+    background-size: 3.373rem 3.85rem;
+    height: 3.85rem;
+    width: 3.373rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    margin-top: 0.49rem;
+    margin-right: 1.17rem;
+    float: right;
+}
+.r_p_5 .p_5_icon{
+    background-image: url(/web-bin/mobile/followup/maternalChild/handBook/images/p_5_icon.png);
+    background-size: 14.88rem 7.37rem;
+    height: 7.37rem;
+    width: 14.88rem;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    transform:rotate(90deg) translate(3.7rem,2.5rem) ;
+    -ms-transform:rotate(90deg) translate(3.7rem,2.5rem) ; 	/* IE 9 */
+    -moz-transform:rotate(90deg) translate(3.7rem,2.5rem) ; 	/* Firefox */
+    -webkit-transform:rotate(90deg) translate(3.7rem,2.5rem)  ; /* Safari �� Chrome */
+    -o-transform:rotate(90deg) translate(3.7rem,2.5rem);
+}

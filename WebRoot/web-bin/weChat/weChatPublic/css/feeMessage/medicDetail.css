@@ -1,0 +1,87 @@
+.medic_top{
+    height:76px;
+    background-color: #fff;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.medic_bottom{
+    padding: 0 10px 0 10px;
+}
+.medic_detail_box{
+    padding-left: 15px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.04);
+    border-radius: 4px;
+    background-color: #fff;
+    margin-top: 10px;
+}
+.medic_detail_title{
+    height:45px;
+    border-bottom: 1px solid #D9D9D9;
+    color:#333333;
+    font-size: 17px;
+    line-height: 45px;
+    font-weight: bold;
+}
+.medical_detail{
+    height:55px;
+    overflow: hidden;
+}
+.medical_detail li{
+    width:50%;
+    height:50%;
+    float: left;
+    line-height: 28px;
+    color: #333333;
+}
+.medic_progress{
+    min-height: 100px;
+    padding:10px 20px 10px 10px;
+}
+.medic_progress li{
+    height:55px;
+    border-left:1px solid #D9D9D9;
+    font-size: 15px;
+    color: #999999;
+    position: relative;
+}
+.medic_progress li:last-child{
+    border:0;
+}
+.medic_name{
+    max-width: 70%;
+    height: 100%;
+    float:left;
+    margin-left: 15px;
+}
+.end_medic{
+    color:#EE7534;
+}
+.time{
+    width:40%;
+    height:100%;
+    float:right;
+    text-align: right;
+}
+.time div{
+    height:50%;
+
+}
+.status{
+    width:13px;
+    height:13px;
+    background: url(../../img/medic_ing.png) no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top:1px;
+    left:-6px;
+}
+.fresh{
+    width:23px;
+    height:22px;
+    background: url(../../img/fresh.png) no-repeat;
+    background-size: 100% 100%;
+    float: right;
+    margin-top: 12px;
+    margin-right: 17px;
+}

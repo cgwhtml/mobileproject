@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>胎心处理</title>
+	<meta charset="utf-8">
+	<link type="text/css" rel="stylesheet" href="/web-bin/resources/css/fonts.css"/>
+	<link type="text/css" rel="stylesheet" href="/web-bin/resources/chosen/chosen.css"/>
+	<link type="text/css" rel="stylesheet" href="/web-bin/interview/followup/healthMonitor/css/fetalHeartHandle.css">
+    <script type="text/javascript" src="/web-bin/resources/js/swfobject.js"></script>
+    <!--[if IE]>
+	<script type="text/javascript">
+            var swfVersionStr = "11.1.0";
+            var xiSwfUrlStr = "playerProductInstall.swf";
+            var flashvars = {};
+            var params = {};
+            params.quality = "high";
+            params.bgcolor = "#ffffff";
+            params.allowscriptaccess = "sameDomain";
+            params.allowfullscreen = "true";
+            params.wmode="transparent";//设置flash层级比html低
+            var attributes = {};
+            attributes.id = "print";
+            attributes.name = "print";
+            attributes.align = "middle";
+            swfobject.embedSWF(
+                 "/web-bin/interview/followup/healthMonitor/print2.swf", "flashContent",
+                "100%", "100%", 
+                swfVersionStr, xiSwfUrlStr, 
+                flashvars, params, attributes);
+			swfobject.createCSS("#flashContent", "display:block;text-align:left;");
+    </script>
+    <![endif]-->
+	<style type="text/css">
+	.chosen-container-single .chosen-single{
+	  height: 24px;
+	  border: 1px solid #ccc;
+	  color: #333;
+	  line-height: 22px;
+	  border-radius: 0px;
+	  padding: 0 0 0 6px;
+	  background-color: #fff;
+	  position: relative;
+	  display: block;
+	  overflow: hidden;
+	  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #ffffff), color-stop(50%, #f6f6f6), color-stop(52%, #eeeeee), color-stop(100%, #f4f4f4));
+	  background: -webkit-linear-gradient(top, #ffffff 20%, #ffffff 50%, #ffffff 52%, #ffffff 100%);
+	  background: -moz-linear-gradient(top, #ffffff 20%, #ffffff 50%, #ffffff 52%, #ffffff 100%);
+	  background: -o-linear-gradient(top, #ffffff 20%, #ffffff 50%, #ffffff 52%, #ffffff 100%);
+	  background: linear-gradient(top, #ffffff 20%, #ffffff 50%, #ffffff 52%, #ffffff 100%);
+	  background-clip: padding-box;
+	  box-shadow: 0 0 0px white inset, 0 0px 0px rgba(0, 0, 0, 0.1);
+	  text-decoration: none;
+	  white-space: nowrap;
+	}
+	.chosen-container {
+    	font-size: 12px;
+    	margin-top:-3px;
+	}
+	.print_class{
+	 	height:410px;
+	}
+	</style>
+</head>
+<body>
+    <div class="wrapper">
+	    <div class="mainContent T1" id="mainContent">
+		    <p style="font-size:14px;line-height:40px;padding-left:20px">异常处理</p>
+		    <input type="hidden" id="healthId"/>
+		    <input type="hidden" id="hospCode"/>
+		    <div style="height:120px" class="nav_border">
+		    	<div class="basic_nav">
+		    		<div style="margin-top:-3px;padding-top:0" class="modular_title">
+		    			<span>基本信息</span>
+		    			<div class="fine_line"></div>
+		    		</div>
+		    		<div class="basic_info">
+		    			<table cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;width:100%">
+		    				<tr>
+		    					<td style="width:88px"><img src="/web-bin/resources/images/woman.png" style="width:60px;height:60px;margin-left:12px;margin-top:18px"></td>
+		    					<td style="width:124px">
+		    						<p>姓名：<span id="name">--</span></p>
+		    						<p>年龄：<span id="age">--</span>岁</p>
+		    					</td>
+		    					<td>
+		    						<p>孕周：<span id="gestationalWeeks">--</span></p>
+		    						<p>手机：<span id="phone">--</span></p>
+		    					</td>
+		    				</tr>
+		    			</table>
+		    		</div>
+		    	</div>
+		    	<div class="fetal_info">
+		    		<p>监护开始时间：<span id="measuringBeginTime">--</span></p>
+		    		<p>监护结束时间：<span id="measuringEndTime">--</span></p>
+		    		<!--[if !IE]>-->
+		    		<div class="fetalImg_nav">
+		    			<div class="circle_back"></div>
+		    			<div class="ring"></div>
+		    			<div class="realTimeData">
+		    				<p class="valueNow">0</p>
+		    				<p class="unitImg"></p>
+		    			</div>
+		    		</div>
+		    		<div class="progressBar">
+		             	 <div class="timeNow">00:00</div>
+		             	 <div class="progressNav">
+		             	 	<div class="progressBac"></div>
+		             	 	<div class="speed" id="speed"></div>
+		             	 </div>
+					     <div class="timeTotal" id="timeTotal">--:--</div>
+					     <div class="playBtn"><img value="" class="play" src="/web-bin/resources/images/9.png" title="播放" width="33px" height="33px"></div>
+		            </div>
+		            <!--<![endif]-->
+		    	</div>
+		    </div>
+		    <div style="margin-top:6px;height:450px" class="nav_border">
+		    	<div>
+			    	<div class="modular_title">
+		    			<span>胎心曲线</span>
+		    			<div class="fine_line"></div>
+			    	</div>
+			    	<div style="clear:both"></div>
+			    	<div style="margin-top:12px;margin-left:14px">
+			    		<span>走纸速度：</span>
+			    		<select data-placeholder=" " class="chosen-select-deselect" tabindex="2" id="minWidth">
+			    			<option value="60">1厘米/分钟</option>
+			    			<option value="30">2厘米/分钟</option>
+			    			<option value="20">3厘米/分钟</option>
+			    		</select>
+			    	</div>
+			    	<div class="healthData" id="healthId"><!-- class不可改变 -->
+	             	    <input type="hidden" class="data" value=""/>
+	             	    <input type="hidden" class="fetalMoveData" value="">
+	             	    <input type="hidden" class="uterusData" value="">
+	             	</div>
+	             	<!--[if !IE]>-->
+			    	<div class="chart" id="chart"><!-- id和class不可以变 -->
+						<div id="loading" style="position:absolute;left:49%;top:36%"></div>
+						<input type="hidden" class="music" value=""/>
+		                <canvas class="oyLabel"></canvas>
+		                <div style="margin-left:40px;overflow:hidden">
+		                    <canvas class="contentChart"></canvas>
+		                </div>
+		                <div style="overflow-x:hidden">
+		                    <canvas class="oxLabel"></canvas>
+		                </div>
+		                <canvas class="uterusYLabel"></canvas>
+		                <div style="margin-left:40px;overflow:hidden">
+		                	<canvas class="uterusChart"></canvas>
+		                </div>
+		            </div>
+		            <!--<![endif]-->
+		           <div id="flash_nav" style="display:none">
+			       		<div class="fetalImg_nav" style="top:50px;right:40px;">
+		    				<div class="circle_back"></div>
+	    					<div class="ring"></div>
+	    					<div class="realTimeData">
+	  							<p class="valueNow">0</p>
+	   							<p class="unitImg"></p>
+	    					</div>
+			   	 		</div>
+			  		    <div class="print_class">
+	   					 	<div id="flashContent">
+								<script type="text/javascript"> 
+										var pageHost = ((document.location.protocol == "https:") ? "https://" :	"http://"); 
+										document.write("<a href='http://www.adobe.com/go/getflashplayer'><img src='" 
+										+ pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' /></a>" ); 
+								</script> 
+	     		  			</div>	   	
+	     	   				<noscript>
+	            				<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100%" height="100%" id="print">
+	                						<param name="movie" value="print.swf" />
+	                						<param name="quality" value="high" />
+	                						<param name="bgcolor" value="#ffffff" />
+	                						<param name="allowScriptAccess" value="sameDomain" />
+	                						<param name="allowFullScreen" value="true" />
+	                				 	<!--[if !IE]>-->
+	                			 		<object type="application/x-shockwave-flash" data="print.swf" width="100%" height="100%" id="print">
+	                    					<param name="quality" value="high" />
+	                    					<param name="bgcolor" value="#ffffff" />
+	                    					<param name="allowScriptAccess" value="sameDomain" />
+	                    					<param name="allowFullScreen" value="true" />
+	                			  		<!--<![endif]-->
+	               				 		<!--[if !IE]>-->
+	              	 	 				</object>
+	               	   			 		<!--<![endif]-->
+	          				 	</object>
+		  	  			 	</noscript>
+	      				</div>
+      				</div>
+		    	</div>
+		    </div>
+		    <div style="margin-top:20px;height:292px">
+		    	<div class="monitor_result">
+		    		<div class="modular_title">
+		    			<span>监测结果</span>
+		    			<div class="fine_line"></div>
+		    		</div>
+		    		<div class="result_info">
+			    		<table cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;width:460px">
+			    			<tr>
+			    				<td colspan="2">Kreb'&nbsp;&nbsp;S评分：<input type="text" id="score"/>分</td>
+			    			</tr>
+			    			<tr>
+			    				<td colspan="2">
+			    					<span>NST：</span>
+			    					<input type="checkbox" name="checkbox1"/>
+			    					<span style="margin-right:9px">有反应</span>
+			    					<input type="checkbox" name="checkbox1"/>
+			    					<span style="margin-right:9px">无反应</span>
+			    					<input type="checkbox" name="checkbox1"/>
+			    					<span style="margin-right:9px">正弦曲线</span>
+			    					<input type="checkbox" name="checkbox1"/>
+			    					<span>不满意</span>
+			    				</td>
+			    			</tr>
+			    			<tr>
+			    				<td colspan="2">
+			    					<span>OCT：</span>
+			    					<input type="checkbox" name="checkbox2"/>
+			    					<span style="margin-right:9px">OST或NS-OST</span>
+			    					<input type="checkbox" name="checkbox2"/>
+			    					<span style="margin-right:9px">阳性</span>
+			    					<input type="checkbox" name="checkbox2"/>
+			    					<span style="margin-right:9px">阴性</span>
+			    					<input type="checkbox" name="checkbox2"/>
+			    					<span style="margin-right:9px">可疑</span>
+			    					<input type="checkbox" name="checkbox2"/>
+			    					<span>不满意</span>
+			    				</td>
+			    			</tr>
+			    			<tr>
+			    				<td colspan="2">
+			    					<span style="margin-top:9px;margin-right:8px">备注：</span>
+			    					<textarea id="remark"></textarea>
+			    				</td>
+			    			</tr>
+			    			<tr>
+			    				<td style="width:160px">
+			    					<p>监护医生：<span id="doctorName" style="float:none">--</span></p>
+			    				</td>
+			    				<td>
+			    					<p>报告时间：<span style="float:none" id="reportTime">--</span></p>
+			    				</td>
+			    			</tr>
+			    			<tr>
+			    				<td colspan="2">医生签名：<input type="text" readonly="readonly"/></td>
+			    			</tr>
+			    		</table>
+		    		</div>
+		    	</div>
+		    	<div class="score_table">
+		    		<div class="modular_title">
+		    			<span>Kreb'&nbsp;&nbsp;S评分表</span>
+		    			<div class="fine_line"></div>
+		    		</div>
+		    		<div class="score_info">
+			    		<table cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;width:435px">
+			    			<tr>
+			    				<td style="width:130px">评分</td>
+			    				<td style="width:100px">0分</td>
+			    				<td style="width:120px">1分</td>
+			    				<td style="width:100px">2分</td>
+			    			</tr>
+			    			<tr>
+			    				<td>胎心率基线（BPM）</td>
+			    				<td>&lt;100或&gt;180</td>
+			    				<td>100-119或161-180</td>
+			    				<td>120-160</td>
+			    			</tr>
+			    			<tr>
+			    				<td>变异振幅（BPM）</td>
+			    				<td>&lt;5</td>
+			    				<td>5-9或&gt;25</td>
+			    				<td>10-25</td>
+			    			</tr>
+			    			<tr>
+			    				<td>变异频率（次/分）</td>
+			    				<td>&lt;3</td>
+			    				<td>3-6</td>
+			    				<td>&gt;6</td>
+			    			</tr>
+			    			<tr>
+			    				<td>加速（次/30分）</td>
+			    				<td>0</td>
+			    				<td>1-4</td>
+			    				<td>&gt;=5</td>
+			    			</tr>
+			    			<tr>
+			    				<td>减速（次/30分）</td>
+			    				<td>&gt;=2</td>
+			    				<td>1</td>
+			    				<td>无或早减</td>
+			    			</tr>
+			    			<tr>
+			    				<td>胎动次数</td>
+			    				<td>0</td>
+			    				<td>1-4</td>
+			    				<td>&gt;=5</td>
+			    			</tr>
+			    		</table>
+		    		</div>
+		    	</div>
+		    </div>
+		    <div class="state">
+		    	<p>说明：1. 本报告仅对监测样本负责，仅供临床参考，不做诊断证明之用。</p>
+		    	<p style="text-indent:36px;">2. 请依据医生建议按时复诊检查。</p>
+		    	<p style="text-indent:36px;">3. 请孕妇自感不适随时前往医院检查就诊。</p>
+		    </div>
+		    <div class="btn_nav">
+		    	<div style="width:138px;margin:0 auto">
+		    		<!-- <div class="cancel"><a href="javascript:void(0)" class="button gray T2">取消</a></div> -->
+		    		<div class="generate" onclick="submit()">
+						<div class="blue_highlight save_btn">生成报告</div>
+					</div>
+		    	</div>
+		    </div>
+		    <div style="height:70px;width:200px"></div>
+	    </div>
+    </div>
+</body>    
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/chosen/chosen.jquery.js"></script>
+<script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/checkbox/changeCheckbox.js"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/artDialog.source.js?skin=white"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/iframeTools.source.js"></script>
+<!--[if !IE]>-->
+<script type="text/javascript" src="/web-bin/interview/followup/healthMonitor/js/h_chart1.js"></script>
+<script type="text/javascript" src="/web-bin/interview/followup/healthMonitor/js/h_report1.js"></script>
+<!--<![endif]-->
+<script type="text/javascript" src="/web-bin/interview/followup/healthMonitor/js/fetalHeartHandle.js"></script>
+<script>
+    window.onload=function(){
+	   change();
+	};
+    $(window).resize(function(){
+	   change();
+	});
+	function change(){
+	   $("html").height($(window).height());
+	}
+	$(function(){
+	   //滚动条
+	   $("html").height($(window).height());
+	   $("html").niceScroll({
+	       railpadding: { top:0, right: 2, left: 0, bottom:0 },
+           cursorborder:"",
+           cursoropacitymin: 0.2,
+           cursoropacitymax: 0.2,
+           cursorcolor:"#000000",
+           zindex: "99",
+           cursorwidth: "9px",
+           horizrailenabled:false//掩藏水平滚动条
+       });
+       //下拉框
+	   $(".chosen-select-deselect").chosen({
+	    	disable_search_threshold:10,
+	    	allow_single_deselect:true,
+	    	search_contains:true,
+	    	no_results_text:"未找到此选项",
+	    	width:"112px"
+	   });
+	});
+</script>

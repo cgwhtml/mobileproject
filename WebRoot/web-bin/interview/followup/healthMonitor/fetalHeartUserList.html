@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>胎监管理-用户中心</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<link type="text/css" rel="stylesheet" href="/web-bin/resources/css/fonts.css"/>
+	<link type="text/css" rel="stylesheet" href="/web-bin/resources/mypagination/js/myPagination/page.css">
+	<link type="text/css" rel="stylesheet" href="/web-bin/resources/mypagination/js/msgbox/msgbox.css"/>
+	<link type="text/css" rel="stylesheet" href="/web-bin/interview/followup/healthMonitor/css/fetalHeartUserList.css"/>
+</head>
+<body>
+<div class="wrapper">
+	<div class="mainContent" id="mainContent">
+		<div class="patient_list">
+			<div class="content_title">
+				<div class="bTitle_text">用户列表</div>
+				<div class="oper_box">
+                    <input type="text" t_placeholder="输入姓名/手机号搜索" class="s_input" id="seachValue"/>
+					<div class="blue_highlight" id="addFetalUser">新增用户</div>
+				</div>
+			</div>
+			<div class="content_table">
+				<p style="display:none"><textarea id="Template-ListRows1" rows="0" cols="0">
+                    <table cellspacing="0" cellpadding="0"  border="0" style="width:100%;border-collapse:collapse;" class="bg_change_table">
+                        <tr class="table_head">
+                            <td>姓名</td>
+                            <td>身份证号</td>
+                            <td>手机号码</td>
+                            <td>剩余次数</td>
+                            <td style="width:110px">操作</td>
+                        </tr>
+                        {#foreach $T as Row}
+                        <tr id="{$T.Row.configureId}">
+                            <td>
+                                <div class="patName" phone="{$T.Row.phone}">
+                                    <div class="substr" style="max-width:70px" title="{$T.Row.name}">{$T.Row.name}</div>
+                                    <div class="arrow_oper"><i class="design_icon arrow_icon arrow_gray_right"></i></div>
+                                </div>
+                            </td>
+                            <td>{#if $T.Row.idCard!=null}{$T.Row.idCard}{#/if}</td>
+                            <td>{#if $T.Row.phone!=null}{$T.Row.phone}{#/if}</td>
+                            <td>{#if $T.Row.value!=null}{$T.Row.value}{#else}0{#/if}</td>
+                            <td><a href="javascript:void(0)" class="a_color1" onclick="toSetFrequency('{$T.Row.name}','{$T.Row.phone}','{$T.Row.age}')">设置服务次数</a></td>
+                        </tr>
+                        <tr style="display:none">
+                            <td colspan="6" style="padding-right:10px;padding-bottom:10px">
+                                <div class="drop_content_table"></div>
+                            </td>
+                        </tr>
+                        {#/for}
+                    </table>
+                </textarea></p>
+				<p style="display:none"><textarea id="Template-ListRows2" rows="0" cols="0">
+                    <table cellspacing="0" cellpadding="0"  border="0" style="width:100%;border-collapse:collapse;" class="bg_change_table drop_table">
+                        <tr style="background-color:#D5E5CA !important;height:34px">
+                            <td>监护时间</td>
+                            <td>报告时间</td>
+                            <td>监护医生</td>
+                            <td>操作</td>
+                        </tr>
+                        {#foreach $T as Row}
+                        <tr class="bg_class_odd">
+                            <td>{$T.Row.startTime}</td>
+                            <td>{$T.Row.reportTime}</td>
+                            <td>{$T.Row.docName}</td>
+                            <td><a href="javascript:void(0)" class="a_color1" onclick="toCheckReport('{$T.Row.healthId}','{$T.Row.hospCode}')">查看报告</a></td>
+                        </tr>
+                        {#/for}
+                    </table>
+                </textarea></p>
+				<div id="data_table"></div>
+				<div id="page"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/inputer/inputer.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/mypagination/js/myPagination/jquery.myPagination6.0.js"></script>
+<script type="text/javascript" src="/web-bin/resources/mypagination/js/msgbox/msgbox.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/artDialog.source.js?skin=white"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/iframeTools.source.js"></script>
+<script type="text/javascript" src="/web-bin/interview/followup/healthMonitor/js/fetalHeartUserList.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("html").niceScroll({
+            railpadding: { top:0, right: 0, left: 0, bottom:0 }
+        });
+    });
+</script>
+</body>
+</html>

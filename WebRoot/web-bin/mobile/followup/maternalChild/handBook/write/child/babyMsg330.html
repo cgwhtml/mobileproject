@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>出牙记录</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+    <style>
+        .read_content{
+            width: 9.213rem;
+        }
+        .item_middle:first-child,
+        .item_middle{
+            margin-bottom: 0.6rem;
+        }
+        .read_content{
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="total">
+        <p style="display:none"><textarea id="Template-ListRows" rows="0" cols="0">
+            {#foreach $T as msg}
+            <div class="item item_middle">
+                <input type="hidden" id="item_id" value="{$T.msg.babyId}">
+                <div class="read_content">
+                    <div class="read_content_title to_edit">
+                        {$T.msg.name}
+                        <div class="pink_pen edit_read_ontent"></div>
+                    </div>
+                    <div class="read_content_detail">
+                        <div class="read_content_detail">
+                            开始长牙年龄（个月）
+                            <div class="read_content_detail_num"> {$T.msg.startTeethMonth}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             {#/for}
+            </textarea></p>
+        <div id="data_table"></div>
+    </div>
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+    <script>
+    $(function(){
+        var localhostUrl=window.location.origin;
+        var query=getRequest();
+        var healthBookId=query.healthBookId;
+        window.addEventListener('pageshow', function () {
+            $.ajax({
+                type:"post",
+                url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_babyTeethRecordList_data?healthBookId='+healthBookId+"&ram="+Math.random(),
+                dataType:'json',
+                contentType:'application/json;charset=UTF-8',
+                success:function(data){
+                    if(data.res==0){
+                        console.log(data);
+                        var msg=data.data;
+                        $("#data_table").setTemplateElement("Template-ListRows").processTemplate(msg);
+                    }else{
+                        alert('请求失败');
+                    }
+                },
+                error:function () {
+                    alert('请求失败');
+                    return;
+                }
+            });
+        });
+        $("#data_table").on('click','.to_edit',function () {
+            var id=$(this).parents('.item_middle').find('#item_id').val();
+            window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_addHasTeethRecord_page?healthBookId="+healthBookId+'&babyId='+id;
+        })
+    });
+    </script>
+</body>
+</html>

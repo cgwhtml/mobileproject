@@ -1,0 +1,74 @@
+.wrapper{
+    height:100%;
+    padding:10px 10px 0 10px;
+    box-sizing: border-box;
+}
+#payList li{
+    width:100%;
+    height:80px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.04);
+    border-radius: 4px;
+    overflow: hidden;
+    padding:15px;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+#payList li:nth-child(1){
+    margin-top: 0;
+}
+.pay_left{
+    width:80%;
+    height: 100%;
+    float: left;
+}
+.pay_left div:nth-child(1){
+    font-size: 17px;
+    font-weight: bold;
+    height:50%;
+}
+.pay_left div:nth-child(2){
+    font-size: 13px;
+    height:50%;
+    line-height: 25px
+}
+.pay_right{
+    width:20%;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+.account-no{
+    width:50px;
+    height:16px;
+    background: #F69A9A;
+    border-radius: 2px;
+    font-size: 11px;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 16px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -8px;
+}
+.account-end{
+    width:44px;
+    height:16px;
+    background: #4ADBC1;
+    border-radius: 2px;
+    font-size: 11px;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 16px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -8px;
+}
+.gray_arrow{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -7px;
+}

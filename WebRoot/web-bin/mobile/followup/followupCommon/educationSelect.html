@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择宣教</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name = "format-detection" content = "telephone=no">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/followupCommon/css/basic.css"/>
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/followupCommon/css/educationSelect.css"/>
+</head>
+<body>
+<div class="main">
+    <!-- 置顶搜索框 -->
+    <div class="search_box">
+        <div class="search" >
+            <input type="text" placeholder="搜索" class="searchInput">
+            <div class="search_img"><img src="/web-bin/mobile/repository/drug/images/search.png"/></div>
+        </div>
+    </div>
+    <!-- 取消-->
+    <button class="cancle">取消</button>
+    <!-- 搜索结果 -->
+    <div class="search_res">
+        <div class="input_mes substr">在列表中搜索“<span></span>”</div>
+        <div class="null_mes">没有匹配结果</div>
+        <!-- 搜索结果列表隐藏域 -->
+        <p style="display:none">
+            <textarea id="search_temp" cols="30" rows="10" style="display: none">
+            {#foreach $T as Row}
+            <div class="list">
+                <input type="hidden" value="{$T.Row.id}" class="id">
+                <div class="list_inner">
+                    <i class="icon"></i><span class="title">{$T.Row.title}</span>
+                </div>
+                <div class="btn_box">
+                    <a class="btn gray"></a>
+                </div>
+            </div>
+            {/#for}
+        </textarea>
+        </p>
+        <div class="con_box"></div>
+    </div>
+    <!--全列表-->
+    <div class="content">
+        <div class="con_box pat"></div>
+        <textarea id="con_temp" cols="30" rows="10" style="display: none">
+            {#foreach $T as Row}
+            <div class="list">
+                <input type="hidden" value="{$T.Row.id}" class="id">
+                <div class="list_inner">
+                    <i class="icon"></i><span class="title">{$T.Row.title}</span>
+                </div>
+                <div class="btn_box">
+                    <a class="btn gray"></a>
+                </div>
+            </div>
+            {/#for}
+        </textarea>
+        <div class="end"></div>
+    </div>
+    <div class="footer">
+        <div class="phone_show">发送给<span class="phone_num"></span></div>
+        <span class="btn_send">确认发送</span>
+        <i class="edit_btn"></i>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script src="/web-bin/resources/rem/rem.js"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/artDialog.source.js?skin=white"></script>
+<script src="/web-bin/resources/artdialog/iframeTools.source.js"></script>
+<script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="/web-bin/mobile/followup/followupCommon/js/educationSelect.js"></script>
+</html>

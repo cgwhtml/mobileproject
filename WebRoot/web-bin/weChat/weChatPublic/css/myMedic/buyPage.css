@@ -1,0 +1,41 @@
+.wrapper{
+    height:100%;
+    background-color: #F4F4F4;
+    box-sizing: border-box;
+    padding-top: 18px;
+}
+.buy_msg{
+    background-color: #fff;
+    padding:0 10px 0 10px;
+    height:50px;
+    line-height: 50px;
+    font-size: 15px;
+}
+.money{
+    float:right;
+}
+.money span{
+    color:red;
+    font-size: 16px;
+}
+#goBuy{
+    width:95%;
+    height:50px;
+    color:#fff;
+    background-color: red;
+    margin:10px auto;
+    text-align: center;
+    line-height: 50px;
+    font-size: 17px;
+}
+.warning_msg_box{
+    margin-top: 50px;
+    border-top:1px solid #ECECEC;
+    box-sizing: border-box;
+    padding:10px 10px 10px 10px;
+    color:#999;
+    font-size: 15px;
+}
+.warning_msg_box li{
+    margin-top:10px;
+}

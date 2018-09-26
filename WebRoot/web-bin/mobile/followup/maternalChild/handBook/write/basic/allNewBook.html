@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>母子健康手册</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic/css/allNewBook.css">
+    <link rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/read/read_flexible.css">
+<body>
+    <div class="J_Poster poster-main" data-setting='{
+                                                        "width":"100%",
+                                                        "height":"100%",
+                                                        "posterWidth":"6.6",
+                                                        "posterHeight":"12.1",
+                                                        "scale":0.9,
+                                                        "speed":500,
+                                                        "autoPlay":"false",
+                                                        "delay":1000,
+                                                        "verticalAlign":"middle"
+                                                        }'>
+        <p style="display:none"><textarea id="Template-ListRows" rows="0" cols="0">
+            <ul class="poster-list" id="poster-wrap">
+                {#foreach $T as Row}
+                <li class="poster-item" id="{$T.Row.id}">
+                    <div class="book_content_warp">
+                        <div class="book_content">
+                            <div class="mc_content_bg"></div>
+                            <div class="index_title"></div>
+                            <div class="mc_content_main">
+                                <input type="hidden" id="userStatusCode" value="{$T.Row.userStatusCode}">
+                                <input type="hidden" id="healthBookId" value="{$T.Row.id}">
+                                <p class="mother_name">
+                                    <span>母亲姓名：</span><input type="text" disabled="disabled" value="{$T.Row.motherName}"/>
+                                </p>
+                                {#foreach $T.Row.childName as Mow}
+                                <p>
+                                    <span>儿童姓名：</span><input type="text" class="child_name" disabled="disabled" value="{$T.Mow}"/>
+                                </p>
+                                {#/for}
+                                <div class="content_bottom">国家卫生和计划生育委员会</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="text-align:center;margin-top: 0.5rem">建档时间：{$T.Row.createBookTime}</p>
+                </li>
+                {#/for}
+            </ul>
+        </textarea></p>
+        <div id="data_ul" style="height: 100%"></div>
+        <div id="addBook" class="addBook"></div>
+        <img src="" class="hos_img" alt="" style="display: none">
+    </div>
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript" src="/web-bin/mobile/followup/maternalChild/handBook/write/basic/js/allNewBook.js"></script>
+    <script>
+        window.onload=function () {
+            document.addEventListener('touchstart',function (event) {
+                if(event.touches.length>1){
+                    event.preventDefault();
+                }
+            });
+            var lastTouchEnd=0;
+            document.addEventListener('touchend',function (event) {
+                var now=(new Date()).getTime();
+                if(now-lastTouchEnd<=300){
+                    event.preventDefault();
+                }
+                lastTouchEnd=now;
+            },false);
+            document.body.addEventListener('touchmove', function (event) {
+                event.preventDefault();
+            }, false);
+        };
+        $(function(){
+            //传参
+            var localhostUrl=window.location.origin;
+            var SERVER_URL=window.HUGPAGE_CONFIG.SERVER_URL;//读取图片服务器路径
+            var FILE_URL=window.HUGPAGE_CONFIG.FILE_URL;//读取图片文件路径
+            var query=window.location.search;
+            var queryJson=getRequest();
+            document.cookie="usId="+queryJson.usId;
+            document.cookie="accessToken="+queryJson.accessToken;
+            document.cookie="regionCode="+queryJson.regionCode;
+            document.cookie="routeType=0";//等于0时轮播根据ajax判断
+            document.cookie="hospCode="+queryJson.hospCode;
+            if(queryJson.partnerType!=""&&queryJson.partnerType!=null){
+                document.cookie="partnerType="+queryJson.partnerType;
+            }else{
+                if(queryJson.urlType==1){
+                    document.cookie="partnerType=7";
+                }else{
+                    document.cookie="partnerType=0";
+                }
+            }
+            var $html='<p>'+
+            '<span>儿童姓名：</span><input type="text" class="child_name" disabled="disabled">'+
+               ' </p>';
+            $.ajax({
+                type:"post",
+                url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_handBookList_data'+query,
+                dataType:'json',
+                success:function(data){
+                    if(data&&data.res==0){
+                        $("#data_ul").setTemplateElement("Template-ListRows").processTemplate(data.data);
+                        Carousel.init($(".J_Poster"));
+                        $('.J_Poster .mother_name').each(function(){
+                            $(this).next().find('.child_name').val()==null&&$(this).after($html);
+                        })
+                    }
+                },
+                error:function () {
+                    return;
+                }
+            });
+            //根据医院组织机构代码获取医院字典信息
+            if(queryJson.hospCode=='MA62NBQR1'||queryJson.hospCode=='450769626') {//四川锦欣妇女儿童医院和锦江区妇幼保健院
+                $.ajax({
+                    type: "post",
+                    url: localhostUrl + '/web-bin/c/nosen/common/hosp/query_dictHosp_data?hospCode=' + queryJson.hospCode,
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data && data.res == 0) {
+                            var href = SERVER_URL + FILE_URL + data.data[0].image;
+                            $(".hos_img").attr('src', href).show();
+                        }
+                    },
+                    error: function () {
+                        return;
+                    }
+                });
+            }
+            //添加手册
+            $("#addBook").click(function(){
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_whetherLink_page"+query+"&isApp="+queryJson.isApp;
+            });
+            //点击进入母子健康手册详细页面
+            $("#data_ul").on("click","ul li",function(){
+                var userStatusCode=$(this).find('#userStatusCode').val();
+                var healthBookId=$(this).find('#healthBookId').val();
+                if(queryJson.hospCode=='450769626'){
+                    $.ajax({
+                        type: "GET",
+                        url: localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/query_statistics_data?healthBookId="+healthBookId+"&userStatusCode="+userStatusCode+"&ram="+Math.random(),
+                        success: function(data){
+                        }
+                    });
+                    window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_beforeMater_page?healthBookId="+$(this).attr("id")+"&isApp="+queryJson.isApp+"&hugId="+queryJson.hugId+"&userStatusCode="+userStatusCode+"&hospCode="+queryJson.hospCode;
+                }else {
+                    window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_beforeMater_page?healthBookId="+$(this).attr("id")+"&isApp="+queryJson.isApp+"&hugId="+queryJson.hugId+"&hospCode="+queryJson.hospCode;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

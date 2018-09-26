@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>全部监测</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/css/fonts.css"/>
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/css/title.css"/>
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/mypagination/js/myPagination/page.css"/>
+    <link type="text/css" rel="stylesheet" href="/web-bin/interview/followup/healthMonitor/css/healthMonitorErrorList.css"/>
+	<style>
+		.content_title .bTitle_text{
+			margin-top: 0;
+			margin-left: 0;
+		}
+	</style>
+</head>
+<body> 
+    <div class="wrapper">
+         <div class="mainContent T1" id="mainContent">
+              <div class="dataList">
+                <div class="content_title">
+                     <div class="blue_box"></div>
+                     <div class="bTitle_text T4">全部健康</div>
+                     <div style="position:absolute;right:0">
+                     	<input type="text" placeholder="输入姓名搜索" id="patName" />
+                     	<div id="basicQusery" class="search"><a href="javascript:void(0)" class="button s_green T2">搜&nbsp;索</a></div>
+                     </div>
+                </div>
+                <div class="content_table">
+                	<!-- JTemplate模板 -->
+					<p style="display:none"><textarea id="Template-ListRows" rows="0" cols="0">
+						<table cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;width:100%">
+							<tr class="content-tr">
+								<td>姓名</td>
+                            	<td>监测项目</td>
+                            	<td>体征值</td>
+                            	<td>体征单位</td>
+                            	<td>异常状态</td>
+                            	<td>监测时间</td>
+                            	<td>操作</td>
+							</tr>
+							{#foreach $T as Row}
+							<tr class="content-tr">
+								<td>{$T.Row.name}</td>
+                            	<td>
+                            		{#if $T.Row.healthType =='1'}胎心
+                            		{#elseif $T.Row.healthType =='2'}血压
+                            		{#elseif $T.Row.healthType =='3'}血糖
+                            		{#elseif $T.Row.healthType =='4'}体温
+                            		{#elseif $T.Row.healthType =='5'}心率
+                            		{#elseif $T.Row.healthType =='6'}体重
+                            		{#/if}
+                            	</td>
+                            	<td>{#if $T.Row.healthType =='1'}——{#else}{$T.Row.healthValue}{#/if}</td>
+                            	<td>
+                            		{#if $T.Row.healthType =='1'}——
+                            		{#elseif $T.Row.healthType =='2'}mmHg
+                            		{#elseif $T.Row.healthType =='3'}mmol/L
+                            		{#elseif $T.Row.healthType =='4'}℃
+                            		{#elseif $T.Row.healthType =='5'}次/分
+                            		{#elseif $T.Row.healthType =='6'}kg
+                            		{#/if}
+                            	</td>
+                            	<td>
+                            		{#if $T.Row.healthType =='1'}——
+                            		{#elseif $T.Row.healthType =='2'}
+                            			{#if $T.Row.healthStatus =='10'}
+		                              	<div><span style="color:red">偏低/偏低</span></div>
+		                              	{#elseif $T.Row.healthStatus =='11'}
+		                              	<div><span style="color:red">偏低</span>/正常</div>
+		                              	{#elseif $T.Row.healthStatus =='12'}
+		                              	<div><span style="color:red">偏低/偏高</span></div>
+		                              	{#elseif $T.Row.healthStatus =='13'}
+		                              	<div>正常/<span style="color:red">偏低</span></div>
+		                              	{#elseif $T.Row.healthStatus =='14'}
+		                              	<div>正常/正常</div>
+		                              	{#elseif $T.Row.healthStatus =='15'}
+		                              	<div>正常/<span style="color:red">偏高</span></div>
+		                              	{#elseif $T.Row.healthStatus =='16'}
+		                              	<div><span style="color:red">偏高/偏低</span></div>
+		                              	{#elseif $T.Row.healthStatus =='17'}
+		                              	<div><span style="color:red">偏高</span>/正常</div>
+		                              	{#elseif $T.Row.healthStatus =='18'}
+		                              	<div><span style="color:red">偏高/偏高</span></div>
+		                              	{#else}
+		                              	<div>正常/正常</div>
+		                              	{#/if}
+		                            {#elseif $T.Row.healthType =='6'}
+		                              	{#if $T.Row.healthStatus =='-2'}
+		                              	<div><span style="color:red">偏瘦</span></div>
+		                              	{#elseif $T.Row.healthStatus =='2'}
+		                              	<div><span style="color:red">偏胖</span></div>
+		                              	{#elseif $T.Row.healthStatus =='3'}
+		                              	<div><span style="color:red">肥胖</span></div>
+		                              	{#else}
+		                              	<div>正常</div>
+		                              	{#/if}
+                            		{#else}
+                            			{#if $T.Row.healthStatus =='-1'}
+		                              	<div><span style="color:red">偏低</span></div>
+		                              	{#elseif $T.Row.healthStatus =='1'}
+		                              	<div><span style="color:red">偏高</span></div>
+		                              	{#else}
+		                              	<div>正常</div>
+		                              	{#/if}
+                            		{#/if}
+                            	</td>
+                            	<td>{$T.Row.measuringTime.substring(0,16)}</td>
+                            	<td><a href="javascript:void(0)" class="a_color1" onclick="toPatientArchives('{$T.Row.name}','{$T.Row.idCard}','{$T.Row.healthType}')">查看</a></td>
+							</tr>
+							{#/for}
+						</table>
+					</textarea></p>
+					<div id="dataTable"></div>
+                </div>
+                <div class="bottom-page">
+				    <div id="page" style="margin-bottom:10px;padding-bottom:8px;padding-top:10px;border-top:0"></div>
+			    </div>
+             </div>
+         </div>
+    </div>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/mypagination/js/myPagination/jquery.myPagination6.0.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/artDialog.source.js?skin=white"></script>
+<script type="text/javascript" src="/web-bin/resources/artdialog/iframeTools.source.js"></script>
+<script type="text/javascript" src="/web-bin/interview/followup/healthMonitor/js/healthMonitorAllList.js"></script>
+<script type="text/javascript">
+    window.onload=function(){
+	   change();
+	};
+    $(window).resize(function(){
+	   change();
+	});
+	function change(){
+	   $("html").height($(window).height());
+	   $(".dataList").width($(window).width()-20);
+	}
+	$(function(){
+	   //滚动条
+	   $("html").height($(window).height());
+	   $("html").niceScroll({
+	       railpadding: { top:0, right: 0, left: 0, bottom:0 },
+           cursorborder:"",
+           cursoropacitymin: 0.2,
+           cursoropacitymax: 0.2,
+           cursorcolor:"#000000",
+           zindex: "99",
+           cursorwidth: "9px",
+           horizrailenabled:false//掩藏水平滚动条
+       });
+	});
+</script>
+</body>
+</html>

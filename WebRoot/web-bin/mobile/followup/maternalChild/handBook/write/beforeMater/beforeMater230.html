@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>孕期体重自测</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+    <link rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/beforeMater/css/motherWeight230.css">
+    <style>
+        @media (min-height:551px) and (max-height:600px) and (-webkit-min-device-pixel-ratio:1){
+            .item_data{
+                top: 0.2rem !important;
+            }
+            .small_font{
+                top: -0.15rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="total">
+        <div class="item first_item">
+            <div class="item_img"></div>
+            <div class="item_calender item_calender_position"></div>
+            <div class="item_border_short"></div>
+            <div class="add_content">新增</div>
+            <div class="item_triangle_pink item_triangle_position"></div>
+        </div>
+        <p style="display:none"><textarea id="Template-ListRows" rows="0" cols="0">
+        {#foreach $T as msg}
+        <div class="item item_middle">
+            <input type="hidden" id="item_id" value="{$T.msg.id}">
+            <div class="item_img">
+                <span class="item_data"><span>{$T.msg.gestationalWeek}</span><span class="small_font">周</span></span>
+            </div>
+            <div class="item_border_long"></div>
+            <div class="read_content">
+                <div class="read_content_title to_edit">
+                    {$T.msg.recordTime}
+                    <div class="pink_pen edit_read_ontent"></div>
+                </div>
+                <div class="read_content_detail">
+                    <div class="read_content_detail">
+                        体重(kg)
+                        <div class="read_content_detail_num">{$T.msg.weight}</div>
+                    </div>
+                </div>
+                <div class="read_content_detail">
+                    <div class="read_content_detail">
+                        和上周比体重增长(kg)
+                        <div class="read_content_detail_num">{$T.msg.increaseWeight}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="item_triangle_write item_triangle_position"></div>
+        </div>
+        {#/for}
+        </textarea></p>
+        <div id="data_table"></div>
+        <div class="tip_content">如果连续两周增长过多或过少，应去医院检查。体重测量要准确，可在清晨测量，穿单衣、空腹、排便排尿后再测量体重。</div>
+    </div>
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+    <script>
+        $(function(){
+            var localhostUrl=window.location.origin;
+            var query=getRequest();
+            var healthBookId=query.healthBookId;
+            window.addEventListener('pageshow', function () {
+                $.ajax({
+                    type:"post",
+                    url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/query_weightSelfTest_data?healthBookId='+healthBookId+"&model=1"+"&ram="+Math.random(),
+                    dataType:'json',
+                    contentType:'application/json;charset=UTF-8',
+                    success:function(data){
+                        if(data.res==0){
+                            var msg=data.data;
+                            if(msg.length==0){
+                                $('.first_item .item_border_short').hide();
+                            }else if(msg.length==1){
+                                $("#data_table").setTemplateElement("Template-ListRows").processTemplate(msg);
+                                $('.total').find('.item_border_long').hide();
+                            }else if(msg.length>1){
+                                $("#data_table").setTemplateElement("Template-ListRows").processTemplate(msg);
+                                $('.total').find('.item_border_long:last').hide();
+                            }
+                        }else{
+                            alert('请求失败');
+                        }
+                    },
+                    error:function () {
+                        alert('请求失败');
+                        return;
+                    }
+                });
+            });
+            $('.first_item').click(function () {
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_addWeightSelfTest_page?healthBookId="+healthBookId;
+            })
+            $("#data_table").on('click','.to_edit',function () {
+                var id=$(this).parents('.item_middle').find('#item_id').val();
+                window.location=localhostUrl+"/web-bin/m/nosen/followup/maternalChild/handBook/to_addWeightSelfTest_page?healthBookId="+healthBookId+'&id='+id;
+            })
+        })
+    </script>
+</body>
+</html>

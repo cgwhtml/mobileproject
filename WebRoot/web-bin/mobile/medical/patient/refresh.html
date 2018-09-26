@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>数据加载</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="/web-bin/mobile/medical/patient/css/refresh.css">
+	
+  </head>
+  
+  <body>
+  	<!-- <div id="top">
+  		<div id="top_in">
+  			<div>
+	  			<img alt="" src="/web-bin/mobile/medical/patient/images/white-left.png">
+	  			<p>返回</p>
+	  		</div>
+	  		<p>数据加载</p>
+  		</div>
+  	</div> -->
+    <div id="main">
+    	<div id="d1">
+    		<div id="imgs">
+    			<img alt="" src="/web-bin/mobile/medical/patient/images/loadBack.png" id="img1">
+    			<img alt="" src="/web-bin/mobile/medical/patient/images/loadingTop.png" id="img2">
+    			<p id="p1">100%</p>
+    		</div>
+    		<div id="d2">
+    			<p>自动刷新数据需要一定的时间，请耐心等候</p>
+    			<div class="c1">
+    				<p>点击刷新</p>
+    			</div>
+    		</div>
+    	</div>
+    	<div id="d3">
+    		<p>刷新时间太长，懒得等？那就去添加就诊卡吧！</p>
+   			<div>
+   				<p>添加医疗记录</p>
+   			</div>
+    	</div>
+    </div>
+  </body>
+  <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/jquery/jquery.rotate.min.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+	<script type="text/javascript" src="/web-bin/mobile/medical/patient/js/refresh.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			/* $("#d1").css({
+				"padding-top":($("#d1").width()*0.35*0.9)/2,
+				
+			}); */
+			$("#p1").css({
+				"line-height":$("#d1").width()*0.65+"px",
+				"width":$("#d1").width()*0.65,
+			});
+			$("#img2").css({
+				"width":"100%",
+				"position":"absolute",
+				"left":0,
+				"top":0,
+				"z-index":100,
+				"display":"none"
+			});
+			$("#imgs").css({
+				"position":"relative",
+				"width":"65%",
+				"height":$("#d1").width()*0.65,
+				"margin":"0 auto",
+				"margin-bottom":($("#d1").width()*0.35)/2*0.8,
+				"margin-top":60,
+			});
+			
+		});
+		
+	</script>
+</html>

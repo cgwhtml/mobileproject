@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>阅读</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <style>
+        .r_m_maternity22 .pink_content_title:FIRST-CHILD{
+            text-align: center;
+        }
+        .r_m_maternity22 .check_time{
+            width: 7.5rem;
+            margin: 0 auto;
+        }
+        .r_m_maternity22 .pink_cut_line{
+            margin-top: 0.253rem;
+            margin-bottom: 0.373rem;
+        }
+        .r_m_maternity22 .sc_checked,
+        .r_m_maternity22 .sc_unchecked{
+            background-size: 0.28rem 0.28rem;
+            width: 0.28rem;
+            height: 0.28rem;
+        }
+        .r_m_maternity22 .unusual_detail{
+            background-color: #eee;
+            height: 0.813rem;
+        }
+        .r_m_maternity22 .unusual_detail>span{
+            font-size: 0.24rem;
+            padding-left: 0.2rem;
+        }
+        .r_m_maternity22 .unusual_detail_textarea{
+            width: 7.5rem;
+            height: 0.55rem;
+            float: right;
+            margin-right: 0.2rem;
+            margin-top: 0.08rem;
+            color: #333;
+            background-color: #eee;
+        }
+        .r_m_maternity22 .content_detail_textarea{
+            width: 6.8rem;
+            height: 0.9rem;
+            float: right;
+            color: #333;
+        }
+        .r_m_maternity22 .content_detail_textarea1{
+            width: 7.5rem;
+            height: 1.29rem;
+            float: right;
+            color: #333;
+        }
+        .r_m_maternity22 .content_font1:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .r_m_maternity22 #riskFactorContent{
+            line-height: 0.36rem !important;
+        }
+        @media (min-height:501px) and (max-height:550px) and (-webkit-min-device-pixel-ratio:1){
+            .r_m_maternity22 .mc_content_main .content_font1{line-height: 0.4rem !important;}
+            .r_m_maternity22 .weight_add{margin-right: 1.76rem !important;}
+            .r_m_maternity22 .add_style{margin-right: 3.27rem !important;margin-left: 0.03rem!important;}
+            .r_m_maternity22 .add_style1{
+                padding-right: 0.08rem !important;
+            }
+        }
+        @media (min-height:551px) and (max-height:600px) and (-webkit-min-device-pixel-ratio:1){
+            .r_m_maternity22 .weight_add{margin-right: 1.84rem !important;}
+        }
+        @media (min-height:601px) and (max-height:650px) and (-webkit-min-device-pixel-ratio:1){
+            .r_m_maternity22 .mc_content_main .content_font1{line-height: 0.53rem !important;}
+            .r_m_maternity22 .add_style{margin-right: 3.28rem !important;}
+            .r_m_maternity22 .sc_checked,
+            .r_m_maternity22 .sc_unchecked{background-size: 0.3rem 0.3rem;background-repeat: no-repeat;display:inline-block;width:0.32rem;height:0.32rem;}
+        }
+        @media (min-height:621px) and (max-height:650px) and (-webkit-min-device-pixel-ratio:1){
+            .r_m_maternity22 .weight_add{margin-right: 1.73rem !important;}
+        }
+    </style>
+</head>
+<body>
+    <div class="r_m_maternity r_m_maternity22">
+        <div class="gradient_top gradient_pink_top"></div>
+        <div class="mc_content_main">
+            <p class="pink_content_title">孕8~10月自我记录</p>
+            <div class="content">
+                <div class="content_font1 check_time font_size_22">
+                    <span>选择分娩地点：</span>
+                    <input type="text" class="border_bottom" id="planDeliveryPlace" disabled="disabled" style="width:5.3rem"/>
+                </div>
+            </div>
+            <div class="pink_cut_line"></div>
+            <div class="content">
+                <div class="content_font1 font_size_22" id="fetalMovementFlag">
+                    <span>每天数胎动吗？</span>
+                    <div class="pull_right" style="margin-right: 3.28rem;margin-left:0.3rem;padding: 0 0.13rem">
+                        <span class="pull_right">有</span>
+                        <span class="sc_unchecked pull_right item1" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right">无</span>
+                        <span class="sc_unchecked pull_right item0" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                </div>
+                <div class="content_font1 font_size_22" id="weightIncreaseRange">
+                    <span>您的体重增长范围：</span>
+                    <div class="pull_right weight_add" style="margin-right: 1.78rem;padding: 0 0.13rem">
+                        <span class="pull_right">不足</span>
+                        <span class="sc_unchecked pull_right item3" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right">超重</span>
+                        <span class="sc_unchecked pull_right item2" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right">正常</span>
+                        <span class="sc_unchecked pull_right item1" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                </div>
+                <div class="content_font1 font_size_22" id="riskFactorFlag">
+                    <span>这一时期您有高危因素吗？</span>
+                    <div class="pull_right add_style" style="margin-right: 3.3rem;padding: 0 0.13rem">
+                        <span class="pull_right">有</span>
+                        <span class="sc_unchecked pull_right item1" style="padding-right: 0.1rem;margin-left:0.28rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right">无</span>
+                        <span class="sc_unchecked pull_right item0 add_style1" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                </div>
+                <div class="content_font1 unusual_detail">
+                    <span>具体情况：</span>
+                    <div class="unusual_detail_textarea font_size_18"><p id="riskFactorContent"></p></div>
+                </div>
+                <div class="pink_cut_line"></div>
+                <div class="content_font1">
+                    <span>在这段时期您如果出现以下任何症状，请记录下第一次出现的时间，并及时去医院就诊！</span>
+                </div>
+                <div class="content_font1 font_size_22" id="vaginalBleedingFlag">
+                    <span>阴道流血：</span>
+                    <div class="pull_right">
+                        <span>出现时间：</span>
+                        <input type="text" class="border_bottom" id="vaginalBleedingTime" disabled="disabled" style="width:2.89rem;margin-top: -0.05rem"/>
+                    </div>
+                    <div class="pull_right" style="margin-right: 0.88rem;margin-left: 0.5rem;padding: 0 0.13rem">
+                        <span class="pull_right">有</span>
+                        <span class="sc_unchecked pull_right item1" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right">无</span>
+                        <span class="sc_unchecked pull_right item0" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                </div>
+                <div class="content_font1 font_size_22" id="bellyacheFlag">
+                    <span>腹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;痛：</span>
+                    <div class="pull_right">
+                        <span>出现时间：</span>
+                        <input type="text" class="border_bottom" id="bellyacheTime" disabled="disabled" style="width:2.89rem;margin-top: -0.05rem"/>
+                    </div>
+                    <div class="pull_right" style="margin-right: 0.88rem;margin-left: 0.5rem;padding: 0 0.13rem">
+                        <span class="pull_right">有</span>
+                        <span class="sc_unchecked pull_right item1" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right">无</span>
+                        <span class="sc_unchecked pull_right item0" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                </div>
+                <div class="content_font1 font_size_22" id="vaginalWaterFlag">
+                    <span>阴道流水：</span>
+                    <div class="pull_right">
+                        <span>出现时间：</span>
+                        <input type="text" class="border_bottom" id="vaginalWaterTime" disabled="disabled" style="width:2.89rem;margin-top: -0.05rem"/>
+                    </div>
+                    <div class="pull_right" style="margin-right: 0.88rem;margin-left: 0.5rem;padding: 0 0.13rem">
+                        <span class="pull_right">有</span>
+                        <span class="sc_unchecked pull_right item1" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right">无</span>
+                        <span class="sc_unchecked pull_right item0" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                </div>
+                <div class="content_font1 font_size_22" id="edemaFlag">
+                    <span>浮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;肿：</span>
+                    <div class="pull_right">
+                        <span>出现时间：</span>
+                        <input type="text" class="border_bottom" id="edemaTime" disabled="disabled" style="width:2.89rem;margin-top: -0.05rem"/>
+                    </div>
+                    <div class="pull_right" style="margin-right: 0.88rem;margin-left: 0.5rem;padding: 0 0.13rem">
+                        <span class="pull_right">有</span>
+                        <span class="sc_unchecked pull_right item1" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right">无</span>
+                        <span class="sc_unchecked pull_right item0" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                </div>
+                <div class="content_font1 font_size_22" id="dizzinessHeadacheFlag">
+                    <span>头晕、头痛、视物不清:</span>
+                    <div class="pull_right">
+                        <span>出现时间：</span>
+                        <input type="text" class="border_bottom" id="dizzinessHeadacheTime" disabled="disabled" style="width:2.89rem;margin-top: -0.05rem"/>
+                    </div>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right">有</span>
+                        <span class="sc_unchecked pull_right item1" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right">
+                        <span class="pull_right">无</span>
+                        <span class="sc_unchecked pull_right item0" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                </div>
+                <div class="content_font1 font_size_22" id="flusteredBreathFlag">
+                    <span>心慌气短、夜不能平卧:</span>
+                    <div class="pull_right">
+                        <span>出现时间：</span>
+                        <input type="text" class="border_bottom" id="flusteredBreathTime" disabled="disabled" style="width:2.89rem;margin-top: -0.05rem"/>
+                    </div>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right">有</span>
+                        <span class="sc_unchecked pull_right item1" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right">
+                        <span class="pull_right">无</span>
+                        <span class="sc_unchecked pull_right item0" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                </div>
+                <div class="content_font1 font_size_22" id="pressureGreater14090Flag">
+                    <span>血压≥140/90mmHg:</span>
+                    <div class="pull_right">
+                        <span>出现时间：</span>
+                        <input type="text" class="border_bottom" id="pressureGreater14090Time" disabled="disabled" style="width:2.89rem;margin-top: -0.05rem"/>
+                    </div>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right">有</span>
+                        <span class="sc_unchecked pull_right item1" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right">
+                        <span class="pull_right">无</span>
+                        <span class="sc_unchecked pull_right item0" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                </div>
+                <div class="content_font1 font_size_22" id="abnormalFetalMovementFlag">
+                    <span>胎动异常：</span>
+                    <div class="pull_right">
+                        <span>出现时间：</span>
+                        <input type="text" class="border_bottom" id="abnormalFetalMovementTime" disabled="disabled" style="width:2.89rem;margin-top: -0.05rem"/>
+                    </div>
+                    <div class="pull_right" style="margin-right: 0.6rem;margin-left: 0.5rem;padding: 0 0.13rem">
+                        <span class="pull_right">有</span>
+                        <span class="sc_unchecked pull_right item1" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right">无</span>
+                        <span class="sc_unchecked pull_right item0" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                </div>
+                <div class="content_font1 font_size_22" id="gestationWeekGreater41Flag">
+                    <span>孕周≥41周：</span>
+                    <div class="pull_right">
+                        <span>出现时间：</span>
+                        <input type="text" class="border_bottom" id="gestationWeekGreater41Time" disabled="disabled" style="width:2.89rem;margin-top: -0.05rem"/>
+                    </div>
+                    <div class="pull_right" style="margin-right: 0.6rem;margin-left: 0.5rem;padding: 0 0.13rem">
+                        <span class="pull_right">有</span>
+                        <span class="sc_unchecked pull_right item1" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                    <div class="pull_right" style="padding: 0 0.13rem">
+                        <span class="pull_right">无</span>
+                        <span class="sc_unchecked pull_right item0" style="padding-right: 0.1rem;margin-top: 0.05rem"></span>
+                    </div>
+                </div>
+                <div class="pink_cut_line"></div>
+                <div class="content_font1 content_detail font_size_22">
+                    <span>请教医生的问题：</span>
+                    <div class="content_detail_textarea"><span id="consultDoctorQuestion"></span></div>
+                </div>
+                <div class="content_font1 content_detail font_size_22">
+                    <span>医生建议：</span>
+                    <div class="content_detail_textarea1"><span id="doctorAdvice"></span></div>
+                </div>
+            </div>
+        </div>
+        <div class="gradient_bottom gradient_pink_bottom"></div>
+        <script>
+            $(function(){
+                if(healthBookId!=''&&typeof(healthBookId)!="undefined"&&healthBookId!="undefined") {
+                    $.ajax({
+                        type: "post",
+                        url: localhostUrl + '/web-bin/m/nosen/followup/maternalChild/handBook/query_eightTenSelfRecord_data?healthBookId=' + healthBookId,
+                        dataType: 'json',
+                        success: function (data) {
+                            var msg = data.data;
+                            if (msg) {
+                                for (o in msg) {
+                                    $(".r_m_maternity22 #" + o).val(msg[o]);
+                                }
+                                var fetalMovementFlag = boolToNumber(msg.fetalMovementFlag);
+                                fetalMovementFlag!=null&&$('.r_m_maternity22 #fetalMovementFlag .item' + fetalMovementFlag).removeClass('sc_unchecked').addClass('sc_checked');
+                                var weightIncreaseRange = msg.weightIncreaseRange;
+                                weightIncreaseRange&&$('.r_m_maternity22 #weightIncreaseRange .item' + weightIncreaseRange).removeClass('sc_unchecked').addClass('sc_checked');
+                                var riskFactorFlag = boolToNumber(msg.riskFactorFlag);
+                                riskFactorFlag!=null&&$('.r_m_maternity22 #riskFactorFlag .item' + riskFactorFlag).removeClass('sc_unchecked').addClass('sc_checked');
+                                msg.riskFactorContent&&$('.r_m_maternity22 #riskFactorContent').text(msg.riskFactorContent);
+                                var vaginalBleedingFlag = boolToNumber(msg.vaginalBleedingFlag);
+                                $('.r_m_maternity22 #vaginalBleedingFlag .item' + vaginalBleedingFlag).removeClass('sc_unchecked').addClass('sc_checked');
+                                var bellyacheFlag = boolToNumber(msg.bellyacheFlag);
+                                $('.r_m_maternity22 #bellyacheFlag .item' + bellyacheFlag).removeClass('sc_unchecked').addClass('sc_checked');
+                                var vaginalWaterFlag = boolToNumber(msg.vaginalWaterFlag);
+                                $('.r_m_maternity22 #vaginalWaterFlag .item' + vaginalWaterFlag).removeClass('sc_unchecked').addClass('sc_checked');
+                                var edemaFlag = boolToNumber(msg.edemaFlag);
+                                $('.r_m_maternity22 #edemaFlag .item' + edemaFlag).removeClass('sc_unchecked').addClass('sc_checked');
+                                var dizzinessHeadacheFlag = boolToNumber(msg.dizzinessHeadacheFlag);
+                                $('.r_m_maternity22 #dizzinessHeadacheFlag .item' + dizzinessHeadacheFlag).removeClass('sc_unchecked').addClass('sc_checked');
+                                var flusteredBreathFlag = boolToNumber(msg.flusteredBreathFlag);
+                                $('.r_m_maternity22 #flusteredBreathFlag .item' + flusteredBreathFlag).removeClass('sc_unchecked').addClass('sc_checked');
+                                var pressureGreater14090Flag = boolToNumber(msg.pressureGreater14090Flag);
+                                $('.r_m_maternity22 #pressureGreater14090Flag .item' + pressureGreater14090Flag).removeClass('sc_unchecked').addClass('sc_checked');
+                                var abnormalFetalMovementFlag = boolToNumber(msg.abnormalFetalMovementFlag);
+                                $('.r_m_maternity22 #abnormalFetalMovementFlag .item' + abnormalFetalMovementFlag).removeClass('sc_unchecked').addClass('sc_checked');
+                                var gestationWeekGreater41Flag = boolToNumber(msg.gestationWeekGreater41Flag);
+                                $('.r_m_maternity22 #gestationWeekGreater41Flag .item' + gestationWeekGreater41Flag).removeClass('sc_unchecked').addClass('sc_checked');
+                                msg.consultDoctorQuestion&&$('.r_m_maternity22 #consultDoctorQuestion').text(msg.consultDoctorQuestion);
+                                msg.doctorAdvice&&$('.r_m_maternity22 #doctorAdvice').text(msg.doctorAdvice);
+                                substrText($(".r_m_maternity22 #riskFactorContent"), msg.riskFactorContent, 60);
+                                substrText($(".r_m_maternity22 #consultDoctorQuestion"), msg.consultDoctorQuestion, 45);
+                                substrText($(".r_m_maternity22 #doctorAdvice"), msg.doctorAdvice, 100);
+                            }
+                        }
+                    });
+                }
+                //布尔类型转数字
+                function boolToNumber(a){
+                    a==true?a=1:a=0;
+                    return a;
+                }
+            })
+        </script>
+    </div>
+</body>
+</html>

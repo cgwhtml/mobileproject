@@ -1,0 +1,76 @@
+/**
+* Created by heyating
+* Created time 2017/5/22 10:42
+* Description  孕前篇1
+*/
+.main_content_top{
+    background-image:linear-gradient(155deg,#5fbdee,#cbadf8 30%,#ec99d5 50%);
+    width: 100%;
+    height: 5.293rem;
+}
+/**自定义左边按钮**/
+.swiper-button-prev{
+    background-image:url("../../../images/pinkArrowleftBig.png");
+    background-size: 0.35rem 0.55rem;
+    position: absolute;
+    top: 2.6rem;
+    left: 0.413rem;
+    margin-top: 0;
+    background-position: inherit;
+}
+/**自定义右边按钮**/
+.swiper-button-next{
+    !important;
+    background-image:url("../../../images/pinkArrowRightBig.png");
+    background-size: 0.35rem 0.55rem;
+    position: absolute;
+    top: 2.6rem;
+    right: 0.413rem;
+    margin-top: 0;
+    background-position: inherit;
+}
+
+/**轮播图样式1**/
+.swiper_icon{
+    padding-left:4.273rem;
+    padding-top: 2.2rem;;
+    font-family: "Microsoft YaHei", "微软雅黑";
+    color:white;
+}
+.swiper_icon div{
+    font-size: 0.453rem;
+    margin-top:0.413rem;
+}
+.swiper_icon>img{
+    width: 1.453rem;
+}
+.main_content{
+    margin-top: 0.213rem;
+    background-color: #fff;
+    border-top: 1px solid #EFEFEF;
+}
+.page_title{
+    margin: 3.8rem 0.6rem 0;
+}
+.page_title>p{
+    text-align: center;
+    font-size: 0.32rem;
+}
+.page_btns{
+    margin-top: 3.97rem;
+}
+.pink_btn{
+    margin: 30px auto 0;
+}
+.pregnant_msg,
+.baby_msg,
+.baby_time{
+    margin-top: 0.213rem;
+}
+.pregnant_msg,
+.baby_msg{
+    margin-bottom: 0.213rem;
+}
+.baby_time .main_option_icon{
+    margin-top: 0.45rem;
+}

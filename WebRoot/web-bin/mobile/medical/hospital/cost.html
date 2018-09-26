@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>费用项目</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="/web-bin/mobile/medical/hospital/css/cost.css">
+	<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+	<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+	<script type="text/javascript" src="/web-bin/mobile/medical/hospital/js/cost.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			
+		});
+	</script>
+  </head>
+  
+  <body>
+  	<!-- 
+  	<div id="top">
+  		<div id="top_in">
+  			<div>
+	  			<img alt="" src="/web-bin/mobile/medical/hospital/images/white-left.png">
+	  			<p>病例</p>
+	  		</div>
+	  		<p>用药明细</p>
+  		</div>
+  	</div>
+  	 -->
+  	
+    <div id="main_head">
+    	<p id="pat">张以南<span>（男）</span><span>自费</span></p>
+    </div>
+    <div id="main_body">
+    	<div  class="c1">
+    		<p>项目</p>
+    		<p>金额（元）</p>
+    	</div>
+    	
+    	<p style="display:none"><textarea id="Template-List1" rows="0" cols="0">
+	    {#foreach $T as Row}
+    	<div class="c2">
+    		<p class="name">{$T.Row.chargeItemName}</p>
+    		<p>{$T.Row.totalMoney}</p>
+    		<img alt="" src="/web-bin/mobile/medical/hospital/images/gray.png">
+    		<div class="index">{$T.Row$index}</div>
+    	</div>
+    	{/for}
+		</textarea></p>
+		
+		<p style="display:none"><textarea id="Template-List2" rows="0" cols="0">
+	    {#foreach $T as Row}
+    	<div class="c2">
+    		<p class="name">{$T.Row.feeCategName}</p>
+    		<p>{$T.Row.totalMoney}</p>
+    		<img alt="" src="/web-bin/mobile/medical/hospital/images/gray.png">
+    	</div>
+    	{/for}
+		</textarea></p>
+		
+		<div class="s1"></div>
+    	
+    </div>
+  </body>
+</html>

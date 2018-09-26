@@ -1,0 +1,136 @@
+html,body {
+    height:100%;
+    background-color:#fff;
+}
+html {
+    font-size:100px;
+}
+.wrapper{
+    height:100%;
+}
+/*防止滚动条卡慢*/
+body {
+    -webkit-overflow-scrolling:touch;
+    overflow-scrolling: touch;
+}
+.head_tab{
+    width:100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 199;
+}
+.head_tab li{
+    width:50%;
+    height:0.5rem;
+    text-align: center;
+    line-height: 0.5rem;
+    float:left;
+    font-size: 16px;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+.head_tab .active_tab{
+    border-bottom: 3px solid #29B6F6;
+    color: #29B6F6;
+}
+.doc_head{
+    background:url("../../img/docHead.png") ;
+    background-size: 100%;
+}
+.msg_list{
+    position: relative;
+}
+/*列表*/
+.list_box{
+    height:100%;
+    box-sizing: border-box;
+}
+.list_box li{
+    height:70px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+    padding:10px 20px 10px 20px;
+    position: relative;
+}
+.list_box li:nth-child(1){
+    border-top: 1px solid #ccc;
+}
+.doc_list{
+    height:100%;
+    box-sizing: border-box;
+    padding-top: 0.5rem;
+    display: block;
+}
+.doc_list li{
+    height:70px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+    padding:10px 15px 10px 15px;
+    position: relative;
+}
+.doc_list li:nth-child(1){
+    border-top: 1px solid #ccc;
+}
+.head_box{
+    /*width:20%;*/
+    height:100%;
+    float:left;
+    margin-right: 15px;
+}
+.head{
+    width:50px;
+    height:100%;
+    border-radius: 50%;
+}
+.head img{
+    width:50px;
+    height:100%;
+    border-radius: 50%;
+}
+.person_msg{
+    width:70%;
+    height:100%;
+    float:left;
+    font-size: 13px;
+    color:#333;
+}
+.top_msg,.bottom_msg{
+    width: 100%;
+    height:50%;
+    overflow: hidden;
+    line-height:25px;
+}
+.left_name{
+    max-width:30%;
+    height:100%;
+    float:left;
+    line-height: 25px;
+}
+.right_title{
+    width:60%;
+    float:left;
+    height:100%;
+    line-height: 25px;
+}
+.doctor_name{
+    font-size: 15px;
+    color:#000;
+    margin-right: 15px;
+}
+.doctor_title{
+    color:#000;
+    font-size: 13px;
+}
+/*箭头*/
+.arrows {
+    width:16px;
+    height:16px;
+    position:absolute;
+    right:28px;
+    top:27px;
+    background:url(../../img/jian.png) no-repeat;
+    background-size:100%;
+}

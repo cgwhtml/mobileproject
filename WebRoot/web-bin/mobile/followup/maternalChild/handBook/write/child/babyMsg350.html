@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>家庭树</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link type="text/css" rel="stylesheet" href="/web-bin/resources/flexible/flexible.css">
+    <link type="text/css" rel="stylesheet" href="/web-bin/mobile/followup/maternalChild/handBook/write/basic.css">
+    <style>
+        .main_option:last-child{
+            padding-bottom: 0.4rem;
+        }
+        .add_img{
+            margin-top: 0.36rem;
+            background-size: 1.16rem 1.16rem;
+            width:1.18rem;
+            height:1.16rem;
+        }
+        .grandfather{
+            width: 1.16rem;
+            text-align: center;
+            font-size: 0.4rem;
+            color: #333;
+            margin-right: 1.136rem;
+        }
+        .grandPa{
+            float: left;
+        }
+        .main_option .last_grandfather{
+            margin-right: 0;
+        }
+        .main_option .two_grandfather{
+            margin-right: 1.4rem;
+        }
+        .main_option{
+            padding-top: 0.573rem;
+            padding-right: 0.4rem;
+        }
+        .main_option .link_line_short.first_line{
+            margin-left: 0.58rem;
+            margin-right: 2.33rem;
+        }
+         .main_option .link_line_short.last_line{
+             float: right;
+             margin-right: 0.53rem;
+         }
+        .parent{
+            width: 6.09rem;
+            margin: 0 auto;
+        }
+        .mather{
+            float: right;
+        }
+        .mather .grandfather{
+            margin-right: 0;
+        }
+        .baby_img:after,
+        .parent:after,
+        .main_option:after{
+            display: block;
+            clear: both;
+            content: '';
+        }
+        .baby .grandfather{
+            margin: 0 auto;
+        }
+        .baby_img{
+            width: 1.16rem;
+            margin: 0 auto;
+        }
+        .baby .add_img{
+            float: left;
+        }
+        .add_img{
+            position: relative;
+        }
+        .add_img img{
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        .after_img{
+            margin-left: 0.65rem;
+        }
+        input[type='file']{
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid transparent;
+            z-index: 2;
+        }
+        @media (min-height:601px) and (max-height:620px) and (-webkit-min-device-pixel-ratio:1){
+            .mather{
+                margin-left: 2rem;
+            }
+        }
+        @media (min-height:551px) and (max-height:600px) and (-webkit-min-device-pixel-ratio:1){
+           .mather{
+               margin-left: 2rem;
+           }
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="post" enctype="multipart/form-data" id="myForm" name="myForm">
+        <div class="parent_msg">
+            <div class="main_option">
+                <div class="grandPa">
+                    <div class="grandfather">
+                        <p>爷爷</p>
+                        <div class="add_img">
+                            <input type="file" name="grandfatherPath" accept="image/*" onchange="showPreview(this)">
+                            <img id="grandfatherPath" src="" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="grandPa">
+                    <div class="grandfather two_grandfather">
+                        <p>奶奶</p>
+                        <div class="add_img">
+                            <input type="file" name="grandmotherPath" accept="image/*" onchange="showPreview(this)">
+                            <img id="grandmotherPath" src="" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="grandPa">
+                    <div class="grandfather">
+                        <p>外公</p>
+                        <div class="add_img">
+                            <input type="file" name="grandpaPath" accept="image/*" onchange="showPreview(this)">
+                            <img id="grandpaPath" src="" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="grandPa">
+                    <div class="grandfather last_grandfather">
+                        <p>外婆</p>
+                        <div class="add_img">
+                            <input type="file" name="grandmaPath" accept="image/*" onchange="showPreview(this)">
+                            <img id="grandmaPath" src="" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="link_line_short first_line"></div>
+                <div class="link_line_short last_line"></div>
+                <div class="parent">
+                    <div class="grandPa">
+                        <div class="grandfather">
+                            <p>爸爸</p>
+                            <div class="add_img">
+                                <input type="file" name="fatherPath" accept="image/*" onchange="showPreview(this)">
+                                <img id="fatherPath" src="" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grandPa mather">
+                        <div class="grandfather">
+                            <p>妈妈</p>
+                            <div class="add_img">
+                                <input type="file" name="motherPath" accept="image/*" onchange="showPreview(this)">
+                                <img id="motherPath" src="" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="link_line_long"></div>
+                <div class="baby">
+                    <div class="grandfather">
+                        <p>宝宝</p>
+                    </div>
+                    <div class="baby_img">
+                        <div class="add_img add_img_js">
+                            <input type="file" name="childPathOne" accept="image/*" onchange="showPreview(this)">
+                            <img id="childPathOne" src="" alt="">
+                        </div>
+                        <div class="add_img after_img add_img_js">
+                            <input type="file" name="childPathTwo" accept="image/*" onchange="showPreview(this)">
+                            <img id="childPathTwo" src="" alt="">
+                        </div>
+                        <div class="add_img after_img add_img_js">
+                            <input type="file" name="childPathThree" accept="image/*" onchange="showPreview(this)">
+                            <img id="childPathThree" src="" alt="">
+                        </div>
+                        <div class="add_img after_img add_img_js">
+                            <input type="file" name="childPathFour" accept="image/*" onchange="showPreview(this)">
+                            <img id="childPathFour" src="" alt="">
+                        </div>
+                        <div class="add_img after_img add_img_js">
+                            <input type="file" name="childPathFive" accept="image/*" onchange="showPreview(this)">
+                            <img id="childPathFive" src="" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div id="window"  style="display:none" class="window">
+        <div>
+            <div id="window_in" class="window_in"></div>
+            <div id="check" class="check">确定</div>
+        </div>
+    </div>
+    <div id="background" style="display: none"></div>
+    <div id="fake_alert"  style="display:none">
+        <div id="fake_alert_in">
+            <div id="msg"></div>
+            <div id="sure">确定</div>
+        </div>
+    </div>
+    <div class="page_btns">
+        <div class="pink_btn save">保存</div>
+    </div>
+    <input type="hidden" id="data_id">
+    <input type="hidden" id="img_status">
+    <script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+    <script type="text/javascript" src="/web-bin/resources/flexible/flexible.js"></script>
+    <script type="text/javascript">
+        var _file=Array(11);
+        $(function() {
+            document.getElementById("fake_alert").addEventListener("touchmove", function (event) {
+                event.preventDefault();
+            }, false);
+            var localhostUrl=window.location.origin;
+            var SERVER_URL=window.HUGPAGE_CONFIG.SERVER_URL;//读取图片服务器路径
+            var FILE_URL=window.HUGPAGE_CONFIG.FILE_URL;//读取图片文件路径
+            var query = getRequest();
+            var healthBookId = query.healthBookId;
+            var cansubmit=true;
+            $('.baby_img .add_img:not(:first-child)').hide();
+            $('.baby_img').on('change','.add_img_js input',function(){
+                if($(this).val()){
+                    var length=$('.baby_img .add_img:not(:hidden)').length;
+                    var width=$('.baby_img .add_img:first-child').outerWidth(true);
+                    if(length<5){
+                        $(this).parents('.add_img').next().show();
+                        var width1=$('.baby_img .after_img').outerWidth(true);
+                        if($('.baby_img').width()==width){
+                            $('.baby_img').width(width+1+width1*length);
+                        }else{
+                            $('.baby_img').width(width+width1*length);
+                            if(length>1){
+                                $('.baby_img').width(width+(width1+1)*length);
+                            }
+                        }
+                    }
+                }
+            })
+            $.ajax({
+                type: "post",
+                url: localhostUrl + '/web-bin/m/nosen/followup/maternalChild/handBook/query_homeTree_data?healthBookId=' + healthBookId,
+                async:false,
+                dataType: 'json',
+                success: function (data) {
+                    if (data.res == 0) {
+                        var msg = data.data;
+                        $('#data_id').val(msg&&msg.id);
+                        if (msg != null) {
+                            for (var o in msg) {
+                                msg[o]!=''&&$('#myForm #'+o).attr('src',SERVER_URL+FILE_URL+msg[o]).show();
+                                msg[o]!=''&&$('#myForm #'+o).prev().attr('id',msg[o]);
+                                msg['childPathOne']!=''&&$('.baby_img .add_img:nth-child(1),.baby_img .add_img:nth-child(2)').show();
+                                msg['childPathTwo']!=''&&$('.baby_img .add_img:nth-child(2),.baby_img .add_img:nth-child(3)').show();
+                                msg['childPathThree']!=''&&$('.baby_img .add_img:nth-child(3),.baby_img .add_img:nth-child(4)').show();
+                                msg['childPathFour']!=''&&$('.baby_img .add_img:nth-child(4),.baby_img .add_img:nth-child(5)').show();
+                            }
+                            var length=$('.baby_img .add_img:not(:hidden)').length;
+                            var width=$('.baby_img .add_img:first-child').outerWidth(true);
+                            var width1=$('.baby_img .after_img').outerWidth(true);
+                            if($('.baby_img').width()==width){
+                                $('.baby_img').width(width+(width1+1)*(length-1));
+                            }else{
+                                $('.baby_img').width(width+width1*(length-1));
+                            }
+                        }
+                    } else {
+                        fake_alert("请求失败！请检查网络是否正常。");
+                    }
+                },
+                error: function () {
+                    fake_alert("请求失败！请检查网络是否正常。");
+                    return;
+                }
+            });
+            $('.save').click(function(){
+                uploadByForm();
+                if($('#img_status').val()==2){
+                    return false;
+                }
+                var JsonObj=$("#myForm").serializeObject();
+                JsonObj.healthBookId=healthBookId;
+                JsonObj.id=$('#data_id').val();
+                if(cansubmit){
+                    cansubmit=false;
+                    $.ajax({
+                        type:"post",
+                        url: localhostUrl+'/web-bin/m/nosen/followup/maternalChild/handBook/submit_homeTree_data',
+                        data:JsonObj,
+                        async: false,
+                        contentType:'application/json;charset=UTF-8',
+                        success:function(data){
+                            if(data.res==0){
+                                fake_alert("保存成功");
+                                setTimeout(function(){
+                                window.history.go(-1);
+                                },500)
+                            }else{
+                                fake_alert("保存失败！请检查网络是否正常。");
+                                cansubmit=true;
+                            }
+                        },
+                        error:function () {
+                            fake_alert("保存失败！请检查网络是否正常。");
+                            cansubmit=true;
+                            return;
+                        }
+                    });
+                }
+            })
+        })
+        //表单转json对象
+        $.fn.serializeObject = function() {
+            var o = {};
+            var a = $("input[type='file']");
+            $.each(a, function(i,item) {
+                var $item = $(item)[0];
+                if ($item.name) {
+                    o[$item.name] = $item.id;
+                    console.log($item.id);
+                }
+            });
+            return o;
+        };
+        function uploadByForm() {
+            for(var i=0;i<_file.length;i++){
+                if(_file[i]!=null&&_file[i]!=""){
+                    $("input[type='file']").eq(i).replaceWith(_file[i]);
+                }else{
+                    $("input[type='file']").eq(i).val("");
+                }
+            }
+            var localhostUrl=window.location.origin;
+            var formData = new FormData($("#myForm")[0]);
+            $.ajax({
+                url: localhostUrl + '/web-bin/c/nosen/common/file/file_upload_materChild',
+                type: 'POST',
+                data: formData,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(data){
+                    if(data.res==0) {
+                        fake_alert('上传成功');
+                        for(var i=0;i<data.files.length;i++){
+                            $('input[name="'+data.files[i].fieldname+'"]').attr('id',data.files[i].filename);
+                        }
+                        $('#img_status').val('1');
+                    } else if(data.msg="上传文件为空"){
+                        $('#img_status').val('1');
+                    }else {
+                        fake_alert('上传失败');
+                        $('#img_status').val('2');
+                    }
+                }
+            });
+        }
+        function showPreview(source) {
+            var file = source.files[0];
+            if(window.FileReader) {
+                var fr = new FileReader();
+                fr.onloadend = function(e) {
+                    source.src=e.target.result;
+                    source.nextSibling.nextSibling.src=e.target.result;
+                    source.nextSibling.nextSibling.style.display='block';
+                    var index=$("input[type='file']").index($(source));
+                    if(typeof(file)!="undefined"){
+                        $(source).clone().replaceAll(_file[index]=source);
+                    }
+                };
+                if(typeof(file)!="undefined"){
+                    fr.readAsDataURL(file);
+                }
+            }
+        }
+        function fake_alert(text,element){
+            $("#background").show();
+            $("#fake_alert").show();
+            $("#msg").html(text);
+            $("#sure").click(function(){
+                $("#background").hide();
+                $("#fake_alert").hide();
+            });
+            element&&$("html,body").animate({scrollTop:$(element).offset().top-75},500);
+        }
+    </script>
+</body>
+</html>

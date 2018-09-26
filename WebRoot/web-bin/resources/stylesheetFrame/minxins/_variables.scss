@@ -1,0 +1,125 @@
+@charset "utf-8";
+//基础颜色
+$brand-primary:#4A90E2 !default;
+$brand-warning:#ec8301 !default;
+$brand-success:#8BB949 !default;
+$brand-danger:#D0021B !default;
+$brand-purple: #9E7ED7 !default;
+
+$gray-base:#333 !default;
+$gray-darker:#666 !default;
+$gray-dark:#999 !default;
+$gray:#bbb !default;
+$gray-light:#ccc !default;
+$gray-lighter: #eee !default;
+
+//图标渐变背景色和字体色系
+$icon-primary-color: #2851A1 #366DB4 #2076BE #267FB0;//数组
+$icon-primary-hover-color: #435972;
+$icon-size-sm: 10px;
+$icon-size-md: 14px;
+$icon-size-md-hover: 18px;
+
+//基础字体样式
+$font-family-base:"Microsoft YaHei","微软雅黑" !default;
+$font-size-base:12px !default;
+$font-size-large: 14px !default;
+$font-size-small: 10px !default;
+
+//基础全局设置
+$body-bg: #ebebeb!default;
+$text-color: $gray-base !default;
+$text-hover-color: $gray-darker !default;
+$text-tip-color: $gray-dark !default;
+$link-color: $brand-primary !default;
+$link-success-color: $brand-success!default;
+$link-hover-color: $brand-warning !default;
+$cursor-disabled: not-allowed !default;
+$boder-color-base: $gray !default;
+
+//按钮
+$btn-height-base: 24px!default;
+$btn-width: (
+        sm-width: 60px,
+        md-width:70px
+)!default;
+$btn-font-weight: normal !default;
+$btn-border-radius: 43px !default;
+$btn-padding-vertical: 10px !default;
+$btn-border-size:1px!default;
+
+$btn-disabled-color: $gray-darker!default;
+$btn-disabled-background: $gray !default;
+
+$btn-primary-color: #fff !default;
+$btn-primary-bg: $brand-primary !default;
+$btn-primary-border: $btn-primary-bg !default;
+$btn-primary-hover-color: $btn-primary-color !default;
+$btn-primary-hover-bg: #435972 !default;
+$btn-primary-hover-border: $btn-primary-hover-bg !default;
+
+$btn-default-color:  #fff !default;
+$btn-default-bg: $gray-dark !default;
+$btn-default-border: $btn-default-bg !default;
+$btn-default-hover-color: $btn-default-color !default;
+$btn-default-hover-bg: $gray-darker !default;
+$btn-default-hover-border: $btn-default-hover-bg !default;
+
+$btn-icon-color:  $brand-primary !default;
+$btn-icon-bg: #fff !default;
+$btn-icon-border: $brand-primary   !default;
+$btn-icon-hover-color: #fff !default;
+$btn-icon-hover-bg: $brand-primary!default;
+$btn-icon-hover-border: $brand-primary !default;
+
+//填写框（input和textarea同样部分均写在input下)
+$input-height: 24px !default;
+$input-line-height:14px!default;
+$input-border-color: $boder-color-base !default;
+$input-border-hover-color: $brand-primary !default;
+$input-bg-disabled:  #f5f5f5 !default;
+$input-color-disbled: $text-hover-color !default;
+$input-placeholder-color: $text-tip-color!default;
+$input-border-radius: 2px !default;
+$input-border-size:1px!default;
+$input-search-border-radius: 43px !default;
+$input-padding-inner-horizontal: 8px !default;
+$input-width: (
+        xs-width: 100px,
+        sm-width:180px,
+        md-width:400px,
+        lg-width:660px
+)!default;
+$input-search-width: (
+        sm-width:120px,
+        md-width:180px,
+)!default;
+$textarea-height:60px!default;
+
+//nav-tab
+$nav-tabs-link-hover-color:$link-color !default;
+$nav-tabs-border-color: transparent !default;
+$nav-tabs-active-link-hover-color: $nav-tabs-link-hover-color !default;
+$nav-tabs-active-link-hover-border-color: $nav-tabs-link-hover-color !default;
+$nav-link-padding: 10px 15px !default;
+
+//布局
+$layout-two-aside-width:200px!default;
+$headbar-height: 36px!default;
+$headbar-border-success-color: $brand-success !default;
+$headbar-border-primary-color: $brand-primary!default;
+$headbar-border-size: 2px!default;
+
+$padding-base-vertical: 10px !default;//垂直
+$padding-base-horizontal: 12px !default;//水平
+$padding-block-horizontal: 10px !default;//水平
+
+//表格列表
+$list-height: 34px !default;
+$list-boder-color: $gray-light !default;
+$list-boder-size: 1px !default;
+$list-border-hover: $brand-primary !default;
+$list-background-hover: #E2EBF6 !default;
+$list-background-active: $list-background-hover !default;
+$list-head-background: $gray-lighter !default;
+$list-padding-horizontal: 8px !default;

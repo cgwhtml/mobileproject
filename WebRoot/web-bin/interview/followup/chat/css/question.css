@@ -1,0 +1,58 @@
+html,body{
+    width:100%;
+    height:100%;
+    background-color: #fff;
+}
+.question_box{
+    height:200px;
+}
+.question_box li{
+    width:100%;
+    height:60px;
+    box-sizing: border-box;
+    padding:15px 18px 15px 18px;
+    border-bottom: 1px solid #ccc;
+}
+.questionPng{
+    width:30px;
+    height:30px;
+    background: url("../images/question.png") no-repeat;
+    background-size: 100% 100%;
+    float:left;
+}
+.question_name{
+    width:288px;
+    margin-left: 20px;
+    line-height:29px;
+    font-size: 14px;
+    float: left;
+}
+.spot{
+    width:23px;
+    height:23px;
+    float:right;
+    margin-top:3px ;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border:1px solid #00A0D8;
+    cursor: pointer;
+}
+.spot_active{
+    width:23px;
+    height:23px;
+    margin-top:3px ;
+    background-clip: content-box;
+    box-sizing: border-box;
+    padding:5px;
+    background-color: #00A0D8;
+}
+.send_box{
+    width:100px;
+    height:30px;
+    margin:20px auto;
+}
+.input_box{
+    height:40px;
+    box-sizing: border-box;
+    padding:10px 0 10px 0;
+}

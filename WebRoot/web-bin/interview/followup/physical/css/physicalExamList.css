@@ -1,0 +1,176 @@
+.wrapper{
+	min-height: 100%;	
+}
+.mainContent{
+	position: relative;
+	margin-top:10px;
+	margin-left: 10px;
+}
+.basic_select_nav{
+	height:38px;
+	width:100%;
+	border:1px solid #CDD7E0;
+	background:#E4EBF1;
+	position:relative;
+}
+input[type="checkbox"]{
+	margin-top:4px;
+}
+.basic_select_nav input[type="text"]{
+	width:200px;
+	border-radius:3px;
+	position:absolute;
+	left:6px;
+	top:7px;
+}
+.search{
+	position:absolute;
+	left:328px;
+	top:7px;
+}
+.more{
+	min-width:112px;
+	height:22px;
+	border:1px solid #CCCCCC;
+	border-radius:4px;
+	background-color:#F1F1F1;
+	position:absolute;
+	left:410px;
+	top:7px;
+	cursor:pointer;
+}
+.more span{
+	font-size: 12px;
+    min-width: 72px;
+    margin-right: 21px;
+    padding-right:10px;
+    padding-left:10px;
+    text-align: center;
+    display: block;
+    line-height: 23px;
+    border-right: 1px solid #CCCCCC;
+}
+.more:hover{
+	border:1px solid #3998DA;
+	background-color:rgb(240,246,255);
+}
+.more:hover >span{
+	border-right:1px solid #3998DA;
+}
+.triangle{
+	border-width:4px;
+	border-bottom:4px dashed transparent;
+	border-left:4px dashed transparent;
+	border-right:4px dashed transparent;
+	border-style:solid dashed dashed;
+	position: absolute;
+	right:6px;
+	top:10px;
+}
+.more_select_nav{
+	width:100%;
+	border:1px solid #DFDFDF;
+	background-color:#FAFAFA;
+	position:relative;
+	border-top:0;
+	height:36px;
+}
+.more_select_nav table{
+	padding-top:6px;
+	width:98%;
+}
+.more_select_nav td{
+	padding-bottom:6px;
+}
+.more_select_nav input[type="text"]{
+	border-radius:3px;
+	width:100%;
+	box-sizing: border-box;
+}
+.more_select_nav p{
+	width:30px;
+	height:30px;
+	cursor:pointer;
+	position:absolute;
+	top:0;
+	right:-6px;
+}
+.patient_list{
+	background-color:#FFFFFF;
+	border:1px solid #DFDFDF;
+	border-bottom:0;
+    position: absolute;
+    width: 100%;
+   	margin-top:6px;
+}
+.content_title {
+    border:0;
+    border-bottom: 1px solid #E1E1E1;
+}
+.add{
+	width:26px;
+	height:26px;
+	background:transparent url(/web-bin/resources/images/sideToolBar.png) no-repeat scroll -256px 5px;
+	background-color:#3998DA;
+	border-radius:4px;
+	position:absolute;
+	right:9px;
+	top:8px;
+	cursor:pointer;
+}
+.add:hover{
+	background-color:#3389C4;
+}
+.content_table{
+	margin-left: -1px;
+}
+.title-tr{
+	border-left:1px solid #DFDFDF;
+	border-right:1px solid #DFDFDF;
+	border-top:1px solid transparent;
+	border-bottom:1px solid #DFDFDF;
+}
+.content-tr{
+	border:1px solid #DFDFDF;
+}
+.content-tr-space {
+    border-left: 1px solid #DFDFDF;
+    border-right: 1px solid #DFDFDF;
+}
+.content-tr-over-prev{
+	border-bottom: 1px solid #46C995;
+}
+.content-tr-over{
+	border: 1px solid #46C995;
+    background-color: #B2E9CC;
+}
+.content_table tr{
+	height:32px;
+}
+.content_table td{
+	padding-left:6px;
+}
+.content_table td a:hover{
+	text-decoration:underline;
+}
+#total{
+	float:right;
+	margin-right:20px;
+	margin-top:11px;
+	margin-left:20px;
+}
+.bottom-page{
+	height: 38px;
+	width: 100%;
+	border:1px solid #DFDFDF;
+	border-top:0;
+	position: absolute;
+  	bottom: 0;
+  	background-color:#FFFFFF;
+}
+.chosen-container{
+	margin-top: 7px;
+	margin-left: 212px;
+}
+
+

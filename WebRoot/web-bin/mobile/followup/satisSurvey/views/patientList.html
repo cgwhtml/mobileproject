@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>在院满意度</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/web-bin/mobile/followup/satisSurvey/css/basic.css">
+    <link rel="stylesheet" href="/web-bin/mobile/followup/satisSurvey/css/patientList.css">
+    <script src="/web-bin/resources/rem/rem.js"></script>
+</head>
+<body>
+<div class="main">
+    <div class="search_box">
+        <div class="search_input_css" >
+            <div class="css_search">搜索</div>
+            <div class="search_sm_img"></div>
+        </div>
+    </div>
+    <section>
+        <div class="content">
+
+        </div>
+            <textarea style="display: none;" id="patient_list_temp">
+                <ul>
+                    {#foreach $T as Row}
+                    <li>
+                        <input type="hidden" value="{$T.Row.inhospSerialNo}" class="serialNo">
+                        <input type="hidden" value="{$T.Row.mobileNo}" class="phone">
+                        <input type="hidden" value="{$T.Row.idNumber}" class="idNumber">
+                        <input type="hidden" value="{$T.Row.inhospNo}" class="inhospNo">
+                        <input type="hidden" value="{$T.Row.patIndexNo}" class="patIndexNo">
+                        <input type="hidden" value="{$T.Row.visitCardNo}" class="visitCardNo">
+                        <input type="hidden" value="{$T.Row.deptCode}" class="deptCode">
+                        <input type="hidden" value="{$T.Row.deptName}" class="deptName">
+                        <input type="hidden" value="{$T.Row.wardCode}" class="wardCode">
+                        <input type="hidden" value="{$T.Row.wardName}" class="wardName">
+                        <input type="hidden" value="{$T.Row.attendDrName}" class="attendDrName">
+                        <div class="icon_bed"></div>
+                        <div class="list_content">
+                            <div class="list_content_up">
+                                <span class="info_up bed"><i class="bedNo">{$T.Row.bedNo}</i>床</span>
+                                <span class="info_up name">{$T.Row.patName}</span>
+                                <span class="info_up sex">{$T.Row.sexName}</span>
+                            </div>
+                            <div class="list_content_down">
+                                <span class="info_down date">{$T.Row.admitDate}</span>
+                                <span class="info_down">入院</span>
+                            </div>
+                        </div>
+                        <div class="status_box {$T.Row.active}">
+                            <span class="status_inner">已填</span>
+                            <i class="icon_arrow"></i>
+                        </div>
+                    </li>
+                    {#/for}
+                </ul>
+            </textarea>
+        <div class="search_result">
+            <div class="search_box">
+                <div class="search_input" >
+                    <input type="text" placeholder="搜索" class="searchInput">
+                    <div class="search_sm_img"></div>
+                </div>
+                <div class="cancle">取消</div>
+                <div class="search_follow">搜索</div>
+            </div>
+            <div class="patient_list search_list"></div>
+            <div id="search_end"></div>
+            <textarea style="display: none;" id="search_result_temp">
+                <ul>
+                    {#foreach $T as Row}
+                    <li>
+                        <input type="hidden" value="{$T.Row.inhospSerialNo}" class="serialNo">
+                        <input type="hidden" value="{$T.Row.mobileNo}" class="phone">
+                        <input type="hidden" value="{$T.Row.idNumber}" class="idNumber">
+                        <input type="hidden" value="{$T.Row.inhospNo}" class="inhospNo">
+                        <input type="hidden" value="{$T.Row.patIndexNo}" class="patIndexNo">
+                        <input type="hidden" value="{$T.Row.visitCardNo}" class="visitCardNo">
+                        <input type="hidden" value="{$T.Row.deptCode}" class="deptCode">
+                        <input type="hidden" value="{$T.Row.deptName}" class="deptName">
+                        <input type="hidden" value="{$T.Row.wardCode}" class="wardCode">
+                        <input type="hidden" value="{$T.Row.wardName}" class="wardName">
+                        <input type="hidden" value="{$T.Row.attendDrName}" class="attendDrName">
+                        <div class="icon_bed"></div>
+                        <div class="list_content">
+                            <div class="list_content_up">
+                                <span class="info_up bed"><i class="bedNo">{$T.Row.bedNo}</i>床</span>
+                                <span class="info_up name">{$T.Row.patName}</span>
+                                <span class="info_up sex">{$T.Row.sexName}</span>
+                            </div>
+                            <div class="list_content_down">
+                                <span class="info_down date">{$T.Row.admitDate}</span>
+                                <span class="info_down">入院</span>
+                            </div>
+                        </div>
+                        <div class="status_box {$T.Row.active}">
+                            <span class="status_inner">已填</span>
+                            <i class="icon_arrow"></i>
+                        </div>
+                    </li>
+                    {#/for}
+                </ul>
+            </textarea>
+        </div>
+    </section>
+    <div id="end"></div>
+</div>
+</body>
+<script type="text/javascript" src="/web-bin/resources/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/web-bin/resources/zepto/zepto.js"></script>
+<script type="text/javascript" src="/web-bin/resources/config/config.js"></script>
+<script type="text/javascript" src="/web-bin/resources/jTemplates/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="/web-bin/resources/js/jquery.nicescroll.js"></script>
+<script type="text/javascript" src="/web-bin/resources/weui/fastclick.js"></script>
+<!--解决ios下click的300ms的延迟，需引入fastclick-->
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+<script type="text/javascript" src="/web-bin/mobile/followup/satisSurvey/js/patientList.js"></script>
+</html>
